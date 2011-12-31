@@ -1,0 +1,93 @@
+:root {
+    --line-color: #3498db;
+    --dot-color: #3498db;
+    --dot-size: 14px;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-main: #333;
+    /* エフェクト既定値 */
+    --def-duration: 0.6s;
+    --def-delay: 0s;
+    --def-distance: 40px;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding-left: 40px; /* 線のスペースを確保 */
+}
+
+/* 垂直線 */
+.timeline-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--line-color);
+}
+
+/* 各項目 */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 0; /* 最初は隠す */
+    /* 指定された距離(distance)だけ右にずらしておく */
+    transform: translateX(var(--distance, var(--def-distance)));
+    transition: 
+        opacity var(--duration, var(--def-duration)) ease-out var(--delay, var(--def-delay)),
+        transform var(--duration, var(--def-duration)) ease-out var(--delay, var(--def-delay));
+}
+
+/* 表示状態 */
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ポインター（線上の丸印） */
+.timeline-dot {
+    position: absolute;
+    left: -40px; /* 親の padding-left 分戻して線の上に置く */
+    top: 20px;
+    width: var(--dot-size);
+    height: var(--dot-size);
+    background-color: var(--dot-color);
+    border: 3px solid var(--bg-color);
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0); /* 最初は消しておく */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) var(--delay, var(--def-delay));
+    z-index: 2;
+}
+
+/* カード表示時にポインターも出す */
+.timeline-item.is-visible .timeline-dot {
+    transform: translateX(-50%) scale(1);
+}
+
+/* カードの中身 */
+.timeline-content {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.date {
+    display: block;
+    color: var(--line-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
+p { margin: 0; line-height: 1.6; color: #555; }
