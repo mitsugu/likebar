@@ -1,0 +1,88 @@
+/* --- 変数の定義 --- */
+:root {
+  /* 全体の背景 */
+  --chat-container-bg: #f0f2f5;
+
+  /* 左側（相手）の設定 */
+  --left-bg: lightgray;
+  --left-text: #333333;
+
+  /* 右側（自分）の設定 */
+  --right-bg: silver;
+  --right-text: #333333;
+
+  /* 共通設定 */
+  --bubble-radius: 18px;
+  --tail-size: 10px; /* しっぽの大きさ */
+
+  /* ★アイコンの縦位置（上揃え: flex-start / 下揃え: flex-end） */
+  --icon-vertical-align: flex-start; 
+}
+
+/* --- スタイル実装 --- */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+  background-color: var(--chat-container-bg);
+}
+
+.chat-box {
+  display: flex;
+  /* ★変数を使って位置を指定します */
+  align-items: var(--icon-vertical-align);
+  max-width: 85%;
+}
+
+.bubble {
+  position: relative;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.4;
+  border-radius: var(--bubble-radius);
+}
+
+/* 左側の色適用 */
+.left .bubble {
+  background-color: var(--left-bg);
+  color: var(--left-text);
+  margin-left: 12px;
+  border-bottom-left-radius: 4px; /* モバイル用 */
+}
+
+/* 右側の色適用 */
+.right { align-self: flex-end; }
+.right .bubble {
+  background-color: var(--right-bg);
+  color: var(--right-text);
+  margin-right: 12px;
+  border-bottom-right-radius: 4px; /* モバイル用 */
+}
+
+/* --- PC用：しっぽの設定 --- */
+@media (min-width: 768px) {
+  .left .bubble, .right .bubble {
+    border-radius: var(--bubble-radius);
+  }
+
+  .bubble::after {
+    content: "";
+    position: absolute;
+    /* ★しっぽの位置も、アイコンが上に来るなら「上基準」に変更すると綺麗です */
+    top: 10px; 
+    border: var(--tail-size) solid transparent;
+  }
+
+  /* 左のしっぽ：右側に色を付ける */
+  .left .bubble::after {
+    left: calc(var(--tail-size) * -1.6); /* サイズに合わせて位置を調整 */
+    border-right-color: var(--left-bg);
+  }
+
+  /* 右のしっぽ：左側に色を付ける */
+  .right .bubble::after {
+    right: calc(var(--tail-size) * -1.6);
+    border-left-color: var(--right-bg);
+  }
+}

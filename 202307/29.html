@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202307/29.html">
+	<meta name="title" content="Docker を使い始めてみた">
+	<meta name="description" content="Docker を使い始めてとりあえず Go で開発するための最低限の利用方法はわかったかも。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Docker を使い始めてみた">
+	<meta property="og:description" content="Docker を使い始めてとりあえず Go で開発するための最低限の利用方法はわかったかも。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202307/29.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="Docker を使い始めてみた">
+
+	<!--
+	<meta property="og:image" content="https://i.imgur.com/bSMJsoV.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	-->
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="https://mitsugu.github.io/likebar/202307/29.html">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>The road Orz passed by 2023 年 07 月</h1>
+  <div id="contents">
+    <h3 id="20230729">07 月 29日 ( 土 )</h3>
+    <div id="2023072901" class="top-mutter">
+      <h4>Docker を使い始めてみた</h4>
+	  <p>表題の通り Docker を使い始めたのでそのメモ。</p>
+	  <p>自分の Docker の使用ルーティングは以下の感じ。例として Go 言語の開発環境を構築して利用する場合を考える。</p>
+	  <ol>
+	  	<li>
+			docker pull golang:version<br>
+			<a href="https://hub.docker.com/" class="external">Docker Hub</a> 上の Go 言語 Docker イメージを取得する。必要に応じて version タグを利用する。
+		</li>
+	  	<li>
+			docker images<br>
+			PC 内の Docker イメージのリストを表示。
+		</li>
+	  	<li>
+			docker run -d -it --name mygolang &lt;Image ID&gt;<br>2 の &quot;docker Image&quot; で得られた &quot;Image ID&quot; で docker コンテナを生成して実行する。生成と実行の条件は以下による。
+			<ul>
+				<li>-name : コンテナ名を mygolang とする</li>
+				<li>-d    : コンテナをバックグラウンドで実行する</li>
+				<li>-it   : ホストから コンテナ内の標準入出力にアクセス可能な状態にする</li>
+			</ul>
+		</li>
+	  	<li>
+			docker exec -ti mygolang bash<br>
+			3 で生成され実行されている mygolang コンテナに接続して bash を実行する<br>
+			コンテナの生成さえされればいいので、コンテナが生成されていれば不要なのかも ( 要確認 )
+		</li>
+	  	<li>
+			docker stop mygolang<br>
+			コンテナ mygolang を停止する
+		</li>
+	  	<li>
+			docker container start -ai mygolang<br>
+			コンテナ mygolang を起動し標準入出力、標準エラー出力にアタッチする<br>
+			シェルが root 権限で起動するので以下のようなことをする
+			<ul>
+				<li>作業用ユーザを追加</li>
+				<li>作業用ユーザのパスワードを設定</li>
+				<li>git や tmux 等、必要と思われるパッケージを apt で入れる</li>
+				<li>vim 環境の整備</li>
+				<li>開発作業</li>
+				<li>etc...</li>
+			</ul>
+			5 までの手順でコンテナができれば、後は 6 を繰り返す<br>
+			コンテナのシェルから exit すればコンテナは停止する<br>
+		</li>
+	  </ol>
+	  <p>ホスト環境とのファイルやディレクトリのやり取りで最も簡便なのは "docker cp" を使う方法。rcp コマンドのように使う。詳しくは "docker cp --help" を参照。</p>
+	  <p>ホストのディレクトリやファイルを共有する方法もあるみたいだけどまだ調べてない。</p>
+      <ul class="clear nomark">
+        <li class="tag">Category : </li>
+        <li class="tag">日記</li>
+        <li class="tag">blog</li>
+        <li class="tag">Docker</li>
+        <li class="tag">IT</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+</body>
+</html>
