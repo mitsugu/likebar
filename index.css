@@ -51,7 +51,6 @@ h3 {
 }
 img{
   border:none;
-  margin:1em;
 }
 .external:after {
   content:url('link-icon_external.gif');
@@ -68,9 +67,15 @@ img{
 .nomark {
   list-style-type:none;
 }
+blockquote {
+  border-style:solid;
+  border-width:1px;
+  border-color:silver;
+  padding:4px;
+}
 .footnote{
-  margin-left:8em;
-  margin-right:8em;
+  margin-left:4em;
+  margin-right:4em;
   color:silver;
   font-size:0.75em;
 }
@@ -81,4 +86,31 @@ img{
 .footer {
   list-style-type:none;
   line-height:1.5em;
+}
+.pixiv{
+  margin-top:1em;
+  margin-bottom:1em;
+  margin-left:auto;
+  margin-right:auto;
+  padding:2em;
+  background-color:azure;
+  border-style:solid;
+  border-width:3px;
+  border-color:#9edddd;
+}
+.illust {
+  box-shadow:0 0 20px #999;
+  -moz-box-shadow:0 0 20px #999;
+  -webkit-box-shadow:0 0 20px #999;
+}
+.img_title{
+  text-align:center;
+}
+.img14951639{
+  width:600px;
+  height:424px;
+}
+.img15018235{
+  width:443px;
+  height:600px;
 }
