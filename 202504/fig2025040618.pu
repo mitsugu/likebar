@@ -1,0 +1,7 @@
+@startuml
+(<img src="fig2025040619.png">) as sns1
+note right: 買収により消滅\nさようなら\n青い小鳥ちゃん
+(<img src="fig2025040620.png">) as sns2
+note right: こんにちは\nイーロンさん
+sns2 --> sns1 : 　買収
+@enduml

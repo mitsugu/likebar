@@ -1,0 +1,203 @@
+/* =============================================
+   1. 基本レイアウト・タイポグラフィ
+   ============================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin-bottom: 6rem;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+#contents {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 報告書タイトルブロック */
+.report-title-block {
+    border: 2px solid #333;
+    padding: 2em;
+    margin-bottom: 3em;
+    background-color: #eeeeee;
+}
+
+.report-title-block h1 {
+    font-size: 1.6em;
+    text-align: left;
+    margin: 0 0 1.5em 0;
+    line-height: 1.4;
+    border: none;
+}
+
+.report-title-meta {
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+.report-title-meta p {
+    margin: 0.3em 0;
+    text-align: right;
+    text-indent: 0; /* インデント解除 */
+}
+
+.abstruct {
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+/* 各種見出し */
+h1 {
+    padding: 0.5em 0.5em;
+    border-width: 0 0 1px 5px;
+    border-style: solid;
+    border-color: silver;
+}
+
+p {
+    text-align: justify;
+    text-indent: 1em;
+    margin-bottom: 1.5em;
+}
+
+p.no-indent, .tl-content p {
+    text-indent: 0;
+}
+
+/* =============================================
+   2. 年表（タイムライン）セクション
+   ============================================= */
+/* 全体のコンテナ */
+.timeline {
+    position: relative;
+    max-width: 900px; /* 線が表示されるよう、十分な幅を確保 */
+    margin: 60px auto;
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+
+/* 中央の垂直線 */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #ccc;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px; /* 幅の半分戻して完全中央 */
+    z-index: 0;
+}
+
+/* エピソード1つ分の枠 */
+.tl-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    min-height: 100px;
+}
+
+/* 線上のドット */
+.tl-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: white;
+    border: 4px solid #ff9f55;
+    top: 20px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* 左側アイテムの配置 */
+.tl-left {
+    left: 0;
+}
+
+/* 右側アイテムの配置 */
+.tl-right {
+    left: 50%;
+}
+
+/* 右側アイテムのドット調整 */
+.tl-right::after {
+    left: -10px;
+}
+
+/* 文字が入るボックス */
+.tl-content {
+    padding: 20px 25px;
+    background-color: #fcfcfc;
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: left; /* 文字を左寄せ（デフォルト）に固定 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tl-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: #444;
+    border: none;
+}
+
+.date {
+    display: block;
+    font-weight: bold;
+    color: #ff9f55;
+    margin-bottom: 5px;
+}
+
+/* =============================================
+   3. 既存のユーティリティ（画像・引用など）
+   ============================================= */
+.left { float: left; margin-right: 1em; }
+.right { float: right; margin-left: 1em; }
+.clear { clear: both; }
+
+blockquote {
+    border: 1px solid silver;
+    padding: 1em;
+    background-color: #f9f9f9;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* =============================================
+   4. レスポンシブ対応（スマホ表示）
+   ============================================= */
+@media screen and (max-width: 768px) {
+    #contents { width: 95%; }
+
+    /* 年表を1列にする */
+    .timeline::after {
+        left: 31px; /* 線を左に寄せる */
+    }
+
+    .tl-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 15px;
+    }
+
+    .tl-right {
+        left: 0;
+    }
+
+    .tl-item::after {
+        left: 21px; /* ドットを線の位置へ */
+    }
+
+    .tl-right::after {
+        left: 21px;
+    }
+}

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* ページ全体を縦書きにする */
+article {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* 見出しも縦書き */
+article h1,
+article h2,
+article h3 {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* 画像そのものは回転させない */
+article img {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+}
+
+/* コードは横書き */
+article pre,
+article code {
+  writing-mode: horizontal-tb;
+  text-orientation: mixed;
+}
+/* 縦書きページ内の画像サイズを制限 */
+.image-unit figure.img-container {
+  max-width: 100%;
+}
+
+.image-unit figure.img-container img.target-img {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}

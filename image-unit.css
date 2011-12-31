@@ -1,0 +1,426 @@
+/* =========================================
+   画像 + 全画面表示
+   ========================================= */
+
+/* --- 1. 画像コンテナ --- */
+.img-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* --- 2. 画像本体 --- */
+.target-img {
+    display: block;
+
+    /* 親要素の幅を超えない */
+    max-width: 100%;
+
+    /* 元画像のアスペクト比を維持 */
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   全画面表示ボタン
+   ========================================= */
+
+.fullscreen-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+
+    padding: 6px 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+
+    font-size: 1.5em;
+    cursor: pointer;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================
+   デバイスごとのボタン表示
+   ========================================= */
+
+/* マウスなどホバー可能なデバイス */
+@media (hover: hover) {
+    .fullscreen-btn {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .img-container[data-fullscreen="true"]:hover .fullscreen-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* タッチ操作を主とするデバイス */
+@media (hover: none) {
+    .fullscreen-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+/* =========================================
+   ボタンのホバー
+   ========================================= */
+
+.fullscreen-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* =========================================
+   全画面表示無効
+   ========================================= */
+
+.img-container[data-fullscreen="false"] .fullscreen-btn {
+    display: none !important;
+}
+
+
+/* =========================================
+   fullscreen
+   ========================================= */
+
+/*
+ * figure 自体を fullscreen の表示領域にする。
+ *
+ * ここが「画面」。
+ * 実際の画像サイズは .image-zoom-stage
+ * と JS で管理する。
+ */
+.img-container:fullscreen {
+    width: 100vw;
+    height: 100vh;
+
+    max-width: none;
+    max-height: none;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background-color: #000;
+
+    /*
+     * stage が画面より大きくなったら
+     * figure 自体をスクロール領域にする。
+     */
+    overflow: auto;
+
+    /*
+     * 通常時のスクロールバーによる
+     * 不自然な余白を抑える。
+     */
+    scrollbar-gutter: stable;
+}
+
+/* Safari */
+.img-container:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+
+    max-width: none;
+    max-height: none;
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    background-color: #000;
+
+    overflow: auto;
+
+    scrollbar-gutter: stable;
+}
+
+
+/* =========================================
+   fullscreen の背景
+   ========================================= */
+
+.img-container:fullscreen::backdrop {
+    background-color: #000;
+}
+
+.img-container:-webkit-full-screen::backdrop {
+    background-color: #000;
+}
+
+
+/* =========================================
+   ズームステージ
+   ========================================= */
+
+/*
+ * 通常表示時
+ *
+ * 画像のレイアウトを壊さないように
+ * 普通の block 要素として扱う。
+ */
+.image-zoom-stage {
+    display: block;
+    width: 100%;
+}
+
+
+/*
+ * fullscreen 中
+ *
+ * JS が width / height を設定する。
+ *
+ * stage のサイズは
+ *
+ *   画面サイズ
+ *   または
+ *   拡大後の画像サイズ
+ *
+ * の大きいほうになる。
+ *
+ * そのため、画像が大きくなったとき
+ * figure のスクロール領域も実際に大きくなる。
+ */
+.img-container:fullscreen .image-zoom-stage {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    /*
+     * 子要素を stage の中に留める。
+     */
+    overflow: visible;
+
+    /*
+     * タッチでのパン操作を JS が担当する。
+     */
+    touch-action: none;
+}
+
+/* Safari */
+.img-container:-webkit-full-screen .image-zoom-stage {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    overflow: visible;
+
+    touch-action: none;
+}
+
+
+/* =========================================
+   fullscreen 中の画像
+   ========================================= */
+
+/*
+ * transform: scale() は使用しない。
+ *
+ * JS が画像そのものの width / height を
+ * 変更することで、スクロール領域の実寸も
+ * 拡大させる。
+ */
+.img-container:fullscreen .target-img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    flex: 0 0 auto;
+
+    /*
+     * 選択・画像ドラッグを抑制。
+     */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+
+    /*
+     * 通常は掴めることを示す。
+     */
+    cursor: grab;
+
+    /*
+     * transition は付けない。
+     *
+     * ズーム・パン時に遅延が出るのを防ぐ。
+     */
+    transition: none;
+}
+
+/* Safari */
+.img-container:-webkit-full-screen .target-img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    flex: 0 0 auto;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+
+    cursor: grab;
+
+    transition: none;
+}
+
+
+/* =========================================
+   ドラッグ中
+   ========================================= */
+
+.img-container:fullscreen .image-zoom-stage.is-dragging .target-img {
+    cursor: grabbing;
+}
+
+.img-container:-webkit-full-screen .image-zoom-stage.is-dragging .target-img {
+    cursor: grabbing;
+}
+
+
+/* =========================================
+   画像 + テキスト回り込みレイアウト
+   ========================================= */
+
+.image-unit {
+    width: 100%;
+    margin-bottom: 2em;
+
+    /*
+     * floatした子要素を親要素内に収める。
+     */
+    display: flow-root;
+}
+
+
+/* =========================================
+   左画像
+   ========================================= */
+
+.image-unit .left {
+    float: left;
+
+    /*
+     * paddingを含めて50%。
+     */
+    width: 50%;
+    padding-right: 1em;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   右画像
+   ========================================= */
+
+.image-unit .right {
+    float: right;
+
+    width: 50%;
+    padding-left: 1em;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   image-unit 内の figure / img
+   ========================================= */
+
+.image-unit figure.img-container {
+    /*
+     * .img-container の inline-block を上書き。
+     */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+}
+
+.image-unit .image-zoom-stage {
+    width: 100%;
+}
+
+.image-unit .target-img {
+    display: block;
+
+    /*
+     * 通常表示時は
+     * figure の横幅に合わせる。
+     */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+
+/* =========================================
+   レスポンシブ
+   900px以下では縦並び
+   ========================================= */
+
+@media screen and (max-width: 900px) {
+
+    .image-unit .left,
+    .image-unit .right {
+        float: none;
+
+        width: 100%;
+
+        padding-left: 0;
+        padding-right: 0;
+
+        margin-bottom: 1em;
+    }
+}

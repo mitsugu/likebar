@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202607/31.html">
+	<meta name="title" content="Dive #188 ダイビング・カリキュレーターの紹介再び">
+	<meta name="description" content="タイトルの通り DIY したダイビング・カリキュレーターの紹介です。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #188 ダイビング・カリキュレーターの紹介再び">
+	<meta property="og:description" content="タイトルの通り DIY したダイビング・カリキュレーターの紹介です。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202607/31.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202607/fig2026073101.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #188 ダイビング・カリキュレーターの紹介再び" />
+	<meta name="twitter:description" content="タイトルの通り DIY したダイビング・カリキュレーターの紹介です。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202607/fig2026073101.jpg" />
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<!--
+	<script defer src="toggle.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<script defer src="https://unpkg.com/@popperjs/core@2"></script>
+	<script defer src="https://unpkg.com/tippy.js@6"></script>
+	<script defer src="../tippy.js"></script>
+	<link rel="stylesheet" href="../tippy.css" />
+
+	<link rel="stylesheet" href="../autoslider.css" />
+	<script defer src="../autoslider.js"></script>
+	<link rel="stylesheet" href="../bubble.css" />
+	<link rel="stylesheet" href="../image-unit.css" />
+	<script defer src="../image-unit.js"></script>
+	<link rel="stylesheet" href="../opal.css" />
+	<script defer src="../opal.js"></script>
+	<link rel="stylesheet" href="../slider.css" />
+	<script defer src="../slider.js"></script>
+	<link rel="stylesheet" href="../timeline.css" />
+	<script defer src="../timeline.js"></script>
+	<link rel="stylesheet" href="../wrappedmedia.css" />
+
+	<link rel="stylesheet" href="../h5.css" />
+	<link rel="stylesheet" href="../h6.css" />
+	<link rel="stylesheet" href="../blockquote.css" />
+	-->
+	<style>
+		/*
+		table, th, td {
+			border: 1px solid black!important;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top:3em;
+			margin-bottom:3em;
+		}
+		th, td {
+			padding: 8px;
+		}
+		th {
+			background-color:darkgray;
+		}
+		td {
+			text-align:left;
+		}
+		table tr td:nth-child(2) {
+			text-align: center;
+		}
+		*/
+		dl > dt {
+			font-weight:bold;
+		}
+	</style>
+</head>
+
+<body>
+<main>
+<article>
+	<h1>The road Orz passed by 2026 年 07 月</h1>
+	<div id="contents">
+		<h2 id="20260731">07 月 31 日 ( 金 )</h2>
+		<div id="2026073101" class="top-mutter">
+			<h3>Dive #188 ダイビング・カリキュレーターの紹介再び</h3>
+			<p>ダイビング・カリキュレーターという Web ツールを作って公開しています。ダイビング計画やログ付けを支援する Web ツールです。</p>
+			<ul class="nomark">
+			<li>ダイビング・カリキュレーター: <a href="https://mitsugu.github.io/diveplanner/" class="external" target="_blank">https://mitsugu.github.io/diveplanner/</a></li>
+			<li>ソース一式: <a href="https://github.com/mitsugu/diveplanner" class="external" target="_blank">https://github.com/mitsugu/diveplanner</a></li>
+			<li>ライセンス: <a href="https://raw.githubusercontent.com/mitsugu/diveplanner/main/LICENSE" class="external" target="_blank">Apache 2.0 License</a></li>
+			</ul>
+
+			<p>以下の計算機能があります。</p>
+
+			<dl>
+			<dt>1. EAN (ナイトロックス) 計算機</dt>
+			<dd>
+					<p>酸素濃度から MOD、PO2、EAD (空気換算深度) を計算します。</p>
+			</dd>
+			<dt>2. RMV (呼吸ガス消費量) 計算機</dt>
+			<dd>
+					<p>ログデータ (残圧、時間、水深) からあなたのRMVを算出します。</p>
+			</dd>
+			<dt>3. ガス管理計画計算機</dt>
+			<dd>
+					<p>RMV、R-Gas (緊急用)、T-Gas (折り返し残圧: Turn Pressure) を計算します。</p>
+					<p>RMV に基づくリターンプレッシャー、50bar ルールに基づくリターンプレッシャー、1/3 ルールに基づくリターンプレッシャーなどを計算することができます。</p>
+					<p>ただしレクリエーショナル・ダイビングを想定したものであり、無減圧潜水を前提とします。また減圧用ガスやステージボトルなど、複数のガスを使用するテクニカルダイビングには対応していません。</p>
+			</dd>
+			</dl>
+
+			<p>このダイビング・カリキュレーターは html、css、Pure JavaScript で実装されています。そのため<a href="https://github.com/mitsugu/diveplanner/releases/tag/LatestStable" class="external" target="_blank">すべてのリソースをスマホなどにダウンロード</a>すると、携帯の電波が届かない場所でも使うことができます。</p>
+			<p>もちろん電波が届く場所であれば、一式をダウンロードしなくてもお使いいただけます。</p>
+			<p>またライセンスは Apache 2.0 License としていますので、利用に費用がかかることもなく、ライセンスの範囲でご自由に利用することができます。</p>
+			<p>不具合報告や改善提案は GitHub の Issue へお願いします。Pull Request（PR）も歓迎します。</p>
+
+			<p class="no-indent"><b>スクリーンショット</b></p>
+			<figure>
+				<img loading="lazy" width="384" src="fig2026073101.webp">
+			</figure>
+			<!--
+			<div class="container">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img class="target-img" loading="lazy" width="512" height="384" src="fig2026073101.jpg">
+						<figcaption>
+						</figcaption>
+						<button class="fullscreen-btn">⛶</button>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#Records of Orz's Road</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#ダイビングカリキュレーター</li>
+				<li class="tag">#ダイブプラン支援</li>
+				<li class="tag">#ダイビング計画支援</li>
+				<li class="tag">#ログ付け支援</li>
+				<li class="tag">#Webアプリ</li>
+			</ul>
+		</div>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</article>
+</main>
+</body>
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

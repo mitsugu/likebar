@@ -1,0 +1,64 @@
+@startuml
+	skinparam rectangle {
+		roundCorner 40
+	}
+
+	rectangle "ストレス" as stress
+	note right
+		身体的(疾患、外傷等)
+		心理的
+		社会的
+	end note
+
+	rectangle "神経炎症性仮説" {
+		rectangle "ミクログリア細胞の活性化" as microglia
+		rectangle "炎症性サイトカイン放出" as Cytokine
+		note left
+			炎症反応
+		end note
+	}
+	stress -down-> microglia
+	microglia -down-> Cytokine
+
+	rectangle "コルチゾール仮説" {
+		rectangle "コルチゾール上昇" as cortisol
+	}
+	stress -down-> cortisol
+	Cytokine -right-> cortisol
+
+	rectangle "神経可逆性仮説" {
+		rectangle "BDNF低下" as BDNF
+		rectangle "Nrf2低下" as Nrf2
+		rectangle "シナプス萎縮" as synapse
+		rectangle "神経細胞新生減少" as Neurogenesis
+		rectangle "アポトーシス\n神経細胞死" as apoptosis
+	}
+	Cytokine --> BDNF
+	cortisol --> BDNF
+	BDNF -down-> Nrf2
+	BDNF -down-> synapse
+	BDNF -down-> Neurogenesis
+	BDNF -down-> apoptosis
+	Nrf2 --> microglia
+
+	rectangle "モノアミン仮説" {
+		rectangle "セロトニン低下" as serotonin
+	}
+	synapse -down-> serotonin
+	Cytokine -down-> serotonin
+
+	rectangle depression [
+		= うつ病
+		====
+		白質体積減少
+		海馬体積減少
+		扁桃体体積減少
+		前頭前野体積減少
+		神経伝達物質不調
+		脳血流異常
+	]
+
+	serotonin -down-> depression
+	Neurogenesis -down-> depression
+	apoptosis -down-> depression
+@enduml
