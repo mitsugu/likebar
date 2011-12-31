@@ -1,0 +1,12 @@
+.tooltip {
+	cursor: pointer;
+	background-color:#eeeeee;
+	color: black;
+	transition: color 0.2s ease;
+}
+.tooltip:hover {
+	color: #0077cc;
+}
+.tooltip.active {
+	color: #0077cc;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>The road Orz passed by</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://mitsugu.github.io/likebar/202105/31.html">
+
+  <meta name="title" content="DZ60 RGB V2 ビルドメモ">
+  <meta name="description" content="DZ60 RGB V2 をアセンブルした話。">
+  <meta name="keywords" content="日記, blog, メモ">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DZ60 RGB V2 ビルドメモ">
+  <meta property="og:description" content="DZ60 RGB V2 をアセンブルした話。">
+  <meta property="og:url" content="https://mitsugu.github.io/likebar/202105/31.html">
+  <meta property="og:site_name" content="The road Orz passed by">
+  <!--
+  <meta property="og:html" content="">
+  -->
+  <meta property="og:image" content="https://i.imgur.com/L1So9Fa.jpg">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="288">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="https://mitsugu.github.io/likebar/202105/29.html">
+
+  <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>The road Orz passed by 2021 年 05 月</h1>
+  <div id="contents">
+    <h3 id="20210531">05 月 31日 ( 月 )</h3>
+    <div id="2021053101" class="top-mutter">
+      <h4>DZ60 RGB V2 ビルドメモ</h4>
+      <p>自分は定期的に <a href="https://amzn.to/2TwDx35" class="external">HHKB</a> 欲しい欲、もしくはメカニカル・キーボード欲しい欲が高まるのだけれど、このたびはさらにキーボード自作欲まで非常に高ぶってしまった。ならばカスタム・メカニカル・キーボードを組んでしまえば一石二鳥ではないかと思いついてしまったので思わず <a href="https://vim-jp.slack.com/" class="external">vim-jp</a> の #hobby-hardware で相談してしまった。するとあっという間にいろんな人に取り囲まれてしまい、あっという間に沼に……いや、温泉にふくらはぎまで引っ張り込まれてしまった。</p>
+      <p>いろんな人にいろんな自作用キットや <a href="https://en.wikipedia.org/wiki/Printed_circuit_board" class="external">PCB</a> を勧められたのだけど、パーツを組み立てるだけの簡単仕様ということと工具がほぼ不要ということで最終的に <a href="https://shop.yushakobo.jp/products/dz60-rgb-v2" class="external">DZ60 RGB V2</a> をピックアップ。</p>
+      <p>実際に <a href="https://shop.yushakobo.jp/products/dz60-rgb-v2" class="external">DZ60 RGB V2</a> を注文する前に自作キーボード界隈では有名な<a href="https://salicylic-acid3.hatenablog.com/entry/dz60rgb-build-log" class="external">サリチル酸氏のビルドログ</a>を読んだり、 <a href="https://vim-jp.slack.com/" class="external">vim-jp</a> の #hobby-hardware で<a href="https://www.kaoriya.net/blog/2021/04/23/diy-keyboards-in-5-months/" class ="external">香り屋さん</a>を質問攻めにしたりして予備知識やアセンブル時の注意点を把握することに。</p>
+      <p>そして<a href="https://shop.yushakobo.jp/" class="external">遊舎工房さん</a>でポチってから数日後に <a href="https://shop.yushakobo.jp/products/dz60-rgb-v2" class="external">DZ60 RGB V2</a> とその他必要なパーツが我が手元に集まった ( 便宜上一度にすべて集まったものとしておく )。なおスイッチは cherry MX の赤軸を 70 個、<a href="https://www.kaoriya.net/blog/2021/04/23/diy-keyboards-in-5-months/" class ="external">香り屋さん</a>に譲っていただけたのが非常にありがたい。</p>
+      <p>香り屋さんは廃棄予定だからとおっしゃっていたが実際にはストックしていたものだと思う。cherry MX 赤軸 70 個は普通に購入すれば 7000 円を超える。なんらお礼ができないのは心苦しいが、なにせ月あたり 4 万円の障害者年金しか収入がないので、ありがたくご厚意を受けることにした。なので今後香り屋さんには足を向けて眠れない。</p>
+      <p>PCB が届いたらまずは検品である。PCB のすべてをチェックすることはできないが、実際にスイッチ等の取り付けをするまえに可能なことはやっておきたい。もちろん不良を見つければ店に交換をお願いすることになる。スイッチ等を取り付けたあとでは当然だが交換には応じてもらえないし、チェックを怠ってトラブルが発生した場合はこちらの瑕疵になる。</p>
+      <p>まずは目視で PCB に異常がないか確認する。PCB の両面とも確認する。もちろんハンダ不良や半導体不良まではチェックできないが、PCB が物理的に破損していないか確認することが重要なのは言うまでもない。</a>
+      <p class="mid-flow"><img src="fig2021053101.jpg" width="512" height="384"></p>
+      <p class="mid-flow"><img src="fig2021053102.jpg" width="512" height="384"></p>
+      <p>次に USB Type-C ケーブルでパソコンに接続し、通電させて LED がすべて点灯するか確認する。 1 つでも光らないものがあれば返品交換をお願いすることになる。</p>
+      <p class="mid-flow"><img src="fig2021053103.jpg" width="512" height="384"></p>
+      <p>次に PCB がキー入力に反応するかどうかをチェックするのだけれど先に述べたようにスイッチを取り付けてからだと不良だったのかそうでないのかがわからず、もしもの場合に返品・交換に応じてもらえない。そのため PCB のスイッチ端子をショートさせて対応するキーとして反応するかチェックする。前述の<a href="https://salicylic-acid3.hatenablog.com/entry/dz60rgb-build-log" class="external">サリチル酸氏のビルドログ</a>では専用の工具を利用しているようだが、自分はお金がないのと自分がこれからもキーボードのアセンブルを趣味として続けるか不明なので、クリップを写真のように加工してチェックすることとした。もちろん自分の年齢からこの先趣味を増やすのも問題がありそうという判断もある。</p>
+      <p class="mid-flow"><img src="fig2021053104.jpg" width="512" height="288"></p>
+      <p>ショートさせたスイッチ端子に対応するキー入力が発生しているかのチェックにはサリチル酸氏とは異なり <a href="https://github.com/the-via/releases/tags" class="external">VIA</a> ではなく Web ブラウザ上で利用できる <a href="https://config.qmk.fm/#/test" class="external">QMK Configuretor のテストモード</a>を利用した。ただし DZ60 RGB V2 のデフォルトのキーマッピングの確認や変更は初心者にとって <a href="https://github.com/the-via/releases/tags" class="external">VIA</a> の方が容易であると思えたので <a href="https://github.com/the-via/releases/tags" class="external">VIA</a> を使っている。</p>
+      <p>有効になっているキーは<a href="https://salicylic-acid3.hatenablog.com/entry/dz60rgb-build-log" class="external">サリチル酸氏のビルドログ</a>に書かれたものより若干多く、下図の緑色のものが有効になっていた。サリチル酸氏の説明より有効なキーが数個多い。この差がハードウェアによるものなのかデフォルトで書き込まれているファームウェアによるものなのかは不明だが私が確認した時点では下図の緑のキーが有効になっていた。</p>
+      <p class="mid-flow"><img src="fig2021053105.png" width="512" height="384"></p>
+      <p>次にスイッチの脚を折ってしまったり曲げてしまわないように気をつけながら、脚がきちんとソケットに入るように、スイッチを丁寧に PCB に挿していく。スイッチはもちろんパネルの上から挿していく。</p>
+      <p>自分では丁寧にスイッチを挿し込んだつもりでも、数が多いと疲労その他の理由でミスを犯してしまい脚を折ったりしてスイッチをダメにしてしまうことがある。私は赤軸のスイッチを 3 つダメにしてしまった。購入すると 300 円強になるはずだ。もったいない。</p>
+      <p>なお赤軸は先に述べたように香り屋さんが譲ってくれたもので、青軸はなけなしのお金をはたいて私が 10 個だけ買えたものだ。</p>
+      <p class="mid-flow"><img src="fig2021053106.jpg" width="512" height="288"></p>
+      <p>スイッチをすべて取り付け終わったら、ここで再びスイッチに対応するキーがすべて反応するかチェックする。ここでのチェックの目的はスイッチの差し込み不良やスイッチ自体の不良を弾いてしまうことにある。</p>
+      <p>こういった製品をアセンブルするときのポイントは可能な限り正常に動作する状態を維持しながらアセンブルを進めていくことだ。そうすることでもしもトラブルになったときの原因を切り分ける際に比較的容易に原因にたどり着くことができる。</p>
+      <p class="mid-flow"><img src="fig2021053107.png" width="512" height="384"></p>
+      <p>不良スイッチがあったり、スイッチのセットをミスってしまって脚を折ってしまったような場合はそのスイッチを取り外す必要がある。そのためにスイッチプラーというものが販売されているのだけれど、私の場合はやはり継続的にキーボードを組むかどうかもわからず現時点でお金の余裕がないことから家にあった棘抜きを流用していた。</p>
+      <p class="mid-flow"><img src="fig2021053108.jpg" width="512" height="288"></p>
+      <p>スイッチの取り付けが終わり、動作確認も終わったらお気に入りのキーキャップを購入し取り付けていけば良い。</p>
+      <p class="mid-flow"><img src="fig2021053109.jpg" width="512" height="288"></p>
+      <p>キーキャップを取り外す必要がでてきたらキーキャッププラーで取り外すとよい。</p>
+      <p>私はキーキャップセットに付属するキーキャッププラーを使ったが、そういったものがない人は安いものが Amazon でも売っているので買っておくのがよい。時間がかかってもよいなら ebay や AliExpress で購入するという方法もあり Amazon なんかよりはるかに安く購入できる。ただしどちらもほとんどが中国発送なので到着まで 2、3 週間はかかると考えておいたほうがよい。</p>
+      <p>キーキャッププラーだが、これはさすがにキーキャップ間の隙間が狭くて差し込めないため棘抜きの流用は現実的ではない。</p>
+      <p class="mid-flow"><img src="fig2021053110.jpg" width="512" height="288"></p>
+      <p>そしてキーキャップをすべて取り付ければめでたく完成である。</p>
+      <p class="mid-flow"><img src="fig2021053111.jpg" width="512" height="288"></p>
+      <p>先にちょっと触れたように DZ60 RGB V2 はすでにファームウェアが書き込まれていて、なんら変更を加えなくても使用することができる。しかし自分が使いやすいようにキーマップを変更したくなるのは人の定め。でもファームウェアを書き換えたりって大変なんでしょう？と思ってしまうが DZ60 RGB V2 は <a href="https://github.com/the-via/releases/tags" class="external">VIA</a> に対応しているということで VIA を使うと非常に楽にキーマップの変更をすることができる。VIA はキーマップの変更がリアルタイムにファームに反映されるので非常に楽ちんである。</p>
+      <p>また VIA は Windows、Mac だけではなく AppImage でも配布されているので Linux ユーザも特に依存関係で悩むこともなく利用することができるのでお勧めだ。</p>
+      <ul class="clear nomark">
+         <li class="tag">Category : </li>
+         <li class="tag">日記</li>
+         <li class="tag">パソコン</li>
+         <li class="tag">キーボード</li>
+         <li class="tag">カスタムキーボード</li>
+         <li class="tag">自作キーボード</li>
+         <li class="tag">DZ60 RGB V2</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+</body>
+</html>

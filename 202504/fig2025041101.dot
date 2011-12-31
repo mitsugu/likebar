@@ -1,0 +1,103 @@
+digraph LAYOUT {
+	node [style=filled, fillcolor=white, fontsize=10, width=1.2, height=0.5];
+	{
+		rank=same;
+		n11[shape="box", label="box"];
+		n12[shape="polygon", label="polygon"];
+		n13[shape="ellipse", label="ellipse"];
+		n14[shape="oval", label="oval"];
+		n15[shape="circle", label="circle"];
+	}
+	{
+		rank=same;
+		n21[shape="point", label="point"];
+		n22[shape="egg", label="egg"];
+		n23[shape="triangle", label="triangle"];
+		n24[shape="plaintext", label="plaintext"];
+		n25[shape="plain", label="plain"];
+	}
+	{
+		rank=same;
+		n31[shape="diamond", label="diamond"];
+		n32[shape="trapezium", label="trapezium"];
+		n33[shape="parallelogram", label="parallelogram"];
+		n34[shape="house", label="house"];
+		n35[shape="pentagon", label="pentagon"];
+	}
+	{
+		rank=same;
+		n41[shape="hexagon", label="hexagon"];
+		n42[shape="septagon", label="septagon"];
+		n43[shape="octagon", label="octagon"];
+		n44[shape="doublecircle", label="doublecircle"];
+		n45[shape="doubleoctagon", label="doubleoctagon"];
+	}
+	{
+		rank=same;
+		n51[shape="tripleoctagon", label="tripleoctagon"];
+		n52[shape="invtriangle", label="invtriangle"];
+		n53[shape="invtrapezium", label="invtrapezium"];
+		n54[shape="invhouse", label="invhouse"];
+		n55[shape="Mdiamond", label="Mdiamond"];
+	}
+	{
+		rank=same;
+		n61[shape="Msquare", label="Msquare"];
+		n62[shape="Mcircle", label="Mcircle"];
+		n63[shape="rect", label="rect"];
+		n64[shape="rectangle", label="rectangle"];
+		n65[shape="square", label="square"];
+	}
+	{
+		rank=same;
+		n71[shape="star", label="star"];
+		n72[shape="none", label="none"];
+		n73[shape="underline", label="underline"];
+		n74[shape="cylinder", label="cylinder"];
+		n75[shape="note", label="note"];
+	}
+	{
+		rank=same;
+		n81[shape="tab", label="tab"];
+		n82[shape="folder", label="folder"];
+		n83[shape="box3d", label="box3d"];
+		n84[shape="component", label="component"];
+		n85[shape="promoter", label="promoter"];
+	}
+	{
+		rank=same;
+		n91[shape="cds", label="cds"];
+		n92[shape="terminator", label="terminator"];
+		n93[shape="utr", label="utr"];
+		n94[shape="primersite", label="primersite"];
+		n95[shape="restrictionsite", label="restrictionsite"];
+	}
+	{
+		rank=same;
+		na1[shape="fivepoverhang", label="fivepoverhang"];
+		na2[shape="threepoverhang", label="threepoverhang"];
+		na3[shape="noverhang", label="noverhang"];
+		na4[shape="assembly", label="assembly"];
+		na5[shape="signature", label="signature"];
+	}
+	{
+		rank=same;
+		nb1[shape="insulator", label="insulator"];
+		nb2[shape="ribosite", label="ribosite"];
+		nb3[shape="rnastab", label="rnastab"];
+		nb4[shape="proteasesite", label="proteasesite"];
+		nb5[shape="proteinstab", label="proteinstab"];
+	}
+	{
+		rank=same;
+		nc1[shape="rpromoter", label="rpromoter"];
+		nc2[shape="rarrow", label="rarrow"];
+		nc3[shape="larrow", label="larrow"];
+		nc4[shape="lpromoter", label="lpromoter"];
+	}
+	n11 -> n21 -> n31 -> n41 -> n51 -> n61 -> n71 -> n81 -> n91 -> na1 -> nb1 ->nc1 [style=invis];
+	n12 -> n22 -> n32 -> n42 -> n52 -> n62 -> n72 -> n82 -> n92 -> na2 -> nb2 ->nc2 [style=invis];
+	n13 -> n23 -> n33 -> n43 -> n53 -> n63 -> n73 -> n83 -> n93 -> na3 -> nb3 ->nc3 [style=invis];
+	n14 -> n24 -> n34 -> n44 -> n54 -> n64 -> n74 -> n84 -> n94 -> na4 -> nb4 ->nc4 [style=invis];
+	n15 -> n25 -> n35 -> n45 -> n55 -> n65 -> n75 -> n85 -> n95 -> na5 -> nb5 [style=invis];
+}
