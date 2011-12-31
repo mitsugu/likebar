@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>The road Orz passed by</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://mitsugu.github.io/likebar/201809/25.html">
+
+  <meta name="title" content="PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについて">
+  <meta name="description" content="PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについてとその暫定的な回避方法 4 つについて書きました。">
+  <meta name="keywords" content="日記, blog, メモ">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについて">
+  <meta property="og:description" content="PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについてとその暫定的な回避方法 4 つについて書きました。">
+  <meta property="og:url" content="https://mitsugu.github.io/likebar/201809/25.html">
+  <meta property="og:site_name" content="The road Orz passed by">
+  <meta property="og:html" content="https://mitsugu.github.io/likebar/201809/25.html">
+  <!--
+  <meta property="og:image" content="">
+  <meta property="og:image:width" content="">
+  <meta property="og:image:height" content="">
+  -->
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="https://mitsugu.github.io/likebar/201809/25.html">
+
+   <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>The road Orz passed by 2018 年 09 月</h1>
+  <div id="contents">
+    <h2>2018 年</h2>
+    <h3 id="20180925">09 月 25日 ( 火 )</h3>
+    <div id="2018092501" class="top-mutter">
+      <h4>PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについて</h4>
+      <p class="warning center">PENTAX ユーザに警告！！</p>
+      <p>PENTAX のカメラで出力した jpeg 画像<span class="cancel">もしくは RAW データを現像した jpeg 画像</span>を <a href="https://www.gimp.org/" class="external">GIMP</a> 2.10.x で編集すると <span class="strong">Exif データがすべて失われます</span>。これは GIMP 2.10.x のバグです。<a href="https://gitlab.gnome.org/GNOME/gimp/issues/2253" class="external">BTS に登録</a>されていますがまだ誰も注目していない状態です。</p>
+      <p>具体的には jpeg 内の Exif データは GIMP には読み込まれます。新設された &quot;view metadata&quot; メニューを選べば Exif データが表示されることからそのことがわかります。</p>
+      <p>そしてこの jpeg ファイルを jpeg ファイルにそのままエキスポートすると、なんと出力した jpeg ファイルの Exif  データが空っぽになります。この現象は Exif データを書き出す設定にしていても起こりますし、他のブランドのカメラのデータでは起こりません。PENTAX でのみ起こる現象です。</p>
+      <p>この現象に対する GIMP 2.10.6 自体での回避策は今のところありません。が、これを回避するための方法が 4 つあります。</p>
+      <dl>
+        <dt>1. GIMP 2.8.22 を使う</dt>
+        <dd>
+          <p>このバグは GIMP 2.8.x にはありません。GIMP 2.8.x の最新で最後のバージョンである 2.8.22 を使うことでこのバグを回避できます。</p>
+        </dd>
+        <dt>2. GIMP 以外の jpeg レタッチソフトを使う</dt>
+        <dd>
+          <p>たとえば <a href="https://rawtherapee.com/" class="external">RawTherapee</a> という OSS ソフトは RAW 現像だけでなく jpeg 画像のレタッチもできます。もちろん Exif データも出力されます。ただレタッチ用のソフトではないので GIMP のように範囲指定をして特定部分にエフェクトをかけるといったようなことはできません。</p>
+        </dd>
+        <dt>3. Exif.image.Make タグを書き換える</dt>
+        <dd>
+          <p><a href="https://www.sno.phy.queensu.ca/~phil/exiftool/" class="external">exiftool</a> などのツールを使って Exif データ内の Exif.image.Make タグを &quot;PENTAX Corporation&quot; から &quot;Pentax Corporation&quot; に書き換えます (大文字小文字に注意)。すると何故か出力 jpeg ファイルに Exif データがちゃんと出力されます。そしてちゃんと jpeg ファイルに Exif データが書き出されたら再び exiftool などで Exif.image.Make タグを本来の正しい &quot;PENTAX Corporation&quot; に書き戻してやります。今回の GIMP 2.10.6 のバグの要になっていそうな回避策です。</p>
+          <p class="mid-flow">ex) exiftool -Make=&quot;Pentax Corporation&quot; IMGP0001.JPG</p>
+        </dd>
+        <dt>4. exiftool などで編集前の jpeg 画像の Exif データをコピーする</dt>
+        <dd>
+          <p>GIMP 2.10.x で jpeg 画像を編集後、ファイル名を変更して jpeg 画像として保存してやります。当然出力画像からは Exif データが消えています。その後 exiftool などを使って元のオリジナルの jpeg 画像の Exif データを出力後の jpeg 画像にコピーしてやります。この場合当然 GIMP で画像を編集したという情報は Exif に記録されないことになります。それでも構わない場合はこういった選択肢もあります。</p>
+          <p>具体的は方法の例は以下のとおりです。</p>
+          <ol>
+            <li>GIMP 2.10.x で source.jpg を開きます。</li>
+            <li>GIMP 2.10.x で画像を編集します。</li>
+            <li>画像を destnation.jpg などと別のファイル名でエクスポートします。</li>
+            <li>&quot;exiftool -tagsFromFile source.jpg destnation.jpg&quot; として source.jpg の Exif データを destnation.jpg ファイルにコピーします。</li>
+          </ol>
+        </dd>
+      </dl>
+      <p>このバグですが最近ででいる PENTAX 機ではおきないようです。なぜかといいますと Exif.image.Make が &quot;PENTAX Corporation&quot; ではなく &quot;RICOH IMAGING COMPANY, LTD.&quot; になっているからです。なかなか我々 PENTAX ユーザを複雑な気分にさせてくれるバグですね。</p>
+      <ul class="clear nomark">
+         <li class="tag">Category : </li>
+         <li class="tag">日記</li>
+         <li class="tag">GIMP</li>
+         <li class="tag">gnu</li>
+         <li class="tag">GNOME Foundation</li>
+         <li class="tag">ソフトウェア</li>
+         <li class="tag">フリーソフトウェア</li>
+         <li class="tag">オープンソースソフトウェア</li>
+         <li class="tag">OSS</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+</body>
+</html>

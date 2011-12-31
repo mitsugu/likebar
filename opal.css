@@ -1,0 +1,22 @@
+.image-crossfader {
+	display: grid;
+	overflow: hidden;
+	margin: 0 auto;
+	position: relative;
+	padding: 0;
+}
+
+.image-crossfader img {
+	grid-area: 1 / 1; /* すべての画像を同じセルに重ねる */
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	opacity: 0; /* 初期状態は非表示 */
+	transition: opacity 1s ease-in-out; /* JavaScriptで速度を上書き */
+}
+
+/* 最初の画像だけ表示 */
+.image-crossfader img.is-active {
+	opacity: 1;
+	z-index: 1;
+}
