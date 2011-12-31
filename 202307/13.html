@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202307/13.html">
+	<meta name="title" content="Nostr とは何なのか 1">
+	<meta name="description" content="Nostr についてちょっと現時点での自分なりの理解をまとめてみた。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Nostr とはなんなのか 1">
+	<meta property="og:description" content="Nostr についてちょっと現時点での自分なりの理解をまとめてみた。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202307/13.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="Nostr とはなんなのか 1">
+	
+	<!--
+	<meta property="og:image" content="https://i.imgur.com/bSMJsoV.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	-->
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="https://mitsugu.github.io/likebar/202307/13.html">
+	
+	<link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>The road Orz passed by 2023 年 07 月</h1>
+  <div id="contents">
+    <h3 id="20230713">07 月 13日 ( 木 )</h3>
+    <div id="2023071301" class="top-mutter">
+      <h4>Nostr とはなんなのか 1</h4>
+	  <p>twitter の度重なるトラブルで twitter 以外の SNS が注目され始めており、様々な Web メディアで twitter 以外の SNS を紹介する記事が公開され注目を浴びている昨今ですが、皆様いかがお過ごしでしょうか。</p>
+	  <p>私は最近 Nostr という SNS、というよりも Nostr というプロトコル上に構築された世界に入り浸っております。</p>
+	  <p>変な言い方ですよね。Nostr って SNS だろ？そういう？？？が出てくるのもわかります。でも Nostr はそういう変な言い方をするしかない世界なのです。</p>
+	  <p>今日の日記はこの Nostr とは何なのかということをごく大雑把に俯瞰してみたいと思います。</p>
+	  <h5>まずは twitter</h5>
+	  <p>まずは twitter の仕組みと言うか構成を見てみましょう。</p>
+	  <p>通常 twitter のような SNS の場合、中央にデンっと twitter のサービスを提供するコンピュータ達がいて、ユーザは twitter にログインして twitter を利用します。</p>
+      <p class="mid-flow"><img src="fig2023071301.png" width="460" height="252"></p>
+	  <p>Instagram、Facebook 等も同じような構成です。まぁこれはわかりますよね。</p>
+	  <p>次に Nostr の場合を見てみましょう。</p>
+	  <h5>Nostr の場合</h5>
+	  <p>Nostr の場合、中央にサービスがあるわけではありません。Nostr は下図のようにユーザが使用するクライアントというソフトウェアとリレーというものが Nostr というプロトコルでつながっています。</p>
+      <p class="mid-flow"><img src="fig2023071302.png" width="550" height="377"></p>
+	  <p>そう。<a href="https://github.com/nostr-protocol/nostr" class="external">Nostr</a> はサービス名称ではなく通信プロトコルの名称なのです。Notes and Other Stuff Transmitted by Relays ( リレーによって送信されるメモおよびその他のもの ) の略称が Nostr です。</p>
+	  <h5>プロトコルってなんだ？</h5>
+	  <p>プロトコルとかなんか難しい言葉がでてきました。</p>
+	  <p>プロトコルとは通信手順の意味で、ちょっと電話を例に説明してみましょう。</p>
+	  <p>電話によりメッセージを伝える手順を考えてみてください。</p>
+	  <p>まず最初に電話をかける相手の電話番号を電話機に入力します。</p>
+	  <p>すると NTT だとか KDDI だとかの回線や交換機を通じて相手の電話機のベルが鳴ります。</p>
+	  <p>相手は電話が鳴ったら受話器を取ってもしもしと言います。</p>
+	  <p>そして会話が終われば、お互いに挨拶をして電話を切ります。</p>
+	  <p>電話で会話をする段取りとしては以上のようになります。</p>
+	  <p>こういったメッセージを交換するための一連の手順をプロトコルと言います。</p>
+	  <p>Nostr もこういったソフトウェアが従わなければならない通信のための一連の手順を定めたプロトコルになります。</p>
+	  <h5>Nostr を SNS と呼んではいけないの？</h5>
+	  <p>とはいえ多くの人が便宜上 SNS サービスの名称として Nostr という呼称を使っています。私も便宜上 SNS の名称として Nostr という呼称を使っています。</p>
+	  <p>またシステムの実装として SNS っぽい実装が多くを占めるので、SNS の名称として Nostr という呼称を使うのもあながち間違っているわけでもないように筆者には思えます。</p>
+	  <p>とはいえ Damus などのクライアントソフト名を SNS 名として使うのは筆者としては受け入れるのは困難です。</p>
+	  <p>将来的にクライアント・ソフトにとどまらずサーバーを設置して文字通り SNS をつくって、それが Nostr をしゃべる、っていうのなら SNS 名として積極的に使う理由になりますけど。</p>
+	  <h5>クライアント</h5>
+	  <p>クライアント・アプリとして有名なものに Iris、Snort、Damus、Amethyst、etc があります。繰り返しますが、これらはあくまで Nostr のクライアントであり SNS の名称ではありません。</p>
+	  <p>Web クライアントというものもあり <a href="https://iris.to/" class="external">Iris</a>、<a href="https://snort.social/global" class="external">Snort</a>、<a href="https://coracle.social/" class="external">Coracle</a>、<a href="https://nostter.vercel.app/home" class="external">nostter</a> 辺りが筆者が認識している Web クライアントです。</p>
+	  <h5>Nostr での投稿とは</h5>
+	  <p>あなたが秘密鍵でテキストメッセージにサインをし、それをリレーに投げれば ( 通常複数のリレーに投げる ) Nostr にテキストメッセージを投稿したことになります。</p>
+      <p class="mid-flow"><img src="fig2023071303.png" width="640" height="377"></p>
+	  <p>サインをするのはクライアント・ソフトウェアで、通常あなたが直接サインのための操作をするわけではありません。メッセージの投稿時にサインは自動的に行われます。</p>
+	  <h5>いやその前にログインは？</h5>
+	  <p>システムへのログインはどうするの？という声が聞こえてきそうです。</p>
+	  <p>Nostr では一部の有料リレー等への接続を除きログインというものは必要ありません。もちろん将来は全てのリレーで必要になる場合もあるかもしれませんが、現在の Nostr の仕組みでは秘密鍵でサインしたテキストメッセージをリレーに投げれば Nostr にテキストメッセージを投稿したことになります。</p>
+	  <h5>クライアントにログインってボタンやリンクがあるけど</h5>
+	  <p>現時点ではログインって言葉が示すような意味でのログインではないので、クライアントを使うための認証と暫定的に考えておいてください。</p>
+	  <p><a href="https://scrapbox.io/nostr/NIP-07" class="external">NIP-07</a> あたりの仕様をきちんと理解しているわけではないので、今は宿題とさせてください。</p>
+	  <h5>最後に</h5>
+	  <p>長くなったので今日はこれくらいにしようと思いますが、次回は Nostr で最も重要な鍵ペアについて書きたいと思います。</p>
+      <ul class="clear nomark">
+        <li class="tag">Category : </li>
+        <li class="tag">日記</li>
+        <li class="tag">blog</li>
+        <li class="tag">Nostr</li>
+        <li class="tag">SNS</li>
+        <li class="tag">IT</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+</body>
+</html>

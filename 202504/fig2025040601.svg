@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="559px" preserveAspectRatio="none" style="width:666px;height:559px;background:#FFFFFF;" version="1.1" viewBox="0 0 666 559" width="666px" zoomAndPan="magnify">
+    <defs />
+    <g><!--entity actor-->
+        <g class="entity" data-entity="actor" data-source-line="1" data-uid="ent0002" id="entity_actor">
+            <ellipse cx="47.8999" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+            <path d="M47.8999,22 L47.8999,49 M34.8999,30 L60.8999,30 M47.8999,49 L34.8999,64 M47.8999,49 L60.8999,64" fill="none" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33.8799" x="30.96" y="80.4659">actor</text>
+        </g><!--entity actor/-->
+        <g class="entity" data-entity="actor/" data-source-line="2" data-uid="ent0003" id="entity_actor/">
+            <ellipse cx="118.9039" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="116.9601" x2="126.6642" y1="21.7603" y2="12.0562" />
+            <path d="M118.9039,22 L118.9039,49 M105.9039,30 L131.9039,30 M118.9039,49 L105.9039,64 M118.9039,49 L131.9039,64" fill="none" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39.0879" x="99.36" y="80.4659">actor/</text>
+        </g><!--entity agent-->
+        <g class="entity" data-entity="agent" data-source-line="3" data-uid="ent0004" id="entity_agent">
+            <rect fill="#F1F1F1" height="39.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="58.0659" x="173.87" y="25.5" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38.0659" x="183.87" y="50.4659">agent</text>
+        </g><!--entity artifact-->
+        <g class="entity" data-entity="artifact" data-source-line="4" data-uid="ent0005" id="entity_artifact">
+            <rect fill="#F1F1F1" height="42.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="76.7458" x="266.53" y="24" />
+            <polygon fill="#F1F1F1" points="326.2758,29,326.2758,43,338.2758,43,338.2758,35,332.2758,29,326.2758,29" style="stroke:#181818;stroke-width:0.5;" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="332.2758" x2="332.2758" y1="29" y2="35" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="338.2758" x2="332.2758" y1="35" y2="35" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46.7458" x="276.53" y="51.9659">artifact</text>
+        </g><!--entity boundary-->
+        <g class="entity" data-entity="boundary" data-source-line="5" data-uid="ent0006" id="entity_boundary">
+            <path d="M389.4049,23.5 L389.4049,47.5 M389.4049,35.5 L406.4049,35.5" fill="none" style="stroke:#181818;stroke-width:0.5;" />
+            <ellipse cx="418.4049" cy="35.5" fill="#F1F1F1" rx="12" ry="12" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="63.7698" x="378.02" y="66.4659">boundary</text>
+        </g><!--entity card-->
+        <g class="entity" data-entity="card" data-source-line="6" data-uid="ent0007" id="entity_card">
+            <rect fill="#F1F1F1" height="25.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="48.9659" x="476.42" y="32.5" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28.9659" x="486.42" y="50.4659">card</text>
+        </g><!--entity circle-->
+        <g class="entity" data-entity="circle" data-source-line="7" data-uid="ent0008" id="entity_circle">
+            <ellipse cx="47.9" cy="176.57" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="34.3419" x="30.7291" y="208.5359">circle</text>
+        </g><!--entity cloud-->
+        <g class="entity" data-entity="cloud" data-source-line="8" data-uid="ent0009" id="entity_cloud">
+            <path d="M119.9273,160.8967 C123.1389,154.4237 128.6735,153.9566 132.2742,160.5283 C135.8276,155.2413 141.0609,154.962 144.9925,160.0653 C147.7583,154.6742 152.6643,153.8499 155.8882,159.618 C160.3341,154.1692 166.0944,154.8261 168.7025,161.5524 C180.0328,161.7163 184.898,167.4774 179.484,178.3736 C182.4459,188.5859 179.8762,194.2725 168.2399,193.9402 C167.2633,200.872 161.4653,201.0986 157.203,197.3289 C155.8566,204.2256 150.6114,206.6107 144.9301,201.9205 C139.1313,207.0136 133.8205,205.134 131.7677,197.9156 C126.6035,202.6399 122.2666,201.0971 119.9258,194.8642 C109.6793,193.7514 106.613,185.6658 113.68,178.1019 C106.3742,170.3099 110.2574,162.5246 119.9273,160.8967" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36.0639" x="124.87" y="181.9959">cloud</text>
+        </g><!--entity collections-->
+        <g class="entity" data-entity="collections" data-source-line="9" data-uid="ent0010" id="entity_collections">
+            <rect fill="#F1F1F1" height="35.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="85.5237" x="215.14" y="161.03" />
+            <rect fill="#F1F1F1" height="35.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="85.5237" x="211.14" y="157.03" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.5237" x="219.14" y="179.9959">collections</text>
+        </g><!--entity component-->
+        <g class="entity" data-entity="component" data-source-line="10" data-uid="ent0011" id="entity_component">
+            <rect fill="#F1F1F1" height="49.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="115.6137" x="336.1" y="152.03" />
+            <rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="431.7137" y="157.03" />
+            <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="429.7137" y="159.03" />
+            <rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="429.7137" y="163.03" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75.6137" x="351.1" y="186.9959">component</text>
+        </g><!--entity control-->
+        <g class="entity" data-entity="control" data-source-line="11" data-uid="ent0012" id="entity_control">
+            <ellipse cx="509.9099" cy="167.03" fill="#F1F1F1" rx="12" ry="12" style="stroke:#181818;stroke-width:0.5;" />
+            <polygon fill="#181818" points="505.9099,155.03,511.9099,150.03,509.9099,155.03,511.9099,160.03,505.9099,155.03" style="stroke:#181818;stroke-width:1;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46.7598" x="486.53" y="197.9959">control</text>
+        </g><!--entity database-->
+        <g class="entity" data-entity="database" data-source-line="12" data-uid="ent0013" id="entity_database">
+            <path d="M568.69,162.53 C568.69,152.53 608.9089,152.53 608.9089,152.53 C608.9089,152.53 649.1278,152.53 649.1278,162.53 L649.1278,190.5979 C649.1278,200.5979 608.9089,200.5979 608.9089,200.5979 C608.9089,200.5979 568.69,200.5979 568.69,190.5979 L568.69,162.53" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" />
+            <path d="M568.69,162.53 C568.69,172.53 608.9089,172.53 608.9089,172.53 C608.9089,172.53 649.1278,172.53 649.1278,162.53" fill="none" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60.4378" x="578.69" y="191.4959">database</text>
+        </g><!--entity entity-->
+        <g class="entity" data-entity="entity" data-source-line="13" data-uid="ent0014" id="entity_entity">
+            <ellipse cx="47.9039" cy="291.03" fill="#F1F1F1" rx="12" ry="12" style="stroke:#181818;stroke-width:0.5;" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="35.9039" x2="59.9039" y1="305.03" y2="305.03" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="37.4079" x="29.2" y="321.9959">entity</text>
+        </g><!--entity file-->
+        <g class="entity" data-entity="file" data-source-line="14" data-uid="ent0015" id="entity_file">
+            <path d="M101.94,283.53 L101.94,317.5979 A2.5,2.5 0 0 0 104.44,320.0979 L139.3759,320.0979 A2.5,2.5 0 0 0 141.8759,317.5979 L141.8759,291.03 L131.8759,281.03 L104.44,281.03 A2.5,2.5 0 0 0 101.94,283.53" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" />
+            <path d="M131.8759,281.03 L131.8759,288.53 A2.5,2.5 0 0 0 134.3759,291.03 L141.8759,291.03" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="19.9359" x="111.94" y="305.9959">file</text>
+        </g><!--entity folder-->
+        <g class="entity" data-entity="folder" data-source-line="15" data-uid="ent0016" id="entity_folder">
+            <path d="M179.4,272.03 L220.4,272.03 A3.75,3.75 0 0 1 222.9,274.53 L229.9,293.03 L244.4,293.03 A2.5,2.5 0 0 1 246.9,295.53 L246.9,326.5979 A2.5,2.5 0 0 1 244.4,329.0979 L179.4,329.0979 A2.5,2.5 0 0 1 176.9,326.5979 L176.9,274.53 A2.5,2.5 0 0 1 179.4,272.03" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="176.9" x2="229.9" y1="293.03" y2="293.03" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39.1859" x="186.9" y="314.9959">folder</text>
+        </g><!--entity frame-->
+        <g class="entity" data-entity="frame" data-source-line="16" data-uid="ent0017" id="entity_frame">
+            <rect fill="#F1F1F1" height="49.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="79.4379" x="282.19" y="276.03" />
+            <path d="M308.6693,276.03 L308.6693,281.03 L301.6693,288.03 L282.19,288.03" fill="none" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39.4379" x="297.19" y="310.9959">frame</text>
+        </g><!--entity hexagon-->
+        <g class="entity" data-entity="hexagon" data-source-line="17" data-uid="ent0018" id="entity_hexagon">
+            <polygon fill="#F1F1F1" points="511.44,300.57,482.67,286.03,425.14,286.03,396.37,300.57,425.14,315.1,482.67,315.1,511.44,300.57" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.5398" x="425.1399" y="305.9959">hexagon</text>
+        </g><!--entity interface-->
+        <g class="entity" data-entity="interface" data-source-line="18" data-uid="ent0019" id="entity_interface">
+            <ellipse cx="583.9" cy="300.57" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58.2818" x="554.7591" y="332.5359">interface</text>
+        </g><!--entity label-->
+        <g class="entity" data-entity="label" data-source-line="19" data-uid="ent0020" id="entity_label"><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31.5839" x="32.11" y="428.2059">label</text></g><!--entity node-->
+        <g class="entity" data-entity="node" data-source-line="20" data-uid="ent0021" id="entity_node">
+            <polygon fill="#F1F1F1" points="109.09,408.24,119.09,398.24,182.7179,398.24,182.7179,437.3079,172.7179,447.3079,109.09,447.3079,109.09,408.24" style="stroke:#181818;stroke-width:0.5;" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="172.7179" x2="182.7179" y1="408.24" y2="398.24" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="109.09" x2="172.7179" y1="408.24" y2="408.24" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="172.7179" x2="172.7179" y1="408.24" y2="447.3079" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33.6279" x="124.09" y="433.2059">node</text>
+        </g><!--entity package-->
+        <g class="entity" data-entity="package" data-source-line="21" data-uid="ent0022" id="entity_package">
+            <path d="M220.01,401.74 L291.7958,401.74 A3.75,3.75 0 0 1 294.2958,404.24 L301.2958,426.8079 L315.7958,426.8079 A2.5,2.5 0 0 1 318.2958,429.3079 L318.2958,441.3079 A2.5,2.5 0 0 1 315.7958,443.8079 L220.01,443.8079 A2.5,2.5 0 0 1 217.51,441.3079 L217.51,404.24 A2.5,2.5 0 0 1 220.01,401.74" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" />
+            <line style="stroke:#181818;stroke-width:0.5;" x1="217.51" x2="301.2958" y1="426.8079" y2="426.8079" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="58.7858" x="227.51" y="419.7059">package</text>
+        </g><!--entity person-->
+        <g class="entity" data-entity="person" data-source-line="22" data-uid="ent0023" id="entity_person">
+            <ellipse cx="385.9079" cy="403.2429" fill="#F1F1F1" rx="10.6729" ry="10.6729" style="stroke:#181818;stroke-width:0.5;" />
+            <rect fill="#F1F1F1" height="39.0679" rx="10.6729" ry="10.6729" style="stroke:#181818;stroke-width:0.5;" width="66.1158" x="352.85" y="413.9158" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="46.1158" x="362.85" y="438.8817">person</text>
+        </g><!--entity queue-->
+        <g class="entity" data-entity="queue" data-source-line="23" data-uid="ent0024" id="entity_queue">
+            <path d="M459.05,408.24 L510.7558,408.24 C515.7558,408.24 515.7558,422.774 515.7558,422.774 C515.7558,422.774 515.7558,437.3079 510.7558,437.3079 L459.05,437.3079 C454.05,437.3079 454.05,422.774 454.05,422.774 C454.05,422.774 454.05,408.24 459.05,408.24" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" />
+            <path d="M510.7558,408.24 C505.7558,408.24 505.7558,422.774 505.7558,422.774 C505.7558,437.3079 510.7558,437.3079 510.7558,437.3079" fill="none" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41.7058" x="459.05" y="428.2059">queue</text>
+        </g><!--entity rectangle-->
+        <g class="entity" data-entity="rectangle" data-source-line="24" data-uid="ent0025" id="entity_rectangle">
+            <rect fill="#F1F1F1" height="39.0679" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="82.0758" x="550.87" y="403.24" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62.0758" x="560.87" y="428.2059">rectangle</text>
+        </g><!--entity stack-->
+        <g class="entity" data-entity="stack" data-source-line="25" data-uid="ent0026" id="entity_stack">
+            <rect fill="#F1F1F1" height="39.0679" rx="2.5" ry="2.5" style="stroke:none;stroke-width:0.5;" width="53.8099" x="21" y="512.98" />
+            <path d="M6,512.98 L18.5,512.98 A2.5,2.5 0 0 1 21,515.48 L21,549.5479 A2.5,2.5 0 0 0 23.5,552.0479 L72.3099,552.0479 A2.5,2.5 0 0 0 74.8099,549.5479 L74.8099,515.48 A2.5,2.5 0 0 1 77.3099,512.98 L89.8099,512.98" fill="none" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33.8099" x="31" y="537.9459">stack</text>
+        </g><!--entity storage-->
+        <g class="entity" data-entity="storage" data-source-line="26" data-uid="ent0027" id="entity_storage">
+            <rect fill="#F1F1F1" height="39.0679" rx="35" ry="35" style="stroke:#181818;stroke-width:0.5;" width="70.3718" x="124.72" y="512.98" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="50.3718" x="134.72" y="537.9459">storage</text>
+        </g>
+        <g class="entity" data-entity="usecase" data-source-line="27" data-uid="ent0028" id="entity_usecase">
+            <ellipse cx="279.8987" cy="532.5219" fill="#F1F1F1" rx="49.8387" ry="16.8619" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.4298" x="250.6838" y="537.2548">usecase</text>
+        </g>
+        <g class="entity" data-entity="usecase/" data-source-line="28" data-uid="ent0029" id="entity_usecase/">
+            <ellipse cx="418.8964" cy="532.5234" fill="#F1F1F1" rx="53.7764" ry="16.9034" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="57.6378" x="387.0775" y="537.2563">usecase/</text>
+        </g>
+        <line style="stroke:#181818;stroke-width:0.5;" x1="468.3866" x2="448.9722" y1="526.6309" y2="546.0453" /><!--SRC=[JP5HSeKW34N_xoeoRg1hYX0jKnwn0MRwTj-WuhoVSwu4Wn4EJOru42U_QBcyW7SfZKw2hQND2pG3Lkqbihrf1WIsI0C8oK8MkeIGjNjX445pbj2IbaeVsTTVXvPntfDyhJJJJBSHkV7ALMW6-AxKtdG9M_8p1x1fZc9q2Plnomk3-9O_thNGRQJIn7mUeISXyogPJg9e51h0mU77_mNTnY5MlT4b_7RfGYTXFXINtJ_cIQZDNwEJdjL6fzleLS8Ow_PyzfkOQVa7]-->
+    </g>
+</svg>

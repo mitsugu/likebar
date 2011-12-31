@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The road Orz passed by</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://mitsugu.github.io/likebar/202402/15.html">
+    <meta name="title" content="vs. カルカソンヌ Java 実装">
+    <meta name="description" content="カルカソンヌの Java 実装を PC に入れて AI に時々は勝てるようになってきた。">
+    <meta name="keywords" content="日記, blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="vs. カルカソンヌ Java 実装">
+    <meta property="og:description" content="カルカソンヌの Java 実装を PC に入れて AI に時々は勝てるようになってきた。">
+    <meta property="og:url" content="https://mitsugu.github.io/likebar/202402/15.html">
+    <meta property="og:site_name" content="The road Orz passed by">
+    <meta property="og:html" content="カルカソンヌの Java 実装を PC に入れて AI に時々は勝てるようになってきた。">
+
+    <meta property="og:image" content="https://i.imgur.com/Q7xnlCK.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="410">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://mitsugu.github.io/likebar/202402/15.html">
+
+    <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+
+<body style="width:1024px;">
+    <h1>The road Orz passed by 2024 年 02 月</h1>
+    <div id="contents">
+        <h3 id="20240215">02 月 15日 ( 木 )</h3>
+        <div id="2024021501" class="top-mutter">
+            <h4>vs. カルカソンヌ Java 実装</h4>
+			<p><a href="https://github.com/tsaglam/Carcassonne" class="external">カルカソンヌの Java 実装</a>を公開している人がいるので Ubuntu MATE 上で動くようにあれこれしていて、対 AI (CPU) で連戦連敗だったのですが、最近になってようやくある程度は勝てるようになってきました。</p>
+			<a href="fig2024021501.png" target="_blank"><img width="512" height="410" src="fig2024021501.png"></a>
+		<p>公式の Carcassonne のアプリもそうなのですが、総じてどのプラットフォームのどのアプリも、まるで競技のように<b>プレイヤーの地形とミープルを殺しにきます</b>。AI 側がこのように作られている以上、AI に勝利しようとすると、こちらも <b>AI 側の地形とミープルを殺し</b>に行って AI 側の得点を防ぐほかありません。まるで競技のような AI とのガチンコ勝負になります。</p>
+			<p>ある意味カルカソンヌの競技志向の人には勉強や練習になるともいえるのですが、空いた時間にカルカソンヌをちょこっと楽しみたいというエンジョイ勢には AI がムカつくような手しか打ってこないので「金を払って買ったのにぜんぜん楽しくない！！」ってことになり、<a href="https://play.google.com/store/apps/details?id=com.asmodeedigital.carcassonne&hl=ja" class="external">Google Play Store のレビュー</a>などで見ることができるような酷評が、そこら中のレビューに並ぶことになります。</p>
+			<p>カルカソンヌの PC 版、スマホ版をのんびりと楽しみたい場合は、公式アプリであれば人間とリモート対戦が可能なので、同じエンジョイ勢の人間とプレイ開始時間を約束してプレイすることをお勧めします。</p>
+			<p>あるいは<a href="https://boardgamearena.com/gamepanel?game=carcassonne" class="external">ボードゲームアリーナ</a>で人とリモート対戦するのもいいかもしれません。ネックはプレミアム会員にならないとテーブルを開くことができないことでしょうか。</p>
+			<p>現在リリースされているどのアプリでも AI は必ず勝ちに来ます。こちらもゲームに負けないように頑張ると、上のプレイ結果画像を見ればわかるように、道路は寸断され、都市は未完成のまま放棄され荒れた国土だけが残ります。</p>
+			<p>カルカソンヌの場合、勝負になると泥仕合になって国土が荒廃するのは仕方がないのかもしれません。同じように目の殺し合いがある囲碁とは、その点が異なるような気がしています。</p>
+			<p>争うな！！戦うな！！ってことをカルカソンヌというゲームは教えているのかもしれません……なんてね。</p>
+			<p>なお Java 実装版は "java -jre  Carcassonne-v1.8.1.jar" で動きます。Java 製なので OS も問わず実行も楽ですね。タイルが第 1 版の古いデザインなので、第 2 版や現行の第 3 版のタイルデザインが好きな人は不満を持つかもしれませんけど。</p>
+			<p class="mid-flow"><b>【2024.02.16 追記】</b></p>
+			<p>Java 実装版のカルカソンヌですが、<a href="https://github.com/tsaglam/Carcassonne/wiki/About-this-Project" class="external">開発者の説明にあるように</a>タイル構成とルールが本家ベースゲームと若干異なるので、もしカルカソンヌの競技の練習目的でプレイしたいなら、本家の公式アプリを使うことをお勧めします (拡張やボックス製品では廃版になっているウィンター・エディションも追加購入できます)。</p>
+			<p>Java 実装版には、現行のカルカソンヌ第 3 版 (日本では<a href="https://amzn.to/3I0WalD" class="external">カルカソンヌ 21</a> という名称で販売されている) には含まれない、カルカソンヌ拡張に含まれるタイルが追加されており、点数計算も若干カルカソンヌベーシックルールと若干異なります。</p>
+        </div>
+        <ul class="clear nomark">
+            <li class="tag">Category : </li>
+            <li class="tag">日記</li>
+            <li class="tag">blog</li>
+            <li class="tag">board game</li>
+            <li class="tag">ボードゲーム</li>
+            <li class="tag">Carcassonne</li>
+            <li class="tag">カルカソンヌ</li>
+        </ul>
+    </div>
+    <hr class="clear">
+    <ul class="footer">
+        <li><a href="index.html">戻る</a></li>
+    </ul>
+</body>
+
+</html>

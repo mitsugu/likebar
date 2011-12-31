@@ -1,0 +1,4 @@
+@startuml
+rectangle "箱"
+rectangle "箱"
+@enduml
