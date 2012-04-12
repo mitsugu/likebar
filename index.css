@@ -49,6 +49,11 @@ h3 {
   padding-left:1em;
   padding-right:1em;
 }
+.twitter {
+  padding:1em;
+  background-color:white;
+  color:black;
+}
 img{
   border:none;
 }
