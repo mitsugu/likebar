@@ -92,6 +92,18 @@ blockquote {
   list-style-type:none;
   line-height:1.5em;
 }
+.left{
+  float:left;
+}
+.right{
+  float:right;
+}
+.image-mergin {
+  margin:1em;
+}
+.clear {
+  clear:both;
+}
 .pixiv{
   margin-top:1em;
   margin-bottom:1em;
