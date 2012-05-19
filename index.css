@@ -36,7 +36,10 @@ h3 {
   border-width:2px 0px 0px 0px;
   border-style:solid;
   border-color:silver;
-  width:9.5em;
+  width:11.5em;
+}
+.skip {
+  font-size:0.75em;
 }
 .top-mutter {
   padding-left:1em;
