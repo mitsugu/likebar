@@ -137,3 +137,16 @@ blockquote {
   width:443px;
   height:600px;
 }
+.wall-logic-table {
+  border-style    :solid;
+  border-width    :1px;
+  border-collapse :collapse ;
+}
+.wall-logic-td {
+  border-style    :solid;
+  border-width    :1px;
+  padding         :4px;
+  vertical-align  :top;
+  width:1.5em;
+  text-align:center;
+}
