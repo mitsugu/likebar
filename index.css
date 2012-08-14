@@ -101,6 +101,9 @@ blockquote {
 .right{
   float:right;
 }
+.amazon-link {
+  margin:1em;
+}
 .image-mergin {
   margin:1em;
 }
