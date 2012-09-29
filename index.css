@@ -78,6 +78,7 @@ img{
 .tag {
   display:inline;
   font-size:0.75em;
+  color:silver;
 }
 blockquote {
   border-style:solid;
