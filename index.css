@@ -115,6 +115,9 @@ blockquote {
 .clear {
   clear:both;
 }
+.black {
+  color:black!important;
+}
 .soundcloudplayer{
   margin:0.5em;
 }
