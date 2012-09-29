@@ -75,6 +75,10 @@ img{
 .nomark {
   list-style-type:none;
 }
+.tag {
+  display:inline;
+  font-size:0.75em;
+}
 blockquote {
   border-style:solid;
   border-width:1px;
