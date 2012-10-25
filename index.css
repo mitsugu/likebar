@@ -84,12 +84,12 @@ blockquote {
 .footnote{
   margin-left:4em;
   margin-right:4em;
-  color:silver;
+  color:gray;
   font-size:0.75em;
 }
 .mid-footnote{
   font-size:0.75em;
-  color:silver;
+  color:gray;
 }
 .footer {
   list-style-type:none;
