@@ -48,6 +48,10 @@ h3 {
   padding-left:1em;
   padding-right:1em;
 }
+.title {
+  text-indent:0em;
+  font-weight: bold;
+}
 .twitter {
   padding:1em;
   background-color:silver;
