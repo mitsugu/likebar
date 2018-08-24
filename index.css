@@ -105,6 +105,9 @@ blockquote {
 .right{
   float:right;
 }
+.center {
+  text-align:center;
+}
 .amazon-link {
   margin:1em;
 }
