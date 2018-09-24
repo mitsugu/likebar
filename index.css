@@ -52,6 +52,14 @@ h3 {
   text-indent:0em;
   font-weight: bold;
 }
+.warning {
+  font-size:1.5em;
+  font-weight: bold;
+  color:#ff0000;
+}
+.strong {
+  font-weight: bold;
+}
 .twitter {
   padding:1em;
   background-color:silver;

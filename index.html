@@ -18,9 +18,12 @@
   <meta property="og:description" content="OrzBruford による日記のような blog のようなメモのようなよくわからないなぐり書き。">
   <meta property="og:url" content="https://likebar.harisen.jp/">
   <meta property="og:site_name" content="バーr……blog のようなもの">
-  <meta property="og:image" content="https://i.imgur.com/RKj037o.jpg">
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="340">
+  <meta property="og:html" content="https://likebar.harisen.jp/">
+  <!--
+  <meta property="og:image" content="">
+  <meta property="og:image:width" content="">
+  <meta property="og:image:height" content="">
+  -->
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="https://likebar.harisen.jp/">
@@ -31,26 +34,51 @@
   <h1>バーr……blog のようなもの</h1>
   <div id="contents">
     <h2>2018 年</h2>
-    <h3 id="20180923">09 月 23日 ( 日 )</h3>
-    <div id="2018092201" class="top-mutter">
-      <h4>TAMRON SP AF17-50mm F2.8 XR DiII が届いたよ</h4>
-      <p>数日前にまだ届かないと書いていたレンズがとうとう本日届きました。注文したのが 16 日なので 1 週間かかったことになります。メーカー在庫がないとのことだったので (つまり在庫切れのためまだ製造中)、これはなかなか異例の速さでの納品かもしれません。QA を含めて 1 ヶ月くらいかかることを覚悟していましたので。</p>
-      <p class="mid-flow">
-        <img src="fig2018092301.jpg" width="512" height="340">
-      </p>
-      <p>この <a href="https://www.amazon.co.jp/gp/product/B0013DFZNK/ref=as_li_qf_asin_il_tl?ie=UTF8&tag=oyamanomyhome-22&creative=1211&linkCode=as2&creativeASIN=B0013DFZNK&linkId=671981631b8e804bbbe56ab2e9a6fefd" class="external">TAMRON SP AF17-50mm F2.8 XR DiII</a> ですがネットでの評判を見てみるといい評価がある反面、AF での初期不良が多数報告されているので若干不安を感じでいました。なのでレンズが届いて最初にやったのが AF のテストです。ネットの情報では極端な前ピンが多いとのことだったのですが幸いそういうことはありませんでした。</p>
-      <p>次に知りたかったのはレンズの解像力です。なので自宅から約 100m ほど離れたよく町中にあるグリーンのフェンスを撮ってみて、金網が判別できるかどうかためしてみました。17mm ではさすがにカメラの性能上金網の再現は不可能と思い 50mm までズームして撮影してみました。その結果が下の等倍に拡大した画像になります。スクリーンショットを jpeg で行うと再劣化の恐れがありますので png 画像にしています。</p>
-      <p class="mid-flow">
-        <img src="fig2018092302.png" width="543" height="466">
-      </p>
-      <p>なんとかグリーンフェンスの金網が判別できます。そのことからも価格の割にそこそこの解像力を持ったレンズと言えるのではないでしょうか。しかも f2.8 と明るいですし。今の Pentax *ist DL2 に見合った、いい買い物をしたような気がしています。</p>
-      <p>ちなみに撮って出しの jpeg 画像の場合はグリーンフェンスの金網は写っていません。ノイズの処理をするときにノイズと一緒に処理されてしまったようです。なので上の画像は RawTherapee でノイズとシャープネスのバランスを見ながら自分で現像したものです。さほど高級でないカメラを使っていて真面目に写真のクオリティを上げたい場合は撮って出しより RAW 現像をお勧めします。いろんな現像上の妥協点も自分で決めることになりますけど。</p>
+    <h3 id="20180925">09 月 25日 ( 火 )</h3>
+    <div id="2018092501" class="top-mutter">
+      <h4>PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについて</h4>
+      <p class="warning center">PENTAX ユーザに警告！！</p>
+      <p>PENTAX のカメラで出力した jpeg 画像もしくは RAW データを現像した jpeg 画像を <a href="https://www.gimp.org/" class="external">GIMP</a> 2.10.x で編集すると <span class="strong">Exif データがすべて失われます</span>。これは GIMP 2.10.x のバグです。<a href="https://gitlab.gnome.org/GNOME/gimp/issues/2253" class="external">BTS に登録</a>されていますがまだ誰も注目していない状態です。</p>
+      <p>具体的には jpeg 内の Exif データは GIMP には読み込まれます。新設された &quot;view metadata&quot; メニューを選べば Exif データが表示されることからそのことがわかります。</p>
+      <p>そしてこの jpeg ファイルを jpeg ファイルにそのままエキスポートすると、なんと出力した jpeg ファイルの Exif  データが空っぽになります。この現象は Exif データを書き出す設定にしていても起こりますし、他のブランドのカメラのデータでは起こりません。PENTAX でのみ起こる現象です。</p>
+      <p>この現象に対する GIMP 2.10.6 自体での回避策は今のところありません。が、これを回避するための方法が 4 つあります。</p>
+      <dl>
+        <dt>1. GIMP 2.8.22 を使う</dt>
+        <dd>
+          <p>このバグは GIMP 2.8.x にはありません。GIMP 2.8.x の最新で最後のバージョンである 2.8.22 を使うことでこのバグを回避できます。</p>
+        </dd>
+        <dt>2. GIMP 以外の jpeg レタッチソフトを使う</dt>
+        <dd>
+          <p>たとえば <a href="https://rawtherapee.com/" class="external">RawTherapee</a> という OSS ソフトは RAW 現像だけでなく jpeg 画像のレタッチもできます。もちろん Exif データも出力されます。ただレタッチ用のソフトではないので GIMP のように範囲指定をして特定部分にエフェクトをかけるといったようなことはできません。</p>
+        </dd>
+        <dt>3. Exif.image.Make タグを書き換える</dt>
+        <dd>
+          <p><a href="https://www.sno.phy.queensu.ca/~phil/exiftool/" class="external">exiftool</a> などのツールを使って Exif データ内の Exif.image.Make タグを &quot;PENTAX Corporation&quot; から &quot;Pentax Corporation&quot; に書き換えます (大文字小文字に注意)。すると何故か出力 jpeg ファイルに Exif データがちゃんと出力されます。そしてちゃんと jpeg ファイルに Exif データが書き出されたら再び exiftool などで Exif.image.Make タグを本来の正しい &quot;PENTAX Corporation&quot; に書き戻してやります。今回の GIMP 2.10.6 のバグの要になっていそうな回避策です。</p>
+          <p class="mid-flow">ex) exiftool -Make=&quot;Pentax Corporation&quot; IMGP0001.JPG</p>
+        </dd>
+        <dt>4. exiftool などで編集前の jpeg 画像の Exif データをコピーする</dt>
+        <dd>
+          <p>GIMP 2.10.x で jpeg 画像を編集後、ファイル名を変更して jpeg 画像として保存してやります。当然出力画像からは Exif データが消えています。その後 exiftool などを使って元のオリジナルの jpeg 画像の Exif データを出力後の jpeg 画像にコピーしてやります。この場合当然 GIMP で画像を編集したという情報は Exif に記録されないことになります。それでも構わない場合はこういった選択肢もあります。</p>
+          <p>具体的は方法の例は以下のとおりです。</p>
+          <ol>
+            <li>GIMP 2.10.x で source.jpg を開きます。</li>
+            <li>GIMP 2.10.x で画像を編集します。</li>
+            <li>画像を destnation.jpg などと別のファイル名でエクスポートします。</li>
+            <li>&quot;exiftool -tagsFromFile source.jpg destnation.jpg&quot; として source.jpg の Exif データを destnation.jpg ファイルにコピーします。</li>
+          </ol>
+        </dd>
+      </dl>
+      <p>このバグですが最近ででいる PENTAX 機ではおきないようです。なぜかといいますと Exif.image.Make が &quot;PENTAX Corporation&quot; ではなく &quot;RICOH IMAGING COMPANY, LTD.&quot; になっているからです。なかなか我々 PENTAX ユーザを複雑な気分にさせてくれるバグですね。</p>
       <ul class="clear nomark">
          <li class="tag">Category : </li>
          <li class="tag">日記</li>
-         <li class="tag">カメラ</li>
-         <li class="tag">写真</li>
-         <li class="tag">レンズ</li>
+         <li class="tag">GIMP</li>
+         <li class="tag">gnu</li>
+         <li class="tag">GNOME Foundation</li>
+         <li class="tag">ソフトウェア</li>
+         <li class="tag">フリーソフトウェア</li>
+         <li class="tag">オープンソースソフトウェア</li>
+         <li class="tag">OSS</li>
       </ul>
     </div>
   </div>
