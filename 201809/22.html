@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>バーr……blog のようなもの</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://likebar.harisen.jp/201809/22.html">
+
+  <meta name="title" content="GIMP で HDR を頑張ってみた">
+  <meta name="description" content="以前にも書きましたがちょっと OSS の GIMP で HDR 編集を頑張ってみました。">
+  <meta name="keywords" content="日記, blog, メモ">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="GIMP で HDR を頑張ってみた">
+  <meta property="og:description" content="以前にも書きましたがちょっと OSS の GIMP で HDR 編集を頑張ってみました。">
+  <meta property="og:url" content="https://likebar.harisen.jp/201809/22.html">
+  <meta property="og:site_name" content="バーr……blog のようなもの">
+  <meta property="og:image" content="https://farm2.staticflickr.com/1951/29904179617_18f9000d2f_n.jpg">
+  <meta property="og:image:width" content="320">
+  <meta property="og:image:height" content="213">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="https://likebar.harisen.jp/201809/22.html">
+
+   <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>バーr……blog のようなもの 2018 年 09 月</h1>
+  <div id="contents">
+    <h2>2018 年</h2>
+    <h3 id="20180922">09 月 22日 ( 土 )</h3>
+    <div id="2018092201" class="top-mutter">
+      <h4>GIMP で HDR を頑張ってみた</h4>
+      <p><a href="https://fstoppers.com/" class="external">某海外の写真 SNS</a> でお前の夕日の写真は前景が真っ黒でクソで価値がねぇ、HDR も知らねぇのかと dis られたのですが、別に腹はたたなかっ……いや、むっちゃ腹は立ったのですが、ついでにこれを機会に HDR を覚えようと考えました。</p>
+      <p>それで早速撮ってきて HDR 加工をしてみたのが下の写真になります。</p>
+      <a data-flickr-embed="true" data-header="true"  href="https://www.flickr.com/photos/78095270@N03/29904179617/in/dateposted-public/" title="Osaka suburbs"><img src="https://farm2.staticflickr.com/1951/29904179617_18f9000d2f.jpg" width="500" height="333" alt="Osaka suburbs"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+      <p>見た目に近い自然な感じになるように加工するのに苦労しました。</p>
+      <p>私は Ubuntu ユーザです。つまり Linux ユーザーです。当然 Adobe 製品などは使えません。Linux 上で使える写真用ツールと言えば <a href="https://www.gimp.org/" class="external">GIMP</a>、<a href="https://rawtherapee.com/" class="external">RawTherapee</a>、<a href="http://ufraw.sourceforge.net/" class="external">UFRaw</a> くらいです。digiKam というのもありますが試用してみたところ現像した写真のクオリティに満足できずアンインストールしました。</p>
+      <p>このなかで HDR に使えるというのは GIMP くらいしかありません。RawTherapee にも UFRaw にも HDR 編集機能なんてないのです。GIMP もそのままでは HDR 編集機能なんてありませんので <a href="http://gimper.net/resources/load-images-for-hdr-blending.437/" class="external">Load images for HDR blending</a> という GIMP で HDR 編集を可能にする plugin をインストールします。GIMP plugin のインストール方法は適当に検索して下さい。</p>
+      <p>それで Pentax *ist DL2 でオートブランケット ±2.0 に設定して、露出補正 -1.0、0、1.0 で撮った jpeg 画像 9 枚のうち 3 枚の画像をピックアップして HDR 合成したのが上の写真になります。</p>
+      <p>実際に見た風景に見えるような自然な仕上がりにするのにえらく苦労したのですが、どうやら Load images for HDR blending の使いかたを間違っていたらしく、各レイヤーの透過度、レベル、カーブ、シャドウハイライト、その他のパラメータをいじくりたおして上の画像を作ったのですが、どうやら Load images for HDR blending では明るい画像と暗い画像のレイヤーの透過度、&quot;明るさ・コントラスト&quot; の 2 つのパラメータを調整するだけで良かったようなんです。あの苦労はいったいなんだったのか。次からはちゃんと説明書き通りにしたいと思います。</p>
+      <p>それとついでになんですがスマホに <a href="https://play.google.com/store/apps/details?id=com.eyeappsllc.prohdr&hl=ja" class="external">HDR カメラアプリ</a>を入れて撮影もしてみました。レタッチをしていますがそれが下の 2 枚の写真になります。</p>
+      <a data-flickr-embed="true" data-header="true"  href="https://www.flickr.com/photos/78095270@N03/44119901054/in/dateposted-public/" title="hdr_00020_0"><img src="https://farm2.staticflickr.com/1877/44119901054_950dcae4ff.jpg" width="500" height="376" alt="hdr_00020_0"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script><br>
+      <a data-flickr-embed="true" data-header="true"  href="https://www.flickr.com/photos/78095270@N03/44119903404/in/dateposted-public/" title="hdr_00019_0"><img src="https://farm2.staticflickr.com/1948/44119903404_020c83cf1c.jpg" width="500" height="375" alt="hdr_00019_0"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+      <p>レタッチしているとはいえなんだか無茶苦茶自然に写っていて一眼レフで頑張って HDR 写真を撮った自分はなんなんだろうと思ってしまう出来です。ちなみにレタッチ前の写真が以下の 2 枚です。</p>
+      <a data-flickr-embed="true" data-header="true"  href="https://www.flickr.com/photos/78095270@N03/29914432017/in/dateposted-public/" title="hdr_00020_0"><img src="https://farm2.staticflickr.com/1842/29914432017_79e30522cf.jpg" width="500" height="376" alt="hdr_00020_0"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script><br>
+      <a data-flickr-embed="true" data-header="true"  href="https://www.flickr.com/photos/78095270@N03/29914433477/in/dateposted-public/" title="hdr_00019_0"><img src="https://farm2.staticflickr.com/1958/29914433477_eaf676828c.jpg" width="500" height="375" alt="hdr_00019_0"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+      <p>なんだか明るいですよね。そうです。スマホの HDR カメラアプリはなるべく昼間の明るさに写真を近づけようとするのですね。そのあたりが自力 HDR のアドバンテージかなと思います。それでもスマホ HDR も高品質で言葉を失いますけど。</p>
+      <p>まぁそれでも現像ソフトやレタッチソフトでいろいろ画像データをいじくるのが好きなので、これからも Pentax と GIMP で頑張るとは思いますけど。記念写真程度ならスマホ HDR でもかまいませんけどね。手軽ですし。</p>
+      <ul class="clear nomark">
+         <li class="tag">Category : </li>
+         <li class="tag">日記</li>
+         <li class="tag">カメラ</li>
+         <li class="tag">写真</li>
+         <li class="tag">HDR</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+    <li>OrzBruford</li>
+    <li title="クリエイティブ・コモンズ 表示-改変禁止 2.1 日本 ライセンス"><a rel="license" href="https://creativecommons.org/licenses/by-nd/2.1/jp/"><img alt="Creative Commons License" style="border-width:0;margin:0em;" src="https://i.creativecommons.org/l/by-nd/2.1/jp/80x15.png"></a></li>
+  </ul>
+</body>
+</html>
