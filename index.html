@@ -18,12 +18,9 @@
   <meta property="og:description" content="OrzBruford による日記のような blog のようなメモのようなよくわからないなぐり書き。">
   <meta property="og:url" content="https://likebar.harisen.jp/">
   <meta property="og:site_name" content="バーr……blog のようなもの">
-  <meta property="og:html" content="https://likebar.harisen.jp/">
-  <!--
-  <meta property="og:image" content="">
-  <meta property="og:image:width" content="">
-  <meta property="og:image:height" content="">
-  -->
+  <meta property="og:image" content="https://i.imgur.com/NDsdDYr.jpg">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="340">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="https://likebar.harisen.jp/">
@@ -34,51 +31,44 @@
   <h1>バーr……blog のようなもの</h1>
   <div id="contents">
     <h2>2018 年</h2>
-    <h3 id="20180925">09 月 25日 ( 火 )</h3>
-    <div id="2018092501" class="top-mutter">
-      <h4>PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについて</h4>
-      <p class="warning center">PENTAX ユーザに警告！！</p>
-      <p>PENTAX のカメラで出力した jpeg 画像もしくは RAW データを現像した jpeg 画像を <a href="https://www.gimp.org/" class="external">GIMP</a> 2.10.x で編集すると <span class="strong">Exif データがすべて失われます</span>。これは GIMP 2.10.x のバグです。<a href="https://gitlab.gnome.org/GNOME/gimp/issues/2253" class="external">BTS に登録</a>されていますがまだ誰も注目していない状態です。</p>
-      <p>具体的には jpeg 内の Exif データは GIMP には読み込まれます。新設された &quot;view metadata&quot; メニューを選べば Exif データが表示されることからそのことがわかります。</p>
-      <p>そしてこの jpeg ファイルを jpeg ファイルにそのままエキスポートすると、なんと出力した jpeg ファイルの Exif  データが空っぽになります。この現象は Exif データを書き出す設定にしていても起こりますし、他のブランドのカメラのデータでは起こりません。PENTAX でのみ起こる現象です。</p>
-      <p>この現象に対する GIMP 2.10.6 自体での回避策は今のところありません。が、これを回避するための方法が 4 つあります。</p>
-      <dl>
-        <dt>1. GIMP 2.8.22 を使う</dt>
-        <dd>
-          <p>このバグは GIMP 2.8.x にはありません。GIMP 2.8.x の最新で最後のバージョンである 2.8.22 を使うことでこのバグを回避できます。</p>
-        </dd>
-        <dt>2. GIMP 以外の jpeg レタッチソフトを使う</dt>
-        <dd>
-          <p>たとえば <a href="https://rawtherapee.com/" class="external">RawTherapee</a> という OSS ソフトは RAW 現像だけでなく jpeg 画像のレタッチもできます。もちろん Exif データも出力されます。ただレタッチ用のソフトではないので GIMP のように範囲指定をして特定部分にエフェクトをかけるといったようなことはできません。</p>
-        </dd>
-        <dt>3. Exif.image.Make タグを書き換える</dt>
-        <dd>
-          <p><a href="https://www.sno.phy.queensu.ca/~phil/exiftool/" class="external">exiftool</a> などのツールを使って Exif データ内の Exif.image.Make タグを &quot;PENTAX Corporation&quot; から &quot;Pentax Corporation&quot; に書き換えます (大文字小文字に注意)。すると何故か出力 jpeg ファイルに Exif データがちゃんと出力されます。そしてちゃんと jpeg ファイルに Exif データが書き出されたら再び exiftool などで Exif.image.Make タグを本来の正しい &quot;PENTAX Corporation&quot; に書き戻してやります。今回の GIMP 2.10.6 のバグの要になっていそうな回避策です。</p>
-          <p class="mid-flow">ex) exiftool -Make=&quot;Pentax Corporation&quot; IMGP0001.JPG</p>
-        </dd>
-        <dt>4. exiftool などで編集前の jpeg 画像の Exif データをコピーする</dt>
-        <dd>
-          <p>GIMP 2.10.x で jpeg 画像を編集後、ファイル名を変更して jpeg 画像として保存してやります。当然出力画像からは Exif データが消えています。その後 exiftool などを使って元のオリジナルの jpeg 画像の Exif データを出力後の jpeg 画像にコピーしてやります。この場合当然 GIMP で画像を編集したという情報は Exif に記録されないことになります。それでも構わない場合はこういった選択肢もあります。</p>
-          <p>具体的は方法の例は以下のとおりです。</p>
-          <ol>
-            <li>GIMP 2.10.x で source.jpg を開きます。</li>
-            <li>GIMP 2.10.x で画像を編集します。</li>
-            <li>画像を destnation.jpg などと別のファイル名でエクスポートします。</li>
-            <li>&quot;exiftool -tagsFromFile source.jpg destnation.jpg&quot; として source.jpg の Exif データを destnation.jpg ファイルにコピーします。</li>
-          </ol>
-        </dd>
-      </dl>
-      <p>このバグですが最近ででいる PENTAX 機ではおきないようです。なぜかといいますと Exif.image.Make が &quot;PENTAX Corporation&quot; ではなく &quot;RICOH IMAGING COMPANY, LTD.&quot; になっているからです。なかなか我々 PENTAX ユーザを複雑な気分にさせてくれるバグですね。</p>
+    <h3 id="20180927">09 月 27日 ( 木 )</h3>
+    <div id="2018092701" class="top-mutter">
+      <h4>Velbon Pole Pod III を安定させるための試行錯誤</h4>
+      <p>Velbon Pole Pod III が不安定だという話は以前書きました。カメラを乗せて自立させるのは危険だとも書きました。それは下の写真を見れば一目瞭然です。</p>
+      <p class="mid-flow">
+        <img src="fig2018092701.jpg" width="298" height="448">
+      </p>
+      <p>でもですねやはり体幹機能障害のある私としましては風等でポールが揺れるのは仕方がないとしても、是非とも最低カメラが乗った状態で自立はしていただきたい。そんなことを思っているわけです。</p>
+      <p>まぁ Pole Pod の頼りなさはこの頼りない脚元にあるわけです。</p>
+      <p class="mid-flow">
+        <img src="fig2018092702.jpg" width="512" height="340">
+      </p>
+      <p>足で踏むことで自立させるということも考えました。</p>
+      <p class="mid-flow">
+        <img src="fig2018092703.jpg" width="512" height="340">
+      </p>
+      <p>ですがこの方法だと足が乗っていない 2 本の Pole Pod の脚が浮き気味になりかえって不安定になります。それどころか私には体幹機能障害があって躰が不安定なので逆に Pole Pod が揺れ続けて止まることがありません。この方法はダメです。</p>
+      <p>で他の方はこの不安定さをどうしているのかとネットで検索してみると <a href="http://bbs.kakaku.com/bbs/-/SortID=20463869/" class="external">Pole Pod EX のケースですが改造されている方がいらっしゃいました</a>。でもさすがにここまでの工作は自分にはできません。</p>
+      <p>Velbon Pole Pod III の脚元は三脚なのだから C&amp;F Concept KF-TM2324 のセンターポール最下部のように重りをつけるフックを取り付けられないだろうかと Pole Pod をひっくり返してみました。すると 1/4 規格の穴が開いています。</p>
+      <p class="mid-flow">
+        <img src="fig2018092704.jpg" width="512" height="340">
+      </p>
+      <p>これは勝利したんじゃないかと思いました。センターポール用のフックを検索するまでは。センターポール用のフックのネジサイズって 1/4 はなくて 3/8 のサイズしかないんですね。落胆したのはいうまでもありません。Velbon さん、ここに取り付けるフックを是非とも発売して下さい。お願いします。</p>
+      <p>こうなるとやっぱり Pole Pod の脚になんらかの重さをかけるしかありません。でここで思い出しました。C&amp;F Concept KF-TM2324 のセンターポールにぶら下げることにしたアンクルウェイトです。これを Pole Pod の脚に乗せればいいじゃん。</p>
+      <p class="mid-flow">
+        <img src="fig2018092705.jpg" width="512" height="340">
+      </p>
+      <p>できればもう 2 セット欲しいところですが、この状態で PENTAX *ist DL2 にシグマ 18-200mm F3.5-6.3 を取り付けた状態でも自立させることができました。</p>
+      <p>しばらくはこれで行こうと思います。不安がでればウェイトを増やそうと思います。Velbon Pole Pod III 導入の目的は軽量化ではなく、狭い場所や人の多い場所で三脚のように場所をとって他の人に迷惑をかけないことなのでこれでいいのです。</p>
+      <p>それと忘れてはならないのは三脚部分が安定しても、ポール自体は揺れるということです。指でわずかに触れるだけでも揺れることに変わりはありません。揺れが収まるまでシャッターを切るのは我慢しましょう。当然ボディーのシャッターボタンを押すのではなくレリーズスイッチでシャッターを切るのです。</p>
       <ul class="clear nomark">
          <li class="tag">Category : </li>
          <li class="tag">日記</li>
-         <li class="tag">GIMP</li>
-         <li class="tag">gnu</li>
-         <li class="tag">GNOME Foundation</li>
-         <li class="tag">ソフトウェア</li>
-         <li class="tag">フリーソフトウェア</li>
-         <li class="tag">オープンソースソフトウェア</li>
-         <li class="tag">OSS</li>
+         <li class="tag">カメラ</li>
+         <li class="tag">写真</li>
+         <li class="tag">三脚</li>
+         <li class="tag">一脚</li>
+         <li class="tag">Velbon Pole Pod 3</li>
       </ul>
     </div>
   </div>
