@@ -116,6 +116,10 @@ blockquote {
 .center {
   text-align:center;
 }
+.cancel {
+  text-decoration:line-through;
+  text-decoration-style: double;
+}
 .amazon-link {
   margin:1em;
 }

@@ -38,7 +38,7 @@
     <div id="2018092501" class="top-mutter">
       <h4>PENTAX ユーザを地獄に落とす GIMP 2.10.6 のバグについて</h4>
       <p class="warning center">PENTAX ユーザに警告！！</p>
-      <p>PENTAX のカメラで出力した jpeg 画像もしくは RAW データを現像した jpeg 画像を <a href="https://www.gimp.org/" class="external">GIMP</a> 2.10.x で編集すると <span class="strong">Exif データがすべて失われます</span>。これは GIMP 2.10.x のバグです。<a href="https://gitlab.gnome.org/GNOME/gimp/issues/2253" class="external">BTS に登録</a>されていますがまだ誰も注目していない状態です。</p>
+      <p>PENTAX のカメラで出力した jpeg 画像<span class="cancel">もしくは RAW データを現像した jpeg 画像</span>を <a href="https://www.gimp.org/" class="external">GIMP</a> 2.10.x で編集すると <span class="strong">Exif データがすべて失われます</span>。これは GIMP 2.10.x のバグです。<a href="https://gitlab.gnome.org/GNOME/gimp/issues/2253" class="external">BTS に登録</a>されていますがまだ誰も注目していない状態です。</p>
       <p>具体的には jpeg 内の Exif データは GIMP には読み込まれます。新設された &quot;view metadata&quot; メニューを選べば Exif データが表示されることからそのことがわかります。</p>
       <p>そしてこの jpeg ファイルを jpeg ファイルにそのままエキスポートすると、なんと出力した jpeg ファイルの Exif  データが空っぽになります。この現象は Exif データを書き出す設定にしていても起こりますし、他のブランドのカメラのデータでは起こりません。PENTAX でのみ起こる現象です。</p>
       <p>この現象に対する GIMP 2.10.6 自体での回避策は今のところありません。が、これを回避するための方法が 4 つあります。</p>
