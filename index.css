@@ -175,3 +175,6 @@ blockquote {
   width:1.5em;
   text-align:center;
 }
+span.link {
+  color:dodgerblue;
+}
