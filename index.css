@@ -182,4 +182,24 @@ span.link {
   width:512px;
   height:256px;
 }
+.thumnail-parent {
+  display:flex;
+}
+.thumbnail-box{
+  width:fit-content;
+  margin-top:1em;
+  margin-bottom:1em;
+  /*margin-left:auto;*/
+  margin-right:auto;
+  padding:2em;
+  /*
+  box-shadow:0 0 20px #999;
+  -moz-box-shadow:0 0 20px #999;
+  -webkit-box-shadow:0 0 20px #999;
+  */
+}
+.desc-box{
+  margin-left: 1em;
+  text-align: center;
+}
 
