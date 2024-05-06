@@ -132,6 +132,9 @@ blockquote {
 .black {
   color:black!important;
 }
+span.red {
+	color:red;
+}
 .soundcloudplayer{
   margin:0.5em;
 }
