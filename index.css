@@ -205,12 +205,13 @@ span.link {
   margin-left: 1em;
   text-align: center;
 }
-figcaption.fig2024062301 {
+figcaption {
 	font-size: 0.7em;
+}
+figcaption.fig2024062301 {
 	margin-left:18em;
 }
 figcaption.fig20240730 {
-	font-size: 0.7em;
 	margin-top:0em;
 	margin-bottom:0em;
 	color:gray;
