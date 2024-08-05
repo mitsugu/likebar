@@ -25,6 +25,11 @@
     <meta property="og:image:height" content="340">
 	-->
 
+	<style>
+		li {
+			margin-bottom:0.5em;
+		}
+	</style>
 	<link rel="stylesheet" type="text/css" href="../index.css">
 	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.1.3"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.0.1"></script>
@@ -48,7 +53,56 @@
 			<li class="tag">#blog</li>
 		</ul>
 		<ul class="nomark">
-			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://likebar.harisen.jp/202408/05.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://likebar.harisen.jp/202408/05.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+		<div id="2024080502" class="mutter">
+			<h4>Google My Maps への撮影データのマッピング</h4>
+			<p>8 月 21 日からの旅行に向けて、地図上に撮影した写真をマッピングする方法を確立させた。そのままだと忘却するので手順のメモを以下に残す。</p>
+			<h5>環境</h5>
+			<ul>
+				<li>Ubuntu MATE 24.04</li>
+				<li>Firefox</li>
+				<li>Google Pixel 7</li>
+			</ul>
+			<h5>用意したもの</h5>
+			<ul>
+				<li><a href="https://www.google.com/maps/d/" class="external">Google My Maps</a> を利用できる Google アカウント</li>
+				<li><a href="https://play.google.com/store/apps/details?id=ateow.com.routehistory" class="external">ルートヒストリー〜GPSロガーアプリ〜</a><br>iPhone 用があるかどうかは知らない。<br>GPX 形式でログをエクスポートできるアプリなら他のもので良い。</li>
+				<li>Vim などのテキストエディタ</li>
+				<li>gpscorrelate<br>JPEG ファイルの exif に GPS を記録していない場合に GPX ファイルの内容に日時を突き合わせ、該当する GPS データを exif に書き込む。<br>sudo apt install gpscorrelate でインストール。</li>
+				<li><a href="https://exiftool.org/" class="external">exiftool</a><br>次の exif2csv 内で使用。</li>
+				<li><a href="https://gist.github.com/mitsugu/79d57130be43df36b0cd3b53ff77839d" class="external">exif2csv</a><br>chatGPT 作シェルスクリプト (書くのが面倒だったので)。<br>複数の JPEG ファイルの exif から GPS 情報を取り出して Google My Maps のレイヤーとして利用可能な csv ファイルを作ります。</li>
+			</ul>
+			<h5>手順</h5>
+			<ul>
+				<li>ルートヒストリーのロギングを開始する。</li>
+				<li>移動中にいろいろ撮影する。</li>
+				<li>ルートヒストリーのロギングを終了し、GPX フォーマットでログをエクスポートする。</li>
+				<li>GPX ファイル内のネームスペース rh が未定義なのでテキストエディタで定義を書き加える。これをやらないと Google My Maps にもアップロードできないし gpscorrelate の実行もエラーとなり JPEG 画像に GPS データが書き込めない。<br> xmlns:rh="http://www.mynamespace.com/rh"<br>のように雑でいいかげんな URL を指定してもとりあえずパースエラーは回避できる。</li>
+				<li>もし JPEG ファイルに GPS データを記録していないなら以下を実行して JPEG ファイルに GPS データを書き込む。<br>$ gpscorrelate -g &lt;gps_log_filename&gt; &lt;jpeg_filename&gt;<br>gpscorrelate が画像が撮影された日時と GPS のログを突き合わせて JPEG 画像が撮影された GPS 座標を求める。<br>スマートフォンなどでカメラの GPS を On にしている場合はこの手順は省略可能。</li>
+				<li>exif2csv を使って撮影した JPEG 画像から Google My Maps のレイヤとしてインポート可能な csv ファイルを作る。</li>
+				<li>ルートヒストリーからエクスポートした GPX 形式の GPS ログファイルを Google My Maps の新規 Map にロードする。<br>ネットを検索すると Google My Maps は GPX 形式は未サポートとよく見かけるが現在はサポートしている。なのでフォーマット変換等は不要。</li>
+				<li>exif2csv が出力した csv ファイルを上で新規作成した Map のレイヤとしてロードする。</li>
+				<li>csv ファイルで登録されたレイヤの各座標で撮影した JPEG ファイルをアップロードする。<br>これもネットを検索すると長辺を 128 px にするようにと書かれていることが大半だが、現在は特に画像のリサイズを行わなくてもトラブルがないことを確認済み。</li>
+				<li>あとは今作成した Map の URL を家族で共有して終了。</li>
+			</ul>
+		</div>
+		<ul class="clear nomark">
+			<li class="tag">Category : </li>
+			<li class="tag">#日記</li>
+			<li class="tag">#blog</li>
+			<li class="tag">#GoogleMyMap</li>
+			<li class="tag">#GPS</li>
+			<li class="tag">#写真</li>
+			<li class="tag">#GPS</li>
+			<li class="tag">#手順</li>
+			<li class="tag">#メモ</li>
+			<li class="tag">#GPS</li>
+		</ul>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://likebar.harisen.jp/202408/05.html#2024080502" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
 				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
 			</li>
 		</ul>
