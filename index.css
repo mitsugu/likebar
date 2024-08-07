@@ -60,6 +60,10 @@ h3 {
 .strong {
   font-weight: bold;
 }
+.strikethrough {
+	text-decoration: line-through;
+	color:darkgray;
+}
 .twitter {
   padding:1em;
   background-color:silver;

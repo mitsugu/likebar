@@ -68,19 +68,52 @@
 			</ul>
 			<h5>用意したもの</h5>
 			<ul>
-				<li><a href="https://www.google.com/maps/d/" class="external">Google My Maps</a> を利用できる Google アカウント</li>
-				<li><a href="https://play.google.com/store/apps/details?id=ateow.com.routehistory" class="external">ルートヒストリー〜GPSロガーアプリ〜</a><br><a href="https://apps.apple.com/jp/app/%E3%83%AB%E3%83%BC%E3%83%88%E3%83%92%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC/id1473949280" class="external">iPhone 用もある</a>。<br><a href="https://www.ateow.com/" class="external">サポートサイト</a><br>GPX 形式でログをエクスポートできるアプリなら他のもので良いが、ルートヒストリーが一番安定しているとの評価が多い。</li>
-				<li>Vim などのテキストエディタ (ルートヒストリーバグ対応のため。治ったら不要)</li>
-				<li>gpscorrelate<br>JPEG ファイルの exif に GPS を記録していない場合に GPX ファイルの内容に日時を突き合わせ、該当する GPS データを exif に書き込む。<br>sudo apt install gpscorrelate でインストール。</li>
-				<li><a href="https://exiftool.org/" class="external">exiftool</a><br>次の exif2csv 内で使用。</li>
-				<li><a href="https://gist.github.com/mitsugu/79d57130be43df36b0cd3b53ff77839d" class="external">exif2csv</a><br>chatGPT 作シェルスクリプト (書くのが面倒だったので。ただしバグ等が混入してると困るので中身の確認はしている)。<br>複数の JPEG ファイルの exif から GPS 情報を取り出して Google My Maps のレイヤーとして利用可能な csv ファイルを作ります。</li>
+				<li>
+					<a href="https://www.google.com/maps/d/" class="external">Google My Maps</a> を利用できる Google アカウント
+				</li>
+				<li>
+					<a href="https://play.google.com/store/apps/details?id=ateow.com.routehistory" class="external">ルートヒストリー〜GPSロガーアプリ〜</a><br>
+					<a href="https://apps.apple.com/jp/app/%E3%83%AB%E3%83%BC%E3%83%88%E3%83%92%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC/id1473949280" class="external">iPhone 用もある</a>。<br>
+					<a href="https://www.ateow.com/" class="external">サポートサイト</a><br>
+					GPX 形式でログをエクスポートできるアプリなら他のもので良いが、ルートヒストリーが一番安定しているとの評価も多く、バグへの対応などのサポートもしっかりしている。</li>
+				<li>
+					<del class="strikethrough">Vim などのテキストエディタ (ルートヒストリーバグ対応のため。治ったら不要)</del><br>
+					作者にバグ報告をした結果、現在ではバグが解消されているのでテキストエディタは不要。
+				</li>
+				<li>
+					<a href="https://dfandrich.github.io/gpscorrelate/" class="external">gpscorrelate</a><br>
+					JPEG ファイルの exif に GPS を記録していない場合に GPX ファイルの内容に撮影日時を突き合わせ、該当する GPS データを exif に書き込む。<br>
+					gpscorrelate が自動でやってくれるので自分で exiftool 等で exif タグを書き込む必要はない</br>
+					sudo apt install gpscorrelate でインストール。
+				</li>
+				<li>
+					<a href="https://exiftool.org/" class="external">exiftool</a><br>
+					次の exif2csv 内で使用。
+				</li>
+				<li>
+					<a href="https://gist.github.com/mitsugu/79d57130be43df36b0cd3b53ff77839d" class="external">exif2csv</a><br>
+					chatGPT 作シェルスクリプト (書くのが面倒だったので。ただしバグ等が混入してると困るのでコードチェックはしている)。<br>
+					複数の JPEG ファイルの exif から GPS 情報を取り出して Google My Maps のレイヤーとして利用可能な csv ファイルを作る。
+				</li>
 			</ul>
 			<h5>手順</h5>
 			<ul>
-				<li>ルートヒストリーのロギングを開始する。</li>
-				<li>移動中にいろいろ撮影する。</li>
-				<li>ルートヒストリーのロギングを終了し、GPX フォーマットでログをエクスポートする。</li>
-				<li>GPX ファイル内のネームスペース rh が未定義なのでテキストエディタで定義を書き加える。これをやらないと Google My Maps にもアップロードできないし gpscorrelate の実行もエラーとなり JPEG 画像に GPS データが書き込めない。<br> xmlns:rh="http://www.mynamespace.com/rh"<br>のように雑でいいかげんな URL を指定してもとりあえずパースエラーは回避できる。<br>バグは作者に報告済みで対応バージョンのリリース待ち。</li>
+				<li>
+					ルートヒストリーのロギングを開始する。
+				</li>
+				<li>
+					移動中にいろいろ撮影する。
+				</li>
+				<li>
+					ルートヒストリーのロギングを終了し、GPX フォーマットでログをエクスポートする。
+				</li>
+				<li>
+					<del class="strikethrough">GPX ファイル内のネームスペース rh が未定義なのでテキストエディタで定義を書き加える。これをやらないと Google My Maps にもアップロードできないし gpscorrelate の実行もエラーとなり JPEG 画像に GPS データが書き込めない。<br>
+					xmlns:rh="http://www.mynamespace.com/rh"<br>
+					のように雑でいいかげんな URL を指定してもとりあえずパースエラーは回避できる。<br>
+					バグは作者に報告済みで対応バージョンのリリース待ち。</del><br>
+					バグ対応していただけたのでこの手順は不要となった。
+				</li>
 				<li>もし JPEG ファイルに GPS データを記録していないなら以下を実行して JPEG ファイルに GPS データを書き込む。<br>$ gpscorrelate -g &lt;gps_log_filename&gt; &lt;jpeg_filename&gt;<br>gpscorrelate が画像が撮影された日時と GPS のログを突き合わせて JPEG 画像が撮影された GPS 座標を求める。<br>スマートフォンなどでカメラの GPS を On にしている場合はこの手順は省略可能。</li>
 				<li>exif2csv を使って撮影した JPEG 画像から Google My Maps のレイヤとしてインポート可能な csv ファイルを作る。</li>
 				<li>ルートヒストリーからエクスポートした GPX 形式の GPS ログファイルを Google My Maps の新規 Map にロードする。<br>ネットを検索すると Google My Maps は GPX 形式は未サポートとよく見かけるが現在はサポートしている。なのでフォーマット変換等は不要。</li>
