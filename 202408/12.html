@@ -19,11 +19,9 @@
 	<meta property="og:site_name" content="バーr……blog のようなもの">
 	<meta property="og:html" content="スマホを含むデジカメが出力する JPEG 画像にフレームをつけるプログラムを書いている話。">
 
-	<!--
-    <meta property="og:image" content="">
+    <meta property="og:image" content="https://media.githubusercontent.com/media/mitsugu/likebarPic/main/fig2024081202.jpg">
     <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="340">
-	-->
+    <meta property="og:image:height" content="385">
 
 	<link rel="stylesheet" type="text/css" href="../index.css">
 	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.1.7"></script>
@@ -71,10 +69,12 @@
 			<p>あくまで参考例に過ぎないが自分の USB スティックメモリーに作った環境を以下に書いてこの項を締めたい。</p>
 			<pre>
 D:¥images
-　┣ ¥dest	: フレーム附加格納場所
-　┣ ¥exiftool	: exiftool 実行ファイル等
-　┣ ¥font	: フォントファイル格納場所 (otf もしくは ttf)
-　┣ ¥im	: ImageMagick 実行ファイル等
+　┣ ¥dest	: フレーム追加後画像ファイル格納場所
+　┣ ¥exiftool	: exiftool
+　┣ ¥font	: フォントファイル (otf もしくは ttf)
+　┣ ¥im	: ImageMagick
+　┣ ¥org	: オリジナル画像ファイル
+　┣ ¥src	: フレーム追加前画像ファイル
 　┗ ¥work	: 作業用ファイル (addcopyright 出力先)
 			</pre>
 			<p>images 直下に addcopyright.exe、addframe.exe のプログラム本体、addcopyright.json、addframe.json の設定ファイル、元の画像ファイル等を置いている。</p>
