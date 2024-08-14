@@ -19,7 +19,7 @@
 	<meta property="og:site_name" content="バーr……blog のようなもの">
 	<meta property="og:html" content="スマホを含むデジカメが出力する JPEG 画像にフレームをつけるプログラムを書いている話。">
 
-    <meta property="og:image" content="https://media.githubusercontent.com/media/mitsugu/likebarPic/main/fig2024081202.jpg">
+    <meta property="og:image" content="fig2024081202.jpg">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="385">
 
@@ -52,10 +52,10 @@
 			<p>というわけで Go での再実装の真っ最中なのだ。</p>
 			<p>まだバグ取りとテストが残ってはいるが、現状で PENTAX KP と Google Pixel の撮って出し JPEG 画像に対しては当初の想定仕様通りに動いている。</p>
 			<ul class="nomark">
-			<li><img width="325" height="512" src="https://media.githubusercontent.com/media/mitsugu/likebarPic/main/fig2024081201.jpg"></li>
-			<li><img width="512" height="385" src="https://media.githubusercontent.com/media/mitsugu/likebarPic/main/fig2024081202.jpg"></li>
-			<li><img width="512" height="389" src="https://media.githubusercontent.com/media/mitsugu/likebarPic/main/fig2024081203.jpg"></li>
-			<li><img width="369" height="512" src="https://media.githubusercontent.com/media/mitsugu/likebarPic/main/fig2024081204.jpg"></li>
+			<li><img width="325" height="512" src="fig2024081201.jpg"></li>
+			<li><img width="512" height="385" src="fig2024081202.jpg"></li>
+			<li><img width="512" height="389" src="fig2024081203.jpg"></li>
+			<li><img width="369" height="512" src="fig2024081204.jpg"></li>
 			</ul>
 			<p>プログラムは <a href="https://github.com/mitsugu/addframe" class="external">github</a> で公開しており Ubuntu と Windows 10 で動作することは確認している。しかしまだテストしていないカメラやスマホがあるし、iPhone の HEIC 画像ではバグが発生している (iPhone は画像データがちょっと特殊で例外的な処理を必要とする)。</p>
 			<p>あと Pixel や iPhone などのスマホでは通常 copyright 情報は画像ファイルに記録されない。なのでそのままでは addframe を使うと copyright 情報のところには &quot;-&quot; だけが寂しくプリントされる。</p>
