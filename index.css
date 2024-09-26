@@ -136,6 +136,11 @@ blockquote {
 .black {
   color:black!important;
 }
+iframe {
+	width:34em;
+	height:9em;
+	border:none;
+}
 span.red {
 	color:red;
 }
