@@ -11,7 +11,7 @@ p {
   text-align:justify;
   text-indent:1em;
 }
-p.mid-flow{
+p.mid-flow, p.no-indent {
   text-indent:0em;
 }
 h1 {
