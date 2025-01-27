@@ -79,7 +79,7 @@ img{
   display:inline;
 }
 .close_item:after{
-  content:'/';
+  content:' /';
 }
 .last_close_item{
   display:inline;
