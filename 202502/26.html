@@ -42,7 +42,7 @@
 			<p><a href="https://apps.apple.com/jp/app/liit-%E5%86%99%E7%9C%9F%E5%8A%A0%E5%B7%A5-%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86/id1547215938" class="external">Liit</a> によるフレーム付加がすでに定着しており、今やどの SNS でも Liit でフレームが附加された画像を見ることができる。</p>
 			<p>Liit によるフレーム付加って何？とういう人のために、再度画像をお見せする。Liit を使えば以下のように画像にフレームを付加することができる。メーカーの意匠まで附加された画像が SNS に多数アップされたことで、違法ではないか？と大騒ぎになったことは記憶に新しい。</p>
 			<figure>
-				<img width="512" src="https://rencame.net/wp-content/uploads/2023/07/356302104_215062347836447_5482039937740807066_n.jpeg">
+				<img width="505" src="https://rencame.net/wp-content/uploads/2023/07/356302104_215062347836447_5482039937740807066_n.jpeg">
 				<figcaption>坂本蓮 &quot;<a href="https://rencame.net/liit_app/">坂本くんブログやるってよ</a>&quot; より</figcaption>
 			</figure>
 			<p>大雑把に説明するとスマホやデジタル写真機で撮影した JPEG データには Exif データというものが記録されている。Liit は Exif データの中からユーザが任意の Tag をチョイスし (チョイスできる Tag には制限があるかもしれない)、フレーム上にプリントすることができる。</p>
@@ -109,14 +109,23 @@
 			<dd>
 				<p>フォントがないと addframe はエラーで落ちる。正確には addframe が呼び出している ImageMagick がエラーを返して処理を中断する。ImageMagick が利用できるフォントファイルを Termux 環境にコピーしなければならない。</p>
 				<p>筆者は TrueType フォントと OpenType フォントを使っている。Bitmap フォントはそもそも美しくないこともあり使ったことがない。</p>
+				<p>筆者は ~/Pictures/font ディレクトリにフォントファイルを置いている。</p>
 			</dd>
 			<dt>addcopyright のインストール</dt>
 			<dd>
-				<p>GitHub の README に従ってインストールする。筆者はスマホでメンテナンスも行いたいため、リポジトリを clone してビルドしているが、go install でもビルド、インストールできるはず。</p>
+				<p>以下の手順を推奨。</p>
+				<ol>
+				<li>go install github.com/mitsugu/addcopyright@latest</li>
+				<li>~/go/bin/addcopyright へのシンボリックリンクを /data/data/com.termux/usr/bin に張る。なぜこんな面倒なことをしているのかというと、Termux 環境では PATH 環境変数を変更できないから (まじで何をしても無駄)。</li>
+				</ol>
 			</dd>
 			<dt>addframe のインストール</dt>
 			<dd>
-				<p>GitHub の README に従ってインストールする。筆者はスマホでメンテナンスも行いたいため、リポジトリを clone してビルドしているが、go install でもビルド、インストールできるはず。</p>
+				<p>以下の手順を推奨。</p>
+				<ol>
+				<li>go install github.com/mitsugu/addframe@latest</li>
+				<li>~/go/bin/addframe へのシンボリックリンクを /data/data/com.termux/usr/bin に張る。なぜこんな面倒なことをしているのかというと、Termux 環境では PATH 環境変数を変更できないから (まじで何をしても無駄)。</li>
+				</ol>
 			</dd>
 			<dt>json ファイルの編集</dt>
 			<dd>
