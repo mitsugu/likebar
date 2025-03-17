@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" data-diagram-type="DESCRIPTION" height="833px" preserveAspectRatio="none" style="width:829px;height:833px;background:#FFFFFF;" version="1.1" viewBox="0 0 829 833" width="829px" zoomAndPan="magnify">
+    <defs />
+    <g><!--cluster Microglia-->
+        <g class="cluster" data-entity="Microglia" data-source-line="10" data-uid="ent0003" id="cluster_Microglia">
+            <rect fill="none" height="192.13" rx="20" ry="20" style="stroke:#181818;stroke-width:1;" width="220" x="97.5" y="91.12" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="83.9996" x="165.5002" y="108.0859">&#31070;&#32076;&#28814;&#30151;&#20206;&#35500;</text>
+        </g><!--cluster BDNF-->
+        <g class="cluster" data-entity="BDNF" data-source-line="15" data-uid="ent0006" id="cluster_BDNF">
+            <rect fill="none" height="211.21" rx="20" ry="20" style="stroke:#181818;stroke-width:1;" width="557" x="266.5" y="307.25" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="97.9996" x="496.0002" y="324.2159">&#31070;&#32076;&#21487;&#22609;&#24615;&#20206;&#35500;</text>
+        </g><!--cluster Cortisol-->
+        <g class="cluster" data-entity="Cortisol" data-source-line="23" data-uid="ent0012" id="cluster_Cortisol">
+            <rect fill="none" height="93.07" rx="20" ry="20" style="stroke:#181818;stroke-width:1;" width="164" x="377.5" y="190.18" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="111.9995" x="403.5002" y="207.1459">&#12467;&#12523;&#12481;&#12478;&#12540;&#12523;&#20206;&#35500;</text>
+        </g><!--cluster Monoamines-->
+        <g class="cluster" data-entity="Monoamines" data-source-line="27" data-uid="ent0014" id="cluster_Monoamines">
+            <rect fill="none" height="93.06" rx="20" ry="20" style="stroke:#181818;stroke-width:1;" width="150" x="374.5" y="542.46" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="97.9996" x="400.5002" y="559.4259">&#12514;&#12494;&#12450;&#12511;&#12531;&#20206;&#35500;</text>
+        </g><!--entity MicrogliaActivation-->
+        <g class="entity" data-entity="MicrogliaActivation" data-source-line="11" data-uid="ent0004" id="entity_MicrogliaActivation">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="187.9993" x="113.5" y="129.12" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="167.9993" x="123.5" y="154.0859">&#12511;&#12463;&#12525;&#12464;&#12522;&#12450;&#32048;&#32990;&#12398;&#27963;&#24615;&#21270;</text>
+        </g><!--entity Cytokines-->
+        <g class="entity" data-entity="Cytokines" data-source-line="12" data-uid="ent0005" id="entity_Cytokines">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="173.9993" x="113.5" y="228.18" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.9993" x="123.5" y="253.1459">&#28814;&#30151;&#24615;&#12469;&#12452;&#12488;&#12459;&#12452;&#12531;&#25918;&#20986;</text>
+        </g><!--entity BDNF_Down-->
+        <g class="entity" data-entity="BDNF_Down" data-source-line="16" data-uid="ent0007" id="entity_BDNF_Down">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="88.8657" x="410.07" y="345.25" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68.8657" x="420.07" y="370.2159">BDNF &#20302;&#19979;</text>
+        </g><!--entity Synapse-->
+        <g class="entity" data-entity="Synapse" data-source-line="17" data-uid="ent0008" id="entity_Synapse">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="103.9996" x="397.5" y="453.85" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83.9996" x="407.5" y="478.8159">&#12471;&#12490;&#12503;&#12473;&#33806;&#32302;</text>
+        </g><!--entity Apoptosis-->
+        <g class="entity" data-entity="Apoptosis" data-source-line="18" data-uid="ent0009" id="entity_Apoptosis">
+            <rect fill="#F1F1F1" height="58.1358" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="103.9996" x="703.5" y="444.32" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83.9996" x="713.5" y="469.2859">&#12450;&#12509;&#12488;&#12540;&#12471;&#12473;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78.3997" x="716.3" y="488.3539">(&#31070;&#32076;&#32048;&#32990;&#27515;)</text>
+        </g><!--entity Newborn_Down-->
+        <g class="entity" data-entity="Newborn_Down" data-source-line="19" data-uid="ent0010" id="entity_Newborn_Down">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="131.9995" x="536.5" y="453.85" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111.9995" x="546.5" y="478.8159">&#31070;&#32076;&#32048;&#32990;&#26032;&#29983;&#28187;&#23569;</text>
+        </g><!--entity Nrf2_Down-->
+        <g class="entity" data-entity="Nrf2_Down" data-source-line="20" data-uid="ent0011" id="entity_Nrf2_Down">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="80.8857" x="282.06" y="453.85" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60.8857" x="292.06" y="478.8159">Nrf2 &#20302;&#19979;</text>
+        </g><!--entity Cortisol_Up-->
+        <g class="entity" data-entity="Cortisol_Up" data-source-line="24" data-uid="ent0013" id="entity_Cortisol_Up">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="131.9995" x="393.5" y="228.18" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111.9995" x="403.5" y="253.1459">&#12467;&#12523;&#12481;&#12478;&#12540;&#12523;&#19978;&#26119;</text>
+        </g><!--entity Serotonin_Down-->
+        <g class="entity" data-entity="Serotonin_Down" data-source-line="28" data-uid="ent0015" id="entity_Serotonin_Down">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="117.9996" x="390.5" y="580.46" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97.9996" x="400.5" y="605.4259">&#12475;&#12525;&#12488;&#12491;&#12531;&#20302;&#19979;</text>
+        </g><!--entity Stress-->
+        <g class="entity" data-entity="Stress" data-source-line="8" data-uid="ent0002" id="entity_Stress">
+            <rect fill="#F1F1F1" height="39.0679" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="75.9998" x="268.5" y="18.02" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.9998" x="278.5" y="42.9859">&#12473;&#12488;&#12524;&#12473;</text>
+        </g><!--entity Depression-->
+        <g class="entity" data-entity="Depression" data-source-line="32" data-uid="ent0016" id="entity_Depression">
+            <rect fill="#F1F1F1" height="147.8554" rx="20" ry="20" style="stroke:#181818;stroke-width:0.5;" width="131.9995" x="536.5" y="679.52" /><text fill="#000000" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacing" textLength="53.9997" x="575.4999" y="708.7619">&#12358;&#12388;&#30149;</text>
+            <line style="stroke:#181818;stroke-width:1;" x1="537.5" x2="667.4995" y1="714.0358" y2="714.0358" />
+            <line style="stroke:#181818;stroke-width:1;" x1="537.5" x2="667.4995" y1="716.0358" y2="716.0358" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83.9996" x="560.4999" y="733.0018">&#30333;&#36074;&#20307;&#31309;&#28187;&#23569;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="83.9996" x="560.4999" y="752.0697">&#28023;&#39340;&#20307;&#31309;&#28187;&#23569;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111.9995" x="546.5" y="771.1376">&#21069;&#38957;&#21069;&#37326;&#20307;&#31309;&#28187;&#23569;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111.9995" x="546.5" y="790.2055">&#31070;&#32076;&#20253;&#36948;&#29289;&#36074;&#19981;&#35519;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="69.9997" x="567.4999" y="809.2734">&#33075;&#34880;&#27969;&#30064;&#24120;</text>
+        </g>
+        <g class="entity" data-entity="GMN33" data-source-line="64" data-uid="ent0034" id="entity_GMN33">
+            <path d="M6,233.87 L6,261.576 A0,0 0 0 0 6,261.576 L79.0001,261.576 A0,0 0 0 0 79.0001,261.576 L79.0001,251.87 L113.33,247.72 L79.0001,243.87 L79.0001,243.87 L69.0001,233.87 L6,233.87 A0,0 0 0 0 6,233.87" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+            <path d="M69.0001,233.87 L69.0001,243.87 L79.0001,243.87 L69.0001,233.87" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="52.0001" x="12" y="252.767">&#28814;&#30151;&#21453;&#24540;</text>
+        </g>
+        <g class="entity" data-entity="GMN36" data-source-line="65" data-uid="ent0037" id="entity_GMN36">
+            <path d="M379.6,6 L379.6,33.56 L345,37.56 L379.6,41.56 L379.6,69.118 A0,0 0 0 0 379.6,69.118 L525.4002,69.118 A0,0 0 0 0 525.4002,69.118 L525.4002,16 L515.4002,6 L379.6,6 A0,0 0 0 0 379.6,6" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" />
+            <path d="M515.4002,6 L515.4002,16 L525.4002,16 L515.4002,6" fill="#FEFFDD" style="stroke:#181818;stroke-width:0.5;" /><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124.8002" x="385.6" y="24.897">&#36523;&#20307;&#30340;(&#30142;&#24739;&#12539;&#22806;&#20663;&#31561;)</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="385.6" y="42.603">&#24515;&#29702;&#30340;</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="385.6" y="60.309">&#31038;&#20250;&#30340;</text>
+        </g><!--link Stress to MicrogliaActivation-->
+        <g class="link" data-entity-1="Stress" data-entity-2="MicrogliaActivation" data-source-line="41" data-uid="lnk17" id="link_Stress_MicrogliaActivation">
+            <path d="M289.26,57.56 C271.08,77.58 246.6715,104.4862 228.5815,124.4262" fill="none" id="Stress-to-MicrogliaActivation" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="224.55,128.87,233.5597,124.892,227.9096,125.1669,227.6347,119.5167,224.55,128.87" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Stress to Cortisol_Up-->
+        <g class="link" data-entity-1="Stress" data-entity-2="Cortisol_Up" data-source-line="42" data-uid="lnk18" id="link_Stress_Cortisol_Up">
+            <path d="M320.35,57.4 C349.4,96.93 412.8966,183.3154 442.0166,222.9354" fill="none" id="Stress-to-Cortisol_Up" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="445.57,227.77,443.463,218.1492,442.6089,223.7411,437.0169,222.887,445.57,227.77" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link MicrogliaActivation to Cytokines-->
+        <g class="link" data-entity-1="MicrogliaActivation" data-entity-2="Cytokines" data-source-line="44" data-uid="lnk19" id="link_MicrogliaActivation_Cytokines">
+            <path d="M206.15,168.37 C204.92,185.45 203.5424,204.5856 202.3024,221.7456" fill="none" id="MicrogliaActivation-to-Cytokines" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="201.87,227.73,206.5083,219.0417,202.2304,222.743,198.5291,218.4651,201.87,227.73" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link BDNF_Down to Synapse-->
+        <g class="link" data-entity-1="BDNF_Down" data-entity-2="Synapse" data-source-line="46" data-uid="lnk20" id="link_BDNF_Down_Synapse">
+            <path d="M453.63,384.36 C452.72,403.8 451.5696,428.1765 450.6596,447.6865" fill="none" id="BDNF_Down-to-Synapse" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="450.38,453.68,454.795,444.8761,450.613,448.6854,446.8037,444.5034,450.38,453.68" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link BDNF_Down to Apoptosis-->
+        <g class="link" data-entity-1="BDNF_Down" data-entity-2="Apoptosis" data-source-line="47" data-uid="lnk21" id="link_BDNF_Down_Apoptosis">
+            <path d="M499.03,380.14 C545.74,395.38 621.15,420.5 685.5,444.32 C691.27,446.46 691.6874,446.5867 697.6574,448.9067" fill="none" id="BDNF_Down-to-Apoptosis" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="703.25,451.08,696.31,444.0916,698.5895,449.2689,693.4123,451.5484,703.25,451.08" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link BDNF_Down to Newborn_Down-->
+        <g class="link" data-entity-1="BDNF_Down" data-entity-2="Newborn_Down" data-source-line="48" data-uid="lnk22" id="link_BDNF_Down_Newborn_Down">
+            <path d="M480.62,384.6 C507.51,403.97 544.3018,430.4728 571.2718,449.9028" fill="none" id="BDNF_Down-to-Newborn_Down" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="576.14,453.41,571.1758,444.9037,572.0832,450.4873,566.4995,451.3947,576.14,453.41" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link BDNF_Down to Nrf2_Down-->
+        <g class="link" data-entity-1="BDNF_Down" data-entity-2="Nrf2_Down" data-source-line="49" data-uid="lnk23" id="link_BDNF_Down_Nrf2_Down">
+            <path d="M431.2,384.6 C407.22,403.97 374.7272,430.2094 350.6772,449.6394" fill="none" id="BDNF_Down-to-Nrf2_Down" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="346.01,453.41,355.5245,450.8655,349.8993,450.2678,350.497,444.6426,346.01,453.41" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Nrf2_Down to MicrogliaActivation-->
+        <g class="link" data-entity-1="Nrf2_Down" data-entity-2="MicrogliaActivation" data-source-line="50" data-uid="lnk24" id="link_Nrf2_Down_MicrogliaActivation">
+            <path d="M327.77,453.67 C340.62,403.66 368.12,265.08 304.5,182.18 C300.39,176.83 300.3399,175.6967 294.7599,171.9467" fill="none" id="Nrf2_Down-to-MicrogliaActivation" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="289.78,168.6,295.0187,176.94,293.9299,171.3889,299.481,170.3001,289.78,168.6" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Cytokines to Cortisol_Up-->
+        <g class="link" data-entity-1="Cytokines" data-entity-2="Cortisol_Up" data-source-line="52" data-uid="lnk25" id="link_Cytokines_Cortisol_Up">
+            <path d="M287.76,247.72 C322.87,247.72 351.98,247.72 387.09,247.72" fill="none" id="Cytokines-to-Cortisol_Up" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="393.09,247.72,384.09,243.72,388.09,247.72,384.09,251.72,393.09,247.72" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Cytokines to BDNF_Down-->
+        <g class="link" data-entity-1="Cytokines" data-entity-2="BDNF_Down" data-source-line="53" data-uid="lnk26" id="link_Cytokines_BDNF_Down">
+            <path d="M242.44,267.72 C289.51,289.04 359.9447,320.9539 407.0247,342.2839" fill="none" id="Cytokines-to-BDNF_Down" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="412.49,344.76,405.9428,337.4024,407.9356,342.6966,402.6414,344.6894,412.49,344.76" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Cytokines to Serotonin_Down-->
+        <g class="link" data-entity-1="Cytokines" data-entity-2="Serotonin_Down" data-source-line="54" data-uid="lnk27" id="link_Cytokines_Serotonin_Down">
+            <path d="M199.42,267.53 C197.67,316.46 199.69,449.26 266.5,526.46 C297.81,562.64 343.7474,579.6184 384.2674,588.7684" fill="none" id="Cytokines-to-Serotonin_Down" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="390.12,590.09,382.2221,584.2058,385.2428,588.9887,380.46,592.0093,390.12,590.09" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Cortisol_Up to BDNF_Down-->
+        <g class="link" data-entity-1="Cortisol_Up" data-entity-2="BDNF_Down" data-source-line="56" data-uid="lnk28" id="link_Cortisol_Up_BDNF_Down">
+            <path d="M458.67,267.72 C457.75,289.04 456.5086,317.4356 455.5886,338.7656" fill="none" id="Cortisol_Up-to-BDNF_Down" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="455.33,344.76,459.7141,335.9407,455.5455,339.7646,451.7215,335.596,455.33,344.76" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Synapse to Serotonin_Down-->
+        <g class="link" data-entity-1="Synapse" data-entity-2="Serotonin_Down" data-source-line="58" data-uid="lnk29" id="link_Synapse_Serotonin_Down">
+            <path d="M449.5,493.31 C449.5,516.87 449.5,550.85 449.5,574.3" fill="none" id="Synapse-to-Serotonin_Down" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="449.5,580.3,453.5,571.3,449.5,575.3,445.5,571.3,449.5,580.3" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Apoptosis to Depression-->
+        <g class="link" data-entity-1="Apoptosis" data-entity-2="Depression" data-source-line="60" data-uid="lnk30" id="link_Apoptosis_Depression">
+            <path d="M739.85,502.84 C717.23,543.95 677.5224,616.1032 645.7424,673.8632" fill="none" id="Apoptosis-to-Depression" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="642.85,679.12,650.6931,673.163,645.2603,674.7393,643.684,669.3065,642.85,679.12" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Newborn_Down to Depression-->
+        <g class="link" data-entity-1="Newborn_Down" data-entity-2="Depression" data-source-line="61" data-uid="lnk31" id="link_Newborn_Down_Depression">
+            <path d="M602.5,493.07 C602.5,530.51 602.5,610.54 602.5,673.29" fill="none" id="Newborn_Down-to-Depression" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="602.5,679.29,606.5,670.29,602.5,674.29,598.5,670.29,602.5,679.29" style="stroke:#181818;stroke-width:1;" />
+        </g><!--link Serotonin_Down to Depression-->
+        <g class="link" data-entity-1="Serotonin_Down" data-entity-2="Depression" data-source-line="62" data-uid="lnk32" id="link_Serotonin_Down_Depression">
+            <path d="M468.57,619.87 C485.63,636.76 507.4166,658.3182 532.0166,682.6782" fill="none" id="Serotonin_Down-to-Depression" style="stroke:#181818;stroke-width:1;" />
+            <polygon fill="#181818" points="536.28,686.9,532.6994,677.7251,532.7272,683.3818,527.0704,683.4096,536.28,686.9" style="stroke:#181818;stroke-width:1;" />
+        </g><!--SRC=[TLJVJzDG57xU_IiQdk21Q8nF14WGOdoH1ubFOaYTPJQMUvUsIj2Gi5vaycC38Wv50S6fOMEmP2mK1kEFkMjlzr_OtiwsjymzD7VdVEVSxtpdQmSrVKwHXa52bPAw25EA9Bm7YSGZfChl4DH5PKIHKt16WhgGT1-IwYQVe3VmvIXIeQGAz- -2n3mOlDDf0y8snBWW-2F1n-v143LXGbSbJOiYwAyzMb-ZHfvkPrkD4wTqxE4UoqaLfHHPz8Y4u1w2zubnId2565M2IyGuf6TL1- -Hp8bzrh0N_bXhXHwkmKXIbz-AkemWryY_q2qWHfqOHO-aKMQ7chtLjBANhCled8vUor3Im7oKSuzFsbe_jGustHu-RrRnO6pyOOmp2xMkyorpDO1CZQ5PdX0npWbU8NZRLShPo5FpX84dvg2OrgGOz93WNQRhbLTcN4p2tewEJ0sxqkXZrIDfbDQH9clyx55eeKgtzctpcrNTP2NZqkmBTwkt2Owhq_UYOtZ_VTGyl_4QmMM2CyHeUlnmETogQnTTrf322zIbmbonlsIZ5LDFqx5hiAj1dYcnx-uiuXm4aJZZxIn-IyEpZIVQgbV01c4AIohI4PHXbs76fBJdLzSymZCm993C4iaKwVO7CEJ-0FrwxTHAhUjFz2ZdAmZi-ddxzp4NifPpxHyLxvdDSmb_3QshtNPcYouVUQtCd5Ew0SvYpJbOiEiP-hbgcIPu3e3_tWZz_SDTdHr9HnK3NR0-AF0r2Dp84l_inaT36_5npYknLE2EuFHVzY2WSsi2FXE-ENmyja8GwH2h0vq1kvO5Ox9ik7iGdJEUuvl4im0YNH8KQLeNq7Gekp0W-1yWQprdtNptKQgSUiLWdMqE2CvbsNFCpc8lBJHjuoV13QjOi8npMbdkcuJM3QORIsvw4j9YitMrunx1Nm00]-->
+    </g>
+</svg>
