@@ -1,6 +1,6 @@
 digraph GSK {
 	//GSK3B[label="ＧＳＫー３β\n(不活化したい)", fillcolor="lightgray", style="filled", fontcolor=black, fontname="Helvetica-Bold"];
-	GSK3B[label="ＧＳＫー３β", fillcolor="lightgray", style="filled", fontcolor=black, fontname="Helvetica-Bold"];
+	GSK3B[label="ＧＳＫー３β", fillcolor="lightcoral", style="filled", fontcolor=black, fontname="Helvetica-Bold"];
 	CREB;
 	BDNF;
 	AKT;
@@ -14,15 +14,15 @@ digraph GSK {
 	Neurogenesis [label="神経新生", shape=tripleoctagon, fontname="Helvetica-Bold"];
 	Wnt -> Neurogenesis;
 
-	Bad;
-	Cytokine;
+	Bad[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Cytokine[fillcolor="lightcoral", style="filled", fontcolor=black];
 
 	Li [label="リチウム", shape=box,fillcolor=lightblue, style="filled, rounded"];
 	{rank=min; Li;}
 
-	p53;
-	Bax;
-	Caspases;
+	p53[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Bax[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Caspases[fillcolor="lightcoral", style="filled", fontcolor=black];
 	Li -> p53 [label=" 抑制", arrowhead=tee, style="dashed"];
 	p53 -> Bax;
 	Bax -> Caspases;

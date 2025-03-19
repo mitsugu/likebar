@@ -12,7 +12,7 @@
 <!-- GSK3B -->
 <g id="node1" class="node">
 <title>GSK3B</title>
-<ellipse fill="lightgray" stroke="black" cx="340.38" cy="-339.36" rx="68.59" ry="20.51"/>
+<ellipse fill="lightcoral" stroke="black" cx="340.38" cy="-339.36" rx="68.59" ry="20.51"/>
 <text text-anchor="middle" x="340.38" y="-336.56" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">ＧＳＫー３β</text>
 </g>
 <!-- CREB -->
@@ -78,7 +78,7 @@
 <!-- Bad -->
 <g id="node8" class="node">
 <title>Bad</title>
-<ellipse fill="none" stroke="black" cx="457.38" cy="-339.36" rx="30.69" ry="18"/>
+<ellipse fill="lightcoral" stroke="black" cx="457.38" cy="-339.36" rx="30.69" ry="18"/>
 <text text-anchor="middle" x="457.38" y="-334.69" font-family="Times,serif" font-size="14.00">Bad</text>
 </g>
 <!-- AKT&#45;&gt;Bad -->
@@ -119,7 +119,7 @@
 <!-- Cytokine -->
 <g id="node9" class="node">
 <title>Cytokine</title>
-<ellipse fill="none" stroke="black" cx="497.38" cy="-231.8" rx="55.42" ry="18"/>
+<ellipse fill="lightcoral" stroke="black" cx="497.38" cy="-231.8" rx="55.42" ry="18"/>
 <text text-anchor="middle" x="497.38" y="-227.13" font-family="Times,serif" font-size="14.00">Cytokine</text>
 </g>
 <!-- Bad&#45;&gt;Cytokine -->
@@ -159,7 +159,7 @@
 <!-- p53 -->
 <g id="node11" class="node">
 <title>p53</title>
-<ellipse fill="none" stroke="black" cx="496.38" cy="-434.87" rx="30.16" ry="18"/>
+<ellipse fill="lightcoral" stroke="black" cx="496.38" cy="-434.87" rx="30.16" ry="18"/>
 <text text-anchor="middle" x="496.38" y="-430.19" font-family="Times,serif" font-size="14.00">p53</text>
 </g>
 <!-- Li&#45;&gt;p53 -->
@@ -173,7 +173,7 @@
 <!-- Bax -->
 <g id="node12" class="node">
 <title>Bax</title>
-<ellipse fill="none" stroke="black" cx="536.38" cy="-339.36" rx="30.16" ry="18"/>
+<ellipse fill="lightcoral" stroke="black" cx="536.38" cy="-339.36" rx="30.16" ry="18"/>
 <text text-anchor="middle" x="536.38" y="-334.69" font-family="Times,serif" font-size="14.00">Bax</text>
 </g>
 <!-- p53&#45;&gt;Bax -->
@@ -185,7 +185,7 @@
 <!-- Caspases -->
 <g id="node13" class="node">
 <title>Caspases</title>
-<ellipse fill="none" stroke="black" cx="628.38" cy="-231.8" rx="58.05" ry="18"/>
+<ellipse fill="lightcoral" stroke="black" cx="628.38" cy="-231.8" rx="58.05" ry="18"/>
 <text text-anchor="middle" x="628.38" y="-227.13" font-family="Times,serif" font-size="14.00">Caspases</text>
 </g>
 <!-- Bax&#45;&gt;Caspases -->
