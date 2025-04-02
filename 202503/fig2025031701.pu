@@ -45,6 +45,8 @@
 		rectangle "セロトニン低下" as serotonin
 	}
 	synapse -down-> serotonin
+	Cytokine -down-> serotonin
+
 	rectangle depression [
 		= うつ病
 		====
