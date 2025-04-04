@@ -30,6 +30,9 @@
 		figcaption {
 			text-align:center;
 		}
+		.indent {
+			text-indent:1em;
+		}
 	</style>
 </head>
 
@@ -77,10 +80,19 @@
 			<li><a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a>
 				<p>本来は情報システム設計のための UML 図を作成するためのプログラム。ただシステムの設計場面で UML 以外の図も必要になることから UML 以外の図もある程度サポートしている。</p>
 				<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> ではもともとはロジックツリーフォーマットの図を描きたかったが、テキストからロジックツリーを生成するプログラムが現存しないため、PlantUML の <a href="https://plantuml.com/ja/wbs-diagram" class="external" target="_blank">Work Breakdown Structure 図</a>をロジックツリーの代用とした。人によってはマインドマップを代用とすることもある。</p>
-				<p>また <a href="https://plantuml.com/ja/activity-diagram-beta#f4c6f851b00d5518" class="external" target="_blank">note  という注釈用の箱</a>を描くことが簡単にできることや、各ボックスの関係を描くのが容易、ボックスの中に簡単にボックスを入れ子にできることもあり、<a href="../202503/fig2025031701.svg" target="_blank">うつ病の発生機序を示す図</a>で使用した。<a href="../202503/fig2025031701.pu" target="_blank" download="fig2025031701.pu">同図の PlantUML のソースファイル</a>もサイトにアップロードしている。</p>
+				<figure>
+					<a href="https://mitsugu.github.io/heritage/index.svg" target="_blank"><img src="https://mitsugu.github.io/heritage/index.svg" width="30%"></a>
+				</figure>
+				<p>また <a href="https://plantuml.com/ja/activity-diagram-beta#f4c6f851b00d5518" class="external" target="_blank">note  という注釈用の箱</a>を描くことが簡単にできることや、各ボックスの関係を描くのが容易、ボックスの中に簡単にボックスを入れ子にできることもあり、<a href="../202503/fig2025031701.svg" target="_blank">うつ病の発生機序を示す図</a>でも使用した。<a href="../202503/fig2025031701.pu" target="_blank" download="fig2025031701.pu">同図の PlantUML のソースファイル</a>もサイトにアップロードしている。</p>
+				<figure>
+					<a href="../202503/fig2025031701.svg" target="_blank"><img src="../202503/fig2025031701.svg" width="30%"></a>
+				</figure>
 			</li>
 			<li><a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a>
-				<p>薬やタンパク質などの各種因子、ホルモンなどの持つ抑制を表現するためのコネクションの Tee ヘッドを唯一表現できるため <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> では<a href="../202503/fig2025031803.svg" target="_blank">薬や非薬物療法がどのように作用するのかを示した図</a>を描くのに利用している。<a href="../202503/fig2025031803.dot" target="_blank" download="svgfig2025031701.dot">この図の GraphViz のソースファイル</a>もサイトにアップロードしている。<br>
+				<p>薬やタンパク質などの各種因子、ホルモンなどの持つ抑制を表現するためのコネクションの Tee ヘッドを唯一表現できるため <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> では<a href="../202503/fig2025031803.svg" target="_blank">薬や非薬物療法がどのように作用するのかを示した図</a>を描くのに利用している。<a href="../202503/fig2025031803.dot" target="_blank" download="svgfig2025031701.dot">この図の GraphViz のソースファイル</a>もサイトにアップロードしている。</p>
+				<figure>
+					<a href="../202503/fig2025031803.svg" target="_blank"><img src="../202503/fig2025031803.svg" width="30%"></a>
+				</figure>
 				<div>使用可能なレイアウトエンジン
 					<ul>
 					<li>dot: GraphViz のデフォルトレイアウトエンジン</li>
@@ -88,16 +100,20 @@
 					</ul>
 					<p>パソコン上のローカル環境、つまり端末上で動かす場合、他にもレイアウトエンジンがあるのでそれらも選ぶことができる。レイアウトエンジンの種類は一番多いがそれぞれのレイアウトエンジンの使いどころがよくわからない。</p>
 				</div>
-				</p>
 			</li>
 			<li><a href="https://mermaid.js.org/" class="external" target="_blank">MermaidJS</a>
 					<p>生成される図はカラフルで美しいが、汎用的な図を描くの適しているかと言うと PlantUML や D2 とあまりかわらないように感じる。そのようなこともあり個人的にはあまり必要性を感じられず、ほとんど使っていない。綺麗ではあるのだけれど。</p>
 					<p>ただマインドマップは本当にマインドマップらしい画像を出してくる。もちろん<a href="https://buzanmindmap.co.uk/" class="external" target="_blank">オリジナルのトニー・ブザン氏のマインドマップ</a>にはかなわない。</p>
+					<p>またレーダーチャートや円グラフなど他のソフトウェアでは描けない図を描くことができるので、何が描けるのかを公式サイトでチェックしておくとよいと思う。</p>
+					<p>いろんな図がカラフルに描かれるので使ってみたいと惹かれると思う。</p>
 					<p>コネクションの矢印ヘッドの種類が増えるかカスタマイズできるようになれば、他を押しのけて第 1 選択肢になると思う。時間をつくってもう少し評価を深めたい。</p>
 			</li>
 			<li><a href="https://github.com/terrastruct/d2" class="external" target="_blank">D2</a>
 				<p>もしかすると汎用的な図を描く目的があって、このソフトが目的を満たすのであれば PlantUML 以上によい選択肢かもしれない。</p>
-				<p>ソースの構造が html や css、オブジェクト指向言語の影響を受けており、ソースの可読性が非常に高い (ただしパンチ量は増える)。プログラマーだと一番好きになりそうな変換プログラムかもしれない。筆者はこのテキストファイルの記法が一番気に入っている。</p>
+				<p><a href="fig2025040401.d2" target="_blank">ソース</a>の構造が html や css、オブジェクト指向言語の影響を受けており可読性が非常に高い (ただしそのためにパンチ量が増える場合もある)。プログラマーだと一番好きになりそうな変換プログラムかもしれない。筆者はこのテキストファイルの記法が一番気に入っている。</p>
+				<figure>
+					<a href="fig2025040401.svg" target="_blank"><img src="fig2025040401.svg" width="30%"></a>
+				</figure>
 				<div>使用可能なレイアウトエンジン
 					<ul>
 					<li><a href="https://d2lang.com/tour/dagre/" class="external" target="_blank">Dagre</a>: GraphViz のレイアウトに似たレイアウトになる D2 のデフォルトレイアウトエンジン</li>
@@ -109,7 +125,7 @@
 			</ul>
 			<p>このサイトでデモを見ることができるのだけれど、ほぼ全てを TypeScript という Web ブラウザで動作するプログラミング言語で実装していることもあり、パフォーマンスや Web ブラウザへの負荷が高いという問題もある。とはいえ簡便に各プログラムの差異を確認する程度の利用であれば大きな問題は発生しないかと思う。</p>
 			<p>デモを見た上でこれらのツールを都度適切にチョイスすればよいと思う。筆者がつくった図ももちろん参照していただければ幸いである。</p>
-			<p>次回は実際のそれぞれのプログラムの使い方について説明していきたいと思う。</p>
+			<p>次回から実際のそれぞれのプログラムの使い方について説明していきたいと思う。</p>
 			<ul class="clear nomark">
 				<li class="tag">Category : </li>
 				<li class="tag">#日記</li>
@@ -124,6 +140,87 @@
 			</ul>
 		</div>
 		<div id="2025040403" class="mutter">
+			<h4>思考整理のためのツールを考える【付録 A】</h4>
+			<p>これまで述べてきたツールや Web でも使えるアイコンのリストを見つけたのでメモしておく。</p>
+			<dl>
+			<dt>Icônes</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd><div class="indent"><a href="https://github.com/antfu" class="external" target="_blank">@antfu</a> によって開始され、現在は貢献者のチームによって維持されているパッケージ群のうちの svg アイコン。素晴らしい。</div></dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://icones.js.org/" class="external" target="_blank">https://icones.js.org/</a></dd>
+				<dt>ライセンス</dt>
+				<dd><a href="https://github.com/antfu-collective/icones/blob/main/LICENSE" class="external" target="_blank">MIT License</a> - Anthony Fu 2020</dd>
+				</dl>
+			</dd>
+			<dt>Icons for D2</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd><a href="https://icons.terrastruct.com/" class="external" target="_blank">Terrastruct</a> 社が維持管理している svg アイコン群。法的に有効なライセンスがどこにも明記されていないので不安は残るが Terrastruct 社は将来的にも D2 や Web で無償で使って構わないとホームページに記載している。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://icons.terrastruct.com/" class="external" target="_blank">https://icons.terrastruct.com/</a></dd>
+				<dt>ライセンス</dt>
+				<dd><div class="indent">詳細は不明だが Web ページに以下の記載がある (原文は英語)。</div>
+					<div>&quot;D2 ダイアグラムで使用するために厳選されたアイコンとグラフィックのコレクション。これらのホストされたアイコンは、お客様の便宜のために無料で提供されていますが、D2 はこれらを使用することに一切制限されていません。D2 のアイコンは、Web またはローカル上の任意の画像に設定できます。アイコンは追加または削除される可能性がありますが、既存の URL のアイコンが期限切れになったり変更されたりすることはありません。&quot;</div>
+					<div class="indent">少なくともオープンソースライセンスであるとはどこにも明記はされていない。Terrastruct, Inc. が Social にある各社意匠のライセンスフィーを負担しているのかもしれず、それらを問題なく使用し、成果物を公開してもかまわないのかもしれない。しかしライセンスが明確化されているわけでもない。Social にある各社意匠は保守的に利用、つまり私的利用にとどめた方が法的に安全かもしれない。</div>
+				</dd>
+				</dl>
+			</dd>
+			<dt>SVG Repo - Free SVG Vectors and Icons</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd>有限会社 SVG Repo が維持管理するフリーなライセンスで公開されている svg アイコン集。これも素晴らしい。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://www.svgrepo.com/" class="external" target="_blank">https://www.svgrepo.com/</a></dd>
+				<dt>ライセンス</dt>
+				<dd>ライセンスのページに<a href="https://www.svgrepo.com/page/licensing/" class="external" target="_blank">ライセンスの種類がリストされている</a>。個々の svg 画像のライセンスは各画像のページに記載されているので、そこで確認することになる。</dd>
+				</dl>
+			</dd>
+			<dt>Font-Awesome</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd>Font Awesome というコミュニティ(？) が維持管理している svg リソース集。株式会社なのか任意団体なのか不明だが <a href="https://github.com/FortAwesome/Font-Awesome" class="external" target="_blank">github.com 上でオープンソースライセンス等のオープンなライセンスにより svg アイコンが公開されている</a>。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://github.com/FortAwesome/Font-Awesome" class="external" target="_blank">https://github.com/FortAwesome/Font-Awesome</a></dd>
+				<dt>ライセンス</dt>
+				<dd>ライセンスに複数のライセンスがリストされており、画像単位でライセンスが明記されてはいないので、デュアルライセンスだと思われる。<a href="https://fontawesome.com/" class="external" target="_blank">公式ホームページ</a>では有償ライセンスの拡張版も販売されている。</dd>
+				</dl>
+			</dd>
+			<dt>Google Fonts</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd>Google が公開管理している icon 集。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://fonts.google.com/icons?icon.size=24&icon.color=%231f1f1f" class="external" target="_blank">https://fonts.google.com/icons?icon.size=24&icon.color=%231f1f1f</a></dd>
+				<dt>ライセンス</dt>
+				<dd>icon のライセンスは <a href="https://github.com/google/material-design-icons/tree/master?tab=Apache-2.0-1-ov-file" class="external" target="_blank">Apache License 2.0</a>。</dd>
+				</dl>
+			</dd>
+			<dt>Tango Desktop Project</dt>
+			<dd>プロジェクトが終了している？サイトがすでに存在していない。</dd>
+			</dl>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#GraphViz</li>
+				<li class="tag">#MermaidJS</li>
+				<li class="tag">#D2</li>
+				<li class="tag">#SVG</li>
+				<li class="tag">#svg</li>
+				<li class="tag">#アイコン</li>
+			</ul>
+		</div>
+		<div id="2025040404" class="mutter">
 			<h4>早めに終わらせておかないといけないかもリスト</h4>
 			<p>つい先程、これはやっておきたいことを早めに終えておかないといけないかも、と思わせるできごとがあったので、その早めにやっておきたいことリストをメモしておく。できごと自体は確定ではないので確定したら公開するかもしれないし、しないかもしれない。現時点ではもしかして、という個人の予感にすぎないので伏せておく。</p>
 			<ul>
@@ -137,10 +234,10 @@
 				<ul>
 				<li>☑ ソフト利用選択基準</li>
 				<li>☐ PlantUML の使い方</li>
-				<li>☐ Graphviz の使い方</li>
+				<li>☐ GraphViz の使い方</li>
 				<li>☐ D2 の使い方</li>
 				<li>☐ Marmaid.js の使い方</li>
-				<li>☐ 出力画像フォーマットの選択について</li>
+				<li><del>☐ 出力画像フォーマットの選択について</del></li>
 				</ul>
 			</li>
 			<li>最悪の事態を想定し残務になりかねない様々な処理を行っておく (現時点で詳細は伏せる)。</li>
