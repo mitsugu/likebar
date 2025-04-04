@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>バーr……blog のようなもの</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/04.html">
+	<meta name="title" content="思考整理のためのツールを考える Part 1">
+	<meta name="description" content="思考整理のためにシステム設計用ツールの応用を試みる Part 1">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツールを考える Part 1">
+	<meta property="og:description" content="思考整理のためにシステム設計用ツールの応用を試みる Part 1">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/04.html">
+	<meta property="og:site_name" content="バーr……blog のようなもの">
+	<meta property="og:html" content="思考整理のためにシステム設計用ツールの応用を試みる Part 1">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025040401.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="209">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.2.0"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		figcaption {
+			text-align:center;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>バーr……blog のようなもの 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250404">04 月 04 日 ( 金 )</h3>
+		<div id="2025040401" class="top-mutter">
+			<h4>思考整理のためのツールを考える Part 1</h4>
+			<p>タイトルとは若干異なり、思考整理のためにシステム設計用ツールの応用を試みる、というお話になる。</p>
+			<p>このことを考えるきっかけになったのは <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> と名付けた自分の疾患の 30 年に渡る知見をまとめたサイトを作り、それを訪問看護の看護師さんに見せたことによる。</p>
+			<p>話の成り行きでツールを教えて欲しいとの看護師さんの要望を受け取った。<a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">Graphviz</a> であるとツール名は伝えたのだけれど、どうせならそれらを思考整理のためにどのように使っているのかまとめたほうが良かろうと考えた。</p>
+			<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> には <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">Graphviz</a> というソフトウェアで作成した svg フォーマットの図が描かれている。これらのソフトウェアはテキストエディタで作成したテキストファイルを画像に変換する。</p>
+			<p>画像のレイアウトはソフトウェアに任せるということになり、あまりユーザが自由自在にレイアウトできるわけではない。というよりも自由にレイアウトするのはほぼ不可能である。</p>
+			<p>システム・エンジニアやプログラマーは、システムの要件整理やシステムの最適化、システムの設計、システムの実装に重点的に時間を割り振りたいと願うようになる職能なので、仕事上では図の作成や修正などのオペレーション作業になるべく時間を取られたくないと願うことが多い。そのためソフトウェアに任せることができることは任せてしまえと考える人間が多い。筆者もその一人になる。</p>
+			<p>Photoshop などの画像編集ソフトは美しい図を作成することができる。Photoshop などの画像編集ソフトの問題は編集に時間がかかりすぎるということに尽きる。なにかを最も早く編集できるものは何かと問われたらプログラマーなら十中八九それはテキストだと答えるであろう。</p>
+			<p>そのように考える先人はたくさんいたに違いない。そのようなニーズを持つ先人たちが作り上げ今もメンテナンスを続けているのが先に述べた <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> や <a href="https://graphviz.org/" class="external" target="_blank">Graphviz</a> などのツールになる。</p>
+			<p>これらのツールを使う前提として知っておかねばならないのが、ユーザはソースとなるテキストファイルを作成し、それらをツールで変換し、目的の画像を得る、というのがだいたいの作業手順となるということだ。</p>
+			<figure>
+				<a href="fig2025040401.svg" target="_blank"><img width="100%" src="fig2025040401.svg"></a>
+				<figcaption>図 作業手順概念図 (<a href="https://d2lang.com/" class="external" target="_blank">D2</a> により作成)</figcaption>
+			</figure>
+			<p>変換作業があるので一見手間がかかりそうな気がするかもしれない。実際には変換自体はプログラムがやるので、変換中の図を作っている本人の手間はまったくない。</p>
+			<p>それだけではなくテキストファイルの編集の過程で、思考の整理に集中できるというメリットが非常に大きい。それに伴ってさまざまなエピソードを思い出したり新しい知見が発現することすらあるので、テーマに対する知見がますます深まるという効果もある。</p>
+			<p>筆者はマインドマップや KJ 法、その他ブレインストーミングのための技法などビジネスの様々な場面で利用されているメソッドとの共通点を強く感じている。テキストファイルを利用した思考整理はエンジニア以外の人にもお勧めしたい。</p>
+			<p>テキストファイルで思考を整理するのもかなり有効ではあるが、そのテキストファイルを元に図として可視化されると、自身の思考を俯瞰するのにも非常に都合がよい。山を登ったり国内外を移動するのに地図を大きく広げて見るようなものだ。</p>
+			<p>自分自身の思考でここはおかしんじゃないか？とか、これは間違ってるなとか、ここは過剰ではないか？とか、そもそも進むべき道を間違えてるとか、そのような自身の考えの間違いや、望ましくない考えや、望ましくない考えの強度にも気が付きやすくなる。</p>
+			<p>単純化して言うなら一連の作業は<strong>思考の整理とアップデート、見える化に非常に有効</strong>だということになる。</p>
+			<p>次回は具体的にどのようなツールがあって、それぞれどのようなときに向いているのかを、不完全なものになるであろうが整理していきたいと思う。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+			</ul>
+		</div>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/04.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+
