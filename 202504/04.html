@@ -69,6 +69,61 @@
 			</ul>
 		</div>
 		<div id="2025040402" class="mutter">
+			<h4>思考整理のためのツールを考える Part 2</h4>
+			<p>日が変わっていないが書いた。</p>
+			<p>ツールを選択する場合にそれぞれのツールのデモを見ることができるとありがたい。そしてそのような Web サイトがあった。<a href="https://text-to-diagram.com/" class="external" target="_blank">Community list of comparisonsbetween Text to Diagram tools</a> というサイトがそれである。</p>
+			<p>このサイトのデモでは以下のソフトウェアの実行結果を閲覧することができる。GraphViz と D2 は複数のレイアウトエンジンから 1 つを選ぶことができる。</p>
+			<ul>
+			<li><a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a>
+				<p>本来は情報システム設計のための UML 図を作成するためのプログラム。ただシステムの設計場面で UML 以外の図も必要になることから UML 以外の図もある程度サポートしている。</p>
+				<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> ではもともとはロジックツリーフォーマットの図を描きたかったが、テキストからロジックツリーを生成するプログラムが現存しないため、PlantUML の <a href="https://plantuml.com/ja/wbs-diagram" class="external" target="_blank">Work Breakdown Structure 図</a>をロジックツリーの代用とした。人によってはマインドマップを代用とすることもある。</p>
+				<p>また <a href="https://plantuml.com/ja/activity-diagram-beta#f4c6f851b00d5518" class="external" target="_blank">note  という注釈用の箱</a>を描くことが簡単にできることや、各ボックスの関係を描くのが容易、ボックスの中に簡単にボックスを入れ子にできることもあり、<a href="../202503/fig2025031701.svg" target="_blank">うつ病の発生機序を示す図</a>で使用した。<a href="../202503/fig2025031701.pu" target="_blank" download="fig2025031701.pu">同図の PlantUML のソースファイル</a>もサイトにアップロードしている。</p>
+			</li>
+			<li><a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a>
+				<p>薬やタンパク質などの各種因子、ホルモンなどの持つ抑制を表現するためのコネクションの Tee ヘッドを唯一表現できるため <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> では<a href="../202503/fig2025031803.svg" target="_blank">薬や非薬物療法がどのように作用するのかを示した図</a>を描くのに利用している。<a href="../202503/fig2025031803.dot" target="_blank" download="svgfig2025031701.dot">この図の GraphViz のソースファイル</a>もサイトにアップロードしている。<br>
+				<div>使用可能なレイアウトエンジン
+					<ul>
+					<li>dot: GraphViz のデフォルトレイアウトエンジン</li>
+					<li>neato : よくわからないが、汎用的な図の場合、図がこじんまりとした感じになり見やすい図が出力されるとは限らない。どちらかというと筆者は苦手。</li>
+					</ul>
+					<p>パソコン上のローカル環境、つまり端末上で動かす場合、他にもレイアウトエンジンがあるのでそれらも選ぶことができる。レイアウトエンジンの種類は一番多いがそれぞれのレイアウトエンジンの使いどころがよくわからない。</p>
+				</div>
+				</p>
+			</li>
+			<li><a href="https://mermaid.js.org/" class="external" target="_blank">MermaidJS</a>
+					<p>生成される図はカラフルで美しいが、汎用的な図を描くの適しているかと言うと PlantUML や D2 とあまりかわらないように感じる。そのようなこともあり個人的にはあまり必要性を感じられず、ほとんど使っていない。綺麗ではあるのだけれど。</p>
+					<p>ただマインドマップは本当にマインドマップらしい画像を出してくる。もちろん<a href="https://buzanmindmap.co.uk/" class="external" target="_blank">オリジナルのトニー・ブザン氏のマインドマップ</a>にはかなわない。</p>
+					<p>コネクションの矢印ヘッドの種類が増えるかカスタマイズできるようになれば、他を押しのけて第 1 選択肢になると思う。時間をつくってもう少し評価を深めたい。</p>
+			</li>
+			<li><a href="https://github.com/terrastruct/d2" class="external" target="_blank">D2</a>
+				<p>もしかすると汎用的な図を描く目的があって、このソフトが目的を満たすのであれば PlantUML 以上によい選択肢かもしれない。</p>
+				<p>ソースの構造が html や css、オブジェクト指向言語の影響を受けており、ソースの可読性が非常に高い (ただしパンチ量は増える)。プログラマーだと一番好きになりそうな変換プログラムかもしれない。筆者はこのテキストファイルの記法が一番気に入っている。</p>
+				<div>使用可能なレイアウトエンジン
+					<ul>
+					<li><a href="https://d2lang.com/tour/dagre/" class="external" target="_blank">Dagre</a>: GraphViz のレイアウトに似たレイアウトになる D2 のデフォルトレイアウトエンジン</li>
+					<li><a href="https://d2lang.com/tour/elk/" class="external" target="_blank">ELK</a>: 矢印線が垂直線と水平線になるようにレイアウトされるエンジン</li>
+					<li><a href="https://d2lang.com/tour/tala/" class="external" target="_blank">TALA</a>: 表現力は最高のレイアウトエンジンであるが利用にはサブスクリプション契約が必要 ($20/月 ≒ ¥3000/月)</li>
+					</ul>
+				</div>
+			</li>
+			</ul>
+			<p>このサイトでデモを見ることができるのだけれど、ほぼ全てを TypeScript という Web ブラウザで動作するプログラミング言語で実装していることもあり、パフォーマンスや Web ブラウザへの負荷が高いという問題もある。とはいえ簡便に各プログラムの差異を確認する程度の利用であれば大きな問題は発生しないかと思う。</p>
+			<p>デモを見た上でこれらのツールを都度適切にチョイスすればよいと思う。筆者がつくった図ももちろん参照していただければ幸いである。</p>
+			<p>次回は実際のそれぞれのプログラムの使い方について説明していきたいと思う。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#GraphViz</li>
+				<li class="tag">#MermaidJS</li>
+				<li class="tag">#D2</li>
+			</ul>
+		</div>
+		<div id="2025040403" class="mutter">
 			<h4>早めに終わらせておかないといけないかもリスト</h4>
 			<p>つい先程、これはやっておきたいことを早めに終えておかないといけないかも、と思わせるできごとがあったので、その早めにやっておきたいことリストをメモしておく。できごと自体は確定ではないので確定したら公開するかもしれないし、しないかもしれない。現時点ではもしかして、という個人の予感にすぎないので伏せておく。</p>
 			<ul>
@@ -80,7 +135,7 @@
 			</li>
 			<li>今朝から書き始めた<a href="#2025040401">思考整理のためのツールを考える</a> を書き上げる。
 				<ul>
-				<li>☐ ソフト利用選択基準</li>
+				<li>☑ ソフト利用選択基準</li>
 				<li>☐ PlantUML の使い方</li>
 				<li>☐ Graphviz の使い方</li>
 				<li>☐ D2 の使い方</li>
