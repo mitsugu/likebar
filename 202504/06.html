@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>バーr……blog のようなもの</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/06.html">
+	<meta name="title" content="思考整理のためのツールを考える Part 3">
+	<meta name="description" content="思考整理ツールとして PlantUML の目的外使用を試してみる (1)">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツールを考える Part 3">
+	<meta property="og:description" content="思考整理ツールとして PlantUML の目的外使用を試してみる (1)">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/06.html">
+	<meta property="og:site_name" content="バーr……blog のようなもの">
+	<meta property="og:html" content="思考整理ツールとして PlantUML の目的外使用を試してみる (1)">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025040601.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="430">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<link href="../prism.css" rel="stylesheet">
+	<script src="../prism.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.2.0"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>バーr……blog のようなもの 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250406">04 月 06 日 ( 日 )</h3>
+		<div id="2025040601" class="top-mutter">
+			<h4>思考整理のためのツールを考える Part 3</h4>
+			<p>本日は思考整理ツールとして PlantUML の目的外使用方法例を記載する。何故目的外使用なのかというと、昨日の日記でも触れたように PlantUML は本来 UML を描くためのソフトウェアだからである。</p>
+			<p>PlantUML に限らないが昨日からまとめ始めているテキストファイルから図を生み出す方法論の真髄は、よくあるテキストエディタでもってサクサクと図を描いたり修正したりという作業を効率よく行うことにあり、思考の整理はテキストエディタでテキストを編集しているときに頭の中で行なわれることにある。</p>
+			<p>なのでこの方法論での主役は、テキストエディタでもなく、紹介するソフトウェアでもなく、あなたの頭脳ということになる。少くとも状況整理や問題解決のための情報整理に集中する思考形態が開発されやすくなるので、取り組むことをお勧めしたい。</p>
+			<p>最初に PlantUML で思考を整理する際に活用できる部品を紹介する。以下のような部品を使うことができる。</p>
+			<figure>
+				<a href="fig2025040601.svg" target="_blank"><img width="512" src="fig2025040601.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040601.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>これらの部品のことを PlantUML ではエレメントと呼ぶので以降はエレメントと呼ぶことにする。UML で使われるものばかりではあるが思考整理目的で使うのであるから自由に選んで使ってよい。使用頻度が最も高くなるのは rectangle かもしれない。その名の通り長方形が描かれる。</p>
+			<p>ソースファイルでの各エレメントの書き方は以下のようになる。</p>
+			<pre><code class="language-plantuml">rectangle "四角形その 1"</code></pre>
+			<p>または</p>
+			<pre><code class="language-plantuml">rectangle "四角形その 2" as r2</code></pre>
+			<p>rectagnel はエレメントの形状を示し &quot;&quot; で囲まれた文字列はエレメント内もしくはエレメントのそばに表記される文字列になる。&quot; as r2&quot; は何かと言うとエレメントに r2 という別名をつけている。</p>
+			<p>エレメント内の文字列は通常重複できないのだけれど、それでは 1 つの種類のエレメントは 1 つしか描けないということになり非常に都合が悪い。そこで下の例のように別名をつけることで、それらは異るエレメントであるとプログラムに解釈させることができ、同じ文字列の異るエレメントを図に入れ込むことが可能となる。</p>
+			<p>また後で述べるリレーションをエレメント間に引く場合に、エレメントの別名を決めておくとパンチの量を減らすとができるというメリットもある。エレメント内の文字列を長くしたくなるというのはよくあることだ。</p>
+			<figure>
+				<a href="fig2025040602.svg" target="_blank"><img width="512" src="fig2025040602.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040602.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上図ではエレメントが横に並べられているが、これは恐らく PlantUML による図の自動判別機能によりオブジェクト図が選択されているのではないかと推察する。</p>
+			<p>この自動判定を off にする方法は提供されていない。PlantUML は本来 UML を描くためのソフトウェアなのであって、@startuml と @enduml に囲まれたテキストがどのように書かれているかによって UML の何の図かを自動判別する。</p>
+			<p>PlantUML を使った思考整理ではこのオブジェクト図を、本来の目的とは異なるが、応用することになる。もちろん他の図で適したものがあればそれを使ってもよい。UML を描くツールを使いはするが UML を描くわけではないのでツールを自由に使ってよい。</p>
+			<p>各エレメント間にリレーション、つまり矢印線を引くと図に方向が発生する。デフォルトの方向が縦なので、やはり PlantUML はこの図をオブジェクト図だと判定しているものと思われる。</p>
+			<figure>
+				<a href="fig2025040603.svg" target="_blank"><img width="340" src="fig2025040603.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040603.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上図では図は上下に流れているが、左右に方向を変更することもできる。左右に方向を変えるのに最も簡便な方法としてはソースに以下の行を加えることがある。</p>
+			<pre><code class="language-plantuml">left to right direction</code></pre>
+			<p>下図で上記コードを最初の行に入れている。</p>
+			<figure>
+				<a href="fig2025040604.svg" target="_blank"><img width="512" src="fig2025040604.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040604.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>図の流れをもう少し制御したいと願うのは人の自然な心の発露である。あまり自由度はないのだが、リレーションの方向を指定するとで、多少は次のエレメントをどの方向に置くのかを、ある程度コントロールすることができる。ただしあくまである程度ということにはなる。</p>
+			<figure>
+				<a href="fig2025040605.svg" target="_blank"><img width="512" src="fig2025040605.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040605.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ソースを見ればわかるが、3 つ目の図の以下のリレーションに対して</p>
+			<pre><code class="language-plantuml">--&gt;</code></pre>
+			<p class="no-indent">下のように right を加えただけである。</p>
+			<pre><code class="language-plantuml">-right-&gt;</code></pre>
+			<p>このリレーションの方向には up、down、left、right の 4 つを指定することができる。逆に言えばこの 4 つしか指定できない。</p>
+			<p>エレメントの選択、リレーションの設定、デフォルト方向の設定、リレーションの方向を駆使して、図を作成していくことになる。なるのだけれど自由度はほとんどない。PlantUML がレイアウトのほぼ全てを決定する。リレーションが曲線によくなるが、それを直線にユーザが無理矢理する方法は存在しない。</p>
+			<p>リレーションの装飾もなんとかならないかと思ってしまうのも、やはり人の情である。この方法の場合では自動的にオブジェクト図が選ばれてしまうので、オブジェクト図で使うことのできるリレーションの修飾や変更を適用することはできる。逆に言えばこれ以外の変更はできないということでもある。PlantUML 以外の他のツールも必要な所以であるし、他のツールでも事情は同様である。</p>
+			<figure>
+				<a href="fig2025040606.svg" target="_blank"><img width="512" src="fig2025040606.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040606.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>次回は PlantUML による Work Breakdown Structure の描きかたについて説明する。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#オブジェクト図</li>
+			</ul>
+		</div>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/06.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

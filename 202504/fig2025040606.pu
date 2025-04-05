@@ -1,0 +1,15 @@
+@startuml
+rectangle Object01
+rectangle Object02
+rectangle Object03
+rectangle Object04
+rectangle Object05
+rectangle Object06
+rectangle Object07
+rectangle Object08
+
+Object01 <|-- Object02
+Object03 *-- Object04
+Object05 o-- "4" Object06
+Object07 .. Object08 : some labels
+@enduml
