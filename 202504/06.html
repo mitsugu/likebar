@@ -184,12 +184,136 @@ charm -down-&gt; rainbow
 				<li class="tag">#デプロイメント図</li>
 			</ul>
 		</div>
-		<ul class="nomark">
-			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/06.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
-				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
-			</li>
-		</ul>
+		<div id="2025040602" class="mutter">
+			<h4>思考整理のためのツールを考える Part 4</h4>
+			<p>さて PlantUML による Work Breakdown Structure の描きかたについて説明する。とは言ってもあまり書くことがない。Work Breakdown Structure は UML の図ではない、というような IT 系の話はここでは省略する。</p>
+			<p>Work Breakdown Structure には UML のデプロイメント図と違ってエレメントのような概念は存在しない。もともとそうなのか、それとも PlantUML 上でのみそうなのかは知らない。Work Breakdown Structure は文字が書かれた長方形とそれらを結ぶ線で構成される。</p>
+			<p>起点となる長方形から、まるで根のように線が伸び、枝分れし、それぞれの根に芋が生るように長方形がぶらさがるような形状になっている。この形状の変更は一切できない。</p>
+			<figure>
+				<a href="fig2025040610.svg" target="_blank"><img width="512" src="fig2025040610.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040610.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ソースファイルは以下になる。</p>
+			<pre><code class="language-plantuml">@startwbs
+* Instant Karma
+** Current Member
+*** Takapii
+**** Vocal
+*** Syun
+**** Guitar
+*** Michee
+**** Vocal
+**** Keyboard
+*** Tetsu
+**** Vocal
+**** Bass
+*** Toku
+**** Drums
+
+** Past Member
+*** Ken
+**** Vocal
+**** Guitar
+**** Bass
+**** Drums
+*** OrzBruford
+**** Drums
+@endwbs</code></pre>
+			<p>あくまで個人的なニーズなのだけれど、上記の例でいえば Current Member と Past Member が縦に並んでくれるとありがたいのだけれど、やはりそうはならない。そういう図ではないということのようだ。</p>
+			<p>ただ下のようにワンクッションかましてやると僅かに状況は変化する。</p>
+			<pre><code class="language-plantuml">@startwbs
+* Instant Karma
+** Member
+*** Current
+**** Takapii
+***** Vocal
+**** Syun
+***** Guitar
+**** Michee
+***** Vocal
+***** Keyboard
+**** Tetsu
+***** Vocal
+***** Bass
+**** Toku
+***** Drums
+
+*** Past
+**** Ken
+***** Vocal
+***** Guitar
+***** Bass
+***** Drums
+**** OrzBruford
+***** Drums
+@endwbs</code></pre>
+			<figure>
+				<a href="fig2025040611.svg" target="_blank"><img width="384" src="fig2025040611.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040611.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ルートの長方形のセンタリングが強制なので、若干不満は残る。使用目的を考えるなら妥協が必要なポイントでもある。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#WorkBreakdownStructure</li>
+			</ul>
+		</div>
+		<div id="2025040603" class="mutter">
+			<h4>思考整理のためのツールを考える Part 5</h4>
+			<p>PlantUML のデプロイメント図と Work Breakdown Structure に他の図や画像を埋め込む方法を述べる。</p>
+			<p>難しい話にはならない。ホームページを自分で書いたり、MarkDown のドキュメントに画像を埋め込むことが日常の人はここでもそれをすればよい。ただ書式が異るだけの話だ。</p>
+			<pre><code class="language-plantuml">@startwbs
+* Jazz Unit
+** Member
+*** Sax\n&lt;img src=&quot;fig2025040617.png&quot;&gt;
+*** Piano\n&lt;img src=&quot;fig2025040615.png&quot;&gt;
+*** Electric Guitar\n&lt;img src=&quot;fig2025040616.png&quot;&gt;
+*** Bass\n&lt;img src=&quot;fig2025040614.png&quot;&gt;
+*** Drums\n&lt;img src=&quot;fig2025040613.png&quot;&gt;
+@endwbs</code></pre>
+			<p>注意点はソースを見るとまるで html の img 要素に見える。しかし書式が似ているだけで html ではない。html では必須になっている width 属性や height 属性など、あるいは他の属性を記述するとエラーになり画像はインポートされない。</p>
+			<p>仮に画像のサイズを調整して表示させたい場合は、あらかじめ画像のサイズを編集して変更しておいてから PlantUML に取り込むことになるのがかなり残念仕様だと言える。つまり表示のタイミングでは画像のサイズは現時点では変えることはできない。</p>
+			<figure>
+				<a href="fig2025040612.svg" target="_blank"><img width="384" src="fig2025040612.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040612.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>以上 Work Breakdown Structure のケースサンプルをお見せした。デプロイメント図の場合は次のようになる。</p>
+			<pre><code class="language-plantuml">@startuml
+(&lt;img src=&quot;fig2025040619.png&quot;&gt;) as sns1
+note right: 買収により消滅\nさようなら\n青い小鳥ちゃん
+(&lt;img src=&quot;fig2025040620.png&quot;&gt;) as sns2
+note right: こんにちは\nイーロンさん
+sns2 --&gt; sns1 : 　買収
+@enduml</code></pre>
+			<p>上のソースを PlantUML で図にすると下図のようになる。</p>
+			<figure>
+				<a href="fig2025040618.svg" target="_blank"><img width="384" src="fig2025040618.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040618.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>最後に注意点として述べる。Work Breakdown Structure には svg 画像も埋め込めるがデプロイメント図に svg 画像を埋め込もうとするとエラーとなる。図による統一性がみられないので混乱する。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+				<li class="tag">#WorkBreakdownStructure</li>
+			</ul>
+		</div>
 	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/06.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
 	<hr class="clear">
 	<ul class="footer">
 		<li><a href="index.html">戻る</a></li>
