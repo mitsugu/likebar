@@ -28,6 +28,13 @@
 	<script src="../prism.js" defer></script>
 	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.2.0"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		.gray {
+			width:53%;
+			padding:2em;
+			background-color:lightgray;
+		}
+	</style>
 </head>
 
 <body>
@@ -306,6 +313,80 @@ sns2 --&gt; sns1 : 　買収
 				<li class="tag">#PlantUML</li>
 				<li class="tag">#デプロイメント図</li>
 				<li class="tag">#WorkBreakdownStructure</li>
+			</ul>
+		</div>
+		<div id="2025040604" class="mutter">
+			<h4>思考整理のためのツールを考える Part 6</h4>
+			<p>PlantUML の話はまだ続きます。今回は PlantUML がサポートするテーマ機能について書いていきます。</p>
+			<p>PlantUML ではテーマというものを指定すると、図の見た目の雰囲気をがらりと変えることができます。</p>
+			<p>例えばこの連載で何度も登場している下の図ですが</p>
+			<figure>
+				<a href="../202503/fig2025031701.svg" target="_blank"><img width="512" src="../202503/fig2025031701.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031701.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p class="no-indent">spacelab-white というテーマを指定すると下図のように見た目が雑誌に載ってそうな感じに変わります。</p>
+			<figure class="gray">
+				<a href="fig2025040621.svg" target="_blank"><img width="512" src="fig2025040621.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040621.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>テーマを設定するのは非常に簡単です。</p>
+			<pre><code class="language-plantuml">!theme spacelab-white</code></pre>
+			<p class="no-indent">という行をソースファイルの最初の方に追加するだけです。以前のバージョンのものと比べるとデフォルトのテーマもかなり美しくなりましたが、もし他のテーマを試したいなら<a href="https://the-lum.github.io/puml-themes-gallery/themes/index.html" class="external" target="_blank">ここにリストがあります</a>ので、参照して設定するのがいいでしょう。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+			</ul>
+		</div>
+		<div id="2025040605" class="mutter">
+			<h4>思考整理のためのツールを考える Part 7</h4>
+			<p>PlantUML の最終回としてこれまで触れてこなかったレイアウトエンジンについて少しだけ触れたいと思います。</p>
+			<p>PlantUML はデフォルトのレイアウトエンジンとして GraphViz を利用しているとドキュメントの至るところにかかれています。ですがどうもそうは単純ではなく、現在の最新バージョンでは PlantUML 自身にレイアウトエンジンも含むようになっているだけではなく <a href="https://plantuml.com/ja/layout-engines" class="external" target="_blank">PlantUML の Layout Engines and Options というページ</a>を読むと複数のレイアウトエンジンを使うことができるようです。</p>
+			<p>PlantUML が複数のレイアウトエンジンを使うことができることを知ったのが、実はこの連載を書き始めてからのことになります。なので実際に動かして試したのが筆者が使いたいと思っていた ELK(Eclipse Layout Kernel) のみとなります。PlantUML で ELK のレイアウントエンジンを使えるようにするためのインストール方法は後述します。</p>
+			<p>レイアウトエンジンに ELK を指定するとどのように図が変化するのか例を示します。この連載で何度も登場している下図に ELK のレイアウトエンジンを使うことにします。</p>
+			<figure>
+				<a href="../202503/fig2025031701.svg" target="_blank"><img width="512" src="../202503/fig2025031701.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031701.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ELK レイアウトエンジンを使うと上図が下図のようになります。</p>
+			<figure>
+				<a href="fig2025040622.svg" target="_blank"><img width="512" src="fig2025040622.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040622.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>全体的に図が四角く直線的になり、Nrf2 からミクログリア細胞の活性化に伸びるリレーションが、他のリレーションに交差することがなくなっています。このリレーションの交差を極力なくすようにレイアウトを自動調整してくれるのが ELK レイアウトエンジンの魅力です。</p>
+			<p>ただ見ての通り note (注釈) はかえって微妙な描き方になってしまっています。またこの角ばったレイアウトがマッチしないという場合もあるでしょう。その場合は他のレイアウトやデフォルトのレイアウトエンジンを選択する方がいいかもしれません。</p>
+			<p>ソースの変更点はというと以下の一行をソースファイルの最上部に書き加えただけです。</p>
+			<pre><code class="language-plantuml">!pragma layout elk</code></pre>
+			<p>さてレイアウトエンジンの変更方法ですが、実は少し面倒な作業になります。プログラマーであればプログラムの差し替えやインストールは日常ですからさほど苦労することもないかと思いますが非プログラマーでプログラムのインストール作業が非日常の人にとってはあまりやりたくない作業かと思います。</p>
+			<p>そのようなこともあり、ELK レイアウトエンジンに限って最も簡単と思える ELK レイアウントエンジンの PlantUML への導入方法を述べていきたいと思います。</p>
+			<p>レイアウトエンジンを変更するにあたり現時点で知っておく必要があるのが、PlantUML は Java というプログラミング言語で作られているということです。PlantUML の本体は plantuml.jar というファイルになります。この plantuml.jar というファイルを Java プログラムを動かすためのプログラム (ややこしいですね) である java が読み込んで実行します。</p>
+			<p>通常の plantuml.jar には ELK レイアウトエンジンは含まれていないので、ELK レイアウトエンジンを含んでいる plantuml.jar ファイルをダウンロードしてもともとの plantuml.jar ファイルを置き換えてやる必要があります。</p>
+			<p>ダウンロードは <a href="https://plantuml.com/ja/download" class="external" target="_blank">PlantUML の公式サイト</a>からできます。</p>
+			<p>plantuml.jar を置き換えると書きましたがここで一つ問題が発生します。ダウンロードのページを見るとわかるのですが ELK レイアウトエンジンを含めるのは ELP と書かれた行の Completed.jar と書かれたリンクのみになります。</p>
+			<p>それでリンクリストの下の表を見ると ELP パッケージはオプションのレイアウトエンジンとして ELK しか含まれていません。GraphViz 互換のデフォルトエンジンはさすがに含まれているとは思うのですが定かではありません。</p>
+			<p>ですから中身がわからないのに単純に plantuml.jar を上書きしてオリジナルの plantuml.jar を消してしまうことはリスク以外の何者でもありません。</p>
+			<p>そのようなリスクを避けるためにダウンロードした plantuml-epl-1.2025.2.jar (もしかするとあなたがダウンロードするときにはバージョンアップされてファイル名が変わっているかもしれません) を直接 java で実行するのが安全だと言えます。</p>
+			<p>コマンドラインの例としては以下のようなものが考えられます。ソースファイルと plantuml-epl-1.2025.2.jar が同じフォルダに入っているという前提のコマンドラインになります。</p>
+			<pre><code class="language-plantuml">java -cp "plantuml-epl-1.2025.2.jar" net.sourceforge.plantuml.Run -tsvg ソースファイル名</code></pre>
+			<p>上の例の -tsvg は svg 画像にするよう指示しています。png にしたいのであれば -tsvg ではなく -tpng を指定します。-t オプションを省略すると plantuml は出力を png にします。</p>
+			<p>plantuml-epl-1.2025.2.jar がソースファイルと異なるフォルダにある場合、plantuml-epl-1.2025.2.jar はフルパス又は相対パスで指定する必要があります。いちいちパンチしてられないという場合はバッチファイルやシェルスクリプトを書いたり、alias を設定するのがいいかと思います。</p>
+			<p>上の一文でわからない言葉がでてきたと思った人は、パソコンに詳しそうな身近な人に尋ねてください。もちろんネットで検索してもかまいません。</p>
+			<p>以上で思考整理のための PlantUML の基本的な使い方のお話は終ります。次回からは GraphViz を取り上げたいと思います。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+				<li class="tag">#ELK</li>
 			</ul>
 		</div>
 	</div>
