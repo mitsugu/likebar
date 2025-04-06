@@ -45,21 +45,91 @@
 				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040601.pu" target="_blank">ここ</a>。</figcaption>
 			</figure>
 			<p>これらの部品のことを PlantUML ではエレメントと呼ぶので以降はエレメントと呼ぶことにする。UML で使われるものばかりではあるが思考整理目的で使うのであるから自由に選んで使ってよい。使用頻度が最も高くなるのは rectangle かもしれない。その名の通り長方形が描かれる。</p>
+			<p>上図のエレメントリストは以下のソースを PlantUML で変換すると生成される。</p>
+			<pre><code class="language-plantuml">@startuml
+actor actor
+actor/ "actor/"
+agent agent
+artifact artifact
+boundary boundary
+card card
+circle circle
+cloud cloud
+collections collections
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+hexagon hexagon
+interface interface
+label label
+node node
+package package
+person person
+queue queue
+rectangle rectangle
+stack stack
+storage storage
+usecase usecase
+usecase/ "usecase/"
+@enduml</code></pre>
 			<p>ソースファイルでの各エレメントの書き方は以下のようになる。</p>
 			<pre><code class="language-plantuml">rectangle "四角形その 1"</code></pre>
 			<p>または</p>
 			<pre><code class="language-plantuml">rectangle "四角形その 2" as r2</code></pre>
 			<p>rectagnel はエレメントの形状を示し &quot;&quot; で囲まれた文字列はエレメント内もしくはエレメントのそばに表記される文字列になる。&quot; as r2&quot; は何かと言うとエレメントに r2 という別名をつけている。</p>
-			<p>エレメント内の文字列は通常重複できないのだけれど、それでは 1 つの種類のエレメントは 1 つしか描けないということになり非常に都合が悪い。そこで下の例のように別名をつけることで、それらは異るエレメントであるとプログラムに解釈させることができ、同じ文字列の異るエレメントを図に入れ込むことが可能となる。</p>
+			<p>なぜエレメントに別名をつけるのだろうか。</p>
+			<p>下の例を見てほしい。</p>
+			<pre><code class="language-plantuml">@staruml
+rectangle &quot;箱&quot;
+rectangle &quot;箱&quot;
+@enduml</code></pre>
+			<p>人の感覚としては長方形が 2 つ並ぶと直感的に感じてしまうが、結果は下図のようになる。</p>
+			<figure>
+				<a href="fig2025040607.svg" target="_blank"><img width="128" src="fig2025040607.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040607.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>複数のエレメントに同じ文字列が書かれていると PlantUML はそれらを区別することができない。区別できないとどうなるかというと上図のようにそれらを同一のエレメントとして解釈し、図上で 1 つのエレメントとしてまとめてしまう。つまり 1 つのエレメントのみ表示される。</p>
+			<p>表示される文字列は同一であるけれども、そのようなエレメントを複数使うというのは日常的にある。むしろ同じ見た目の &quot;箱&quot; が複数描けないと困ることがほとんどだ。</p>
+			<p>それでは同じ見た目の &quot;箱&quot; を複数描きたいときはどうすればいいのかというと、PlantUML ではそれぞれの &quot;箱&quot; に別名をつけることで解決する。</p>
+			<pre><code class="language-plantuml">@staruml
+rectangle &quot;箱&quot; as box1
+rectangle &quot;箱&quot; as box2
+@enduml</code></pre>
+			<p>上のように書くと PlantUML は下図のように複数の &quot;箱&quot; を描いてくれる。</p>
+			<figure>
+				<a href="fig2025040608.svg" target="_blank"><img width="256" src="fig2025040608.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040608.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
 			<p>また後で述べるリレーションをエレメント間に引く場合に、エレメントの別名を決めておくとパンチの量を減らすとができるというメリットもある。エレメント内の文字列を長くしたくなるというのはよくあることだ。</p>
+			<p>たとえば<a href="https://youtu.be/u66bkgSJCbI?t=47" class="external" target="_blank">レインボーマン</a>の変身呪文などで</p>
+			<pre><code class="language-plantuml">@staruml
+rectangle "阿耨多羅三藐三菩提\n====\n阿耨多羅三藐三菩提" as charm
+@enduml</code></pre>
+			<p class="no-indent">などとした場合、後述するリレーションを引くときに下のように別名を指定して書くことができる。</p>
+			<pre><code class="language-plantuml">@staruml
+actor "ヤマトタケシ" as takeshi
+rectangle "阿耨多羅三藐三菩提\n====\n阿耨多羅三藐三菩提" as charm
+person "レインボーマン" as rainbow
+takeshi -down-&gt; charm
+charm -down-&gt; rainbow
+@enduml</code></pre>
+			<figure>
+				<a href="fig2025040609.svg" target="_blank"><img width="128" src="fig2025040609.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040609.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>図が描かれる方向についても触れておく。</p>
 			<figure>
 				<a href="fig2025040602.svg" target="_blank"><img width="512" src="fig2025040602.svg"></a>
 				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040602.pu" target="_blank">ここ</a>。</figcaption>
 			</figure>
-			<p>上図ではエレメントが横に並べられているが、これは恐らく PlantUML による図の自動判別機能によりオブジェクト図が選択されているのではないかと推察する。</p>
-			<p>この自動判定を off にする方法は提供されていない。PlantUML は本来 UML を描くためのソフトウェアなのであって、@startuml と @enduml に囲まれたテキストがどのように書かれているかによって UML の何の図かを自動判別する。</p>
-			<p>PlantUML を使った思考整理ではこのオブジェクト図を、本来の目的とは異なるが、応用することになる。もちろん他の図で適したものがあればそれを使ってもよい。UML を描くツールを使いはするが UML を描くわけではないのでツールを自由に使ってよい。</p>
-			<p>各エレメント間にリレーション、つまり矢印線を引くと図に方向が発生する。デフォルトの方向が縦なので、やはり PlantUML はこの図をオブジェクト図だと判定しているものと思われる。</p>
+			<p>上図ではエレメントが横に並べられているが、これは PlantUML の自動判別機能によりデプロイメント図が選択されていることによる (デプロイメント図という名前はここでは覚えなくて良い)。</p>
+			<p>この自動判定を off にする方法は少なくともこの日記が書かれた時点では提供されていない。PlantUML は本来 UML を描くためのソフトウェアなのであって、@startuml と @enduml に囲まれたテキストがどのように書かれているかによって UML のどの図なのかを自動判別する。</p>
+			<p>PlantUML を使った思考整理ではこのデプロイメント図を、本来の目的とは異なるが、応用することになる。もちろん他の図で適したものがあればそれを使ってもよい。UML を描くツールを使いはするが UML を描くわけではないのでツールは自由に使ってよい。</p>
+			<p>各エレメント間にリレーション、つまり矢印線を引くと図に方向が発生する。何も指定しなければ方向は縦方向である。</p>
 			<figure>
 				<a href="fig2025040603.svg" target="_blank"><img width="340" src="fig2025040603.svg"></a>
 				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040603.pu" target="_blank">ここ</a>。</figcaption>
@@ -71,22 +141,37 @@
 				<a href="fig2025040604.svg" target="_blank"><img width="512" src="fig2025040604.svg"></a>
 				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040604.pu" target="_blank">ここ</a>。</figcaption>
 			</figure>
-			<p>図の流れをもう少し制御したいと願うのは人の自然な心の発露である。あまり自由度はないのだが、リレーションの方向を指定するとで、多少は次のエレメントをどの方向に置くのかを、ある程度コントロールすることができる。ただしあくまである程度ということにはなる。</p>
+			<p>図の配置をもう少し制御したいと願うのは人の自然な心の発露である。あまり自由度はないのだが、リレーションの方向を指定するとで、多少は次のエレメントをどの方向に置くのかを、ある程度コントロールすることができる。ただしあくまである程度ということにはなる。</p>
 			<figure>
 				<a href="fig2025040605.svg" target="_blank"><img width="512" src="fig2025040605.svg"></a>
 				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040605.pu" target="_blank">ここ</a>。</figcaption>
 			</figure>
-			<p>ソースを見ればわかるが、3 つ目の図の以下のリレーションに対して</p>
+			<p>ソースを見ればわかるが、元のソースのリレーションに対して</p>
 			<pre><code class="language-plantuml">--&gt;</code></pre>
 			<p class="no-indent">下のように right を加えただけである。</p>
 			<pre><code class="language-plantuml">-right-&gt;</code></pre>
 			<p>このリレーションの方向には up、down、left、right の 4 つを指定することができる。逆に言えばこの 4 つしか指定できない。</p>
-			<p>エレメントの選択、リレーションの設定、デフォルト方向の設定、リレーションの方向を駆使して、図を作成していくことになる。なるのだけれど自由度はほとんどない。PlantUML がレイアウトのほぼ全てを決定する。リレーションが曲線によくなるが、それを直線にユーザが無理矢理する方法は存在しない。</p>
-			<p>リレーションの装飾もなんとかならないかと思ってしまうのも、やはり人の情である。この方法の場合では自動的にオブジェクト図が選ばれてしまうので、オブジェクト図で使うことのできるリレーションの修飾や変更を適用することはできる。逆に言えばこれ以外の変更はできないということでもある。PlantUML 以外の他のツールも必要な所以であるし、他のツールでも事情は同様である。</p>
+			<p>PlantUML で図を作成していく場合、エレメントの選択、リレーションの設定、デフォルト方向の設定、リレーションの方向を駆使して、図を作成していくことになる。そのようになるのだけれど自由度はほとんどない。PlantUML がレイアウトのほぼ全てを決定する。リレーションが曲線によくなるが (というよりも直線になるのはまれである)、それをユーザが無理矢理直線にする方法は存在しない。</p>
+			<p>リレーションの装飾もなんとかならないかと思ってしまうのも、やはり人の情である。PlantUML を使うこの方法の場合では UML で使われるリレーションの修飾や変更を適用することはできる。逆に言えばこれ以外の変更はできないということでもある。PlantUML 以外の他のツールも必要な所以であるし、他のツールでも事情は同様である。</p>
 			<figure>
-				<a href="fig2025040606.svg" target="_blank"><img width="512" src="fig2025040606.svg"></a>
+				<a href="fig2025040606.svg" target="_blank"><img width="100%" src="fig2025040606.svg"></a>
 				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040606.pu" target="_blank">ここ</a>。</figcaption>
 			</figure>
+			<p>図のレイアウトの制御はやはりニーズとして多く、Web の検索などで <a href="https://www.google.com/search?client=firefox-b-d&channel=entpr&q=plantuml+layout" class="external" target="_blank">&quot;plantuml layout&quot; などを検索語として指定</a>すると &quot;PlantUML のレイアウト辛い&quot; だとか &quot;打倒！PlantUMLのなにこれレイアウト&quot; などの悲鳴サイトがやたらとヒットする。気持がわかりすぎてつらい。</p>
+			<p>そのような中、地道にレイアウトをコントロールするためのノウハウをまとめている人もいる。<a href="https://isgb.otago.ac.nz/infosci/mark.george/Wiki/wiki/PlantUML%20GraphViz%20Layout" class="external" target="_blank">PlantUML GraphViz Layout - mark.george/Wiki</a> などが網羅とは言い難いが代表かもしれない。</p>
+			<p>もし作成した図をプレゼンテーションなどに使いたいという人も多いと思われる。そのような場合は上記のようなサイトの情報を駆使して頑張ることになる。</p>
+			<p>ただしこの連載でのソフトウェアの使用目的はあくまでも思考の整理と見える化であって、図のレイアウトに腐心することではない。ツールをいじることに快感を見出して本来の目的を見失ってはいけない。</p>
+			<p>ただ出てきた図の見え方に思考は影響を受けるのでレイアウトに対して無頓着になるのもあまりよくない。そのあたりは各人自分自身と相談しながら良い落とし所を探ってほしい。</p>
+			<p>今日のまとめは以下のようなものになる。</p>
+			<ul>
+			<li>エレメントの種類の紹介</li>
+			<li>エレメントには別名を与える</li>
+			<li>図が描かれる方向は初期設定ができる</li>
+			<li>リレーションを利用してエレメントの配置を大まかではあるが設定することがでる</li>
+			<li>リレーションも種類が少いものの変更を加えることができる</li>
+			<li>レイアウトの制御もある程度は可能だがほぼ不可能なのであまり時間を割くべきではない</li>
+			<li><strong>思考の整理、見える化、俯瞰に集中せよ</strong> &lt;- これが一番大事</li>
+			</ul>
 			<p>次回は PlantUML による Work Breakdown Structure の描きかたについて説明する。</p>
 			<ul class="clear nomark">
 				<li class="tag">Category : </li>
@@ -96,7 +181,7 @@
 				<li class="tag">#ライフハック</li>
 				<li class="tag">#仕事からの応用</li>
 				<li class="tag">#PlantUML</li>
-				<li class="tag">#オブジェクト図</li>
+				<li class="tag">#デプロイメント図</li>
 			</ul>
 		</div>
 		<ul class="nomark">
