@@ -68,13 +68,13 @@
 			<p>ならば full 版一択という気持が湧いてきそうですが GUI と言ってもファイルセレクタがあるだけで出力画像形式すら選ぶこともできません。ソースファイルを選んだ瞬間同一名の png ファイルがいきなり生成されます。他の画像フォーマットを選ぶことはできません。</p>
 			<p>また隠しフォルダにアクセスすることもできません。隠しフォルダではないフォルダでソースファイルを選ぶことができるだけのかなり寂しい GUI なので、それでもかまわない、それで充分という場合であるのなら選んでもいいかと思います。</p>
 			<p>full 版であっても headless 版と同じように CLI 環境で CLI のプログラムとして使うこともできます。ですがそれならサイズの小さめの headless 版で充分ではないか？とも思います。</p>
-			<p>さてもしあなたが ELK レイアウトエンジンを使いたいとします。もしそうであれば少し面倒かもしれませんが Java 実行環境と EPL 版の PlantUML をインストールしなければなりません。先程述べたように GPLv2 版には ELK レイアウトエンジンは含まれていません。ELK レイアウトエンジンを使うなら Java 実行環境をインストールし、ELP 版の PlantUML をダウンロードしてインストールする必要があります。</p>
+			<p>さてもしあなたが ELK レイアウトエンジンを使いたいとします。もしそうであれば少し面倒かもしれませんが Java 実行環境と GPLv3 版あるいは EPL 版の PlantUML をインストールしなければなりません。先程述べたように GPLv2 版にはおそらくライセンスの関係で ELK レイアウトエンジンは含まれていません。ELK レイアウトエンジンを使うなら Java 実行環境をインストールし、GPLv3 版もしくは ELP 版の PlantUML をダウンロードしてインストールする必要があります。</p>
 			<p>その場合 PlantUML のインストール方法も実行方法も少し変わりますので、以下に説明していきます。</p>
 			<p>最初に Java 実行環境をインストールします。Java 実行環境には <a href="https://www.java.com/freeuselicense" clas="external" target="_blank">Oracle No-Fee Terms and Conditions (NFTC)</a> 版の <a href="https://www.oracle.com/jp/java/technologies/downloads/#jdk24-windows" class="external" target="_blank">JDK</a> と GNU Public License version 2 版の <a href="https://jdk.java.net/24/" class="external" target="_blank">OpenJDK</a> の 2 つがあります。Java の実行環境としては同一だということなのでインストールが楽な NFTC 版の JDK の方を選んでインストールすればよいでしょう。</p>
 			<p>インストーラ形式としては exe と msi がダウンロード可能になっていますが、どちらをダウンロードしても問題はないでしょう。Java 実行環境はサイズが大きいのでインストールには少し時間がかかります。コーヒーでも飲みながらインストールが終るのを待ちましょう。</p>
 			<p>JDK のインストールが終ると端末上で jar ファイルを実行することができるようになっています。もしかすると今でもパソコンの再起動が必要かもしれません。もしそのようなメッセージが表示されたのならそのメッセージに従ってください。</p>
-			<p>次に GPL 版の PlantUML の jar ファイルを <a href="https://plantuml.com/ja/download" class="external" target="_blank">PlantUML 公式サイトのダウロードページ</a>から好みのフォルダにダウンロードします。ダウンロードしたフォルダがどこなのかを覚えておいてください。</p>
-			<p>またダウンロードページのサポートレイアウトエンジンの表は最新の状態になっていません。バージョン 1.2024.6 以降の GPL 版 (GPLv3 版)には ELK レイアウトエンジンも含まれています。</p>
+			<p>次に GPL 版または ELP 版の PlantUML の jar ファイルを <a href="https://plantuml.com/ja/download" class="external" target="_blank">PlantUML 公式サイトのダウロードページ</a>から好みのフォルダにダウンロードします。ダウンロードしたフォルダがどこなのかを覚えておいてください。</p>
+			<p>また繰返しますがダウンロードページのサポートレイアウトエンジンの表は最新の状態になっていません。バージョン 1.2024.6 以降の GPL 版 (GPLv3 版)には ELK レイアウトエンジンも含まれています。</p>
 			<p>実行方法は通常の jar ファイルと同じです。以下のように実行します。</p>
 			<pre><code class="language-plantuml"># バージョンが 1.2025.2 の場合
 java -jar plantuml-1.2025.2.jar -tsvg ソースファイル名</code></pre>
