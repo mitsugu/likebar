@@ -42,26 +42,34 @@
 		<h3 id="20250404">04 月 04 日 ( 金 )</h3>
 		<div id="2025040401" class="top-mutter">
 			<h4>思考整理のためのツールを考える Part 1</h4>
-			<p>タイトルとは若干異なり、思考整理のためにシステム設計用ツールの応用を試みる、というお話になる。</p>
-			<p>このことを考えるきっかけになったのは <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> と名付けた自分の疾患の 30 年に渡る知見をまとめたサイトを作り、それを訪問看護の看護師さんに見せたことによる。</p>
-			<p>話の成り行きでツールを教えて欲しいとの看護師さんの要望を受け取った。<a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">Graphviz</a> であるとツール名は伝えたのだけれど、どうせならそれらを思考整理のためにどのように使っているのかまとめたほうが良かろうと考えた。</p>
-			<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> には <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">Graphviz</a> というソフトウェアで作成した svg フォーマットの図が描かれている。これらのソフトウェアはテキストエディタで作成したテキストファイルを画像に変換する。</p>
-			<p>画像のレイアウトはソフトウェアに任せるということになり、あまりユーザが自由自在にレイアウトできるわけではない。というよりも自由にレイアウトするのはほぼ不可能である。</p>
-			<p>システム・エンジニアやプログラマーは、システムの要件整理やシステムの最適化、システムの設計、システムの実装に重点的に時間を割り振りたいと願うようになる職能なので、仕事上では図の作成や修正などのオペレーション作業になるべく時間を取られたくないと願うことが多い。そのためソフトウェアに任せることができることは任せてしまえと考える人間が多い。筆者もその一人になる。</p>
-			<p>Photoshop などの画像編集ソフトは美しい図を作成することができる。Photoshop などの画像編集ソフトの問題は編集に時間がかかりすぎるということに尽きる。なにかを最も早く編集できるものは何かと問われたらプログラマーなら十中八九それはテキストだと答えるであろう。</p>
-			<p>そのように考える先人はたくさんいたに違いない。そのようなニーズを持つ先人たちが作り上げ今もメンテナンスを続けているのが先に述べた <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> や <a href="https://graphviz.org/" class="external" target="_blank">Graphviz</a> などのツールになる。</p>
-			<p>これらのツールを使う前提として知っておかねばならないのが、ユーザはソースとなるテキストファイルを作成し、それらをツールで変換し、目的の画像を得る、というのがだいたいの作業手順となるということだ。</p>
+			<p>タイトルとは若干異なり、思考整理に流用できるシステム設計用ツールの使いかた、というお話になります。</p>
+			<p>この連載のきっかけは <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> と名付けた自分の疾患の 30 年に渡る知見をまとめたサイトを作り、それを訪問看護の看護師さんに見せたことになります。</p>
+			<p>話の流れでツールを教えて欲しいとの看護師さんにお願いされたので、<a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a> ですよとツール名は伝えたのですが、それらを自分は思考整理のために使っていることもあるし、他の IT 技術者にも役立つことが予想もされたので、どのようにそれらのツールを使うのかということを整理するのも悪くないかと考えたわけです。</p>
+			<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> には <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a> というソフトウェアで作成した svg フォーマットの図が描かれています。これらのソフトウェアはテキストエディタで作成したテキストファイルを svg、png、jpeg などの画像ファイルに変換します。</p>
+			<p>画像のレイアウトはほぼ全てをソフトウェアに任せるということになり、あまりユーザが自由自在にレイアウトできるわけではありません。というよりも自由にレイアウトするのはほぼ不可能です。</p>
+			<p>システム・エンジニアやプログラマーは、時間に追われる職能であり、なるべくならシステムの要件整理やシステムの最適化、システムの設計、システムの実装など頭脳労働に重点的に時間を割り振りたいと願うようになる職能です。</p>
+			<p>なので例外はあるものの仕事上では図の作成や修正などのオペレーション作業になるべく時間を取られたくない、凝りたくないと願うことが多い人種です。そのためソフトウェアに任せることができることは任せてしまえと考える人間が非常に多い職種でもあります。筆者も当然その一人です。</p>
+			<p>というのは嘘八百で IT エンジニアは通常道具大好き、ツール大好き人間です。テキストエディタの設定に平気で数日時間を潰すような人種です (もちろん例外もあります)。ですが仕事の時間は自制して……自制できてるかなぁ……自信があまりありません。でも思考の邪魔をするなっ！！とキレやすい人種というのは確かです……確かだと思います……まぁちょっと覚悟はしておけ？</p>
+			<p>話を戻します。</p>
+			<p>Photoshop などの画像編集ソフトは美しい図を作成することができます。ただ Photoshop などの画像編集ソフトの問題は IT エンジニアにとっては編集に時間がかかりすぎるということに尽きます。なにかの成果物を最も早く編集できるものは何かと問われたら、プログラマーなら十中八九それはテキストファイルだと答えるでしょう。</p>
+			<p>そのように考える先人はたくさんいたに違いありません。そのようなニーズを持つ先人たちが作り上げ、今もメンテナンスが続けられているのが先に述べた <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> や <a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a> などのツールになります。</p>
+			<p>これらのツールを使う前提として、ユーザが以下の手順で画像を得ることになるということを知っておかねばなりません。</p>
+			<ol>
+			<li>ユーザはソフトウェアが処理できる決められた書式のテキストファイルを作成する</li>
+			<li>テキストファイルをそれらのツールで画像に変換する</li>
+			</ol>
 			<figure>
-				<a href="fig2025040401.svg" target="_blank"><img width="100%" src="fig2025040401.svg"></a>
+				<a href="fig2025040401.svg" target="_blank"><img width="90%" src="fig2025040401.svg"></a>
 				<figcaption>図 作業手順概念図 (<a href="https://d2lang.com/" class="external" target="_blank">D2</a> により作成)</figcaption>
 			</figure>
-			<p>変換作業があるので一見手間がかかりそうな気がするかもしれない。実際には変換自体はプログラムがやるので、変換中の図を作っている本人の手間はまったくない。</p>
-			<p>それだけではなくテキストファイルの編集の過程で、思考の整理に集中できるというメリットが非常に大きい。それに伴ってさまざまなエピソードを思い出したり新しい知見が発現することすらあるので、テーマに対する知見がますます深まるという効果もある。</p>
-			<p>筆者はマインドマップや KJ 法、その他ブレインストーミングのための技法などビジネスの様々な場面で利用されているメソッドとの共通点を強く感じている。テキストファイルを利用した思考整理はエンジニア以外の人にもお勧めしたい。</p>
-			<p>テキストファイルで思考を整理するのもかなり有効ではあるが、そのテキストファイルを元に図として可視化されると、自身の思考を俯瞰するのにも非常に都合がよい。山を登ったり国内外を移動するのに地図を大きく広げて見るようなものだ。</p>
-			<p>自分自身の思考でここはおかしんじゃないか？とか、これは間違ってるなとか、ここは過剰ではないか？とか、そもそも進むべき道を間違えてるとか、そのような自身の考えの間違いや、望ましくない考えや、望ましくない考えの強度にも気が付きやすくなる。</p>
-			<p>単純化して言うなら一連の作業は<strong>思考の整理とアップデート、見える化に非常に有効</strong>だということになる。</p>
-			<p>次回は具体的にどのようなツールがあって、それぞれどのようなときに向いているのかを、不完全なものになるであろうが整理していきたいと思う。</p>
+			<p>変換作業があるので一見手間がかかりそうな気がするかもしれません。ですが実際には変換自体はプログラムが行うので、変換中の図を作っている本人の手間はまったくありません。</p>
+			<p>それだけではなくテキストファイルの編集の過程で、思考の整理に集中できます。これは大きなメリットです。それに伴ってさまざまなエピソードを思い出したり、新しい知見が発現することすらあるので、テーマに対する知見がますます広がったり深まるという効果もあります。</p>
+			<p>筆者はマインドマップや <a href="https://www.ritsumei.ac.jp/~yamai/kj.htm" class="external" target="_blank">KJ 法</a>、その他ブレインストーミングのための技法など、様々な非 IT 的なメソッドを仕事で活用してきました。それらの仕事の様々な場面で活用されている各種メソッドと、連載で取り上げているテキスト画像化法との共通点を非常に強く感じています。そのようなこともあり、テキストファイルを利用した思考整理は非エンジニアにも是非ともお勧めしたいところです。</p>
+			<p>更に述べるのならテキストファイルで思考を整理するのもかなり有効なのですが、そのテキストファイルを元にして自分の思考を図の形で可視化することは、自身の思考を俯瞰するのに非常に適しています。</p>
+			<p>それはまるで山を登ったり国内外を旅するときに地図を大きく目の前に広げて、自分の現在位置やこれまで歩んできた道、これから歩むべき道、その地形や困難さ、容易さなどを俯瞰するようなものです。</p>
+			<p>自分自身の思考でここはおかしんじゃないか？とか、これは間違ってるなとか、ここは過剰ではないか？とか、そもそも進むべき道を間違えてるとか、そのような自身の考えの間違いや、望ましくない考えや、望ましくない考えの強度にも気が付きやすくなります。</p>
+			<p>単純化して言うなら一連の作業は<strong>自分自身の思考の整理と見える化、そしてアップデートに非常に有効</strong>だということになります。</p>
+			<p>次回は具体的にどのようなツールがあって、それぞれどのようなときに向いているのかを、不完全なものになるかもしれませんが、整理していこうと思います。</p>
 			<ul class="clear nomark">
 				<li class="tag">Category : </li>
 				<li class="tag">#日記</li>
@@ -73,44 +81,43 @@
 		</div>
 		<div id="2025040402" class="mutter">
 			<h4>思考整理のためのツールを考える Part 2</h4>
-			<p>日が変わっていないが書いた。</p>
-			<p>ツールを選択する場合にそれぞれのツールのデモを見ることができるとありがたい。そしてそのような Web サイトがあった。<a href="https://text-to-diagram.com/" class="external" target="_blank">Community list of comparisonsbetween Text to Diagram tools</a> というサイトがそれである。</p>
-			<p>このサイトのデモでは以下のソフトウェアの実行結果を閲覧することができる。GraphViz と D2 は複数のレイアウトエンジンから 1 つを選ぶことができる。</p>
+			<p>日記であるにもかかわらず日が変わっていませんが書きはじめました。</p>
+			<p>ツールを選択する場合にそれぞれのツールのデモを見ることができると助かります。そして幸いにもそのような Web サイトがあります。<a href="https://text-to-diagram.com/" class="external" target="_blank">Community list of comparisonsbetween Text to Diagram tools</a> というサイトがそうです。</p>
+			<p>このサイトのデモでは以下のソフトウェアの実行結果を閲覧することができます。GraphViz、D2 は複数のレイアウトエンジンから 1 つを選ぶこともできます。</p>
 			<ul>
 			<li><a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a>
-				<p>本来は情報システム設計のための UML 図を作成するためのプログラム。ただシステムの設計場面で UML 以外の図も必要になることから UML 以外の図もある程度サポートしている。</p>
-				<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> ではもともとはロジックツリーフォーマットの図を描きたかったが、テキストからロジックツリーを生成するプログラムが現存しないため、PlantUML の <a href="https://plantuml.com/ja/wbs-diagram" class="external" target="_blank">Work Breakdown Structure 図</a>をロジックツリーの代用とした。人によってはマインドマップを代用とすることもある。</p>
+				<p>本来は情報システム設計のための UML 図を作成するためのプログラムです。ただシステムの設計場面で UML 以外の図も必要になることから UML 以外の図もかなりサポートしています。なんなら数独の問題を作成することもできます。公式ページには休憩も必要だよねと書かれていてちょっぴりお茶目です。</p>
+				<p>レイアウトエンジンは GraphViz がデフォルトですが他のものも選ぶことができます。どのようなレイアウトエンジンを選ぶことができるのかは公式サイトの <a href="https://plantuml.com/ja/layout-engines" class="external" target="_blank">Layout Engines and Options というページ</a>にリストされていますので参照してください。</p>
+				<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> ではもともとは<a href="https://www.lucidchart.com/pages/ja/logic-tree" class="external" target="_blank">ロジックツリー</a>フォーマットの図を描きたかったのです。ですがテキストからロジックツリーを生成するプログラムが現存しないため、PlantUML の <a href="https://plantuml.com/ja/wbs-diagram" class="external" target="_blank">Work Breakdown Structure 図</a>をロジックツリーの代用としました。人によっては<a href="https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%9E%E3%83%83%E3%83%97" class="external" target="_blank">マインドマップ</a>フォーマットを代用とすることもあるようです。</p>
 				<figure>
 					<a href="https://mitsugu.github.io/heritage/index.svg" target="_blank"><img src="https://mitsugu.github.io/heritage/index.svg" width="30%"></a>
+					<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="https://mitsugu.github.io/heritage/index.pu" target="_blank">ここ</a>。</figcaption>
 				</figure>
-				<p>また <a href="https://plantuml.com/ja/activity-diagram-beta#f4c6f851b00d5518" class="external" target="_blank">note  という注釈用の箱</a>を描くことが簡単にできることや、各ボックスの関係を描くのが容易、ボックスの中に簡単にボックスを入れ子にできることもあり、<a href="../202503/fig2025031701.svg" target="_blank">うつ病の発生機序を示す図</a>でも使用した。<a href="../202503/fig2025031701.pu" target="_blank" download="fig2025031701.pu">同図の PlantUML のソースファイル</a>もサイトにアップロードしている。</p>
+				<p>また <a href="https://plantuml.com/ja/activity-diagram-beta#f4c6f851b00d5518" class="external" target="_blank">note  という注釈用の箱</a>を描くことが簡単にできることや、各ボックスの関係を描くのが容易、ボックスの中に簡単にボックスを入れ子にできることもあり、<a href="../202503/fig2025031701.svg" target="_blank">うつ病の発生機序を示す図</a>でも使用しました。</p>
 				<figure>
 					<a href="../202503/fig2025031701.svg" target="_blank"><img src="../202503/fig2025031701.svg" width="30%"></a>
+					<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031701.pu" target="_blank">ここ</a>。</figcaption>
 				</figure>
 			</li>
 			<li><a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a>
-				<p>薬やタンパク質などの各種因子、ホルモンなどの持つ抑制を表現するためのコネクションの Tee ヘッドを唯一表現できるため <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> では<a href="../202503/fig2025031803.svg" target="_blank">薬や非薬物療法がどのように作用するのかを示した図</a>を描くのに利用している。<a href="../202503/fig2025031803.dot" target="_blank" download="svgfig2025031701.dot">この図の GraphViz のソースファイル</a>もサイトにアップロードしている。</p>
+				<p>薬やタンパク質などの各種因子、ホルモンなどの持つ抑制を表現するためのコネクションの Tee ヘッドを唯一表現できるため <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> では<a href="../202503/fig2025031803.svg" target="_blank">薬や非薬物療法がどのように作用するのかを示した図</a>を描くのに利用しています。</p>
 				<figure>
 					<a href="../202503/fig2025031803.svg" target="_blank"><img src="../202503/fig2025031803.svg" width="30%"></a>
+					<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031803.dot" target="_blank">ここ</a>。</figcaption>
 				</figure>
-				<div>使用可能なレイアウトエンジン
-					<ul>
-					<li>dot: GraphViz のデフォルトレイアウトエンジン</li>
-					<li>neato : よくわからないが、汎用的な図の場合、図がこじんまりとした感じになり見やすい図が出力されるとは限らない。どちらかというと筆者は苦手。</li>
-					</ul>
-					<p>パソコン上のローカル環境、つまり端末上で動かす場合、他にもレイアウトエンジンがあるのでそれらも選ぶことができる。レイアウトエンジンの種類は一番多いがそれぞれのレイアウトエンジンの使いどころがよくわからない。</p>
+				<p>使用可能なレイアウトエンジンは<a href="https://graphviz.org/docs/layouts/" class="external" target="_blank">公式サイトの Layout Engines のページ</a>にリストされているので参照してください。</p>
 				</div>
 			</li>
 			<li><a href="https://mermaid.js.org/" class="external" target="_blank">MermaidJS</a>
-					<p>生成される図はカラフルで美しいが、汎用的な図を描くの適しているかと言うと PlantUML や D2 とあまりかわらないように感じる。そのようなこともあり個人的にはあまり必要性を感じられず、ほとんど使っていない。綺麗ではあるのだけれど。</p>
-					<p>ただマインドマップは本当にマインドマップらしい画像を出してくる。もちろん<a href="https://buzanmindmap.co.uk/" class="external" target="_blank">オリジナルのトニー・ブザン氏のマインドマップ</a>にはかなわない。</p>
-					<p>またレーダーチャートや円グラフなど他のソフトウェアでは描けない図を描くことができるので、何が描けるのかを公式サイトでチェックしておくとよいと思う。</p>
-					<p>いろんな図がカラフルに描かれるので使ってみたいと惹かれると思う。</p>
-					<p>コネクションの矢印ヘッドの種類が増えるかカスタマイズできるようになれば、他を押しのけて第 1 選択肢になると思う。時間をつくってもう少し評価を深めたい。</p>
+					<p>生成される図はカラフルで美しいのですが、汎用的な図を描くの適しているかと言うと PlantUML や D2 とあまりかわらないように感じます。また最新の PlantUML でも同等の美麗さで図が作成されるようになっています。そのような事情もあり個人的にはあまり必要性を感じられず、ほとんど使っていません。やはり綺麗ではあるのですがだ。</p>
+					<p>ただマインドマップは本当にマインドマップらしい画像を出力します。もちろん<a href="https://buzanmindmap.co.uk/" class="external" target="_blank">オリジナルのトニー・ブザン氏のマインドマップ</a>にはかないませんが。</p>
+					<p>またいわゆる普通のグラフ、円グラフ、レーダーチャートなど他のソフトウェアでは描けない図を描くことができますので、何が描けるのかを<a href="https://mermaid.js.org/intro/" class="external" target="_blank">公式サイトのドキュメント</a>でチェックしておくとよいと思います。</p>
+					<p>いろんな図がカラフルに描かれるので、使ってみたいと惹かれるソフトウェアであることは間違いありませんし、Web との親和性も高いので人気があります。</p>
+					<p>コネクションの矢印ヘッドの種類がもっと増えるかカスタマイズできるようになれば、他を押しのけて個人的利用時の第 1 選択肢になると思います。時間をつくってもう少し評価を深めたいところです。</p>
 			</li>
 			<li><a href="https://github.com/terrastruct/d2" class="external" target="_blank">D2</a>
-				<p>もしかすると汎用的な図を描く目的があって、このソフトが目的を満たすのであれば PlantUML 以上によい選択肢かもしれない。</p>
-				<p><a href="fig2025040401.d2" target="_blank">ソース</a>の構造が html や css、オブジェクト指向言語の影響を受けており可読性が非常に高い (ただしそのためにパンチ量が増える場合もある)。プログラマーだと一番好きになりそうな変換プログラムかもしれない。筆者はこのテキストファイルの記法が一番気に入っている。</p>
+				<p>もしかすると汎用的な図を描く目的があって、このソフトが目的を満たすのであれば PlantUML 以上によい選択肢かもしれません。</p>
+				<p><a href="fig2025040401.d2" target="_blank">ソース</a>の構造が html や css、オブジェクト指向言語の影響を受けており可読性が非常に高い (ただしそのためにパンチ量が増える場合もある) という特徴があります。プログラマーだと一番好きになりそうな変換プログラムかもしれません。筆者はこのテキストファイルの記法が一番気に入っています。</p>
 				<figure>
 					<a href="fig2025040401.svg" target="_blank"><img src="fig2025040401.svg" width="30%"></a>
 				</figure>
@@ -123,9 +130,9 @@
 				</div>
 			</li>
 			</ul>
-			<p>このサイトでデモを見ることができるのだけれど、ほぼ全てを TypeScript という Web ブラウザで動作するプログラミング言語で実装していることもあり、パフォーマンスや Web ブラウザへの負荷が高いという問題もある。とはいえ簡便に各プログラムの差異を確認する程度の利用であれば大きな問題は発生しないかと思う。</p>
-			<p>デモを見た上でこれらのツールを都度適切にチョイスすればよいと思う。筆者がつくった図ももちろん参照していただければ幸いである。</p>
-			<p>次回から実際のそれぞれのプログラムの使い方について説明していきたいと思う。</p>
+			<p>先に紹介した<a href="https://text-to-diagram.com/" class="external" target="_blank">Community list of comparisonsbetween Text to Diagram tools</a> でデモを見ることができるのですが、このサイトではほぼ全てを TypeScript という Web ブラウザで動作するプログラミング言語で実装していることもあり、パフォーマンスや Web ブラウザへの負荷が高いという問題もあります。とはいえ簡便に各プログラムの差異を確認する程度の利用であれば大きな問題は発生しないかもしれません。</p>
+			<p>それぞれのプログラムに特徴や得手不得手がありますので、デモを見た上でこれらのツールを都度適切にチョイスすればよいかと思います。筆者がつくった図ももちろん参照していただければ幸いです。</p>
+			<p>次回から実際のそれぞれのプログラムの使い方について説明していきたいと思います。最初に筆者が最も使っている PlantUML を取り上げたいと思います。</p>
 			<ul class="clear nomark">
 				<li class="tag">Category : </li>
 				<li class="tag">#日記</li>
