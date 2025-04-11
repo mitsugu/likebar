@@ -1,0 +1,48 @@
+digraph LAYOUT {
+	{
+		rank=same;
+		n111[shape="none" label=""];
+		n112[shape="none" label=""];
+		n111 -> n112 [label="box", arrowhead=box];
+		n121[shape="none" label=""];
+		n122[shape="none" label=""];
+		n121 -> n122 [label="crow", arrowhead=crow];
+		n131[shape="none" label=""];
+		n132[shape="none" label=""];
+		n131 -> n132 [label="curve", arrowhead=curve];
+		n141[shape="none" label=""];
+		n142[shape="none" label=""];
+		n141 -> n142 [label="icurve", arrowhead=icurve];
+	}
+	{
+		rank=same;
+		n211[shape="none" label=""];
+		n212[shape="none" label=""];
+		n211 -> n212 [label="diamond", arrowhead=diamond];
+		n221[shape="none" label=""];
+		n222[shape="none" label=""];
+		n221 -> n222 [label="dot", arrowhead=dot];
+		n231[shape="none" label=""];
+		n232[shape="none" label=""];
+		n231 -> n232 [label="inv", arrowhead=inv];
+		n241[shape="none" label=""];
+		n242[shape="none" label=""];
+		n241 -> n242 [label="none", arrowhead=none];
+	}
+	{
+		rank=same;
+		n311[shape="none" label=""];
+		n312[shape="none" label=""];
+		n311 -> n312 [label="normal", arrowhead=normal];
+		n321[shape="none" label=""];
+		n322[shape="none" label=""];
+		n321 -> n322 [label="tee", arrowhead=tee];
+		n331[shape="none" label=""];
+		n332[shape="none" label=""];
+		n331 -> n332 [label="vee", arrowhead=vee];
+	}
+	n111 -> n211 -> n311 [style=invis];
+	n121 -> n221 -> n321 [style=invis];
+	n131 -> n231 -> n331 [style=invis];
+	n141 -> n241 [style=invis];
+}
