@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>睡眠、食事、服薬の記録</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="URLを入れてください">
+	<meta name="title" content="睡眠、食事、服薬の記録">
+	<meta name="description" content="年月日の睡眠、食事、服薬の記録">
+	<meta name="keywords" content="セルフモニタリングシート">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="睡眠、食事、服薬の記録">
+	<meta property="og:description" content="年月日の睡眠、食事、服薬の記録">
+	<meta property="og:url" content="URLを入れてください">
+	<meta property="og:site_name" content="睡眠、食事、服薬の記録">
+	<meta property="og:html" content="年月日の睡眠、食事、服薬の記録">
+
+	<!--
+	<meta property="og:image" content="画像のURL">
+	<meta property="og:image:width" content="">
+	<meta property="og:image:height" content="">
+	-->
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+	<script defer>
+		mermaid.initialize({
+		startOnLoad: true
+	});
+	</script>
+	<style>
+		a:link {
+		  color:dodgerblue;
+		}
+		#contents {
+		  line-height:1.5em;
+		  width:80%;
+		  margin-left:auto;
+		  margin-right:auto;
+		}
+		p {
+		  text-align:justify;
+		  text-indent:1em;
+		}
+		p.mid-flow, p.no-indent {
+		  text-indent:0em;
+		}
+		h1 {
+		  padding:0.5em 0em 0.5em 0.5em;
+		  border-width:0px 0px 1px 5px;
+		  border-style:solid;
+		  border-color:silver;
+		  line-height:1.25em;
+		}
+		h2 {
+		  padding:0.5em 0em 0.5em 0.5em;
+		  border-width:3px 0px 0px 0px;
+		  border-style:solid;
+		  border-color:silver;
+		}
+		h3 {
+		  padding:0.5em 0em 0.5em 0.5em;
+		  border-width:2px 0px 0px 0px;
+		  border-style:solid;
+		  border-color:silver;
+		  width:11.5em;
+		}
+		.top-mutter {
+		  padding-left:1em;
+		  padding-right:1em;
+		}
+		.mutter {
+		  border-width:1px 0px 0px 0px;
+		  border-style:solid;
+		  border-color:silver;
+		  padding-left:1em;
+		  padding-right:1em;
+		}
+		.title {
+		  text-indent:0em;
+		  font-weight: bold;
+		}
+		.warning {
+		  font-size:1.5em;
+		  font-weight: bold;
+		  color:#ff0000;
+		}
+		.strong {
+		  font-weight: bold;
+		}
+		img{
+		  border:none;
+		}
+		.external:after {
+		  content:url('link-icon_external.gif');
+		}
+		.nomark {
+		  list-style-type:none;
+		}
+		.tag {
+		  display:inline;
+		  font-size:0.75em;
+		}
+		blockquote {
+		  border-style:solid;
+		  border-width:1px;
+		  border-color:silver;
+		  padding:4px;
+		}
+		.footnote{
+		  margin-left:4em;
+		  margin-right:4em;
+		  color:gray;
+		  font-size:0.75em;
+		}
+		.mid-footnote{
+		  font-size:0.75em;
+		  color:gray;
+		}
+		.footer {
+		  list-style-type:none;
+		  line-height:1.5em;
+		}
+		.left{
+		  float:left;
+		}
+		.right{
+		  float:right;
+		}
+		.center {
+		  text-align:center;
+		}
+		.cancel {
+		  text-decoration:line-through;
+		  text-decoration-style: double;
+		}
+		.image-mergin {
+		  margin:1em;
+		}
+		.clear {
+		  clear:both;
+		}
+		span.red {
+			color:red;
+		}
+		span.link {
+		  color:dodgerblue;
+		}
+		figcaption {
+			font-size: 0.7em;
+		}
+		blockquote.code {
+			background-color:lightgray;
+			border-radius: 10px;
+			padding-left: 1em;
+			padding-right: 1em;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>睡眠、食事、服薬の記録</h1>
+	<div id="contents">
+		<div id="2025041901" class="top-mutter">
+			<!--
+					テーマを変更するときは以下のいずれかを gantt 行の直下に挿入
+					%%{init:{'theme':'default'}}%%
+					%%{init:{'theme':'neutral'}}%%
+					%%{init:{'theme':'dark'}}%%
+					%%{init:{'theme':'forest'}}%%
+					%%{init:{'theme':'base'}}%%
+			-->
+			<div class="mermaid">
+				---
+				displayMode: compact
+				---
+				gantt
+					dateFormat HH:mm
+					axisFormat %H:%M
+					tickInterval 2hour
+					2025年 04月 19日 (土) : active, m0, 00:00, 1440m
+					睡眠 : m1, 00:00, 330m
+					朝食 : done, milestone, 07:29, 2m
+					仮眠 : m2, 08:50, 10m
+					昼食 :done, milestone, 12:44, 2m
+					夕食 :done, milestone, 16:59, 2m
+					眠前薬 : milestone, 20:59, 2m
+					睡眠 : m4, 22:30, 90m
+			</div>
+		</div>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+
