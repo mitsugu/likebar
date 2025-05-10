@@ -266,3 +266,25 @@ blockquote.code {
 	padding-left:1em;
 	padding-right:1em;
 }
+/* 親の div 要素に float を指定 */
+div.right {
+  float: right;
+  margin-left: 1em;
+}
+
+/* figure 要素のスタイル（必要に応じて） */
+div.right > figure {
+  display: inline-block;
+  text-align: left;
+  width:512px;
+}
+
+div.right > figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+div.right > figure figcaption {
+  width: 100%;
+}
