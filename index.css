@@ -292,7 +292,7 @@ div.right > figure figcaption {
 div.left > figure {
   display: inline-block;
   text-align: left;
-  width:282px;
+  width:512px;
 }
 
 div.left > figure img {
