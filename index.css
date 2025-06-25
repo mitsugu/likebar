@@ -111,14 +111,8 @@ blockquote {
   list-style-type:none;
   line-height:1.5em;
 }
-.left::before{
-	clear:both;
-}
 .left{
   float:left;
-}
-.right::before{
-	clear:both;
 }
 .right{
   float:right;
@@ -137,6 +131,12 @@ blockquote {
   margin:1em;
 }
 .clear {
+  clear:both;
+}
+.container {
+  overflow: auto;
+}
+.after-clear::after {
   clear:both;
 }
 .black {
@@ -273,7 +273,7 @@ blockquote.code {
 	padding-right:1em;
 }
 /* 親の div 要素に float を指定 */
-div.right::before {
+div.right::after {
 	clear:both;
 }
 div.right {
@@ -298,7 +298,7 @@ div.right > figure figcaption {
   width: 100%;
 }
 /* figure 要素のスタイル（必要に応じて） */
-div.left::before {
+div.left::after {
 	clear:both;
 }
 div.left > figure {
