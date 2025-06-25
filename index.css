@@ -111,8 +111,14 @@ blockquote {
   list-style-type:none;
   line-height:1.5em;
 }
+.left::before{
+	clear:both;
+}
 .left{
   float:left;
+}
+.right::before{
+	clear:both;
 }
 .right{
   float:right;
@@ -267,6 +273,9 @@ blockquote.code {
 	padding-right:1em;
 }
 /* 親の div 要素に float を指定 */
+div.right::before {
+	clear:both;
+}
 div.right {
   float: right;
   margin-left: 1em;
@@ -289,6 +298,9 @@ div.right > figure figcaption {
   width: 100%;
 }
 /* figure 要素のスタイル（必要に応じて） */
+div.left::before {
+	clear:both;
+}
 div.left > figure {
   display: inline-block;
   text-align: left;
