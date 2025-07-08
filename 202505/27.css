@@ -1,0 +1,30 @@
+/*
+　以下のレンズフレア効果は Gemini 2.5 Flash に教えてもらいました
+
+使い方:
+　1. div 要素の子要素として img 要素を定義する。
+　2. div 要素のクラス属性の値として "lens-flare" と定義する。
+　3. Web ブラウザでレンダリングして確認しながら background の各値を調整する。
+
+　　　background で使用されている css 関数は chatGPT や Gemini に質問してください。
+*/
+
+.lens-flare {
+  position: relative; /* 擬似要素の基準位置とするため */
+  display: inline-block; /* 画像のサイズに合わせてコンテナを調整 */
+}
+
+.lens-flare::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 白の半透明 */
+  /* background: rgba(255, 255, 255, 0.15);*/
+  /* グラデーションを使って、よりリアルなフレア感を出すことも可能 */
+  background: radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 75%);
+  pointer-events: none; /* 下の画像をクリック可能にするため */
+  mix-blend-mode: screen; /* または lighten, overlay など */
+}
