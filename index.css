@@ -321,3 +321,7 @@ div.left > figure img {
 div.left > figure figcaption {
   width: 100%;
 }
+
+.glossary-container > dl > dt {
+	font-weight:bold;
+}
