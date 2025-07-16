@@ -55,7 +55,3 @@
   pointer-events: none; /* 下の画像をクリック可能にするため */
   mix-blend-mode: screen; /* または lighten, overlay など */
 }
-.tooltip {
-	cursor: pointer;
-	background-color:#eeeeee;
-}
