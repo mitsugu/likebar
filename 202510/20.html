@@ -9,11 +9,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<link rel="canonical" href="https://mitsugu.github.io/likebar/202510/20.html">
-	<meta name="description" content="SAQ 等からのターニング・プレッシャーの求め方のメモです。">
+	<meta name="description" content="RMV 等からのターニング・プレッシャーの求め方のメモです。">
 	<meta name="keywords" content="日記, blog">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="Dive #63: SAQに基づくターニング・プレッシャーの計算式">
-	<meta property="og:description" content="SAQ 等からのターニング・プレッシャーの求め方のメモです。">
+	<meta property="og:title" content="Dive #63: RMVに基づくターニング・プレッシャーの計算式">
+	<meta property="og:description" content="RMV 等からのターニング・プレッシャーの求め方のメモです。">
 	<meta property="og:url" content="https://mitsugu.github.io/likebar/202510/20.html">
 	<meta property="og:site_name" content="バーr……blog のようなもの">
 
@@ -22,8 +22,8 @@
 	<meta property="og:image:width" content="512">
 	<meta property="og:image:height" content="340">
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Dive #63: SAQに基づくターニング・プレッシャーの計算式" />
-	<meta name="twitter:description" content="SAQ 等からのターニング・プレッシャーの求め方のメモです。" />
+	<meta name="twitter:title" content="Dive #63: RMVに基づくターニング・プレッシャーの計算式" />
+	<meta name="twitter:description" content="RMV 等からのターニング・プレッシャーの求め方のメモです。" />
 	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202510/fig2025102001.jpg" />
 	-->
 
@@ -54,17 +54,17 @@
 	<div id="contents">
 		<h3 id="20251020">10 月 20 日 ( 月 )</h3>
 		<div id="2025102001" class="top-mutter">
-			<h4>Dive #63: SAQに基づくターニング・プレッシャーの計算式</h4>
-    	<p>SAQ (またはRMV、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">L</mi><mo>/</mo><mi>min</mi></math>) データと<strong>ワーキング・マキシマム <math xmlns="http://www.w3.org/1998/MathML"><mi>SAQ</mi></math> (現実的な最大値)</strong> を前提に、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math> (緊急用ガス) と<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi></math> (ターニング・プレッシャー) を決定する計算は以下の通りです。</p>
+			<h4>Dive #63: RMVに基づくターニング・プレッシャーの計算式</h4>
+    	<p>RMV (<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">L</mi><mo>/</mo><mi>min</mi></math>) データと<strong>ワーキング・マキシマム <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> (現実的な最大値)</strong> を前提に、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math> (緊急用ガス) と<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi></math> (ターニング・プレッシャー) を決定する計算は以下の通りです。</p>
 
-    <h5>状況別ファクター：SAQ_Planの決定</h5>
-    <p><strong>SAQ_Plan</strong>は、あなたの<strong>ワーキング・マキシマム <math xmlns="http://www.w3.org/1998/MathML"><mi>SAQ</mi></math></strong>に、以下の表から選択した<strong>状況別ファクター</strong>を乗じて決定します。これにより、潜水条件に合わせた余裕を持ったガス消費量を計画します。</p>
+    <h5>状況別ファクター：RMV_Planの決定</h5>
+    <p><strong>RMV_Plan</strong>は、あなたの<strong>ワーキング・マキシマム <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math></strong>に、以下の表から選択した<strong>状況別ファクター</strong>を乗じて決定します。これにより、潜水条件に合わせた余裕を持ったガス消費量を計画します。</p>
 
     <div style="font-size: 1.2em; margin: 1em 0;">
     	<math xmlns="http://www.w3.org/1998/MathML" display="block">
-    		<mi>SAQ</mi><mtext>_</mtext><mi>Plan</mi>
+    		<mi>RMV</mi><mtext>_</mtext><mi>Plan</mi>
     		<mo>=</mo>
-    		<mi>ワーキング</mi><mtext>-</mtext><mi>マキシマム</mi><mo> </mo><mi>SAQ</mi>
+    		<mi>ワーキング</mi><mtext>-</mtext><mi>マキシマム</mi><mo> </mo><mi>RMV</mi>
     		<mo>×</mo>
     		<mi>状況別ファクター</mi>
     	</math>
@@ -113,8 +113,8 @@
         </thead>
         <tbody>
             <tr>
-                <td><strong>SAQ_Plan</strong></td>
-                <td><strong>計画用SAQ</strong>（ワーキング・マキシマムに状況別ファクターを適用した値）</td>
+                <td><strong>RMV_Plan</strong></td>
+                <td><strong>計画用RMV</strong>（ワーキング・マキシマムに状況別ファクターを適用した値）</td>
                 <td><math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">L</mi><mo>/</mo><mi>min</mi></math></td>
             </tr>
             <tr>
@@ -144,7 +144,7 @@
         <math xmlns="http://www.w3.org/1998/MathML" display="block">
             <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas Volume</mi><mo> </mo><mo>(</mo><mi mathvariant="normal">L</mi><mo>)</mo>
             <mo>=</mo>
-            <mi>SAQ</mi><mtext>_</mtext><mi>Plan</mi>
+            <mi>RMV</mi><mtext>_</mtext><mi>Plan</mi>
             <mo>×</mo>
             <mo>(</mo>
             <mi>浮上時間</mi>
@@ -179,7 +179,7 @@
             <mo>=</mo>
             <mfrac>
                 <mrow>
-                    <mi>SAQ</mi><mtext>_</mtext><mi>Plan</mi>
+                    <mi>RMV</mi><mtext>_</mtext><mi>Plan</mi>
                     <mo>×</mo>
                     <mo>(</mo>
                     <mi>浮上時間</mi>
@@ -271,7 +271,7 @@
 				<li class="tag">#エア・マネジメント</li>
 				<li class="tag">#ターニング・プレッシャー</li>
 				<li class="tag">#空気消費量</li>
-				<li class="tag">#SAQ</li>
+				<li class="tag">#RMV</li>
 			</ul>
 		</div>
 	</div>
