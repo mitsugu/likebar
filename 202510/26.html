@@ -28,6 +28,14 @@
 	<link rel="stylesheet" type="text/css" href="../index.css">
 	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		blockquote.note {
+			padding-left:1em;
+			padding-right:1em;
+			border-radius: 1em;
+			background-color:lightgray;
+		}
+	</style>
 </head>
 
 <body>
@@ -42,12 +50,13 @@
 			<p>ダイブテーブル、引けますか？</p>
 			<p>え？もう忘れた？ダイコンがあるから忘れても問題ない？</p>
 			<p>えっと、それって…………という話は今回は置いておきます。</p>
-			<p>今回は最新のダイブテーブルを見たいんだけど、ダイブテーブルって単体で買っても高いじゃん、中身が更新されたからってそうそう買えないよね、手元のダイブテーブルを最新のデータのものに変更したいけど困ってる、だとか、ダイブテープル失くして困ってる人への朗報です。</p>
+			<p>今回は最新のダイブテーブルを見たいんだけど、ダイブテーブルって単体で買っても高いじゃん、中身が更新されたからってそうそう買えないよね、手元のダイブテーブルを最新のデータのものに変更したいけど、と困ってる人だとか、ダイブテーブルを失くして困ってる人には朗報です。</p>
 			<p>NAUI のダイブテーブルになりますが、最新のものが Android アプリで見れます。ダイブテーブルを見るだけなら無料です。iPhone 版があるかどうかは、調べてください。</p>
 			<div class="container">
 				<div class="right">
 					<figure>
 						<img width="512" src="fig2025102601.png">
+						<figcaption>図1: Google Play Storeの「NAUI Mobile」アプリ</figcaption>
 					</figure>
 				</div>
 				<p>Google Play Store で &quot;NAUI&quot; で検索すると &quot;<a href="https://play.google.com/store/apps/details?id=org.naui.app&hl=ja" class="external" target="_blank">NAUI Mobile</a>&quot; というアプリがヒットします。</p>
@@ -58,6 +67,7 @@
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102602.png">
+						<figcaption>図2: NAUI Mobile アプリ起動画面</figcaption>
 					</figure>
 				</div>
 				<p>アプリを起動するとこんな画面が表示されます。</p>
@@ -67,6 +77,7 @@
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102603.png">
+						<figcaption>図3: NAUI Mobile メニュー</figcaption>
 					</figure>
 				</div>
 				<p>ハンバーガーメニューをタップすると、画像のようにメニューがニョローンと現れます。</p>
@@ -76,6 +87,7 @@
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102604.png">
+						<figcaption>図4: NAUI Mobile ダイブツール選択画面</figcaption>
 					</figure>
 				</div>
 				<p>&quot;Recreational Tools&quot; をタップします。</p>
@@ -84,12 +96,13 @@
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102605.png">
+						<figcaption>図5: NAUI Mobile ダイブプランナー</figcaption>
 					</figure>
 				</div>
 				<p>Dive Planner が開きます。</p>
 				<p>ぼくはまだ Dive Tables しかみていないのですけれど、他に Turn Pressure Calculator なんてのもあって、ウホッってなりますね (笑)</p>
 				<p>潜水計画を立てるのに必要なツールが揃っていて、いい感じです。日本語版がぜひとも欲しいところです。</p>
-				<p>ね？NAUI JAPAN さん、どうですか？現行の広告アプリなんかじゃなっくて、こういった実用品が欲しいのですけど。無料でなくても 1000 円 (税別) なら<ruby>躊躇<rt>ちゅうちょ</rt></ruby>なく買います。このアプリのように <a href="https://www.naui.co.jp/memberpage/training/rgbmtable/index.html" class="external" target="_blank">RBGM ダイブテーブル</a>が入ってなくてもかまわないので。</p>
+				<p>ね？NAUI JAPAN さん、どうですか？現行の広告アプリなんかじゃなくって、こういった実用品が欲しいのですけど。無料でなくても 1000 円 (税別) なら<ruby>躊躇<rt>ちゅうちょ</rt></ruby>なく買います。このアプリのように <a href="https://www.naui.co.jp/memberpage/training/rgbmtable/index.html" class="external" target="_blank">RBGM ダイブテーブル</a>が入ってなくてもかまわないので。</p>
 				<p>6000 円 (税別) とか言われちゃうと英語の本国版でいいや、ってなりますけど。</p>
 				<p>そういった話は置いておいて、Dive Table をタップします。</p>
 			</div>
@@ -97,29 +110,30 @@
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102606.png">
+						<figcaption>図6: NAUI Mobile ダイブテーブル選択画面</figcaption>
 					</figure>
 				</div>
 				<p>ダイブテーブルの種類を選択する画面になります。</p>
 				<p>通常の NAUI AIR TABLE の他に、NAUI EAN32 TABLE、NAUI EAN36 TABLE なんてのも見えます。つまりエンリッチドエア用のテーブルもあります。</p>
-				<p>しかも RGBM なんてタブも見えます。ここに AIR、EAN32、EAN36 用の RGBM ダイブテーブルがあります。</p>
-				<p>RGBM ダイブテーブルは裏面の説明を理解して使う必要があるのですが、アプリにはその説明はありません。どこかでその説明文をゲットして日本語に訳さないと、日本人は使うことができません。</p>
-				<p>ぼくは自分で翻訳しちゃいましたけど、NAUI JAPAN がこのテーブルを販売するという計画は今のところ無いため、使っていいのかの判断ができず、他人に使っていいよ、とはさすがに言ったことがありません。</p>
+				<p>しかも RGBM なんてタブも見えます。ここに AIR、EAN32、EAN36 用の RGBM ダイブテーブル <a href="#rgbm_divetable">[注]</a>があります。</p>
 				<p>とりあえず日本人のぼくたちは通常の NAUI AIR TABLE を使うことになるので、NAUI AIR TABLE をタップします。</p>
 			</div>
 			<div class="container">
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102607.png">
+						<figcaption>図7: NAUI AIR TABLE</figcaption>
 					</figure>
 				</div>
 				<p>するといつもの見慣れたダイブテーブルが表示されるようになって、めでたしめでたし。</p>
-				<p>ただアプリ版の欠点としては、ぼくが Open Water Ⅰ 時代からダイブテーブルを使うときにやっていた、輪ゴムを使ってダイブテーブルを引くのを楽にする作戦が使えないっていうのがあります。</p
+				<p>ただアプリ版の欠点としては、ぼくが Open Water Ⅰ 時代からダイブテーブルを使うときにやっていた、輪ゴムを使ってダイブテーブルを引くのを楽にする作戦が使えないっていうのがあります。</p>
 				<p>でもまぁ無料には代えられないわけです。びんぼーなので。</p>
 			</div>
 			<div class="container">
 				<div class="left">
 					<figure>
 						<img width="512" src="fig2025102608.png">
+						<figcaption>図8: NAUI RGBM AIR TABLE</figcaption>
 					</figure>
 				</div>
 				<p>なお参考までに RGBM AIR ダイブテーブルをお見せしておきますね。</p>
@@ -128,6 +142,11 @@
 				<p>このダイブテーブルを国内で発売するということは Open Water だけでなく、全てのマニュアルから講座のカリキュラムから、すべて 2 種類のダイブテーブルについて触れなければならず、そんなこと簡単にはできんよな、と思ったり。</p>
 				<p>お客さんも混乱するだろうし。</p>
 			</div>
+			<blockquote id="rgbm_divetable" class="note">
+				<h5>注: RGBM ダイブテーブルについて</h5>
+				<p>RGBM ダイブテーブルは裏面の説明を理解して使う必要があるのですが、アプリにはその説明はありません。どこかでその説明文をゲットして日本語に訳さないと、日本人は使うことができません。</p>
+				<p>ぼくは自分で翻訳しちゃいましたけど、NAUI JAPAN がこのテーブルを販売するという計画は今のところ無いため、使っていいのかの判断ができず、他人に使っていいよ、とはさすがに言ったことがありません。</p>
+			</blockquote>
 			<ul class="clear nomark">
 				<li class="tag">Category : </li>
 				<li class="tag">#日記</li>
