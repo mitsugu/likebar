@@ -83,9 +83,8 @@
 		<div id="2025110101" class="top-mutter">
 			<h4>Dive #75: イマドキの潜水計画</h4>
 			<blockquote class="note">
-				<p>本稿は執筆途中であり、本稿の主題であるガス・マネージメントの計算セクションはまだ執筆途中です。説明が途中で中断していることからガス・マネージメントの計算は、まだ実際のダイブプランには使用しないでください。</p>
-				<p>執筆途中のセクションには &quot;執筆中&quot; と記載しています。</p>
-				<p>例外として <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> の計算に関するセクションはご利用いただけます。</p>
+				<p>本稿のダイビング・カリキュレーターに関するセクションはまだ執筆途中です。またダイビング・カリキュレーター自体に、まだ Turn Pressure の計算機能自体が実装されていません。</p>
+				<p>今しばらくお待ちいただけますようお願い申し上げます。</p>
 			</blockquote>
 			<h5>0. はじめに</h5>
 			<p>ダイバーのみなさん、こんにちは。元 NAUI アシスタント・インチキラクターの大山 (a.k.a. OrzBruford, miyamafukashi, OrzDiver) です。</p>
@@ -564,15 +563,70 @@
 					</dd>
 					<dt>Return Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math>) の計算:</dt>
 					<dd>
-						<p>執筆中です。もうしばらくお待ち下さい。</p>
+						<p><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> は、<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> とは異なり、<strong>通常の <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math></strong> を使い、あなたがエキジット地点まで安全に戻るために消費するガス量を計算します。この計算こそが、50 Bar Rule や The Rule of Thirds との決定的な違いとなります。</p>
+						<dl>
+						<dt>1. 復路の総所要時間 (<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Return</mi></math>) の算出</dt>
+						<dd>
+							<p>最大深度から安全停止深度までの浮上時間 (<math xmlns="http://www.w3.org/1998/MathML"><mi>9</mi><mi>m</mi><mo>/</mo><mi>min</mi></math> 浮上) に、安全停止時間 (<math xmlns="http://www.w3.org/1998/MathML"><mi>3</mi><mi>min</mi></math>) を加えます。</p>
+							<math xmlns="http://www.w3.org/1998/MathML" display="block">
+								<msub><mi>T</mi><mrow><mi>Return</mi></mrow></msub>
+								<mo>=</mo>
+								<mfenced open="(" close=")">
+									<mfrac>
+										<mrow>
+											<msub><mi>D</mi><mrow><mi>max</mi></mrow></msub>
+											<mo>-</mo>
+											<mn>5</mn>
+										</mrow>
+										<mn>9</mn>
+									</mfrac>
+								</mfenced>
+								<mo>+</mo>
+								<mn>3</mn>
+								<mo>(</mo><mi>min</mi><mo>)</mo>
+							</math>
+							<br>
+						</dd>
+						<dt>2. Return Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math>) の最終計算 (bar)</dt>
+						<dd>
+							<p>復路の浮上・安全停止に必要な総ガス量（リットル）を求め、それをタンク容量 (<math xmlns="http://www.w3d.org/1998/MathML"><mi>V</mi><mi>tank</mi></math>) で割って、気圧（bar）に換算します。消費率には**通常の <math xmlns="http://www.w3d.org/1998/MathML"><mi>RMV</mi></math>（1人分）**を使用します。</p>
+							<math xmlns="http://www.w3d.org/1998/MathML" display="block">
+								<mi>R</mi><mtext>-</mtext><mi>Gas</mi>
+								<mo>=</mo>
+								<mfrac>
+									<mrow>
+										<mi>ATA</mi><mtext>-</mtext><mi>avg</mi><mtext>-</mtext><mi>asc</mi>
+										<mo>×</mo>
+										<msub><mi>T</mi><mrow><mi>Return</mi></mrow></msub>
+										<mo>×</mo>
+										<mi>RMV</mi>
+									</mrow>
+									<msub><mi>V</mi><mrow><mi>tank</mi></mrow></msub>
+								</mfrac>
+								<mo>(</mo><mi>bar</mi><mo>)</mo>
+							</math>
+ 						</dd>
+						</dl>
 					</dd>
 					<dt>Turn Pressure (<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math>) の計算:</dt>
 					<dd>
-						<p>執筆中</p>
+						<p>最後に、最終生命線である <math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> と、通常浮上に必要な <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を加算し、<math xmlns="http://www.w3d.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> を決定します。</p>
+						<math xmlns="http://www.w3d.org/1998/MathML" display="block">
+							<mi>T</mi><mtext>-</mtext><mi>Gas</mi>
+							<mo>=</mo>
+							<mi>M</mi><mtext>-</mtext><mi>Gas</mi>
+							<mo>+</mo>
+							<mi>R</mi><mtext>-</mtext><mi>Gas</mi>
+							<mo>(</mo><mi>bar</mi><mo>)</mo>
+						</math>
+						<br>
 					</dd>
 					<dt>計算の労力を減らすためのソフトウェアの導入</dt>
 					<dd>
-						<p>執筆中</p>
+						<p>これまで見てきたように、Turn Pressure Rule は非常に合理的ですが、毎回のダイブで <math xmlns="http://www.w3d.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> や <math xmlns="http://www.w3d.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を手計算するのは現実的ではありません。特に <math xmlns="http://www.w3d.org/1998/MathML"><mi>D</mi><mi>max</mi></math> の異なるマルチレベル・プロファイルを考慮すると、計算はさらに煩雑になります。</p>
+    <p>そこで、この複雑な計算を一瞬で処理し、NDLと並ぶ合理的な潜水計画を導き出すために、AI エンジン Gemini に協力してもらって、Web ツールを開発しました。</p>
+						<p>このツールは、あなたの <math xmlns="http://www.w3d.org/1998/MathML"><mi>RMV</mi></math> を使って <math xmlns="http://www.w3d.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> と <math xmlns="http://www.w3d.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を計算し、最終的な <math xmlns="http://www.w3d.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> を自動算出します。そして、NDL の時間制限と <math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> の時間制限を比較し、より短い方を採用する、というイマドキの潜水計画の決定をサポートします。</p>
+						<p>このカリキュレーターを次項で詳しく紹介します。</p>
 					</dd>
 					</dl>
 				</dd>
@@ -590,7 +644,8 @@
 				<li>Apache License 2.0 でライセンスされますので、ライセンスに従う限り無料でご自由にお使いいただけます。</li>
 				<li>HTML、CSS、JavaScript のみで作成されており、お手持ちのパソコン、スマホに一式をダウンロードしてしまえば、ネットワークに接続することなく使うことができます。</li>
 				<li>各ファイルの入手は <a href="https://github.com/mitsugu/diveplanner" class="external" target="_blank">GitHub</a> で可能です。この GitHub のリポジトリが公式リポジトリとなります。</li>
-				<li>ダイビング・カリキュレーターはオープンソースソフトウェアなので、Issue 登録、プルリクエストなどの貢献は歓迎します (Issue 登録、プルリクエストには GitHub のアカウントが必要です)。</li>
+				<li>ダイビング・カリキュレーターはオープンソースソフトウェアなので、Issue 登録、プルリクエストなどの貢献を歓迎します (Issue 登録、プルリクエストには GitHub のアカウントが必要です)。</li>
+				<li>またダイビング・カリキュレーターはオープンソースソフトウェアなので、リポジトリを fork して、ライセンスに従う限り、独自の機能を追加して公開することも自由です。</p>
 				</ul>
 			</dd>
 			<dt>1.3.2. ダイビング・カリキュレーターの機能</dt>
@@ -607,16 +662,15 @@
 				<dl>
 				<dt>ソースファイル</dt>
 				<dd>
-					<p><a href="https://github.com/mitsugu/diveplanner" class="external" target="_blank">GitHub の公式リポジトリ</a>から zip ファイルをダウンロードください。</p>
 					<div class="container">
 						<div class="left">
 							<figure>
 								<img width="432" height="364" src="fig2025110105.png">
 							</figure>
 						</div>
-						<p></p>
+						<p><a href="https://github.com/mitsugu/diveplanner" class="external" target="_blank">GitHub の公式リポジトリ</a>から zip ファイルをダウンロードください。</p>
+						<p>zip ファイルを任意のフォルダーに展開して index.html をタップすれば、Web ブラウザで動きます。現在のモダンブラウザなら問題なく動くはずです。</p>
 					</div>
-					<p>zip ファイルを任意のフォルダーに展開して index.html をタップすれば、Web ブラウザで動きます。現在のモダンブラウザなら問題なく動くはずです。</p>
 				</dd>
 				<dt>Web 版</dt>
 				<dd>
