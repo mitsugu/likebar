@@ -47,6 +47,32 @@
 			font-weight:bold;
 			margin-bottom:0em;
 		}
+		.note {
+			background-color:crimson;
+			color:white;
+			padding-top:0.5em;
+			padding-bottom:0.5em;
+			padding-left:0.5em;
+			padding-right:0.5em;
+			border-radius: 16px;
+		}
+		table#fem {
+			border-collapse:collapse;
+			border: solid 1px black;
+		}
+		table#fem th, table#fem td {
+			border: solid 1px black;
+			padding:0.2em;
+		}
+		table#fem th:nth-of-type(1), table#fem td:nth-of-type(1) {
+			white-space:nowrap;
+		}
+		table#fem td:nth-of-type(1) {
+			text-align:center;
+		}
+		.red {
+			color:red;
+		}
 	</style>
 </head>
 
@@ -56,6 +82,11 @@
 		<h3 id="20251101">11 月 01 日 ( 土 )</h3>
 		<div id="2025110101" class="top-mutter">
 			<h4>Dive #75: イマドキの潜水計画</h4>
+			<blockquote class="note">
+				<p>本稿は執筆途中であり、本稿の主題であるガス・マネージメントの計算セクションはまだ執筆途中です。説明が途中で中断していることからガス・マネージメントの計算は、まだ実際のダイブプランには使用しないでください。</p>
+				<p>執筆途中のセクションには &quot;執筆中&quot; と記載しています。</p>
+				<p>例外として <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> の計算に関するセクションはご利用いただけます。</p>
+			</blockquote>
 			<h5>0. はじめに</h5>
 			<p>ダイバーのみなさん、こんにちは。元 NAUI アシスタント・インチキラクターの大山 (a.k.a. OrzBruford, miyamafukashi, OrzDiver) です。</p>
 			<p>早速ですが、みなさんは潜水計画、ダイブプランを立ててダイビングをしていますか？</p>
@@ -134,15 +165,475 @@
 				<p>ぼくたちレクリエーショナル・ダイバーは 50 Bar Rule をよく使います。でもこの 50 bar 残すという習慣の 50 という数字が何を意味するのかは、ほぼ考えてきませんでした。</p>
 				<p>ちょっとこれはあまりいいことではないのではないかと思わざるを得ません。そしていろいろ調べるうちにテクニカルダイビングを行う人たちの Turn Pressure Rule がそのヒントを与えてくれるのではないかと考えるようになりました。</p>
 				<p>今日のこの稿では 50 Bar の意味や The Rule of Thirds での 1/3 のガスをリザーブとして残すことの意味の検討は行いません。やたらと理屈っぽい話になることが予想されるからです。</p>
-				<p>今日のこの稿では、50 Bar Rule、The Rule of Thirds、Turn Pressure Rule のエア・マネージメントの考え方を紹介するに止めます。ただし Turn Pressure Rule については実際の計算方法も解説します。役に立つからです。<p>
+				<p>今日のこの稿では、50 Bar Rule、The Rule of Thirds、Turn Pressure Rule のエア・マネージメントの考え方を紹介するに<ruby>止め<rt>とどめ</rt></ruby>ます。ただし Turn Pressure Rule については実際の計算方法も解説します。役に立つからです。<p>
+				<!-- カリキュレーターが完成したら復活させる
 				<p>そしてダイビング毎の計算がやはり面倒だと感じてしまうので、ぼくが AI エンジンの Gemini の力を頼って書いた<a href="https://mitsugu.github.io/diveplanner/" class="external" target="_blank">ダイビング・カリキュレーター</a>を紹介します。ぼくは元 IT エンジニアなので 0 からコードは書くことができましたが、やはり面倒だったので楽をしたかったわけです (爆)</p>
 				<p>コード自体のレビューは行っており、問題がないことは確認済みです。ご安心してご利用ください。</p>
 				<p>おそらくあなたのダイビングライフの役に立つはずです。</p>
 				<p><a href="https://mitsugu.github.io/diveplanner/" class="external" target="_blank">ダイビング・カリキュレーター</a>は Apache License 2.0 で公開していますので、必要に応じて好きに改造していただけます。ライセンスに従って二次著作物を公開することもできます。</p>
 				<p>ぼく自身も移動を伴わないダイビングプロフィールに対応したガス管理計算機の追加を検討しています。</p>
+				-->
+				<div class="note">
+					<p>またこの稿でもっとも大事なことを述べます。それはこの稿はテクニカル・ダイバー向けではなく、レクリエーショナル・ダイバー向けに書いているということです。ですから用語の定義やさまざまな事柄がテクニカル・ダイビングとは一致しません。またテクニカル・ダイバーから見ると不正確な記述があるかと思います。あくまでレクリエーショナル・ダイビングの実態に合わせた内容にしています。その点はご了承ください。</p>
+				</div>
+			</dd>
+			<dt>1.2.1. ガス・マネージメントの目的</dt>
+			<dd>
+				<p>ガス・マネージメントの目的ははっきりしています。ガス切れによる事故の予防、それ以外にありません。これは自分自身だけでなく、バディの事故予防も行うということも意味してます。</p>
+				<p>つまりガス・マネージメントは、あなたとあなたのバディがガス切れという最悪の体験により事故にならないことを目的とします。</p>
+			</dd>
+			<dt>1.2.2. ガス・マネージメントは誰が行うのか</dt>
+			<dd>
+				<p>ではガス・マネージメントは誰が行うのでしょうか。ガイドでしょうか？インストラクターでしょうか？そうです。違いますね。ガス・マネージメントは、あなたとあなたのバディが協力して行うのです。</p>
+				<p>あなたはガス切れという最悪の事態をバディと協力してお互いに防ぐのです。</p>
+			</dd>
+			<dt>1.2.3. ガス・マネージメントの基本</dt>
+			<dd>
+				<p>ガス・マネージメントの基本的な考え方は、非常にシンプルです。それは、<strong>「帰りのガス」と「緊急時の予備のガス」を確保し、それらを除く残圧 (ガス) を使い切る前に折り返す (ターンする)</strong> ということです。</p>
+			  <p>この考え方を成り立たせるのが、以下の三つの核となる概念です。</p>
+			  <dl>
+			  	<dt>Minimum Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math>)</dt>
+			  	<dd>
+			  	    <p>これは、緊急時に<strong>バディとガス共有をしながら、安全停止 (必要なら減圧停止も) を含めて水面まで安全に浮上するために、絶対に必要な最低限のガス量</strong>です。</p>
+							<p>テクニカル・ダイバーが採用する Turn Pressure Rule の場合は、50 Bar Rule のような 50 という固定値ではなく、<strong>最大深度</strong>と<strong>ダイバー個人の消費率</strong>に基づいて毎回計算します。</p>
+							<p>わたしたちのようなレクリエーショナル・ダイバーの場合は 50 Bar Rule を採用することがほとんどで、50 という固定値を採用しています。</p>
+							<p>難しいダイビングや高運動負荷のダイビングの場合などの簡易版とし The Rule of Thirds のように開始圧の 1/3 の圧力を固定値として採用する場合もあります。</p>
+			  	    <p>この <math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> は、<strong>生命の危機的状況でない限り、いかなる状況でも消費してはならない最終生命線</strong>であり、ガス・マネージメントの基礎となります。</p>
+			  	</dd>
+					<dt>Return Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math>)</dt>
+					<dd>
+						<p>わたしたちダイバーはダイブプランを立てるときに、<strong>「通常通り安全に帰るためのガス」を考慮しなければなりません。これが復路の予想消費ガス量</strong>であり、<math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> です。</p>
+						<p><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> には、ボート・ダイブならアンカーまで戻るまでのガス、浮上に必要なガス、安全停止 (必要であれば減圧停止) に必要なガスが含まれます。</p>
+							<p><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> は 50 Bar Rule、Rule of Thirds、Turn Pressure でそれぞれ異なる扱いをします。どのように扱うのかについてはそれぞれのルールの項で解説します。</p>
+					</dd>
+			  	<dt>Turn Pressure（<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> or <math xmlns="http://www.w3.org/1998/MathML"><mi>TP</mi></math>）</dt>
+			  	<dd>
+						<p>これは、<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> を確保しつつ、<strong>エキジットに向けて引き返し始めなければならない残圧</strong>です。すなわち、<strong><math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> と <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を加算した残圧</strong>となります。</p>
+			  		<p><math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> は、NDL と合わせてダイビング中にモニタリングされなければならない<strong>「エアによる潜水時間の上限」</strong>を決定するトリガーです。残圧が <math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> に達したら、NDL に余裕があっても<strong>エキジットに向けて引き返し始めなければなりません</strong>。</p>
+			  	</dd>
+				</dl>
+			</dd>
+			<dt>1.2.4. ガス・マネージメントの実際</dt>
+			<dd>
+				<dl>
+				<dt>前提となる話</dt>
+				<dd>
+					<p>ダイビング・プロフィールとして、ボート、またはビーチからエントリーして、目的の場所まで移動して引き換えしてくるという、よくあるダイビング・プロフィールを前提とします。</p>
+					<p>たとえばボートダイビングでは、エントリーして、アンカーロープや潜降ロープを使って潜降し、アンカー下で集合、集合後目的の場所に向かって移動、引き返すべきタイミングが来たらボートに向けて引き返し始め、アンカーまで戻り、そこから浮上を開始、-5m で安全停止後、浮上しボートにエキジットするような典型的なパターンを想定します。</p>
+					<p>また以下の説明、ならびに各計算式では以下の略号を使用します。</p>
+					<dl>
+					<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math></dt>
+					<dd>
+						Minimum Gas<br>
+						生命の危機的状況でない限り、いかなる状況でも消費してはならない最終生命線となるガス量
+					</dd>
+					<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math></dt>
+					<dd>
+						Return Gas<br>
+						通常通り安全に帰るためのガス量<br>
+						ボートダイビングであればアンカーまで戻るのに必要なガス量、浮上に要するガス量、安全停止または減圧停止に必要となるガス量の総和
+					</dd>
+					<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math></dt>
+					<dd>
+						Turn Pressure<br>
+						エキジットに向けて引き返し始めねばならないリミットのガス量<br>
+						<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> と <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を加算した残圧
+					</dd>
+					<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mrow><mi>start</mi></mrow></math></dt>
+					<dd>タンク (シリンダー) の開始圧</dd>
+					<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> (Respiratory Minute Volume)</dt>
+					<dd>
+						<p>分時換気量といい、オープンウォーターでは空気消費量として学びます。水中で活動するダイバーが1分間に消費するガス量です。同様の意味を持つ SAC (Surface Air Consumption) という用語もありますが、SAC は単位が <math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math> だったり <math xmlns="http://www.w3.org/1998/MathML"><mi>L</mi></math> だったりと扱いが文脈で異なることが多く、理解が安定しません。なのでここでは <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> に統一します。</p>
+					</dd>
+					</dl>
+				</dd>
+				<dt>50 Bar Rule</dt>
+				<dd>
+					<p>最も簡便なガス・マネージメントのルールになります。ダイバーなら慣れ親しんでいる不慮の事態のために残圧を必ず 50 気圧残すルールです。</p>
+					<p>え？残圧は残さないがポリシー？そんないつ死んでもおかしくない危険なポリシーは、たった今、ゴミ箱に捨てるか焼却処分してください。あなたの命を狙う悪魔のようなポリシーは即刻射殺して廃棄処分にしてください。</p>
+					<p>それではこの 50 Bar Rule でのはどのようにして <math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> を求めるのでしょうか。</p>
+					<p><math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> は以下の計算で求められるのでした。</p>
+					<math xmlns="http://www.w3.org/1998/MathML" display="block">
+						<mi>T</mi><mtext>-</mtext><mi>Gas</mi>
+						<mo>=</mo>
+						<mi>M</mi><mtext>-</mtext><mi>Gas</mi>
+						<mo>+</mo>
+						<mi>R</mi><mtext>-</mtext><mi>Gas</mi>
+					</math>
+					<p>50 Bar Rule では <math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi><mo>=</mo><mi>50</mi></math> なのでした。それでは <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> はどのように求めればいいのでしょうか？</p>
+					<p><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> はボートダイビングであればアンカーに戻るまでのエア量、浮上に要するエア量、安全停止に要するエア量の総和でした。</p>
+					<p><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> をあなたは求めることができますか？</p>
+					<p>ぼくは様々な条件を設定することなしに <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を求めることができませんでした。50 Bar Rule では <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> や最大水深、タンク容量などは計算上一切考慮しません。</p>
+					<p>もっと正しく言うのなら<strong>50 Bar Rule では一切計算というものを行いません</strong>。え？と思われるでしょうが計算を行いません。</p>
+					<p>実際のダイビングの場面では、ガイドに「残圧が 100 になったら教えてください。引き返し始めます」と言われることが多いと思います。</p>
+					<p>この &quot;<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi><mo>=</mo><mi>50</mi></math>&quot; と &quot;<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi><mo>=</mo><mi>100</mi></math>&quot; であることの意味をもう少し見ていきましょう。</p>
+					<p>タンクの開始圧 <math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mrow><mi>start</mi></mrow><mo>=</mo><mi>200</mi><mi>bar</mi></math> だとします。<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi><mo>=</mo><mi>100</mo></math> ですからわたしたちダイバーがエントリーから <math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> に達するまで往路 (行き) で使ってよいガスは <math xmlns="http://www.w3.org/1998/MathML"><mi>200</mi><mo>-</mo><mi>100</mi><mo>=</mo><mi>100</mi><mi>bar</mi></math> ということになります。</p>
+					<p>さらに復路で使って良いガス <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi><mo>=</mo><mi>T</mi><mtext>-</mtext><mi>Gas</mi><mo>-</mo><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> ですから <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi><mo>=</mo><mi>100</mi><mo>-</mo><mi>50</mi><mo>=</mo><mi>50</mi><mi>bar</mi></math> ということになります。</p>
+					<p>つまり 50 Bar Rule を日常的に採用しているぼくたちは、<ruby>往路<rt>行き</rt></ruby>で <math xmlns="http://www.w3.org/1998/MathML"><mi>100</mi><mi>bar</mi></math> 使って、<ruby>復路<rt>帰り</rt></ruby>ではその <math xmlns="http://www.w3.org/1998/MathML"><mfrac><mo>1</mo><mo>2</mo></mfrac></math> の <math xmlns="http://www.w3.org/1998/MathML"><mi>50</mi><mi>bar</mi></math> を使うダイビングを前提としていることになります。そしてこの復路の <math xmlns="http://www.w3.org/1998/MathML"><mi>50</mi><mi>bar</mi></math> には安全停止 (必要であれば減圧停止) で消費するガスが含まれます。</p>
+					<p>そのように考えると 50 Bar Rule では復路のガス量にとても余裕がないとも言えます。50 Bar Rule を日常とするぼくたちは、この復路のガスの余裕のなさを常に意識しておかなければなりません。</p>
+					<p>これまで見てきたように <math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> が 50 であることも、<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> が 100 であることも、実は理屈で裏付けられた数字でないことは明らかです。これらの数字がどこから来たのかというと、全て<strong>過去の経験則から来ている</strong>ということになります。</p>
+					<p>経験則なので過去の知恵の結晶とも言えます。ですが、やはり理論的根拠がないために、-30m を越えるような極端な大深度潜水などでは、この数字でダイビングを行うと <math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> まで侵食してしまうことがあります。ガス・マネージメントの考え方としては、とても安全とは言えないダイビングになる場合も有り得えます。</p>
+					<p>50 Bar Rule を採用する全てのダイバーは、これまでの議論と 50 Bar Rule の限界を理解しておかねばなりません。</p>
+					<p>50 Bar Rule ではなく、より厳しいダイビングを想定したルールの一つに Rule of Thirds があります。それを次項で紹介します。</p>
+				</dd>
+				<dt>The Rule of Thirds</dt>
+				<dd>
+					<p>50 Bar Rule に比べて、より計画的で安全マージンが大きい考え方が The Rule of Thirds (三分の二の法則) になります。これは、ケイブダイビングのようなオーバーヘッド環境で生まれたルールをレクリエーショナルに応用したものです。</p>
+					<p>このルールでは、タンクの残圧を「行き (1/3)」「帰り (1/3)」「予備 (1/3)」に均等に分け、残圧が開始圧の 2/3 を切ったら (つまり 1/3 を消費したら) 引き返すというものです。</p>
+    <p>このルールは、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math> (復路消費ガス量) と <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">M</mi><mtext>-</mtext><mi>Gas</mi></math> (最終生命線) の両方に、タンクの総ガス量の <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">1/3</mi></math> という固定比率を割り当てることで、安全性を確保しようとしています。</p>
+    <p>たとえば開始圧 <math xmlns="http://www.w3.org/1998/MathML"><msub><mi>P</mi><mrow><mi>start</mi></mrow></msub></math> が <math xmlns="http://www.w3.org/1998/MathML"><mi>200</mi><mtext> </mtext><mi>bar</mi></math> の場合、</p>
+    <math xmlns="http://www.w3.org/1998/MathML" display="block">
+        <mi mathvariant="normal">M</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+        <mo>=</mo>
+        <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+        <mo>=</mo>
+        <mfrac>
+            <msub><mi>P</mi><mrow><mi>start</mi></mrow></msub>
+            <mn>3</mn>
+        </mfrac>
+        <mo>≈</mo>
+        <mn>67</mn> <mo>(</mo><mi>bar</mi><mo>)</mo>
+    </math>
+    <p>この場合、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">M</mi><mtext>-</mtext><mi>Gas</mi></math> は <math xmlns="http://www.w3.org/1998/MathML"><mi>67</mi><mo> </mo><mi>bar</mi></math>、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R-Gas</mi></math> も<math xmlns="http://www.w3.org/1998/MathML"><mi>67</mi><mo> </mo><mi>bar</mi></math> となり、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mo>-</mo><mi>Gas</mi></math> は <math xmlns="http://www.w3.org/1998/MathML"><mi>133</mi><mo> </mo><mi>bar</mi></math> となります。これは 50 Bar Rule の <math xmlns="http://www.w3.org/1998/MathML"><mi>125</mi><mo> </mo><mi>bar</mi></math> より保守的です。</p>
+    <p>しかし、50 Bar Rule と同じく、このルールもダイバー個人の消費率や最大深度を一切考慮しない固定値です。しかも、The Rule of Thirds はケイブダイビングの「行きと帰りの距離が同じ」という特殊な環境のために生まれました。つまり、往路と復路の消費量が <math xmlns="http://www.w3.org/1998/MathML"><mn mathvariant="normal">1:1</mn></math> であるという、極めて厳格な仮定に基づいています。</p>
+    <p>この仮定は、ディープダイブや高運動負荷のダイビングでは崩壊し、真に計算された <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">M</mi><mtext>-</mtext><mi>Gas</mi></math> や <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mo>-</mo><mi>Gas</mi></math> が <math xmlns="http://www.w3.org/1998/MathML"><mi>67</mi><mo> </mo><mi>bar</mi></math> を簡単に超えてしまう危険性が否定できません。安全性を最大化するためには、この固定値の限界を理解しなければなりません。</p>
+					<p>またレクリエーショナル・ダイビングでは特殊なトレーニングを受けることなく、オーバーヘッド環境へのダイビングをおこなってはいけないことになっています。つまり追加の特別なトレーニングを受けることなく、キャバンダイビング、ケイブダイビング、船内に入るレックダイビングは行ってはいけないことになっています。</p>
+					<p>NAUI Worldwide ではということになりますが、船内に入るレックダイビングはテクニカル・ダイビングの分野の 1 つと定められています。</p>
+					<p>ですからもしあなたがテクニカル・ダイバーではなく、通常のレクリエーショナル・ダイバーであるのなら、たとえ The Rule of Thirds を採用しているとしても、オーバーヘッド環境への侵入は厳禁です。</p>
+					<!--
+					<p style="text-indent:0em;color:gray;text-align:center;">&lt;&lt;以下、どちらかというとガイドやインストラクター向けの文章となります。&gt;&gt;<br>&lt;&lt;タフな話となりますので一般の方は飛ばしてください&gt;&gt;</p>
+					<p>もちろん指導団体の基準は法律ではありません。ですから潜ろうと思うと米国のマウイ島や和歌山県白浜町で現在日常的に行われてるように、沈船の内部に侵入していただいて楽しんでいただくということも法的には可能です。</p>
+					<p>ただあの沈船内部を案内しているガイドやインストラクターはちょっと立ち止まって考えたほうがいいと思うのです。まさか船内でゲストになにかあったときに、ゲストに 100% 過失があって、ガイドやインストラクターに客観的過失がなかったとしても、ゲストを船内環境に案内したということで過失責任が問われないと本当に思えるのか。それはやはり考えたほうがいいと思うのです。基準から外れたことをして、何かあって損害賠償の責任が生じたときに、基準から外れた案内をして保険会社から保険金がでると本当に思いますか？</p>
+					<p>もしものときに、あなたは過失致死罪で有罪になって懲役刑をくらうだけでなく、人殺しと後ろ指を指され、保険が支払われることもなく億単位の損害賠償を払う覚悟はありますか？あなたはその後の人生をどうやって生きていくのですか？</p>
+					<p>それ以上に目の前でオーバーヘッド環境へのダイブ・トレーニングを受けたことがないゲストになにかあったとしたら、あなたはそれに精神的に耐えることができますか？目の前で呼吸をすることもなく動かなくなってしまったゲストに直面して、あなたはその後の人生を本当に<ruby>滞り<rt>とどこおり</rt></ruby>なく生きていくことができますか？</p>
+					<p>そのときになって悔やんで泣いても遅いのですよ？</p>
+					<p>もう少し基準が学校の校則のようなものでは全然ないことを気にしたほうがいいのではないでしょうか。</p>
+					-->
+				</dd>
+				<dt>Turn Pressure Rule</dt>
+				<dd>
+					<dl>
+					<dt>はじめに</dt>
+					<dd>
+						<p>Turn Pressure Rule は、経験則を論理と計算で検証し、現代の安全基準に最適化したガス・マネージメントの集大成だと言えます。これは、50 Bar Rule や The Rule of Thirds のような簡便な固定値に頼らず、Minimum Gas（<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math>)とReturn Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math>) をダイバー個人のガス消費率と水深に基づいて計算で導き出し、その上で Turn Pressure (<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math>) を決定します。</p>
+						<p>このルールは、先人たちが経験則で確立した安全マージンを、すべてのダイブ・プロファイルで科学的に再現し、保証するために生まれました。特に、-40m のような深い水深で安全を確保するためには、この正確な計算が不可欠となります。</p>
+						<p>この Turn Pressure Rule に従い、計算された <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi></math> と NDL を比較してダイブプランを立てるのが、これまでの経験則の限界を超え、安全性と合理性を両立させた、イマドキのレクリエーショナル・ダイバーが採用すべきより望ましいエア・マネージメントの考え方と言えます。</p>
+					</dd>
+					<dt>計算に使用・算出するデータ</dt>
+					<dd>
+						<p>一部繰り返しになりますが、計算に使用するデータと算出するデータを一覧します。</p>
+						<dl>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>V</mi><mi>tank</mi></math></dt>
+						<dd>
+							タンク (シリンダー) の容量<br>
+							単位はリットル (<math xmlns="http://www.w3.org/1998/MathML"><mi>L</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mi>start</mi></math></dt>
+						<dd>
+							開始ガス圧<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mi>end</mi></math></dt>
+						<dd>
+							終了ガス圧<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mi>consumed</mi></math></dt>
+						<dd>
+							消費ガス圧<br>
+							<math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mi>consumed</mi><mo>=</mo><mi>P</mi><mi>start</mi><mo>-</mo><mi>P</mi><mi>end</mi></math><br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>D</mi><mi>avg</mi></math></dt>
+						<dd>
+							平均水深<br>
+							単位はメートル (<math xmlns="http://www.w3.org/1998/MathML"><mi>m</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>D</mi><mi>max</mi></math></dt>
+						<dd>
+							最大水深<br>
+							単位はメートル (<math xmlns="http://www.w3.org/1998/MathML"><mi>m</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mi>dive</mi></math></dt>
+						<dd>
+							潜降開始から浮上するまでの潜水時間<br>
+							安全停止の時間を含む<br>
+							単位は分 (<math xmlns="http://www.w3.org/1998/MathML"><mi>min</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>ATA</mi><mi>avg</mi></math></dt>
+						<dd>
+							平均水深での絶対圧 (ATA)<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>ATA</mi><mi>max</mi></math></dt>
+						<dd>
+							最大水深での絶対圧 (ATA)<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math></dt>
+						<dd>
+							Respiratory Minute Volume<br>
+							水面分時換気量。一般的にはガス消費量と呼ぶ<br>
+							オープンウォーターで空気消費量として学んだ値<br>
+							単位はリットル (<math xmlns="http://www.w3.org/1998/MathML"><mi>L</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math></dt>
+						<dd>
+							Minimum Gas<br>
+							生命の危機的状況でない限り、いかなる状況でも消費してはならない最終生命線となるガス量<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math></dt>
+						<dd>
+							Return Gas<br>
+							通常通り安全に帰るためのガス量<br>
+ボートダイビングであればアンカーまで戻るのに必要なガス量、浮上に要するガス量、安全停止または減圧停止に必要となるガス量の総和<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						<dt><math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math></dt>
+						<dd>
+							Turn Pressure<br>
+							エキジットに向けて引き返し始めねばならないリミットのガス量<br>
+							<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> と <math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math> を加算した残圧<br>
+							単位は気圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>)
+						</dd>
+						</dl>
+					</dd>
+					<dt>Respiratory Minute Volume (<math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math>) の計算:</dt>
+					<dd>
+						<p>RMV（水面分時呼吸量）は、ダイバーのガス消費率をリットル毎分（<math xmlns="http://www.w3.org/1998/MathML"><mi>L</mi><mo>/</mo><mi>min</mi></math>）で示したもので、以下の計算式で求められます。</p>
+						<math display="block">
+							<mi>RMV</mi>
+							<mo>=</mo>
+							<mfrac>
+								<mrow>
+									<msub><mi>P</mi><mrow><mi>consumed</mi></mrow></msub>
+									<mo>×</mo>
+									<msub><mi>V</mi><mrow><mi>tank</mi></mrow></msub>
+								</mrow>
+								<mrow>
+									<msub><mi>ATA</mi><mrow><mi>avg</mi></mrow></msub>
+									<mo>×</mo>
+									<msub><mi>T</mi><mrow><mi>dive</mi></mrow></msub>
+								</mrow>
+							</mfrac>
+						</math>
+						<p>消費ガス圧 <math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mi>consumed</mi></math> は以下の式で算出します。</p>
+						<math display="block">
+							<mi>P</mi><mi>consumed</mi>
+							<mo>=</mo>
+							<mi>P</mi><mrow><mi>start</mi>
+							<mo>-</mo>
+							<mi>P</mi><mrow><mi>end</mi>
+						</math>
+						<p>平均水深での絶対圧 <math xmlns="http://www.w3.org/1998/MathML"><mi>ATA</mi><mi>avg</mi></math> は以下の式で算出します。</p>
+						<math display="block">
+							<mi>ATA</mi><mi>avg</mi>
+							<mo>=</mo>
+							<mfrac>
+								<msub><mi>D</mi><mrow><mi>avg</mi></mrow></msub>
+								<mn>10</mn>
+							</mfrac>
+							<mo>+</mo>
+							<mn>1</mn>
+						</math>
+						<br>
+					</dd>
+					<dt>Minimum Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math>) の計算:</dt>
+					<dd>
+						<p><math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> は、最大深度でガス切れが発生した場合に、<strong>バディと共有して安全に浮上するために絶対に必要なガス量</strong>を計算で割り出します。</p>
+
+						<blockquote class="note">ここでは、緊急時消費率ファクター (<math xmlns="http://www.w3.org/1998/MathML"><mi>F</mi><mtext>-</mtext><mi>em</mi></math>) に、<strong>バディのガス切れ</strong>と<strong>あなたの高ストレス消費</strong>の両方を<strong>統合して含める</strong>前提で計算します。</blockquote>
+						<dl>
+						<dt>1. 緊急時総消費率 (<math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi><mtext>-</mtext><mi>Em</mi></math>) の算出</dt>
+						<dd>
+							<p><math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi><mtext>-</mtext><mi>Em</mi></math> は、高ストレス下でバディとあなたが 2 人分で消費すると仮定されるガス総消費率です。</p>
+							<math xmlns="http://www.w3.org/1998/MathML" display="block">
+								<mi>RMV</mi><mtext>-</mtext><mi>Em</mi>
+								<mo>=</mo>
+								<msub><mi>F</mi><mrow><mi>em</mi></mrow></msub>
+								<mo>×</mo>
+								<mi>RMV</mi>
+								<mo>(</mo><mi>L</mi><mo>/</mo><mi>min</mi><mo>)</mo>
+							</math>
+						</dd>
+						<p>通常、<math xmlns="http://www.w3.org/1998/MathML"><mi>F</mi><mtext>-</mtext><mi>em</mi></math> の値はダイビングの難易度やトレーニングレベルに応じて決定されます。レクリエーショナル・ダイビング (通常時) では、一般的に以下のファクターを目安とします。</p>
+						<table id="fem">
+						<thead>
+							<tr>
+								<th><math xmlns="http://www.w3.org/1998/MathML"><mi>F</mi><mtext>-</mtext><mi>em</mi></math></th>
+								<th>想定される状況 (レクリエーショナル)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><math xmlns="http://www.w3.org/1998/MathML"><mi>1.0</mi></math></td>
+								<td>理論上の最低値。パニックやストレスが一切なく、通常の <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> で浮上できると仮定した場合。<strong class="red">現実の緊急時には非推奨。</strong></td>
+							</tr>
+							<tr>
+								<td><math xmlns="http://www.w3.org/1998/MathML"><mi>1.5</mi></math></td>
+								<td>浅い水深 (18m 以浅) で、水面まで戻る時間が短く、ダイバーが非常に冷静である場合の楽観的な見積もり。</td>
+							</tr>
+							<tr>
+								<td><math xmlns="http://www.w3.org/1998/MathML"><mi>2.0</mi></math></td>
+								<td><strong>一般的に安全とされる標準値。</strong>バディのストレス消費増大と、それに伴うあなたの消費増大をバランス良く見積もる保守的な仮定。</td>
+							</tr>
+							<tr>
+								<td><math xmlns="http://www.w3.org/1998/MathML"><mi>3.0</mi></math></td>
+								<td>ディープダイブ (<math xmlns="http://www.w3.org/1998/MathML"><mi>-30</mi><mi>m</mi></math> 以深)</strong> や、視界不良、水流など高ストレス環境を想定した極めて保守的な見積もり。</td>
+							</tr>
+							<tr>
+								<td><math xmlns="http://www.w3d.org/1998/MathML"><mi>4.0</mi></math></td>
+								<td>テクニカルダイビングの最悪のシナリオ。ディープダイブにおいて、パニックと高負荷の双方を最大値で見積もる最高度に保守的な仮定。</td>
+							</tr>
+						</tbody>
+						</table>
+						<p class="no-indent"><small>※ 表内の倍率は、緊急時 2 人分の消費率が、通常の <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> の何倍になるかを示しています。（例: <math xmlns="http://www.w3.org/1998/MathML"><mi>F</mi><mtext>-</mtext><mi>em</mi><mo>=</mo><mi>2</mi></math> は、<math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi><mtext>-</mtext><mi>Em</mi></math> の計算の基準値になります）</small></p>
+
+						<dt>2. 浮上経路の平均絶対圧 (<math xmlns="http://www.w3.org/1998/MathML"><mi>ATA</mi><mtext>-</mtext><mi>avg</mi><mtext>-</mtext><mi>asc</mi></math>) の算出</dt>
+						<dd>
+							<p>最大深度 (<math xmlns="http://www.w3.org/1998/MathML"><mi>D</mi><mi>max</mi></math>) と安全停止水深 (<math xmlns="http://www.w3.org/1998/MathML"><mi>5</mi><mi>m</mi></math>) の中間点での平均的な絶対圧を求めます。</p>
+							<math xmlns="http://www.w3.org/1998/MathML" display="block">
+								<mi>ATA</mi><mtext>-</mtext><mi>avg</mi><mtext>-</mtext><mi>asc</mi>
+								<mo>=</mo>
+								<mfrac>
+									<mrow>
+										<mfrac>
+											<mrow>
+												<msub><mi>D</mi><mrow><mi>max</mi></mrow></msub>
+												<mo>+</mo>
+												<mn>5</mn>
+											</mrow>
+											<mn>2</mn>
+										</mfrac>
+									</mrow>
+									<mn>10</mn>
+								</mfrac>
+								<mo>+</mo>
+								<mn>1</mn>
+							</math>
+							<br>
+ 						</dd>
+
+						<dt>3. 浮上・停止の総所要時間 (<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Total</mi></math>) の算出</dt>
+						<dd>
+							<p>最大深度から安全停止深度までの浮上時間、安全停止時間 (<math xmlns="http://www.w3.org/1998/MathML"><mi>3</mi><mi>min</mi></math>) と、緊急時マージン時間 (<math xmlns="http://www.w3.org/1998/MathML"><mi>2</mi><mi>min</mi></math>) を加えます。（浮上速度は <math xmlns="http://www.w3.org/1998/MathML"><mi>9</mi><mi>m</mi><mo>/</mo><mi>min</mi></math> を前提）</p>
+							<math xmlns="http://www.w3.org/1998/MathML" display="block">
+								<msub><mi>T</mi><mrow><mi>Total</mi></mrow></msub>
+								<mo>=</mo>
+								<mfenced open="(" close=")">
+									<mfrac>
+										<mrow>
+											<msub><mi>D</mi><mrow><mi>max</mi></mrow></msub>
+											<mo>-</mo>
+											<mn>5</mn>
+										</mrow>
+										<mn>9</mn>
+									</mfrac>
+								</mfenced>
+								<mo>+</mo>
+								<mn>3</mn>
+								<mo>+</mo>
+								<mn>2</mn>
+								<mo>(</mo><mi>min</mi><mo>)</mo>
+							</math>
+							<br>
+ 						</dd>
+
+						<dt>4. Minimum Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math>) の最終計算 (bar)</dt>
+						<dd>
+							<p>浮上に必要な総ガス量（リットル）を求め、それをタンク容量 (<math xmlns="http://www.w3.org/1998/MathML"><mi>V</mi><mi>tank</mi></math>) で割ることで、気圧（bar）に換算します。</p>
+							<math xmlns="http://www.w3.org/1998/MathML" display="block">
+								<mi>M</mi><mtext>-</mtext><mi>Gas</mi>
+								<mo>=</mo>
+								<mfrac>
+									<mrow>
+										<mi>ATA</mi><mtext>-</mtext><mi>avg</mi><mtext>-</mtext><mi>asc</mi>
+										<mo>×</mo>
+										<msub><mi>T</mi><mrow><mi>Total</mi></mrow></msub>
+										<mo>×</mo>
+										<mi>RMV</mi><mtext>-</mtext><mi>Em</mi>
+									</mrow>
+									<msub><mi>V</mi><mrow><mi>tank</mi></mrow></msub>
+								</mfrac>
+								<mo>(</mo><mi>bar</mi><mo>)</mo>
+							</math>
+							<br>
+						</dd>
+						</dl>
+					</dd>
+					<dt>Return Gas (<math xmlns="http://www.w3.org/1998/MathML"><mi>R</mi><mtext>-</mtext><mi>Gas</mi></math>) の計算:</dt>
+					<dd>
+						<p>執筆中です。もうしばらくお待ち下さい。</p>
+					</dd>
+					<dt>Turn Pressure (<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math>) の計算:</dt>
+					<dd>
+						<p>執筆中</p>
+					</dd>
+					<dt>計算の労力を減らすためのソフトウェアの導入</dt>
+					<dd>
+						<p>執筆中</p>
+					</dd>
+					</dl>
+				</dd>
 			</dd>
 			</dl>
-			<p>執筆中。お待ち下さい。</p>
+
+			<h6>1.3. ダイビング・カリキュレーター</h6>
+			<dl>
+			<dt>1.3.1. ダイビング・カリキュレーターとは</dt>
+			<dd>
+				<p><a href="https://mitsugu.github.io/diveplanner/" class="external" target="_blank">ダイビング・カリキュレーター</a>というものを作成しました。ダイビング・カリキュレーターとは以下のようなソフトウェアになります。</p>
+				<ul>
+				<li><span class="red"><strong>ダイビング・カリキュレーターはレクリエーショナル・ダイバー用のアプリケーション</strong></span>となります。テクニカル・ダイバー用のアプリケーションは別途適したものをお探しください。</li>
+				<li><a href="https://licenses.opensource.jp/Apache-2.0/Apache-2.0.html" class="external" target="_blank">Apache License 2.0</a> でライセンスされるオープンソースソフトウェアです。</li>
+				<li>Apache License 2.0 でライセンスされますので、ライセンスに従う限り無料でご自由にお使いいただけます。</li>
+				<li>HTML、CSS、JavaScript のみで作成されており、お手持ちのパソコン、スマホに一式をダウンロードしてしまえば、ネットワークに接続することなく使うことができます。</li>
+				<li>各ファイルの入手は <a href="https://github.com/mitsugu/diveplanner" class="external" target="_blank">GitHub</a> で可能です。この GitHub のリポジトリが公式リポジトリとなります。</li>
+				<li>ダイビング・カリキュレーターはオープンソースソフトウェアなので、Issue 登録、プルリクエストなどの貢献は歓迎します (Issue 登録、プルリクエストには GitHub のアカウントが必要です)。</li>
+				</ul>
+			</dd>
+			<dt>1.3.2. ダイビング・カリキュレーターの機能</dt>
+			<dd>
+				<blockquote class="note">現在ダイビング・カリキュレーターは <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> (呼吸ガス消費量) 計算機のみ実装されています。ガス管理計算機は絶賛開発中なのでもうしばらくお待ち下さい。</blockquote>
+				<ul>
+				<li>Turn Pressure (<math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math>) の算出に必要な <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi><mo>/</mo><mi>SOC</mi></math> (ガス消費量) を算出します。オープンウォーターの講習で学ぶ空気消費量になります。</li>
+				<li>ダイビング・カリキュレーターは Turn Pressure Rule に基づく Turn Pressure を計算します。</li>
+				<li>50 Bar Rule、The Rule of Thirds への対応は、それぞれのルールに<ruby>則る<rt>のっとる</rt></ruby>のではなく、<math xmlns="http://www.w3.org/1998/MathML"><mi>M</mi><mtext>-</mtext><mi>Gas</mi></math> をそれぞれ <math xmlns="http://www.w3.org/1998/MathML"><mi>50</mi><mi>bar</mi></math>、<math xmlns="http://www.w3.org/1998/MathML"><mi>P</mi><mi>start</mi></math> の <math xmlns="http://www.w3.org/1998/MathML"><mi>1</mi><mo>/</mo><mi>3</mi></math> と固定値にすることで <math xmlns="http://www.w3.org/1998/MathML"><mi>T</mi><mtext>-</mtext><mi>Gas</mi></math> を算出する仕様とさせていただきました。</li>
+				</ul>
+			</dd>
+			<dt>1.3.3. ダイビング・カリキュレーターの公開場所</dt>
+			<dd>
+				<dl>
+				<dt>ソースファイル</dt>
+				<dd>
+					<p><a href="https://github.com/mitsugu/diveplanner" class="external" target="_blank">GitHub の公式リポジトリ</a>から zip ファイルをダウンロードください。</p>
+					<div class="container">
+						<div class="left">
+							<figure>
+								<img width="432" height="364" src="fig2025110105.png">
+							</figure>
+						</div>
+						<p></p>
+					</div>
+					<p>zip ファイルを任意のフォルダーに展開して index.html をタップすれば、Web ブラウザで動きます。現在のモダンブラウザなら問題なく動くはずです。</p>
+				</dd>
+				<dt>Web 版</dt>
+				<dd>
+					<p>ダイビング・カリキュレーターはホームページとして作成されています。なので zip を手に入れて展開して、といった作業が面倒でネットにつながる場所であれば、GitHub Pages で公開してますので、特別なインストール作業をすることなく使うことができます。</p>
+					<p><a href="https://mitsugu.github.io/diveplanner/" class="external" target="_blank">ダイビング・カリキュレーターは GitHub Pages として公開しています</a>。GitHub Pages なので、当然利用にはパソコンやスマホ代、ルーターなどの通信機器代、通信費や電気代以外の費用は発生しません。</p>
+				</dd>
+				</dl>
+			</dd>
+			<dt>1.3.4. <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> (呼吸ガス消費量) 計算機の使い方</dt>
+			<dd>
+				<p>執筆中</p>
+			</dd>
+			<dt>1.3.5. ガス管理計算機の使い方</dt>
+			<dd>
+				<p>執筆中</p>
+			</dd>
+			</dl>
 			<!--
 			<div class="container">
 				<div class="left">
