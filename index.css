@@ -149,7 +149,8 @@ blockquote {
 }
 iframe {
 	width:34em;
-	height:9em;
+	/*height:9em;*/
+	height:auto;
 	border:none;
 }
 span.red {
