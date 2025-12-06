@@ -33,10 +33,11 @@
 		h5 {
 			font-size:1em;
 		}
-		div.title-container {
-			display:flex;
-			flex-direction:column;
+		div.title {
+			width:50%;
+			margin-left:auto;
 		}
+		/*
 		h4 {
 			text-align:center;
 			position: relative;
@@ -51,6 +52,35 @@
 			line-height:0.5em;
 			left:45%;
 		}
+		*/
+		div.title-container {
+			position: relative;
+			width: 100%;
+			container-type: inline-size;
+		}
+		div.title-container img {
+			width: 100%;
+			height: auto;
+			vertical-align: bottom;
+		}
+		div.title {
+			position: absolute;
+			top: 10%;
+			left: 50%;
+			width: 50%; /* 枠からはみ出ないように制限 */
+			z-index: 10;
+		}
+		.overlay {
+			font-size: clamp(14px, 5cqw, 80px);
+			color: #e60112;
+			font-family: "biz udpmincho", serif;
+			font-style: italic;
+			font-weight: bold;
+			/*-webkit-text-stroke: 1px white; */
+			-webkit-text-stroke: 0.2cqw white;
+			line-height: 1.2;
+			margin: 0;
+		}
 	</style>
 </head>
 
@@ -59,12 +89,12 @@
 	<div id="contents">
 		<h3 id="20251201">12 月 01 日 ( 月 )</h3>
 		<div id="2025120101" class="top-mutter">
-			<h4>
-				<div class="title-container">
-					<p class="overlay no-indent">救命コーチングアプリ<br><br>　　　Liv を試してみた</p>
-					<img width="100%" height="auto" src="fig2025120101.png">
+			<div class="title-container">
+				<img width="100%" height="auto" src="fig2025120101.png" alt="救命コーチングアプリ Liv を試してみた">
+				<div class="title">
+					<h4 class="overlay">救命コーチングアプリ Liv を試してみた</h4>
 				</div>
-			</h4>
+			</div>
 			<h5>はじめに - CPR を学ぶことと実施の意義</h5>
 			<p>今日は CPR (心肺蘇生法) のトレーニング・ツールの話になります。</p>
 			<p>あ、CPRと聞いてブラウザを閉じようとしていますね。ちょっと待ってください。もしかするとあなたが CPR を実施することで、目の前で倒れている人の命が助かるかもしれません。少しだけお時間をください。</p>
