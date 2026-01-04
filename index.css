@@ -326,3 +326,35 @@ div.left > figure figcaption {
 .glossary-container > dl > dt {
 	font-weight:bold;
 }
+/* 画面幅が768px以下（スマホ・タブレット）の場合の調整 */
+@media screen and (max-width: 768px) {
+  
+  /* メインコンテンツの幅を広げて画面を有効活用する */
+  #contents {
+    width: 95%;
+  }
+
+  /* 左右の浮き出し（float）を解除して縦並びにする */
+  div.right, 
+  div.left {
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center; /* 画像を中央に寄せる */
+  }
+
+  /* 512px固定だった幅を、画面いっぱいに広がるように変更 */
+  div.right > figure,
+  div.left > figure {
+    width: 100%;      /* 親要素に対して100%の幅にする */
+    max-width: 512px; /* 元のサイズより大きくならないように制限 */
+    margin: 1em 0;    /* 上下に少し隙間を作る */
+  }
+
+  /* YouTubeなどの動画も幅に合わせて調整 */
+  .youtube {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3; /* 元の 512:384 の比率を維持 */
+  }
+}
