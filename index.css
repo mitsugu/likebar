@@ -30,13 +30,15 @@ h2 {
   padding-right: 1em;
 }
 h3 {
+  /*
   padding:0.5em 0em 0.5em 0.5em;
   border-width:2px 0px 0px 0px;
   border-style:solid;
   border-color:silver;
-  /*width:11.5em;*/
-  width: fit-content;
+  width:11.5em;
   padding-right: 1em;
+  */
+  width: fit-content;
 }
 .skip {
   font-size:0.75em;
