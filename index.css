@@ -278,6 +278,13 @@ table.pentax17 td {
 table.pentax17 td:nth-child(1) {
 	border-right:1px solid black;
 }
+blockquote.caution {
+	background-color: #ff9372;
+	color: black;
+	border-radius: 10px;
+	padding-left:1em;
+	padding-right:1em;
+}
 blockquote.code {
 	background-color:whitesmoke;
 	border-radius: 10px;
