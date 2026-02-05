@@ -1,66 +1,108 @@
-/* 外枠 */
+/* --- スライダー外枠 --- */
 .slider-wrapper {
     position: relative;
-    max-width: 512px; /* デフォルト値 */
     margin: 0 auto;
-    /* CSS変数：デフォルト値の定義 */
-    --img-fit: cover; 
-    --bg-color: #eee;
+    /* JSで上書きされない場合のデフォルト値 */
+    max-width: 512px;
+    
+    /* CSS変数（JSから制御）のデフォルト */
+    --img-fit: cover;    /* cover or contain */
+    --bg-color: #eee;    /* 背景色 */
 }
 
-/* ボタン */
+/* --- スライダー本体 --- */
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; /* スクロール位置を吸着 */
+    scrollbar-width: none;         /* Firefox用スクロールバー非表示 */
+    -ms-overflow-style: none;      /* IE/Edge用 */
+    scroll-behavior: smooth;       /* なめらかなスクロール */
+    
+    width: 100%;
+    /* アスペクト比はJSが data-aspect-ratio から読み取って上書きします */
+    aspect-ratio: 512 / 763; 
+    
+    border-radius: 12px;
+    background: var(--bg-color);
+    cursor: pointer;
+}
+
+/* Chrome/Safari用スクロールバー非表示 */
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- 画像アイテム --- */
+.slide-item {
+    flex: 0 0 100%;
+    scroll-snap-align: start; /* 左端に合わせる */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-item img {
+    width: 100%;
+    height: 100%;
+    /* 設定に合わせて fit を切り替え（トリミング or 全体表示） */
+    object-fit: var(--img-fit);
+}
+
+/* --- ボタン共通 --- */
 .slider-btn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 10;
     background: rgba(0, 0, 0, 0.4);
     color: white;
     border: none;
-    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.2rem;
     transition: background 0.3s;
-}
-.slider-btn:hover { background: rgba(0, 0, 0, 0.8); }
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* スライダー本体 */
-.slider-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-    width: 100%;
-    aspect-ratio: 512 / 763; /* デフォルト比率 */
-    border-radius: 12px;
-    
-    /* 背景色を変数で制御 */
-    background: var(--bg-color);
-    cursor: pointer;
-}
-.slider-container::-webkit-scrollbar { display: none; }
-
-/* スライドアイテム */
-.slide-item {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.slide-item img {
-    width: 100%;
-    height: 100%;
-    /* 画像のフィット方法を変数で制御 */
-    object-fit: var(--img-fit);
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-/* ステータスアイコン */
+/* 前へ・次へボタン */
+.prev, .next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    padding: 0;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* 拡大ボタン（右上） */
+.fs-btn {
+    top: 15px;
+    right: 15px;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 1.2rem;
+}
+
+/* 閉じるボタン（右上・最初は非表示） */
+.close-btn {
+    top: 15px;
+    right: 15px;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 1.5rem;
+    line-height: 1;
+    z-index: 100; /* 最前面 */
+}
+
+/* ステータスアイコン（再生・停止表示） */
 .status-icon {
     position: absolute;
     top: 50%;
@@ -75,7 +117,77 @@
     z-index: 20;
     white-space: nowrap;
 }
-.fade-anim { animation: fadeInOut 1s forwards; }
+
+/* フェードアウトアニメーション */
+.fade-anim {
+    animation: fadeInOut 1s forwards;
+}
+
 @keyframes fadeInOut {
-    0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; display: none; }
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+/* --------------------------------------------------
+   フルスクリーンモード設定
+   1. :fullscreen        (PC/Android API)
+   2. .ios-fullscreen    (iPhone CSS Hack)
+-------------------------------------------------- */
+
+/* フルスクリーン時のコンテナ設定 */
+.slider-wrapper:fullscreen,
+.slider-wrapper.ios-fullscreen {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    
+    /* 画面中央に配置 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* iPhone用CSSハック（画面いっぱいに固定） */
+.slider-wrapper.ios-fullscreen {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    z-index: 9999;
+}
+
+/* コンテナ自体の制限解除 */
+.slider-wrapper:fullscreen .slider-container,
+.slider-wrapper.ios-fullscreen .slider-container {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: unset !important; /* アスペクト比固定を解除 */
+    background: black;
+    border-radius: 0;
+}
+
+/* 画像は必ず全体を表示（見切れないようにする） */
+.slider-wrapper:fullscreen .slide-item img,
+.slider-wrapper.ios-fullscreen .slide-item img {
+    object-fit: contain !important;
+}
+
+/* ボタンの表示制御 */
+/* 全画面中は拡大ボタンを消す */
+.slider-wrapper:fullscreen .fs-btn,
+.slider-wrapper.ios-fullscreen .fs-btn {
+    display: none;
+}
+
+/* 全画面中（API版）は閉じるボタン不要（ESCで戻るため） */
+.slider-wrapper:fullscreen .close-btn {
+    display: none; 
+}
+/* 全画面中（iOS版）は閉じるボタン必須 */
+.slider-wrapper.ios-fullscreen .close-btn {
+    display: block !important; 
 }
