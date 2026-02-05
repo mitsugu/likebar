@@ -1,9 +1,11 @@
 /* 外枠 */
 .slider-wrapper {
     position: relative;
-    /* デフォルト値。HTMLで data-max-width が指定されれば上書きされます */
-    max-width: 512px; 
+    max-width: 512px; /* デフォルト値 */
     margin: 0 auto;
+    /* CSS変数：デフォルト値の定義 */
+    --img-fit: cover; 
+    --bg-color: #eee;
 }
 
 /* ボタン */
@@ -33,13 +35,12 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-behavior: smooth;
-    
-    width: 100%; /* 親(wrapper)の幅に合わせる */
-    /* ここに max-width は書かない（wrapperで制御するため） */
-    
+    width: 100%;
     aspect-ratio: 512 / 763; /* デフォルト比率 */
     border-radius: 12px;
-    background: #eee;
+    
+    /* 背景色を変数で制御 */
+    background: var(--bg-color);
     cursor: pointer;
 }
 .slider-container::-webkit-scrollbar { display: none; }
@@ -55,7 +56,8 @@
 .slide-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* 画像のフィット方法を変数で制御 */
+    object-fit: var(--img-fit);
 }
 
 /* ステータスアイコン */
@@ -73,12 +75,7 @@
     z-index: 20;
     white-space: nowrap;
 }
-.fade-anim {
-    animation: fadeInOut 1s forwards;
-}
-
+.fade-anim { animation: fadeInOut 1s forwards; }
 @keyframes fadeInOut {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; display: none; }
+    0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; display: none; }
 }
