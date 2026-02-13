@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202510/20.html">
+	<meta name="description" content="RMV 等からのターニング・プレッシャーの求め方のメモです。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #70: RMVに基づくターニング・プレッシャーの計算式">
+	<meta property="og:description" content="RMV 等からのターニング・プレッシャーの求め方のメモです。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202510/20.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202510/fig2025102001.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #70: RMVに基づくターニング・プレッシャーの計算式" />
+	<meta name="twitter:description" content="RMV 等からのターニング・プレッシャーの求め方のメモです。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202510/fig2025102001.jpg" />
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+	h5, h6 {
+		font-size:1em;
+	}
+	table {
+		border-collapse: collapse;
+		border:black 1px solid;
+	}
+	th, td {
+		padding-left:0.5em;
+		padding-right:0.5em;
+		border:black 1px solid;
+	}
+	table.factor td:nth-child(2) {
+		text-align:center;
+	}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 10 月</h1>
+	<div id="contents">
+		<h3 id="20251020">10 月 20 日 ( 月 )</h3>
+		<div id="2025102001" class="top-mutter">
+			<h4>Dive #70: RMVに基づくターニング・プレッシャーの計算式</h4>
+    	<p>RMV (<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">L</mi><mo>/</mo><mi>min</mi></math>) データと<strong>ワーキング・マキシマム <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math> (現実的な最大値)</strong> を前提に、<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math> (緊急用ガス) と<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi></math> (ターニング・プレッシャー) を決定する計算は以下の通りです。</p>
+
+    <h5>状況別ファクター：RMV_Planの決定</h5>
+    <p><strong>RMV_Plan</strong>は、あなたの<strong>ワーキング・マキシマム <math xmlns="http://www.w3.org/1998/MathML"><mi>RMV</mi></math></strong>に、以下の表から選択した<strong>状況別ファクター</strong>を乗じて決定します。これにより、潜水条件に合わせた余裕を持ったガス消費量を計画します。</p>
+
+    <div style="font-size: 1.2em; margin: 1em 0;">
+    	<math xmlns="http://www.w3.org/1998/MathML" display="block">
+    		<mi>RMV</mi><mtext>_</mtext><mi>Plan</mi>
+    		<mo>=</mo>
+    		<mi>ワーキング</mi><mtext>-</mtext><mi>マキシマム</mi><mo> </mo><mi>RMV</mi>
+    		<mo>×</mo>
+    		<mi>状況別ファクター</mi>
+    	</math>
+    </div>
+
+    <table class="factor">
+        <thead>
+            <tr>
+                <th>潜水状況</th>
+                <th>状況別ファクター</th>
+                <th>適用基準</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>理想的な条件</strong>（穏やかな環境、浅場）</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mn>1.0</mn><mo> </mo><mo>~</mo><mo> </mo><mn>1.2</mn></math></td>
+                <td>水深 <math xmlns="http://www.w3.org/1998/MathML"><mn>18</mn><mo> </mo><mi mathvariant="normal">m</mi></math> 未満、流れ無し、リラックスした潜水。</td>
+            </tr>
+            <tr>
+                <td><strong>標準的な条件</strong>（平均的な環境）</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mn>1.2</mn><mo> </mo><mo>~</mo><mo> </mo><mn>1.4</mn></math></td>
+                <td>水深 <math xmlns="http://www.w3.org/1998/MathML"><mn>18</mn><mo> </mo><mi mathvariant="normal">m</mi></math> 超過、弱い流れ、適度な水中活動。</td>
+            </tr>
+            <tr>
+                <td><strong>挑戦的な条件</strong>（困難な環境）</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mn>1.4</mn><mo> </mo><mo>~</mo><mo> </mo><mn>1.6</mn></math></td>
+                <td>水深 <math xmlns="http://www.w3.org/1998/MathML"><mn>30</mn><mo> </mo><mi mathvariant="normal">m</mi></math> 超過、強い流れ、低い水温、高い作業負荷。</td>
+            </tr>
+            <tr>
+                <td><strong>極限的な条件</strong>（緊急事態、非常に困難な環境）</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mn>1.6</mn><mo> </mo><mo>~</mo><mo> </mo><mn>2.0</mn><mo>+</mo></math></td>
+                <td>洞窟・沈船の内部、視界不良、予測される緊急対応（バディへの給気など）。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>準備：計算に使う値の定義</h5>
+    <table>
+        <thead>
+            <tr>
+                <th>変数名</th>
+                <th>定義</th>
+                <th>単位</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>RMV_Plan</strong></td>
+                <td><strong>計画用RMV</strong>（ワーキング・マキシマムに状況別ファクターを適用した値）</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">L</mi><mo>/</mo><mi>min</mi></math></td>
+            </tr>
+            <tr>
+                <td><strong>初期残圧</strong></td>
+                <td>潜水開始時のタンク圧力</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math></td>
+            </tr>
+            <tr>
+                <td><strong>最大水深のATA</strong></td>
+                <td>潜水予定の最大水深の絶対圧</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mi>ATA</mi></math></td>
+            </tr>
+            <tr>
+                <td><strong>タンク容積</strong></td>
+                <td>使用するタンクの公称容積</td>
+                <td><math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">L</mi></math></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5>ステップ 1: R-Gas（緊急用ガス）の計算</h5>
+    <p><math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math>は、最大水深でトラブルが発生した際、安全停止を完了し、水面まで浮上するために必要な空気の圧力です。</p>
+
+    <h6>1-1. R-Gas Volume（必要な空気の容積）の計算</h6>
+    <p>必要な空気の<strong>容積</strong>を計算します。浮上時間には、あなたのダイブコンピューターが推奨する最大浮上速度（例：<math xmlns="http://www.w3.org/1998/MathML"><mn>9</mn><mo> </mo><mi mathvariant="normal">m</mi><mo>/</mo><mi>min</mi></math>）を基に計算した値を使用します。</p>
+    <div style="font-size: 1.5em; margin: 1em 0;">
+        <math xmlns="http://www.w3.org/1998/MathML" display="block">
+            <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas Volume</mi><mo> </mo><mo>(</mo><mi mathvariant="normal">L</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>RMV</mi><mtext>_</mtext><mi>Plan</mi>
+            <mo>×</mo>
+            <mo>(</mo>
+            <mi>浮上時間</mi>
+            <mo>+</mo>
+            <mi>安全停止時間</mi>
+            <mo>)</mo>
+            <mo>×</mo>
+            <mi>最大水深の</mi><mi>ATA</mi>
+        </math>
+    </div>
+
+    <h6>1-2. R-Gas（必要な圧力）への変換</h6>
+    <p>計算した容積を、使用するタンクの<strong>容積</strong>で割ることで、必要な圧力 (<math xmlns="http://www.w3.org/1998/MathML"><mi>bar</mi></math>) に変換します。</p>
+    <div style="font-size: 1.5em; margin: 1em 0;">
+        <math xmlns="http://www.w3.org/1998/MathML" display="block">
+            <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>=</mo>
+            <mfrac>
+                <mrow>
+                    <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas Volume</mi><mo> </mo><mo>(</mo><mi mathvariant="normal">L</mi><mo>)</mo>
+                </mrow>
+                <mrow>
+                    <mi>タンク容積</mi><mo> </mo><mo>(</mo><mi mathvariant="normal">L</mi><mo>)</mo>
+                </mrow>
+            </mfrac>
+        </math>
+    </div>
+    <p>結合された式：</p>
+    <div style="font-size: 1.5em; margin: 1em 0;">
+        <math xmlns="http://www.w3.org/1998/MathML" display="block">
+            <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>=</mo>
+            <mfrac>
+                <mrow>
+                    <mi>RMV</mi><mtext>_</mtext><mi>Plan</mi>
+                    <mo>×</mo>
+                    <mo>(</mo>
+                    <mi>浮上時間</mi>
+                    <mo>+</mo>
+                    <mi>安全停止時間</mi>
+                    <mo>)</mo>
+                    <mo>×</mo>
+                    <mi>最大水深の</mi><mi>ATA</mi>
+                </mrow>
+                <mrow>
+                    <mi>タンク容積</mi>
+                </mrow>
+            </mfrac>
+        </math>
+    </div>
+
+    <blockquote>
+        <strong>【推奨】</strong> 計算で得られた <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math> に、<strong>さらに <math xmlns="http://www.w3.org/1998/MathML"><mn>10</mn><mo> </mo><mi>bar</mi><mo> </mo><mo>~</mo><mo> </mo><mn>20</mn><mo> </mo><mi>bar</mi></math> 程度の安全バッファを上乗せ</strong>し、最終的な <math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="bold">R</mi><mtext mathvariant="bold">-</mtext><mi mathvariant="bold">Gas</mi></math> としてください。（例：計算値 <math xmlns="http://www.w3.org/1998/MathML"><mn>42</mn><mo> </mo><mi>bar</mi><mo> </mo><mo>→</mo><mo> </mo><mn>60</mn><mo> </mo><mi>bar</mi></math> に設定）
+    </blockquote>
+
+    <h5>ステップ 2: T-Gas（ターニング・プレッシャー）の計算</h5>
+    <p><math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi></math>は、潜水ルートを折り返す必要がある圧力です。<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi></math>を確保した上で、残りの空気を往路と復路で等分するという考え方に基づきます。</p>
+
+    <h6>2-1. 使える空気量（U-Gas）の計算</h6>
+    <div style="font-size: 1.5em; margin: 1em 0;">
+        <math xmlns="http://www.w3.org/1998/MathML" display="block">
+            <mi mathvariant="normal">U</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>初期残圧</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>-</mo>
+            <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+        </math>
+    </div>
+
+    <h6>2-2. T-Gas（折り返し圧）の決定</h6>
+    <div style="font-size: 1.5em; margin: 1em 0;">
+        <math xmlns="http://www.w3.org/1998/MathML" display="block">
+            <mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>初期残圧</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>-</mo>
+            <mo>(</mo>
+            <mi mathvariant="normal">U</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>/</mo>
+            <mn>2</mn>
+            <mo>)</mo>
+        </math>
+    </div>
+    <p>結合された式：</p>
+    <div style="font-size: 1.5em; margin: 1em 0;">
+        <math xmlns="http://www.w3.org/1998/MathML" display="block">
+            <mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi><mo> </mo><mo>(</mo><mi>bar</mi><mo>)</mo>
+            <mo>=</mo>
+            <mi>初期残圧</mi>
+            <mo>-</mo>
+            <mfrac>
+                <mrow>
+                    <mo>(</mo>
+                    <mi>初期残圧</mi>
+                    <mo>-</mo>
+                    <mi mathvariant="normal">R</mi><mtext>-</mtext><mi>Gas</mi>
+                    <mo>)</mo>
+                </mrow>
+                <mn>2</mn>
+            </mfrac>
+        </math>
+    </div>
+    <p>この<math xmlns="http://www.w3.org/1998/MathML"><mi mathvariant="normal">T</mi><mtext>-</mtext><mi>Gas</mi></math>に達したら、NDLに余裕があっても、<strong>直ちに探索を中止し、浅場への移動（折り返し）を開始する</strong>ことが、ガス管理計画の最優先ルールとなります。</p>
+			<!--
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="340" src="fig2025102001.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#スキューバダイビング</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#潜水計画</li>
+				<li class="tag">#エア・マネジメント</li>
+				<li class="tag">#ターニング・プレッシャー</li>
+				<li class="tag">#空気消費量</li>
+				<li class="tag">#RMV</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202510/20.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

@@ -1,0 +1,275 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/04.html">
+	<meta name="title" content="思考整理のためのツールを考える Part 1">
+	<meta name="description" content="思考整理のためにシステム設計用ツールの応用を試みる Part 1">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツールを考える Part 1">
+	<meta property="og:description" content="思考整理のためにシステム設計用ツールの応用を試みる Part 1">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/04.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="思考整理のためにシステム設計用ツールの応用を試みる Part 1">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025040401.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="209">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		figcaption {
+			text-align:center;
+		}
+		.indent {
+			text-indent:1em;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250404">04 月 04 日 ( 金 )</h3>
+		<div id="2025040401" class="top-mutter">
+			<h4>思考整理のためのツールを考える Part 1</h4>
+			<p>タイトルとは若干異なり、思考整理に流用できるシステム設計用ツールの使いかた、というお話になります。</p>
+			<p>この連載のきっかけは <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> と名付けた自分の疾患の 30 年に渡る知見をまとめたサイトを作り、それを訪問看護の看護師さんに見せたことになります。</p>
+			<p>話の流れでツールを教えて欲しいとの看護師さんにお願いされたので、<a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a> ですよとツール名は伝えたのですが、それらを自分は思考整理のために使っていることもあるし、他の IT 技術者にも役立つことが予想もされたので、どのようにそれらのツールを使うのかということを整理するのも悪くないかと考えたわけです。</p>
+			<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> には <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> と <a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a> というソフトウェアで作成した svg フォーマットの図が描かれています。これらのソフトウェアはテキストエディタで作成したテキストファイルを svg、png、jpeg などの画像ファイルに変換します。</p>
+			<p>画像のレイアウトはほぼ全てをソフトウェアに任せるということになり、あまりユーザが自由自在にレイアウトできるわけではありません。というよりも自由にレイアウトするのはほぼ不可能です。</p>
+			<p>システム・エンジニアやプログラマーは、時間に追われる職能であり、なるべくならシステムの要件整理やシステムの最適化、システムの設計、システムの実装など頭脳労働に重点的に時間を割り振りたいと願うようになる職能です。</p>
+			<p>なので例外はあるものの仕事上では図の作成や修正などのオペレーション作業になるべく時間を取られたくない、凝りたくないと願うことが多い人種です。そのためソフトウェアに任せることができることは任せてしまえと考える人間が非常に多い職種でもあります。筆者も当然その一人です。</p>
+			<p>というのは嘘八百で IT エンジニアは通常道具大好き、ツール大好き人間です。テキストエディタの設定に平気で数日時間を潰すような人種です (もちろん例外もあります)。ですが仕事の時間は自制して……自制できてるかなぁ……自信があまりありません。でも思考の邪魔をするなっ！！とキレやすい人種というのは確かです……確かだと思います……まぁちょっと覚悟はしておけ？</p>
+			<p>話を戻します。</p>
+			<p>Photoshop などの画像編集ソフトは美しい図を作成することができます。ただ Photoshop などの画像編集ソフトの問題は IT エンジニアにとっては編集に時間がかかりすぎるということに尽きます。なにかの成果物を最も早く編集できるものは何かと問われたら、プログラマーなら十中八九それはテキストファイルだと答えるでしょう。</p>
+			<p>そのように考える先人はたくさんいたに違いありません。そのようなニーズを持つ先人たちが作り上げ、今もメンテナンスが続けられているのが先に述べた <a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a> や <a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a> などのツールになります。</p>
+			<p>これらのツールを使う前提として、ユーザが以下の手順で画像を得ることになるということを知っておかねばなりません。</p>
+			<ol>
+			<li>ユーザはソフトウェアが処理できる決められた書式のテキストファイルを作成する</li>
+			<li>テキストファイルをそれらのツールで画像に変換する</li>
+			</ol>
+			<figure>
+				<a href="fig2025040401.svg" target="_blank"><img width="90%" src="fig2025040401.svg"></a>
+				<figcaption>図 作業手順概念図 (<a href="https://d2lang.com/" class="external" target="_blank">D2</a> により作成)</figcaption>
+			</figure>
+			<p>変換作業があるので一見手間がかかりそうな気がするかもしれません。ですが実際には変換自体はプログラムが行うので、変換中の図を作っている本人の手間はまったくありません。</p>
+			<p>それだけではなくテキストファイルの編集の過程で、思考の整理に集中できます。これは大きなメリットです。それに伴ってさまざまなエピソードを思い出したり、新しい知見が発現することすらあるので、テーマに対する知見がますます広がったり深まるという効果もあります。</p>
+			<p>筆者はマインドマップや <a href="https://www.ritsumei.ac.jp/~yamai/kj.htm" class="external" target="_blank">KJ 法</a>、その他ブレインストーミングのための技法など、様々な非 IT 的なメソッドを仕事で活用してきました。それらの仕事の様々な場面で活用されている各種メソッドと、連載で取り上げているテキスト画像化法との共通点を非常に強く感じています。そのようなこともあり、テキストファイルを利用した思考整理は非エンジニアにも是非ともお勧めしたいところです。</p>
+			<p>更に述べるのならテキストファイルで思考を整理するのもかなり有効なのですが、そのテキストファイルを元にして自分の思考を図の形で可視化することは、自身の思考を俯瞰するのに非常に適しています。</p>
+			<p>それはまるで山を登ったり国内外を旅するときに地図を大きく目の前に広げて、自分の現在位置やこれまで歩んできた道、これから歩むべき道、その地形や困難さ、容易さなどを俯瞰するようなものです。</p>
+			<p>自分自身の思考でここはおかしんじゃないか？とか、これは間違ってるなとか、ここは過剰ではないか？とか、そもそも進むべき道を間違えてるとか、そのような自身の考えの間違いや、望ましくない考えや、望ましくない考えの強度にも気が付きやすくなります。</p>
+			<p>単純化して言うなら一連の作業は<strong>自分自身の思考の整理と見える化、そしてアップデートに非常に有効</strong>だということになります。</p>
+			<p>次回は具体的にどのようなツールがあって、それぞれどのようなときに向いているのかを、不完全なものになるかもしれませんが、整理していこうと思います。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+			</ul>
+		</div>
+		<div id="2025040402" class="mutter">
+			<h4>思考整理のためのツールを考える Part 2</h4>
+			<p>日記であるにもかかわらず日が変わっていませんが書きはじめました。</p>
+			<p>ツールを選択する場合にそれぞれのツールのデモを見ることができると助かります。そして幸いにもそのような Web サイトがあります。<a href="https://text-to-diagram.com/" class="external" target="_blank">Community list of comparisonsbetween Text to Diagram tools</a> というサイトがそうです。</p>
+			<p>このサイトのデモでは以下のソフトウェアの実行結果を閲覧することができます。GraphViz、D2 は複数のレイアウトエンジンから 1 つを選ぶこともできます。</p>
+			<ul>
+			<li><a href="https://plantuml.com/ja/" class="external" target="_blank">PlantUML</a>
+				<p>本来は情報システム設計のための UML 図を作成するためのプログラムです。ただシステムの設計場面で UML 以外の図も必要になることから UML 以外の図もかなりサポートしています。なんなら数独の問題を作成することもできます。公式ページには休憩も必要だよねと書かれていてちょっぴりお茶目です。</p>
+				<p>レイアウトエンジンは GraphViz がデフォルトですが他のものも選ぶことができます。どのようなレイアウトエンジンを選ぶことができるのかは公式サイトの <a href="https://plantuml.com/ja/layout-engines" class="external" target="_blank">Layout Engines and Options というページ</a>にリストされていますので参照してください。</p>
+				<p><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> ではもともとは<a href="https://www.lucidchart.com/pages/ja/logic-tree" class="external" target="_blank">ロジックツリー</a>フォーマットの図を描きたかったのです。ですがテキストからロジックツリーを生成するプログラムが現存しないため、PlantUML の <a href="https://plantuml.com/ja/wbs-diagram" class="external" target="_blank">Work Breakdown Structure 図</a>をロジックツリーの代用としました。人によっては<a href="https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%A4%E3%83%B3%E3%83%89%E3%83%9E%E3%83%83%E3%83%97" class="external" target="_blank">マインドマップ</a>フォーマットを代用とすることもあるようです。</p>
+				<figure>
+					<a href="https://mitsugu.github.io/heritage/index.svg" target="_blank"><img src="https://mitsugu.github.io/heritage/index.svg" width="30%"></a>
+					<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="https://mitsugu.github.io/heritage/index.pu" target="_blank">ここ</a>。</figcaption>
+				</figure>
+				<p>また <a href="https://plantuml.com/ja/activity-diagram-beta#f4c6f851b00d5518" class="external" target="_blank">note  という注釈用の箱</a>を描くことが簡単にできることや、各ボックスの関係を描くのが容易、ボックスの中に簡単にボックスを入れ子にできることもあり、<a href="../202503/fig2025031701.svg" target="_blank">うつ病の発生機序を示す図</a>でも使用しました。</p>
+				<figure>
+					<a href="../202503/fig2025031701.svg" target="_blank"><img src="../202503/fig2025031701.svg" width="30%"></a>
+					<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031701.pu" target="_blank">ここ</a>。</figcaption>
+				</figure>
+			</li>
+			<li><a href="https://graphviz.org/" class="external" target="_blank">GraphViz</a>
+				<p>薬やタンパク質などの各種因子、ホルモンなどの持つ抑制を表現するためのコネクションの Tee ヘッドを唯一表現できるため <a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> では<a href="../202503/fig2025031803.svg" target="_blank">薬や非薬物療法がどのように作用するのかを示した図</a>を描くのに利用しています。</p>
+				<figure>
+					<a href="../202503/fig2025031803.svg" target="_blank"><img src="../202503/fig2025031803.svg" width="30%"></a>
+					<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031803.dot" target="_blank">ここ</a>。</figcaption>
+				</figure>
+				<p>使用可能なレイアウトエンジンは<a href="https://graphviz.org/docs/layouts/" class="external" target="_blank">公式サイトの Layout Engines のページ</a>にリストされているので参照してください。</p>
+				</div>
+			</li>
+			<li><a href="https://mermaid.js.org/" class="external" target="_blank">MermaidJS</a>
+					<p>生成される図はカラフルで美しいのですが、汎用的な図を描くの適しているかと言うと PlantUML や D2 とあまりかわらないように感じます。また最新の PlantUML でも同等の美麗さで図が作成されるようになっています。そのような事情もあり個人的にはあまり必要性を感じられず、ほとんど使っていません。やはり綺麗ではあるのですがだ。</p>
+					<p>ただマインドマップは本当にマインドマップらしい画像を出力します。もちろん<a href="https://buzanmindmap.co.uk/" class="external" target="_blank">オリジナルのトニー・ブザン氏のマインドマップ</a>にはかないませんが。</p>
+					<p>またいわゆる普通のグラフ、円グラフ、レーダーチャートなど他のソフトウェアでは描けない図を描くことができますので、何が描けるのかを<a href="https://mermaid.js.org/intro/" class="external" target="_blank">公式サイトのドキュメント</a>でチェックしておくとよいと思います。</p>
+					<p>いろんな図がカラフルに描かれるので、使ってみたいと惹かれるソフトウェアであることは間違いありませんし、Web との親和性も高いので人気があります。</p>
+					<p>コネクションの矢印ヘッドの種類がもっと増えるかカスタマイズできるようになれば、他を押しのけて個人的利用時の第 1 選択肢になると思います。時間をつくってもう少し評価を深めたいところです。</p>
+			</li>
+			<li><a href="https://github.com/terrastruct/d2" class="external" target="_blank">D2</a>
+				<p>もしかすると汎用的な図を描く目的があって、このソフトが目的を満たすのであれば PlantUML 以上によい選択肢かもしれません。</p>
+				<p><a href="fig2025040401.d2" target="_blank">ソース</a>の構造が html や css、オブジェクト指向言語の影響を受けており可読性が非常に高い (ただしそのためにパンチ量が増える場合もある) という特徴があります。プログラマーだと一番好きになりそうな変換プログラムかもしれません。筆者はこのテキストファイルの記法が一番気に入っています。</p>
+				<figure>
+					<a href="fig2025040401.svg" target="_blank"><img src="fig2025040401.svg" width="30%"></a>
+				</figure>
+				<div>使用可能なレイアウトエンジン
+					<ul>
+					<li><a href="https://d2lang.com/tour/dagre/" class="external" target="_blank">Dagre</a>: GraphViz のレイアウトに似たレイアウトになる D2 のデフォルトレイアウトエンジン</li>
+					<li><a href="https://d2lang.com/tour/elk/" class="external" target="_blank">ELK</a>: 矢印線が垂直線と水平線になるようにレイアウトされるエンジン</li>
+					<li><a href="https://d2lang.com/tour/tala/" class="external" target="_blank">TALA</a>: 表現力は最高のレイアウトエンジンであるが利用にはサブスクリプション契約が必要 ($20/月 ≒ ¥3000/月)</li>
+					</ul>
+				</div>
+			</li>
+			</ul>
+			<p>先に紹介した<a href="https://text-to-diagram.com/" class="external" target="_blank">Community list of comparisonsbetween Text to Diagram tools</a> でデモを見ることができるのですが、このサイトではほぼ全てを TypeScript という Web ブラウザで動作するプログラミング言語で実装していることもあり、パフォーマンスや Web ブラウザへの負荷が高いという問題もあります。とはいえ簡便に各プログラムの差異を確認する程度の利用であれば大きな問題は発生しないかもしれません。</p>
+			<p>それぞれのプログラムに特徴や得手不得手がありますので、デモを見た上でこれらのツールを都度適切にチョイスすればよいかと思います。筆者がつくった図ももちろん参照していただければ幸いです。</p>
+			<p>次回から実際のそれぞれのプログラムの使い方について説明していきたいと思います。最初に筆者が最も使っている PlantUML を取り上げたいと思います。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#GraphViz</li>
+				<li class="tag">#MermaidJS</li>
+				<li class="tag">#D2</li>
+			</ul>
+		</div>
+		<div id="2025040403" class="mutter">
+			<h4>思考整理のためのツールを考える【付録 A】</h4>
+			<p>これまで述べてきたツールや Web でも使えるアイコンのリストを見つけたのでメモしておく。</p>
+			<dl>
+			<dt>Icônes</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd><div class="indent"><a href="https://github.com/antfu" class="external" target="_blank">@antfu</a> によって開始され、現在は貢献者のチームによって維持されているパッケージ群のうちの svg アイコン。素晴らしい。</div></dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://icones.js.org/" class="external" target="_blank">https://icones.js.org/</a></dd>
+				<dt>ライセンス</dt>
+				<dd><a href="https://github.com/antfu-collective/icones/blob/main/LICENSE" class="external" target="_blank">MIT License</a> - Anthony Fu 2020</dd>
+				</dl>
+			</dd>
+			<dt>Icons for D2</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd><a href="https://icons.terrastruct.com/" class="external" target="_blank">Terrastruct</a> 社が維持管理している svg アイコン群。法的に有効なライセンスがどこにも明記されていないので不安は残るが Terrastruct 社は将来的にも D2 や Web で無償で使って構わないとホームページに記載している。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://icons.terrastruct.com/" class="external" target="_blank">https://icons.terrastruct.com/</a></dd>
+				<dt>ライセンス</dt>
+				<dd><div class="indent">詳細は不明だが Web ページに以下の記載がある (原文は英語)。</div>
+					<div>&quot;D2 ダイアグラムで使用するために厳選されたアイコンとグラフィックのコレクション。これらのホストされたアイコンは、お客様の便宜のために無料で提供されていますが、D2 はこれらを使用することに一切制限されていません。D2 のアイコンは、Web またはローカル上の任意の画像に設定できます。アイコンは追加または削除される可能性がありますが、既存の URL のアイコンが期限切れになったり変更されたりすることはありません。&quot;</div>
+					<div class="indent">少なくともオープンソースライセンスであるとはどこにも明記はされていない。Terrastruct, Inc. が Social にある各社意匠のライセンスフィーを負担しているのかもしれず、それらを問題なく使用し、成果物を公開してもかまわないのかもしれない。しかしライセンスが明確化されているわけでもない。Social にある各社意匠は保守的に利用、つまり私的利用にとどめた方が法的に安全かもしれない。</div>
+				</dd>
+				</dl>
+			</dd>
+			<dt>SVG Repo - Free SVG Vectors and Icons</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd>有限会社 SVG Repo が維持管理するフリーなライセンスで公開されている svg アイコン集。これも素晴らしい。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://www.svgrepo.com/" class="external" target="_blank">https://www.svgrepo.com/</a></dd>
+				<dt>ライセンス</dt>
+				<dd>ライセンスのページに<a href="https://www.svgrepo.com/page/licensing/" class="external" target="_blank">ライセンスの種類がリストされている</a>。個々の svg 画像のライセンスは各画像のページに記載されているので、そこで確認することになる。</dd>
+				</dl>
+			</dd>
+			<dt>Font-Awesome</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd>Font Awesome というコミュニティ(？) が維持管理している svg リソース集。株式会社なのか任意団体なのか不明だが <a href="https://github.com/FortAwesome/Font-Awesome" class="external" target="_blank">github.com 上でオープンソースライセンス等のオープンなライセンスにより svg アイコンが公開されている</a>。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://github.com/FortAwesome/Font-Awesome" class="external" target="_blank">https://github.com/FortAwesome/Font-Awesome</a></dd>
+				<dt>ライセンス</dt>
+				<dd>ライセンスに複数のライセンスがリストされており、画像単位でライセンスが明記されてはいないので、デュアルライセンスだと思われる。<a href="https://fontawesome.com/" class="external" target="_blank">公式ホームページ</a>では有償ライセンスの拡張版も販売されている。</dd>
+				</dl>
+			</dd>
+			<dt>Google Fonts</dt>
+			<dd>
+				<dl>
+				<dt>概要</dt>
+				<dd>Google が公開管理している icon 集。</dd>
+				<dt>Web サイト</dt>
+				<dd><a href="https://fonts.google.com/icons?icon.size=24&icon.color=%231f1f1f" class="external" target="_blank">https://fonts.google.com/icons?icon.size=24&icon.color=%231f1f1f</a></dd>
+				<dt>ライセンス</dt>
+				<dd>icon のライセンスは <a href="https://github.com/google/material-design-icons/tree/master?tab=Apache-2.0-1-ov-file" class="external" target="_blank">Apache License 2.0</a>。</dd>
+				</dl>
+			</dd>
+			<dt>Tango Desktop Project</dt>
+			<dd>プロジェクトが終了している？サイトがすでに存在していない。</dd>
+			</dl>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#GraphViz</li>
+				<li class="tag">#MermaidJS</li>
+				<li class="tag">#D2</li>
+				<li class="tag">#SVG</li>
+				<li class="tag">#svg</li>
+				<li class="tag">#アイコン</li>
+			</ul>
+		</div>
+		<div id="2025040404" class="mutter">
+			<h4>早めに終わらせておかないといけないかもリスト</h4>
+			<p>つい先程、これはやっておきたいことを早めに終えておかないといけないかも、と思わせるできごとがあったので、その早めにやっておきたいことリストをメモしておく。できごと自体は確定ではないので確定したら公開するかもしれないし、しないかもしれない。現時点ではもしかして、という個人の予感にすぎないので伏せておく。</p>
+			<ul>
+			<li><a href="https://mitsugu.github.io/heritage/" class="external" target="_blank">Heritage</a> の内容をデイケア等で話す。
+				<ul>
+				<li>☑ 主治医に確認</li>
+				<li>☐ デイケア責任者に確認</li>
+				</ul>
+			</li>
+			<li>今朝から書き始めた<a href="#2025040401">思考整理のためのツールを考える</a> を書き上げる。
+				<ul>
+				<li>☑ ソフト利用選択基準</li>
+				<li>☑ PlantUML の使い方</li>
+				<li>☑ GraphViz の使い方</li>
+				<li>☐ Marmaid.js の使い方</li>
+				<li>☐ D2 の使い方</li>
+				</ul>
+			</li>
+			<li>最悪の事態を想定し残務になりかねない様々な処理を行っておく (現時点で詳細は伏せる)。</li>
+			<li>立山室堂と上高地を再訪したい。<br>2 つの土地を訪れるには金策を何とかする必要もあり 4 年は必要になる。2 箇所が無理なら立山室堂だけでも再訪しておきたい。可能かどうかはわからない。</li>
+			</ul>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#残件リスト</li>
+			</ul>
+		</div>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/04.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

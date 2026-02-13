@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202408/12.html">
+	<meta name="title" content="JPEG 画像にフレームを加えるアプリの作成">
+	<meta name="description" content="スマホを含むデジカメが出力する JPEG 画像にフレームをつけるプログラムを書いている話。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="JPEG 画像にフレームを加えるアプリの作成">
+	<meta property="og:description" content="スマホを含むデジカメが出力する JPEG 画像にフレームをつけるプログラムを書いている話。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202408/12.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="スマホを含むデジカメが出力する JPEG 画像にフレームをつけるプログラムを書いている話。">
+
+    <meta property="og:image" content="fig2024081202.jpg">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="385">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.3.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2024 年 08 月</h1>
+	<div id="contents">
+		<h3 id="20240812">08 月 12 日 ( 月 )</h3>
+		<div id="2024081201" class="top-mutter">
+			<h4>JPEG 画像にフレームを加えるアプリの作成</h4>
+			<p>JPEG 画像にフレームをつける <a href="https://apps.apple.com/jp/app/liit-%E5%86%99%E7%9C%9F%E5%8A%A0%E5%B7%A5-%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86/id1547215938" class="external">iPhone 用の Liit というアプリ</a>が去年くらいから人気がある。デジカメの出力を下のようにしちゃうアプリだ。</p>
+			<blockquote class="twitter-tweet"><p lang="qme" dir="ltr"><a href="https://twitter.com/hashtag/liit?src=hash&amp;ref_src=twsrc%5Etfw">#liit</a> <a href="https://twitter.com/hashtag/Leica?src=hash&amp;ref_src=twsrc%5Etfw">#Leica</a> <a href="https://twitter.com/hashtag/leicaQ2?src=hash&amp;ref_src=twsrc%5Etfw">#leicaQ2</a> <a href="https://twitter.com/hashtag/Leica?src=hash&amp;ref_src=twsrc%5Etfw">#Leica</a>🔴 <a href="https://t.co/o3gm4J2ccW">pic.twitter.com/o3gm4J2ccW</a></p>&mdash; rooot (@rooot5884) <a href="https://twitter.com/rooot5884/status/1679857371781431302?ref_src=twsrc%5Etfw">July 14, 2023</a></blockquote>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<p>これを見て、あぁこれいいな、自分もやりたいな、と思ったのだけど自分は Android ユーザ。当時そんなアプリはなかった。なお今なら <a href="https://play.google.com/store/apps/details?id=app.sukashi" class="external">Sukashi - EXIF Watermark App</a> なんてアプリもあるので、機能やフォントに満足できるなら Android ユーザにはいいかも。</p>
+			<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">今月初めに浜名湖で遊覧船から東名高速道路を激写しました(笑)<a href="https://twitter.com/hashtag/sukashi?src=hash&amp;ref_src=twsrc%5Etfw">#sukashi</a> EXIF Watermark App さん経由で投稿出来て便利！オススメです。 <a href="https://t.co/qh4EMuUtJi">pic.twitter.com/qh4EMuUtJi</a></p>&mdash; とも☆🐋 @m.e.c.h.a* blog🖋 (@Ton4777) <a href="https://twitter.com/Ton4777/status/1560484382552506368?ref_src=twsrc%5Etfw">August 19, 2022</a></blockquote>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<p>でも自分は基本的にパソコンユーザー。画像の処理はなるべくパソコンでやりたい派。だけどこういったことを簡単にやってくれるソフトは今のところ残念ながら存在しない。Liit は当然パソコンでは動かないので万事お手上げと言いたいところだけど、無いなら作るかと欲しい気持ちのほうが勝って生まれたのが addframe というシェルスクリプトだった。</p>
+			<p>「だった」と書いた。そう過去形だ。実はもう github 上のリポジトリはばっさりと消してしまった。なぜ消したのかというとシェルスクリプトなので動作する環境が非常に限られてしまう。世界でもっとも利用されている Windows ではそのままでは動かない。</p>
+			<p>それともう一つの都合が Go で書き直したコード一式を addframe という名前のリポジトリに起きたかったからだ。GitHub では同一名称で複数の異なるリポジトリを置くことはできない。シェルスクリプト版と go でリライトした版のリポジトリを addframe という同じ名前のリポジトリにすることはできない。実はこっちの理由のほうがシェルスクリプト版を亡きものにすることになった。</p>
+			<p>最初は go-addframe という名称でリポジトリを作ったのだけど、これだと go install でローカルにインストールすると、実行ファイル名がリポジトリの go-addframe になってしまうことがわかった。</p>
+			<p>あとでファイル名を addframe に変えてしまえばいいのだけれど、go install でどこにプログラムがインストールされるのかわからない人も多いと容易に想像できた。Go でプログラムを書いてる人間でないと go install でプログラムがどこにインストールされるのかなんて普通は知らない。</p>
+			<p>なので go install でインストールしたときにプログラム名は addframe でなければならなかった。そのためにはリポジトリ名は addframe でなければならない。Go 版の addframe があればシェルスクリプト版はどう考えてもお役御免になる。シェルスクリプト版のリポジトリを消さない理由はなかった。</p>
+			<p>そもそもなぜ addframe を Go で書き直したのかという話になるが、シェルスクリプトだと Linux もしくは bash をサポートする Mac でしか動かない。Mac で動くとは言っても、もしかするとスクリプトにかなり手を入れる必要があった可能性もある。なによりシェルスクリプトだとユーザが一番多い Windows で動かすのはエンジニアかよほどのパソコンマニアでもないとけっこう大変だ。</p>
+			<p>最初は Docker コンテナを作ってそこに環境を構築するという方法もやってみた。が、エンジニアでもないマニアでもない普通の人に BIOS の設定を変えてもらって Docker をインストールしてもらうの？と考えたらコンテナを簡便に作成する仕組みを作ってはみたものの、Docker のインストールの時点で挫折されそうである。なのでこれもない、となった。</p>
+			<p>そんな状況の中で、スクリプトの書き換えに過ぎないが、Go で書き直したらコンパイルさえすれば Ubuntu だろうが Mac だろうが Windows でさえも普通に動くんじゃね？Go ならそれができるやん、と気がついてしまった。</p>
+			<p>というわけで Go での再実装を行った。</p>
+			<p>概ねバグ取りとテストも終了し、撮って出し JPEG 画像に対しては当初の想定仕様通りに動いている。また当初の課題であった iPhone の HEIC 画像に対しても想定仕様通りに動いていて問題なさそうである。</p>
+			<ul class="nomark">
+			<li><img width="325" height="512" src="fig2024081201.jpg"></li>
+			<li><img width="512" height="385" src="fig2024081202.jpg"></li>
+			<li><img width="512" height="389" src="fig2024081203.jpg"></li>
+			<li><img width="369" height="512" src="fig2024081204.jpg"></li>
+			</ul>
+			<p>プログラムは <a href="https://github.com/mitsugu/addframe" class="external">github</a> で公開しており Ubuntu と Windows 10 で動作することは確認している。</p>
+			<p>あと Pixel や iPhone などのスマホでは通常 copyright 情報は画像ファイルに記録されない。なのでそのままでは addframe を使うと copyright 情報のところには &quot;-&quot; だけが寂しくプリントされる。</p>
+			<p>やはりPixel や iPhone で撮ったものでも「これはワシが撮ったんやでぇー」と copyright 情報が出るようにしたい。画像ファイルに copyright 情報がないのなら書き込めば良いということで作ったのが <a href="https://github.com/mitsugu/addcopyright" class="external">addcopyright というプログラム</a>だ。</p>
+			<p>この addcopyright と addframe があれば、上のようなフレーム付き画像ができてしまうのだ。実際に Pixel 5 で撮った画像はそうやって作った。PENTAX KP の場合はカメラの設定でそうしていればカメラが画像データに copyright 情報を埋め込むのでその場合は addcopyright は必要ない。</p>
+			<figure>
+				<img width="512" height="367" alt="PENTAX KP の撮影者と著作権者の設定画面" title="PENTAX KP の撮影者と著作権者の設定画面" src="fig2024081205.jpg">
+				<figcaption>PENTAX KP の撮影者と著作権者の設定画面</figcaption>
+			</figure>
+			<p>そしてこれら 2 つのプログラムを Go で書き直したことで大きなメリットが生まれた。USB スティックに実行ファイルと設定ファイルを入れてしまえば、パソコンのハードディスクを一切汚染することなく USB スティック内の画像ファイルをフレーム付きにできてしまうのだ。</p>
+			<p>旅先で Windows パソコンが使えたりするなら、現地のパソコンのハードディスクにアクセスすることなく、こんな画像が作れてしまう (実際には仮想メモリーのページングでハードディスクアクセスはあるだろうけど Windows 自体の仕組みなのでそれはどうしようもない)。チョー便利！！</p>
+			<p>また設定ファイルでフォントやフォントの色、フレームの色を変更もできる。ただし現在は他のパラメータを変更すると、一部ハードコードされている設定と矛盾が生じてしまい画像が破綻する可能性があるので、変更するのは以下にとどめておいて欲しい。というか下のパラメーターはほぼ全て手を加えないといけないはずだ。</p>
+			<ul>
+			<li>フォントのパス</li>
+			<li>フォントの色</li>
+			<li>フレームの色</li>
+			<li>magick (ポータブル版 ImageMagick の実行ファイル) のパス</li>
+			<li>exiftool のパス</li>
+			</ul>
+			<p>近々旅行を予定しているのだけれど、ぶっちゃけそのために Go で作り直したと言っても過言ではない。実際に USB スティックメモリーに環境を作ってちゃんと動くことを確認済みだ。あとは宿のパソコンでデジカメ画像にフレームをつけるだけなのだ。</p>
+			<p>あくまで参考例に過ぎないが自分の USB スティックメモリーに作った環境を以下に書いてこの項を締めたい。</p>
+			<pre>
+D:¥images
+　┣ ¥dest	: フレーム追加後画像ファイル格納場所
+　┣ ¥exiftool	: exiftool
+　┣ ¥font	: フォントファイル (otf もしくは ttf)
+　┣ ¥im	: ポータブル版 ImageMagick
+　┣ ¥org	: オリジナル画像ファイル
+　┣ ¥src	: フレーム追加前画像ファイル
+　┗ ¥work	: 作業用ファイル (addcopyright 出力先)
+			</pre>
+			<p>images 直下に addcopyright.exe、addframe.exe のプログラム本体、addcopyright.json、addframe.json の設定ファイルを置いている。また src ディレクトリの JPEG ファイルすべてを一気にフレームをつけて dest ディレクトリに書き込む convframe.bat というバッチファイルも置いている。このバッチファイルは上の図の環境でないと動作しないので今のところ公開はしていない。</p>
+		</div>
+		<ul class="clear nomark">
+			<li class="tag">Category : </li>
+			<li class="tag">#日記</li>
+			<li class="tag">#blog</li>
+			<li class="tag">#tag</li>
+		</ul>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202408/12.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>

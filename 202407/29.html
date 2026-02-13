@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>The road Orz passed by</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://mitsugu.github.io/likebar/202407/29.html">
+    <meta name="title" content="zap と makibishi を導入してみた">
+    <meta name="description" content="このサイトの 2024 年 7 月の日記から zap と makibishi を導入してみた件。">
+    <meta name="keywords" content="日記, blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="zap と makibishi を導入してみた">
+    <meta property="og:description" content="このサイトの 2024 年 7 月の日記から zap と makibishi を導入してみた件。">
+    <meta property="og:url" content="https://mitsugu.github.io/likebar/202407/29.html">
+    <meta property="og:site_name" content="The road Orz passed by">
+    <meta property="og:html" content="このサイトの 2024 年 7 月の日記から zap と makibishi を導入してみた件。">
+
+	<!--
+    <meta property="og:image" content="fig2024062301.webp">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="288">
+	-->
+
+    <link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.3.0"></script>
+</head>
+
+<body>
+    <h1>The road Orz passed by 2024 年 07 月</h1>
+    <div id="contents">
+        <h3 id="20240729">07 月 29 日 ( 月 )</h3>
+        <div id="2024072901" class="top-mutter">
+            <h4>zap と makibishi を導入してみた</h4>
+			<p>早速ですがこの日記サイトの 2024 年 7 月の日記から zap と makibishi を導入してみたのでそのお知らせです。</p>
+			<p>makibishi とか zap って何？ということですが、このページの下っかわに ☆ マークと zap と書かれたボタンがありますが、それらがそうです。</p>
+			<p>大まかには以下のように理解すればいいかと思います。</p>
+			<dl>
+				<dt>makibishi :</dt>
+				<dd>Nostr プロトコルを利用したはてなスターのようなもの</dd>
+				<dt>Zap :</dt>
+				<dd>Nostr 上でよく使われている投げ銭 (チップ) システム</dd>
+			</dl>
+			<p>必要か？とも思うのですが、それぞれについて説明していきます。もし私が間違ったことをうっかり書いてしまうと、ここかしこからマサカリが飛んでくると思うので、マサカリが飛んできたら文面を直します。</p>
+			<h5>makibishi</h5>
+			<p>先に書いたように makibishi は Nostr プロトコルで実装された <a href="https://s.hatena.ne.jp/" class="external">はてなスター</a>のようなものです。SNS で言うといいねみたいなものです。</p>
+			<p>現時点でかなりシンプルなシステムなので、まきびしをクリックして on にはできますが、off にしたり、はてなスターのように閲覧者が色とりどりの星を選んだりということはできません。</p>
+			<p>いまこのページでの makibishi のボタンは ☆ ですが別の絵文字に変えることもできます。ですがページのソース上で指定するようになっているので、はてなスターのようにページの閲覧者が選べるというわけではありません。</p>
+			<p>もしかすると将来的に機能的にはてなスターに近づいていくかもしれませんが、それは <a href="https://github.com/nikolat/makibishi" class="external">makibishi の作者さん</a>がそうしたいと願うか、あるいはそうしたいと願う別の誰かがプルリクエストを送らない限りはそれは起こらないでしょう。</p>
+			<h5>Zap</h5>
+			<p>Zap は前述の通り投げ銭システムなのですが、少額決済用の <a href="https://bitcoin.dmm.com/column/0274" class="external">Lightning network</a> というものを利用してやり取りされています。</p>
+			<p>技術的な詳細は実は自分もわかっていないのですが、Zap は最少額だと 1 satoshi という単位で投げ銭できます。1 satoshi は 2024 年 7 月 29 日の時点で、日本円にすると 0.635614 円のようです。</p>
+			<p>Nostr 上で作られている SNS ではサンキューというお礼の意味で 39 satoshi が Zap されたりすることがあるのですが、それでも日本円にして 24.788946 円、つまり約 25 円なので、わりと誰もが気軽に Zap しあっています。</p>
+			<p>Zap のシステムが利用してる Lightning network は高額決済は想定されていないと思うので (高額決済は手数料が大きくなる)、かりにあなたがこの記事を読んで私に日本円で 5 千万円くらい贈りたいと思っても、たぶん送れないと思います。</p>
+			<p>Zap をやり取りする場合には、仮想通貨である Bitcoin の最小単位である satoshi が必要ですし Lightning network 上で決済をするための Lightning wallet が必要になってきます。</p>
+			<p>自分は Nostr を使い始めるときに Zap のシステムが面白いと思って Nostr 用 SNS クライアント (便宜上そう呼ばせてください) に自分のプロフィールを登録するときに、Lightning Wallet も一緒に作ってしまいました。</p>
+			<p>satoshi はどう準備したのかというと実はまったく準備していません。Nostr を始めたらユーザが少なかったためか何かしら Zap されることが多かったので、自分が Zap するときも受け取った Zap から出すって感じになっています。</p>
+			<p>現在でも Nostr に新規参入したら何かしら Zap が入ってくるのかどうかはわかりません。もし Zap をしたいのに satoshi がぜんぜん無いのなら日本円を satashi にする必要があります。自分は日本円を satoshi にしてさらにそれを Lightning wallet に送金するってことをやったことがないので、それは<a href="https://scrapbox.io/nostr/Zap" class="external">ご自身で調べてください</a>。</p>
+			<p>Bitcoin というと世間的にはうさんくさい投資とか投機のイメージしか無いかと思いますが、Zap はそういう文脈とは無縁です。もちろん得た sataoshi を投機にぶち込むのなら話は別ですが、Zap のやりとりで投機にまわせるほどの satoshi は通常得られません。</p>
+			<p>まれに高額の satoshi を得てる人もいらっしゃいますが、Nostr の仕様やシステムに大きく貢献してる特別な人ですし、おそらく Zap のシステム外で受け取られてるのではないでしょうか。通常とんでもない額の Zap を受け取ることはありません。</p>
+        	<ul class="clear nomark">
+        	    <li class="tag">Category : </li>
+        	    <li class="tag">#日記</li>
+        	    <li class="tag">#blog</li>
+        	    <li class="tag">#Web</li>
+        	    <li class="tag">#Nostr</li>
+        	    <li class="tag">#zap</li>
+        	    <li class="tag">#makibishi</li>
+        	</ul>
+			<ul class="nomark">
+				<li><span class="makibishi"
+data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me"
+data-url="https://mitsugu.github.io/likebar/202407/29.html"
+data-content="⭐"
+data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button
+data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs"
+data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me"
+title="Bitcoin 投げ銭"
+>Zap ⚡️</button></li>
+			</ul>
+		</div>
+    </div>
+    <hr class="clear">
+    <ul class="footer">
+        <li><a href="index.html">戻る</a></li>
+    </ul>
+</body>
+</html>
+

@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/06.html">
+	<meta name="title" content="思考整理のためのツールを考える Part 3">
+	<meta name="description" content="思考整理ツールとして PlantUML の目的外使用を試してみる (1)">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツールを考える Part 3">
+	<meta property="og:description" content="思考整理ツールとして PlantUML の目的外使用を試してみる (1)">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/06.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="思考整理ツールとして PlantUML の目的外使用を試してみる (1)">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025040601.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="430">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<link href="../prism.css" rel="stylesheet">
+	<script src="../prism.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		.gray {
+			width:53%;
+			padding:2em;
+			background-color:lightgray;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250406">04 月 06 日 ( 日 )</h3>
+		<div id="2025040601" class="top-mutter">
+			<h4>思考整理のためのツールを考える Part 3</h4>
+			<p>本日は思考整理ツールとして PlantUML の目的外使用方法例を説明していきます。どうして目的外使用になるのかかというと、昨日の日記でも触れたように PlantUML は本来 UML を描くためのソフトウェアだからです。</p>
+			<p>PlantUML に限りませんが、昨日からまとめ始めているテキストファイルから図を生み出す方法論の真髄は、よくあるテキストエディタでもってサクサクと図を描いたり修正したりという作業を効率よく行うことにあり、思考の整理はテキストエディタでテキストを編集しているときに頭の中で行なわれることにあります。</p>
+			<p>なのでこの方法論での主役は、テキストエディタや紹介しているソフトウェアでもなく、あなたの頭脳ということになります。この方法論では少くとも状況整理や問題解決のための情報整理に集中する思考形態が開発されやすくなるので、IT 系エンジニアでなくても取り組むことをお勧めします。</p>
+			<p>とはいえ利用するソフトウェアの使い方を知るのは非常に重要です。今回からは各ソフトウェアの使い方を説明していきます。まず始めに取り上げるのは PlantUML になります。</p>
+			<hr>
+			<p>最初に PlantUML で思考を整理する際に活用できる部品を紹介します。以下のような部品を使うことができます。</p>
+			<figure>
+				<a href="fig2025040601.svg" target="_blank"><img width="512" src="fig2025040601.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040601.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>これらの部品のことを PlantUML ではエレメントと呼ぶので以降はエレメントと呼ぶことにします。UML で使われるものばかりですが、UML を描くのではなく思考整理を目的に使うのですから自由に選んで使ってかまいません。使用頻度が最も高くなるのは rectangle かもしれません。その名の通り長方形が描かます。</p>
+			<p>上図のエレメントリストは以下のソースを PlantUML で変換すると生成されます。</p>
+			<pre><code class="language-plantuml">@startuml
+actor actor
+actor/ "actor/"
+agent agent
+artifact artifact
+boundary boundary
+card card
+circle circle
+cloud cloud
+collections collections
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+hexagon hexagon
+interface interface
+label label
+node node
+package package
+person person
+queue queue
+rectangle rectangle
+stack stack
+storage storage
+usecase usecase
+usecase/ "usecase/"
+@enduml</code></pre>
+			<p>ソースファイルでの各エレメントの書き方は以下のようになります。</p>
+			<pre><code class="language-plantuml">rectangle "四角形その 1"</code></pre>
+			<p>または</p>
+			<pre><code class="language-plantuml">rectangle "四角形その 2" as r2</code></pre>
+			<p>rectagnel はエレメントの形状を示し &quot;&quot; で囲まれた文字列はエレメント内もしくはエレメントのそばに表記される文字列になります。&quot; as r2&quot; は何かと言うとエレメントに r2 という別名をつけています。</p>
+			<p>なぜエレメントに別名をつけるのでしょうか。</p>
+			<p>下の例を見てください。</p>
+			<pre><code class="language-plantuml">@staruml
+rectangle &quot;箱&quot;
+rectangle &quot;箱&quot;
+@enduml</code></pre>
+			<p>人の感覚としては長方形が 2 つ並ぶと直感的に感じてしまいますが結果は下図のようになります。</p>
+			<figure>
+				<a href="fig2025040607.svg" target="_blank"><img width="128" src="fig2025040607.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040607.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>複数のエレメントに同じ文字列が書かれていると PlantUML はそれらを区別することができません。区別できないとどうなるかというと上図のようにそれらを同一のエレメントとして解釈します。そして図上で 1 つのエレメントとしてまとめてしまいます。つまり 1 つのエレメントのみが表示されるという結果になります。</p>
+			<p>表示される文字列は同一であっても、そのようなエレメントを複数使うというのは日常的によくあることです。むしろ同じ見た目の &quot;箱&quot; が複数描けないと困ることがほとんどですよね。</p>
+			<p>それでは同じ見た目の &quot;箱&quot; を複数描きたいときはどうすればいいのかというと、PlantUML ではそれぞれの &quot;箱&quot; に別名をつけることで解決します。</p>
+			<pre><code class="language-plantuml">@staruml
+rectangle &quot;箱&quot; as box1
+rectangle &quot;箱&quot; as box2
+@enduml</code></pre>
+			<p>上のように複数の見た目が同じエレメントに別名をつけてやると PlantUML は下図のように複数の &quot;箱&quot; を描いてくれます。</p>
+			<figure>
+				<a href="fig2025040608.svg" target="_blank"><img width="256" src="fig2025040608.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040608.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>また後で述べるリレーションをエレメント間に引く場合に、エレメントの別名を決めておくとパンチの量を減らすとができるというメリットもあります。エレメント内の文字列が長くなるというのはよくあることです。</p>
+			<p>たとえば<a href="https://youtu.be/u66bkgSJCbI?t=47" class="external" target="_blank">レインボーマン</a>の変身呪文などで</p>
+			<pre><code class="language-plantuml">@staruml
+rectangle "阿耨多羅三藐三菩提\n====\n阿耨多羅三藐三菩提" as charm
+@enduml</code></pre>
+			<p class="no-indent">などとした場合、後述するリレーションを引くときに下のように別名を指定して書くことができます。</p>
+			<pre><code class="language-plantuml">@staruml
+actor "ヤマトタケシ" as takeshi
+rectangle "阿耨多羅三藐三菩提\n====\n阿耨多羅三藐三菩提" as charm
+person "レインボーマン" as rainbow
+takeshi -down-&gt; charm
+charm -down-&gt; rainbow
+@enduml</code></pre>
+			<figure>
+				<a href="fig2025040609.svg" target="_blank"><img width="128" src="fig2025040609.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040609.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>図が描かれる方向についても触れておきます。</p>
+			<figure>
+				<a href="fig2025040602.svg" target="_blank"><img width="512" src="fig2025040602.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040602.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上の図ではエレメントが横に並べられていますが、これは PlantUML の自動判別機能によりデプロイメント図が選択されていることによります (デプロイメント図という名前はここでは覚えなくてかまいません)。</p>
+			<p>この自動判定を off にする方法は少なくともこの日記が書かれた時点では存在しません。PlantUML は本来 UML を描くためのソフトウェアなので、@startuml と @enduml に囲まれたテキストがどのように書かれているかによって UML のどの図なのかを自動判別します。</p>
+			<p>PlantUML を使った思考整理ではこのデプロイメント図を、本来の目的とは異なりますが、流用することになります。もちろん他の図で適したものがあればそれを使ってもかまいません。UML を描くツールを使うのですが UML を描くわけではないのでツールは自由に使ってかまいません。</p>
+			<p>次に各エレメント間に引かれる線、リレーションについて説明していきます。</p>
+			<p>各エレメント間にリレーション、つまり矢印線を引くと図に方向が発生します。特に何も指定しなければデフォルトの方向は縦方向になります。</p>
+			<figure>
+				<a href="fig2025040603.svg" target="_blank"><img width="340" src="fig2025040603.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040603.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上図では図は上下に流れていますが、左右に方向を変更することもできます。左右に方向を変えるのに最も簡単な方法はソースに以下の行を加えることです。</p>
+			<pre><code class="language-plantuml">left to right direction</code></pre>
+			<p>下図で上記コードを最初の行に入れています。</p>
+			<figure>
+				<a href="fig2025040604.svg" target="_blank"><img width="512" src="fig2025040604.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040604.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>図の配置をもう少し制御したいと願うのは人の自然な心の発露で自然な感情です。あまり自由度はないのですが、リレーションの方向を指定するとで、多少は次のエレメントをどの方向に置くのかを、ある程度コントロールすることができます。ただしあくまである程度ということにはなります。</p>
+			<figure>
+				<a href="fig2025040605.svg" target="_blank"><img width="512" src="fig2025040605.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040605.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ソースを見ればわかりますが、元のソースのリレーションに対して</p>
+			<pre><code class="language-plantuml">--&gt;</code></pre>
+			<p class="no-indent">下のように right を加えただけです。</p>
+			<pre><code class="language-plantuml">-right-&gt;</code></pre>
+			<p>このリレーションの方向には up、down、left、right の 4 つを指定することができます。逆に言えばこの 4 つしか指定できません。</p>
+			<p>PlantUML で図を作成していく場合、エレメントの選択、リレーションの設定、デフォルト方向の設定、リレーションの方向を駆使して、図を作成していくことになります。とはいえレイアウトの自由度はほとんどありません。PlantUML がレイアウトのほぼ全てを決定します。</p>
+			<p>たとえばデフォルトレイアウトエンジンを使う場合リレーションが頻繁に曲線になりますが (というよりも直線になるのはまれです)、それをユーザが無理矢理直線にする方法は存在しません。</p>
+			<p>リレーションの装飾もなんとかならないかと思うのは人の情の常です。PlantUML を使う場合は UML で使われるリレーションの修飾や変更を適用することはできます。逆に言えばこれ以外の変更はできないということです。PlantUML 以外の他のツールも必要な所以ですし、他のツールでも事情は同様です。</p>
+			<figure>
+				<a href="fig2025040606.svg" target="_blank"><img width="100%" src="fig2025040606.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040606.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>図のレイアウトの制御はやはりニーズとして多く、Web の検索などで <a href="https://www.google.com/search?client=firefox-b-d&channel=entpr&q=plantuml+layout" class="external" target="_blank">&quot;plantuml layout&quot; などを検索語として指定</a>すると &quot;PlantUML のレイアウト辛い&quot; だとか &quot;打倒！PlantUMLのなにこれレイアウト&quot; などの悲鳴サイトがやたらとヒットします。気持がわかりすぎてつらいところです。</p>
+			<p>そのような中、地道にレイアウトをコントロールするためのノウハウをまとめている人もいます。<a href="https://isgb.otago.ac.nz/infosci/mark.george/Wiki/wiki/PlantUML%20GraphViz%20Layout" class="external" target="_blank">PlantUML GraphViz Layout - mark.george/Wiki</a> などが網羅とは言い難いのですが代表かもしれません。</p>
+			<p>もしかすると作成した図をプレゼンテーションなどに使いたいという人も多いかもしれません。そのような場合は上記のようなサイトの情報を駆使して頑張ることになります。</p>
+			<p>ただしこの連載でのソフトウェアの使用目的はあくまでも思考の整理と見える化、俯瞰、修正であって、図のレイアウトに腐心することでないことは繰返したいと思います。ツールをいじることに快感を見出して本来の目的を見失ってはいけません (お前が言うなとはよく言われます)。</p>
+			<p>とは言うものの出てきた図の見え方に思考は影響を受けますのでレイアウトに対してあまりに無頓着なのもあまりよくありません。そのあたりは各人自分自身の作業バランスと相談しながら良い落とし所を探ってください。試行錯誤こそが自分自身のバージョンアップに繋ります。</p>
+			<p>今日のまとめは以下のようなものになります。</p>
+			<ul>
+			<li>エレメントの種類の紹介</li>
+			<li>エレメントには別名を与える</li>
+			<li>図が描かれる方向は初期設定ができる</li>
+			<li>リレーションを利用してエレメントの配置を大まかではあるが設定することがでる</li>
+			<li>リレーションも種類が少いものの変更を加えることができる</li>
+			<li>レイアウトの制御もある程度は可能だがほぼ不可能なのであまり時間を割くべきではない</li>
+			<li><strong>思考の整理、見える化、俯瞰、修正に集中せよ</strong> &lt;- これが一番大事</li>
+			</ul>
+			<p>次回は PlantUML による Work Breakdown Structure の描きかたについて説明していきます。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+			</ul>
+		</div>
+		<div id="2025040602" class="mutter">
+			<h4>思考整理のためのツールを考える Part 4</h4>
+			<p>さて今回は PlantUML による Work Breakdown Structure の描きかたについて説明します。とは言ってもあまり書くことがありません。それとそもそも Work Breakdown Structure は UML の図ではない、というような IT 系の話はここでは省略します。</p>
+			<p>Work Breakdown Structure には UML のデプロイメント図と違ってエレメントのような概念は存在しません。もともとそうなのか、それとも PlantUML 上でのみそうなのかは存じ上げません。Work Breakdown Structure は文字が書かれた長方形とそれらを結ぶ線で構成されます。</p>
+			<p>起点となる長方形から、まるで根のように線が伸び、枝分れし、それぞれの根に芋が生るように長方形がぶらさがるような形状になっています。この形状の変更は一切できません。</p>
+			<figure>
+				<a href="fig2025040610.svg" target="_blank"><img width="512" src="fig2025040610.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040610.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上の図のソースファイルは以下になります。</p>
+			<pre><code class="language-plantuml">@startwbs
+* Instant Karma
+** Current Member
+*** Takapii
+**** Vocal
+*** Syun
+**** Guitar
+*** Michee
+**** Vocal
+**** Keyboard
+*** Tetsu
+**** Vocal
+**** Bass
+*** Toku
+**** Drums
+
+** Past Member
+*** Ken
+**** Vocal
+**** Guitar
+**** Bass
+**** Drums
+*** OrzBruford
+**** Drums
+@endwbs</code></pre>
+			<p>あくまで個人的なニーズなのですが、上記の例でいえば Current Member と Past Member が縦に並んでくれるとありがたいのですが、やはりそうはなりません。そういう図ではないということのようです。</p>
+			<p>ただ下のようにワンクッションおくと僅かに状況は変化します。</p>
+			<pre><code class="language-plantuml">@startwbs
+* Instant Karma
+** Member
+*** Current
+**** Takapii
+***** Vocal
+**** Syun
+***** Guitar
+**** Michee
+***** Vocal
+***** Keyboard
+**** Tetsu
+***** Vocal
+***** Bass
+**** Toku
+***** Drums
+
+*** Past
+**** Ken
+***** Vocal
+***** Guitar
+***** Bass
+***** Drums
+**** OrzBruford
+***** Drums
+@endwbs</code></pre>
+			<figure>
+				<a href="fig2025040611.svg" target="_blank"><img width="384" src="fig2025040611.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040611.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ルートの長方形のセンタリングが強制なので、若干不満は残りますが、使用目的を考えるなら妥協が必要なポイントだとも言えます。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#WorkBreakdownStructure</li>
+			</ul>
+		</div>
+		<div id="2025040603" class="mutter">
+			<h4>思考整理のためのツールを考える Part 5</h4>
+			<p>今回は PlantUML のデプロイメント図と Work Breakdown Structure に他の図や画像を埋め込む方法を説明します。</p>
+			<p>難しい話にはなりません。ホームページを自分で書いたり、MarkDown のドキュメントに画像を埋め込むことが日常の人はここでもそれをすればいいだけです。ただ書式やルールが異るだけの話です。</p>
+			<pre><code class="language-plantuml">@startwbs
+* Jazz Unit
+** Member
+*** Sax\n&lt;img src=&quot;fig2025040617.png&quot;&gt;
+*** Piano\n&lt;img src=&quot;fig2025040615.png&quot;&gt;
+*** Electric Guitar\n&lt;img src=&quot;fig2025040616.png&quot;&gt;
+*** Bass\n&lt;img src=&quot;fig2025040614.png&quot;&gt;
+*** Drums\n&lt;img src=&quot;fig2025040613.png&quot;&gt;
+@endwbs</code></pre>
+			<p>注意点は、ソースを見るとまるで html の img 要素に見えます。でも書式が似ているだけで html ではありません。html では必須になっている width 属性や height 属性など、あるいは他の属性を記述するとエラーになり画像はインポートされません。</p>
+			<p>仮に画像のサイズを調整して表示させたい場合は、あらかじめ画像のサイズを編集して変更しておいてから PlantUML に取り込むことになるのがかなり残念仕様だと言えます。つまり現バージョンの PlantUML では画像変換のタイミングでインポート画像のリサイズは不可能だということになります。</p>
+			<figure>
+				<a href="fig2025040612.svg" target="_blank"><img width="384" src="fig2025040612.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040612.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>以上 Work Breakdown Structure の場合について説明してきました。ここからはデプロイメント図での解説になります。デプロイメント図の場合は次のようになります。</p>
+			<pre><code class="language-plantuml">@startuml
+(&lt;img src=&quot;fig2025040619.png&quot;&gt;) as sns1
+note right: 買収により消滅\nさようなら\n青い小鳥ちゃん
+(&lt;img src=&quot;fig2025040620.png&quot;&gt;) as sns2
+note right: こんにちは\nイーロンさん
+sns2 --&gt; sns1 : 　買収
+@enduml</code></pre>
+			<p>上のソースを PlantUML で画像にすると下図のようになります。</p>
+			<figure>
+				<a href="fig2025040618.svg" target="_blank"><img width="384" src="fig2025040618.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040618.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>最後に注意点に触れておきます。Work Breakdown Structure には svg 画像も埋め込めますが、デプロイメント図に svg 画像を埋め込もうとするとエラーになります。図による統一性がみられないので混乱します。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+				<li class="tag">#WorkBreakdownStructure</li>
+			</ul>
+		</div>
+		<div id="2025040604" class="mutter">
+			<h4>思考整理のためのツールを考える Part 6</h4>
+			<p>PlantUML の話はまだ続きます。今回は PlantUML がサポートするテーマ機能について書いていきます。PlantUML ではテーマというものを指定すると、図の見た目の雰囲気をがらりと変えることができます。</p>
+			<p>例えばこの連載で何度も登場している下の図ですが</p>
+			<figure>
+				<a href="../202503/fig2025031701.svg" target="_blank"><img width="512" src="../202503/fig2025031701.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031701.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p class="no-indent">spacelab-white というテーマを指定すると下図のように見た目が雑誌に載ってそうな感じに変わります。</p>
+			<figure class="gray">
+				<a href="fig2025040621.svg" target="_blank"><img width="512" src="fig2025040621.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040621.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>テーマを設定するのは非常に簡単です。</p>
+			<pre><code class="language-plantuml">!theme spacelab-white</code></pre>
+			<p class="no-indent">という行をソースファイルの最初の方に追加するだけです。以前のバージョンのものと比べるとデフォルトのテーマもかなり美しくなりましたが、もし他のテーマを試したいなら<a href="https://the-lum.github.io/puml-themes-gallery/themes/index.html" class="external" target="_blank">ここにリストがあります</a>ので、参照して設定するのがいいでしょう。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+			</ul>
+		</div>
+		<div id="2025040605" class="mutter">
+			<h4>思考整理のためのツールを考える Part 7</h4>
+			<p>PlantUML の最終回としてこれまで触れてこなかったレイアウトエンジンについて少しだけ触れたいと思います。</p>
+			<p>PlantUML はデフォルトのレイアウトエンジンとして GraphViz を利用しているとドキュメントの至るところにかかれています。ですがどうもそうは単純ではなく、現在の最新バージョンでは PlantUML 自身にレイアウトエンジンも含むようになっているだけではなく <a href="https://plantuml.com/ja/layout-engines" class="external" target="_blank">PlantUML の Layout Engines and Options というページ</a>を読むと複数のレイアウトエンジンを使うことができるようです。</p>
+			<p>PlantUML が複数のレイアウトエンジンを使うことができることを知ったのが、実はこの連載を書き始めてからのことになります。なので実際に動かして試したのが筆者が使いたいと思っていた ELK(Eclipse Layout Kernel) のみとなります。PlantUML で ELK のレイアウントエンジンを使えるようにするためのインストール方法は後述します。</p>
+			<p>レイアウトエンジンに ELK を指定するとどのように図が変化するのか例を示します。この連載で何度も登場している下図に ELK のレイアウトエンジンを使うことにします。</p>
+			<figure>
+				<a href="../202503/fig2025031701.svg" target="_blank"><img width="512" src="../202503/fig2025031701.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031701.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ELK レイアウトエンジンを使うと上図が下図のようになります。</p>
+			<figure>
+				<a href="fig2025040622.svg" target="_blank"><img width="512" src="fig2025040622.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025040622.pu" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>全体的に図が四角く直線的になり、Nrf2 からミクログリア細胞の活性化に伸びるリレーションが、他のリレーションに交差することがなくなっています。このリレーションの交差を極力なくすようにレイアウトを自動調整してくれるのが ELK レイアウトエンジンの魅力です。</p>
+			<p>ただ見ての通り note (注釈) はかえって微妙な描き方になってしまっています。またこの角ばったレイアウトがマッチしない、あるいは気に入らないという場合もあるでしょう。その場合はデフォルトのレイアウトエンジンや他のレイアウトエンジンを選択するということになります。</p>
+			<p>レイアウトエンジンに ELK を使う場合のソースの変更点はというと以下の一行を &quot;@startuml&quot; の次の行に書き加えるだけです。</p>
+			<pre><code class="language-plantuml">!pragma layout elk</code></pre>
+			<p>さてレイアウトエンジンの変更方法ですが、実は少し面倒な作業になります。プログラマーであればプログラムの差し替えやインストールは日常ですからさほど苦労することもないかと思いますが非プログラマーでプログラムのインストール作業が非日常の人にとってはあまりやりたくない作業かと思います。</p>
+			<p>そのようなこともあり、ELK レイアウトエンジンに限って最も簡単と思える ELK レイアウントエンジンの PlantUML への導入方法を述べていきたいと思います。</p>
+			<p>レイアウトエンジンを変更するにあたり現時点で知っておく必要があるのが、PlantUML は Java というプログラミング言語で作られているということです。PlantUML の本体は plantuml.jar というファイルになります。この plantuml.jar というファイルを Java プログラムを動かすためのプログラム (ややこしいですね) である java が読み込んで実行します。</p>
+			<p>PlantUML のバージョンやパッケージによっては plantuml.jar に ELK レイアウトエンジンが含まれていないことがあります。そのような場合は ELK レイアウトエンジンを含んでいる plantuml.jar ファイルをダウンロードしてもともとの plantuml.jar ファイルを置き換えてやるか実行時に指定する jar ファイルを変更してやる必要があります。</p>
+			<p>ダウンロードは <a href="https://plantuml.com/ja/download" class="external" target="_blank">PlantUML の公式サイト</a>からできます。</p>
+			<p>plantuml.jar をダウンロードするにあたり、気を付けることがあります。単に PlantUML を使うだけなら GPLv3 版をダウンロードしてください。ダウンロードのリストには単に GPL と書かれています。GPLv3 版のバージョン 1.2024.6 以降であれば jar ファイルに ELK レイアウトエンジンも含まれています。</p>
+			<p>ダウンロードリスト下の表を見ると ELP パッケージにしか ELK レイアウトエンジンが同梱されているようにしか見えません。しかし実際には 1.2024.6 以降のバージョンであれば GPLv3 版にも ELK レイアウトエンジンが同梱されています。</p>
+			<p>コマンドラインの例としては以下のようなものが考えられます。ソースファイルと plantuml-1.2025.2.jar が同じフォルダに入っているという前提のコマンドラインになります。</p>
+			<pre><code class="language-plantuml">java -jar "plantuml-1.2025.2.jar" -tsvg ソースファイル名</code></pre>
+			<p>上の例の -tsvg は svg 画像にするよう指示しています。png にしたいのであれば -tsvg ではなく -tpng を指定します。-t オプションを省略すると plantuml は出力を png にします。</p>
+			<p>plantuml-1.2025.2.jar がソースファイルと異なるフォルダにある場合、plantuml-1.2025.2.jar はフルパス又は相対パスで指定する必要があります。いちいちパンチしてられないという場合はバッチファイルやシェルスクリプトを書いたり、alias を設定するのがいいかと思います。</p>
+			<p>上の一文でわからない言葉がでてきたと思った人は、パソコンに詳しそうな身近な人に尋ねてください。もちろんネットで検索してもかまいません。</p>
+			<p>以上で思考整理のための PlantUML の基本的な使い方のお話は終ります。次回からは GraphViz を取り上げたいと思います。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+				<li class="tag">#デプロイメント図</li>
+				<li class="tag">#ELK</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/06.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

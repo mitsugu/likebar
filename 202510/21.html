@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202510/21.html">
+	<meta name="title" content="Dive #71: RMV って何">
+	<meta name="description" content="昨日の雑記にターニング・プレッシャーの計算方法を書きました。今日はターニング・プレッシャーを求めるのに必要な RMV について復習します。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #71: RMV って何">
+	<meta property="og:description" content="昨日の雑記にターニング・プレッシャーの計算方法を書きました。今日はターニング・プレッシャーを求めるのに必要な RMV について復習します。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202510/21.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="昨日の雑記にターニング・プレッシャーの計算方法を書きました。今日はターニング・プレッシャーを求めるのに必要な RMV について復習します。">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202510/fig2025102101.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #71: RMV って何" />
+	<meta name="twitter:description" content="昨日の雑記にターニング・プレッシャーの計算方法を書きました。今日はターニング・プレッシャーを求めるのに必要な RMV について復習します。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202510/fig2025102101.jpg" />
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		ul {
+			list-style: none;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 10 月</h1>
+	<div id="contents">
+		<h3 id="20251021">10 月 21 日 ( 火 )</h3>
+		<div id="2025102101" class="top-mutter">
+			<h4>Dive #71: RMV って</h4>
+			<p>昨日はターニング・プレッシャーの話でしたが、今日はその計算の土台になる RMV をおさらいします。</p>
+			<p>RMV というアルファベットだと何のことかわからない、という人は少なくないかもしれません。RMV はオープンウォーターで学ぶ空気消費量になります。</p>
+			<p>今のレクリエーショナル・ダイビングでは、減圧症リスクを減らすために、呼吸ガスとして EAN32、EAN36 などを使用することもあるのはご存知の通りです。そのように呼吸ガスは空気とは限りませんから、現在では呼吸ガス消費量、あるいはもっと単純にガス消費量と呼ぶべきでしょう。</p>
+			<p>以下 Google の Gemini が出した回答になります。MathML を使いたかったので AI を利用しました。</p>
+			<div style="width:3em;"><hr /></div>
+    	<p>RMV（水面分時呼吸量）は、ダイバーの空気消費率をリットル毎分（L/min）で示したもので、以下の計算式で求められます。</p>
+
+			<math display="block">
+				<mi>RMV</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mrow>
+						<mo>(</mo>
+						<msub><mi>P</mi><mrow><mi>start</mi></mrow></msub>
+						<mo>−</mo>
+						<msub><mi>P</mi><mrow><mi>end</mi></mrow></msub>
+						<mo>)</mo>
+						<mo>×</mo>
+						<msub><mi>V</mi><mrow><mi>tank</mi></mrow></msub>
+					</mrow>
+					<mrow>
+						<mo>(</mo>
+						<mfrac>
+							<msub><mi>D</mi><mrow><mi>avg</mi></mrow></msub>
+							<mn>10</mn>
+						</mfrac>
+						<mo>+</mo>
+						<mn>1</mn>
+						<mo>)</mo>
+						<mo>×</mo>
+						<msub><mi>T</mi><mrow><mi>dive</mi></mrow></msub>
+					</mrow>
+				</mfrac>
+			</math>
+
+			<h5>凡例</h5>
+			<ul>
+				<li><math><mi>RMV</mi></math>: 水面分時呼吸量 (L/min)</li>
+				<li><math><msub><mi>P</mi><mrow><mi>start</mi></mrow></msub></math>: 開始時タンク残圧 (bar)</li>
+				<li><math><msub><mi>P</mi><mrow><mi>end</mi></mrow></msub></math>: 終了時タンク残圧 (bar)</li>
+				<li><math><msub><mi>V</mi><mrow><mi>tank</mi></mrow></msub></math>: タンク容量 (L)</li>
+				<li><math><msub><mi>D</mi><mrow><mi>avg</mi></mrow></msub></math>: 平均水深 (m)</li>
+				<li><math><msub><mi>T</mi><mrow><mi>dive</mi></mrow></msub></math>: 潜水時間 (min)</li>
+				<li><math><mfrac><msub><mi>D</mi><mrow><mi>avg</mi></mrow></msub><mn>10</mn></mfrac><mo>+</mo><mn>1</mn></math>: 平均水深での絶対圧（ATA）</li>
+			</ul>
+			<div style="width:3em;"><hr /></div>
+			<p>うむ、これではわからん。あまりにわかりにくいのでオープンウォーターのマニュアルのように日本語で書きます。</p>
+			<math display="block">
+				<mi>RMV</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mrow>
+						<mo>(</mo>
+						<msub><mi>開始時ガス圧</mi></msub>
+						<mo>−</mo>
+						<msub><mi>終了時ガス圧</mi></msub>
+						<mo>)</mo>
+						<mo>×</mo>
+						<msub><mi>シリンダー容量</mi></msub>
+					</mrow>
+					<mrow>
+						<mo>(</mo>
+						<mfrac>
+							<msub><mi>平均水深</mi></msub>
+							<mn>10</mn>
+						</mfrac>
+						<mo>+</mo>
+						<mn>1</mn>
+						<mo>)</mo>
+						<mo>×</mo>
+						<msub><mi>潜水時間</mi></msub>
+					</mrow>
+				</mfrac>
+			</math>
+			<p>これを毎回ログ付けのときに、エアの消費量も記録しておきましょうね、と電卓を貸し出していたのですが、みなさん、毎回計算してましたよね？</p>
+			<p>え？計算したことない？変ですね。オープンウォーターで毎回計算してログに記録しておきましょう、ということになっていたはずなのですが。</p>
+			<p>この求めた RMV という値が、潜水計画を行う上でとても大事な数字になってきます。もしこれまで計算したことないという人は次から、あるいは過去のダイビングに遡って計算して記録しておいてください。</p>
+			<p>それらが、前日書いた &quot;<a href="19.html#2025101901" target="_blank">Dive #63: RMVに基づくターニング・プレッシャーの計算式</a>&quot; でのターニング・プレッシャーを求めるさいに必要な、もっとも大事なあなた自身の基礎データになります。</p>
+			<p>また RMV の値はダイビング毎に異なっているはずです。これはちっともおかしなことではありません。体調、ストレスの程度、運動量、ダイビングの経験値、なんなら時間の違いでも数値は異なってきます。またそのときのダイビングがどのようなダイビングだったか、ということもはっきりと表われる数字でもあります。</p>
+			<p>この数字を見るだけで、そういえばこのときはボートからえらく遠い場所に浮上してしまって、えらい水面を泳ぐ羽目になったよな、このときは新しいドライで慣れなくて緊張してたんだよな、とか思い出せたりします。数字って正直で怖い (笑)</p>
+			<p>この RMV の値ですが、ぼくの観測範囲ではベテランの男性で 16 くらいが比較的多く、同じくベテランの女性で 12 くらいの方が多かったように感じます。ですがこの値は何度でも書きますが、そのときのダイビングのスタイル、様々な条件によって大きく変動します。</p>
+			<p>あくまで自分の普段の運動量、普段のストレスのない環境だと、<strong>おおよそ</strong>どれくらいという<strong>目安</strong>を把握しておくことが大事なのであって、数値を小さくすることに血道をあげるのは間違っていることはお伝えしておきたいと思います。</p>
+			<p>RMV の値は目標にするような性質の何かの値ではなく、自分がどういう生理学的な性質を持つダイバーなのかを把握するための数字です。間違わないようにお願いします。</p>
+			<p>そこを勘違いすると、危険な行為をし始めるとても危ないダイバーになり始めます。</p>
+			<!--
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="340" src="fig2025102101.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#スキューバダイビング</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#空気消費量</li>
+				<li class="tag">#呼吸ガス消費量</li>
+				<li class="tag">#RMV</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202510/21.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

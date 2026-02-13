@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/20.html">
+	<meta name="title" content="なるべく楽に睡眠、食事、服薬を記録する">
+	<meta name="description" content="睡眠、食事、服薬の記録だけなら Mermaid の Gantt chartを使えばいいのでは？という話。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="なるべく楽に睡眠、食事、服薬を記録する">
+	<meta property="og:description" content="睡眠、食事、服薬の記録だけなら Mermaid の Gantt chartを使えばいいのでは？という話。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/20.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="睡眠、食事、服薬の記録だけなら Mermaid の Gantt chartを使えばいいのでは？という話。">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025042001.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+	<script defer>
+		mermaid.initialize({
+		startOnLoad: true
+	});
+	</script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250420">04 月 20 日 ( 日 )</h3>
+		<div id="2025042001" class="top-mutter">
+			<h4>なるべく楽に睡眠、食事、服薬を記録する</h4>
+			<p>うつ病当事者の睡眠、食事、服薬の記録だけなら <a href="https://mermaid.js.org/syntax/gantt.html" class="external" target="_blank">Mermaid のガントチャート</a>を使えばいいのでは？と思い付きました。実際に試してみたらなかなかいい感じなので記録しておきます。</p>
+			<p>Mermaid を使うと下図のようなガントチャートが簡単に描けてしまいます。しかも元のソースを html で書くならソフトウェアのインストールは必要ありません。テキストエディタと Web ブラウザ、ネット接続環境があれば充分です。</p>
+			<div class="mermaid">
+				---
+				displayMode: compact
+				---
+				gantt
+					dateFormat HH:mm
+					axisFormat %H:%M
+					tickInterval 1hour
+					2025年 04月 19日 (土) : active, m0, 00:00, 1440m
+					睡眠 : m1, 00:00, 330m
+					朝食 : done, milestone, 07:29, 2m
+					仮眠 : m4, 08:50, 10m
+					昼食 :done, milestone, 12:44, 2m
+					夕食 :done, milestone, 16:59, 2m
+					眠前薬 : milestone, 20:59, 2m
+					睡眠 : m16, 22:30, 90m
+			</div>
+			<p>下のテキストが上図の mermaid のソースになります。</p>
+			<blockquote class="code">
+<pre><code>---
+displayMode: compact
+---
+gantt
+	dateFormat HH:mm
+	axisFormat %H:%M
+	tickInterval 1hour
+	2025年 04月 19日 (土) : active, m0, 00:00, 1440m
+	睡眠 : m1, 00:00, 330m
+	朝食 : done, milestone, 07:29, 2m
+	仮眠 : m4, 08:50, 10m
+	昼食 :done, milestone, 12:44, 2m
+	夕食 :done, milestone, 16:59, 2m
+	眠前薬 : milestone, 20:59, 2m
+	睡眠 : m16, 22:30, 90m</code></pre>
+			</blockquote>
+			<p>全体の色を変えたい場合は Mermaid のテーマ機能を利用します。下図ではテーマに forest を選んでいます。</p>
+			<div class="mermaid">
+				---
+				displayMode: compact
+				---
+				gantt
+					%%{init:{'theme':'forest'}}%%
+					dateFormat HH:mm
+					axisFormat %H:%M
+					tickInterval 1hour
+					2025年 04月 20日 (日) : active, m0, 00:00, 1440m
+					睡眠 : m1, 00:00, 270m
+					朝食 : done, milestone, 07:59, 2m
+					居眠り : m2, 10:30, 10m
+					昼食 : done, milestone, 12:29, 2m
+					夕食 :done, milestone, 17:49, 2m
+			</div>
+			<p>ソースは下のようになります。gantt と書かれた次の行がテーマの指定になります。指定がなければデフォルトテーマで画像が作られます。</p>
+			<blockquote class="code">
+<pre><code>---
+displayMode: compact
+---
+gantt
+	%%{init:{'theme':'forest'}}%%
+	dateFormat HH:mm
+	axisFormat %H:%M
+	tickInterval 1hour
+	2025年 04月 20日 (日) : active, m0, 00:00, 1440m
+	睡眠 : m1, 00:00, 270m
+	朝食 : done, milestone, 07:59, 2m
+	居眠り : m2, 10:30, 10m
+	昼食 : done, milestone, 12:29, 2m
+	夕食 :done, milestone, 17:49, 2m
+</code></pre>
+			</blockquote>
+			<p>本来使用目的の異るガントチャートを流用しているわけですが、それぞれのラインや文字を好きな色や太さに自由に変更することは現時点ではできません (一部可能なものもあるようですがまだ調べきれていません)。</p>
+			<p>そのため色の変更にはガントチャートのタスクの状態を利用しています。</p>
+			<ul>
+			<li>未指定: 濃い目の色</li>
+			<li>active: 少し薄目の色, 本来は仕掛り中の意味</li>
+			<li>done: グレー, 本来は完了の意味</li>
+			<li>crit: 赤, 本来はクリティカルなプロセスを意味</li>
+			</ul>
+			<p>色を替えたいときは上記 4 種類とテーマを組合せることである程度は可能です。</p>
+			<p><a href="fig2025042002.html" target="_blank">html ファイルの雛形</a>を置いておきます。ダウンロードしてご利用ください。ライセンスは以下の通りとします。個人的に使うだけなら、ライセンスは特別意識しなくていいと思います。再配布する場合や改変成果物を再配布するときはライセンスに従ってください。</p>
+			<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://mitsugu.github.io/likebar/2025/0240/fig2025024002.html">睡眠、食事、服薬の記録</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://orzbruford.github.io/orzbruford/">mitsugu oyama (a.k.a. OrzBruford)</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
+			<p>ダウンロードした html のソースを編集して Web ブラウザで表示してやれば、上記のような睡眠状態を概観できる図が表示されます。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#うつ病</li>
+				<li class="tag">#セルフモニタリング</li>
+				<li class="tag">#Mermaid.js</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/20.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

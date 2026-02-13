@@ -1,0 +1,46 @@
+.compareWYW {
+	overflow: hidden;
+	position: relative;
+}
+
+.compareWYW .itemWrap {
+	position: absolute;
+	overflow: hidden;
+}
+
+.compareWYW .indicator {
+	background: #d6d6d6;
+	position: absolute;
+	z-index: 3;
+}
+
+.compareWYW .horizontalIndicator {
+	height: 100%;
+	width: 2px;
+}
+
+.compareWYW .verticalIndicator {
+	height: 2px;
+	width: 100%;
+}
+
+.compareWYW .indicator .handle {
+	position: absolute;
+	background-color: #d6d6d6;
+	background-image: url(handle.png);
+	background-repeat: no-repeat;
+}
+
+.compareWYW .horizontalHandle {
+	width: 10px;
+	height: 25px;
+	overflow: hidden;
+	background-position: 0px 0px;
+}
+
+.compareWYW .verticalHandle {
+	width: 25px;
+	height: 10px;
+	overflow: hidden;
+	background-position: -10px 0px;
+}

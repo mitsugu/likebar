@@ -1,0 +1,11 @@
+@startuml
+rectangle "四角形その 1" as r1
+rectangle "四角形その 2" as r2
+rectangle "rectangle を rectangle で囲ってみた" {
+	rectangle "中の四角形 1" as in1
+	rectangle "中の四角形 2" as in2
+}
+r1 --> r2
+r2 -right-> in1
+in1 --> in2
+@enduml

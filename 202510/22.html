@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202510/22.html">
+	<meta name="title" content="Dive #72: 潜水計画のためのエア管理計画">
+	<meta name="description" content="ターニング・プレッシャーなどを潜水計画にどのように適用するのかというお話です。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #72: 潜水計画のためのエア管理計画">
+	<meta property="og:description" content="ターニング・プレッシャーなどを潜水計画にどのように適用するのかというお話です。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202510/22.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202510/fig2025102201.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #72: 潜水計画のためのエア管理計画" />
+	<meta name="twitter:description" content="ターニング・プレッシャーなどを潜水計画にどのように適用するのかというお話です。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202510/fig2025102201.jpg" />
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 10 月</h1>
+	<div id="contents">
+		<h3 id="20251022">10 月 22 日 ( 水 )</h3>
+		<div id="2025102201" class="top-mutter">
+			<h4>Dive #72: 潜水計画のためのエア管理計画</h4>
+			<p>これまでに &quot;<a href="20.html#2025102001" target="_blank">Dive #63: RMV に基づく潜水計画の計算式</a>&quot; でターニング・プレッシャーの計算方法を示し、&quot;<a href="21.html#2025102101" target="_blank">Dive #64: RMV って何</a>&quot; でガス消費量の計算の仕方を復習してもらいました。</p>
+			<p>これらの数字は計算するだけでは意味がありません。これらの数字で実際に潜水計画を立てて、実際の潜水でこれを実行するのでなければ、これらの数字を出す意味がありません。これらの数字を出して実際に使わないのであれば、それは勘と運に頼るダイビングを行うことを意味します。勘と運に頼るダイビングはいつかどこかのタイミングで破綻します。それは通常事故になることを意味します。</p>
+			<p>特にガス欠乏は死亡する可能性が非常に高いトラブルです。ぼくたちダイバーは無事に生きて家族のもとに帰る責任があります。事故にならないことで周囲に迷惑をかけない責任もあります。ですからすべてのダイバーはこれらのデータを生かす義務があると考えてください。</p>
+			<p>硬すぎる話はここまでにしておいて、実際にガス消費量を求めて、ターニング・プレッシャーを計算しながら、ダイビングの計画をどう考えていくのかを、架空のとある男性ダイバーに登場してもらって見ていきたいと思います。</p>
+			<p>ですがその前に注意点があります。登場する彼は自分のターニング・プレッシャーの計算はしていますが、バディのターニング・プレッシャーの計算はしていません。ここでは話が煩雑になるのを防ぐために彼自身のターニング・プレッシャーのみを計算させています。<red><strong>実際のダイビングの場面ではバディのターニング・プレッシャーも計算して、バディ同士で一緒に確認する作業を絶対にしてください。水中で自分のゲージ圧をチェックするだけでなくお互いの NDL までの時間をチェックするのも当然のことです。レクリエーショナル・ダイビングはバディで行うものです。最大の原則から絶対に離れてはいけません。</strong></red></p>
+
+			<p>彼は南紀串本のアンドの鼻に最近串本で話題になっているミジンベニハゼを見に行ってダイビングサービスに戻ってログ付けしています。</p>
+			<p>彼はログブックにデータを書き込んでいきます。</p>
+			<p class="no-indent">「ちょっと深めに長い時間はいることがわかってたからタンクは 12 リットルのもので入ったな。開始圧は 200 で終了圧が 50 だった」</p>
+			<p>彼はダイコンをログモードにして、さっきのアンドの鼻のデータを確認します</p>
+			<p class="no-indent">「うん。潜水時間は 39 分で水深が最大で -27.1m、平均が -14.2m。とするとエアの消費量は……」</p>
+			<p>彼はガス消費量の計算式を思い出します。</p>
+			<math display="block">
+				<mi>RMV</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mrow>
+						<mo>(</mo>
+						<msub><mi>開始時ガス圧</mi></msub>
+						<mo>−</mo>
+						<msub><mi>終了時ガス圧</mi></msub>
+						<mo>)</mo>
+						<mo>×</mo>
+						<msub><mi>シリンダー容量</mi></msub>
+					</mrow>
+					<mrow>
+						<mo>(</mo>
+						<mfrac>
+							<msub><mi>平均水深</mi></msub>
+							<mn>10</mn>
+						</mfrac>
+						<mo>+</mo>
+						<mn>1</mn>
+						<mo>)</mo>
+						<mo>×</mo>
+						<msub><mi>潜水時間</mi></msub>
+					</mrow>
+				</mfrac>
+			</math>
+			<p class="no-indent">「開始時ガス圧が 200 で終了時ガス圧が 50 だから、エアを 150 bar 使ったことになる。タンクが 12 リットルなので、ぼくは 150×12 = 1800 リットルのエアを使ったことになる」
+			<p class="no-indent">「平均水深が -14.2m だから、その水深での絶対圧は 14.2/10+1 = 2.42 bar になる」</p>
+			<p class="no-indent">「ぼくは 1800 リットルのエアを消費したけど、平均水深 -14.2m でそれだけのエアを消費したわけだから、それを 1 気圧環境に換算するには 1800/2.42 = 743.801652893 だから、地上換算でそれだけのエアを使ったことになる」</p>
+			<p class="no-indent">「1 分あたりにどれだけのエアを使ったのか知りたいのだからさっきの数字を 39 で割れば、1 分あたり 1 気圧換算でぼくは約 19.07 リットルの空気を使ったことになるな」</p>
+			<p class="no-indent">「他の人より多いけど、いつもこんなものだな」</p>
+			<p>そこで次のダイビング、水面休息後のダイビングの予定がガイドから話されます。</p>
+			<p class="no-indent">「つぎのダイビングは、これも今旬の話題のサコラコシオリエビを観にいきましょう。ポイントはおなじみの住崎になります。生息しているのが北のスリバチカイメンなので予定最大水深は -25m くらいになります。ダイビングコンピュータをしっかりチェックして DECO Stop を出さないようにしてください。残圧管理もしっかりお願いします。海はさっきのとおり穏かなのでサクラコシオリエビに会ってのんびりと潜りましょう」</p>
+			<p>彼は普段のガス消費量が 19 リットルで、先程のアンドの鼻でもほぼいつも通りのエア消費量であったので、その数値 19 リットルでターニング・プレッシャーの計算を始めます。</p>
+			<p class="no-indent">「いつもこのサービスのタンクは -25m 以上の水深に行くときは 12 リットルを貸してくれるので、いつも通り 12 リットルのタンクを貸してくれるだろう。10 リットルを出されたらエア消費量から 12 リットルにしたいって言えばいいだろう。だから 12 リットルで計算する」</p>
+			<p class="no-indent">「のんびりダイビングって言ってたから RMV の状況別ファクターは 1.0 で RMV は 19 のままでいいよね？」</p>
+			<p class="no-indent">「緊急用ガスの計算はというと緊急時にバディにエアを分けることも想定して RMV を 3 倍して、3 × RMV × (最大水深からの浮上時間 + 安全停止時間) × 最大水深の絶対圧だから……」</p>
+			<p class="no-indent">「でもその前に浮上に要する時間はと。最大水深が -25m で、ぼくのダイコンはビュールマン式だから浮上速度の指定は 9m/分だから浮上に要する時間は約 2:30。安全停止はいつも通り 3：00。最大水深 -25m の絶対圧が 3.5 bar。えーっと電卓電卓」</p>
+			<p class="no-indent">「R-Gas Volume = 3 × 19 × (2.5+3) × 3.5 だから……うん、必要な緊急用ガスの容積は 1097.25 リットルになる。でもこれじゃぁゲージでわかんないのでタンクの容積で割れば何 bar のエアが緊急時に必要かでてくる。いくらだ？」</p>
+			<p class="no-indent">「端数を切り上げて 91.4375 が最低必要だけど、これに 10 bar から 20 bar を足さないとだめだから、安全マージンを高めに見積って 112 気圧か」</p>
+			<p class="no-indent">「つまりこのダイビングで使っていいエアはダイビング開始時の残圧 200 から、この 112 を引いた 88 気圧になる」</p>
+			<p class="no-indent">「ぼくがこのダイビングで使っていいエアは、往路で 88/2 の 44 気圧になる。もちろん復路で使っていいのは同じ 44 気圧になる」</p>
+			<p class="no-indent">「すると次のダイビングでは目的地のスリバチカイメンを離脱しなければならないのは、ゲージが 200-44 つまり 156 気圧を示したらボートに戻り始めないと、ぼくは途中でエア切れを起こす確率が高くなると」</p>
+			<p>そして彼はダイブコンピュータをプランニングモードにして、この水面休息後に -25m で何分までなら減圧停止をすることなく潜ることができるか確認し、さきほど計算したターニング・プレッシャーをゲージで確認しながら、また、さっきダイビング・コンピュータで確認した NDL をも越えないダイビングをすると、次のダイビングの計画を決定するのだった。</p>
+			<p class="no-indent">【注】</p>
+			<p>この例では緊急用ガスは「自分＋バディ」の消費を見込み、さらに緊張時の呼吸増加を考慮して係数  3 を用いました。ですが住崎のボートダイビングでゲストがアンカーに降りてきた時点でエアを 50 気圧ほど消費しているのは普通のことです。ですからこの厳密な計算だと、彼はエントリーしてからアンカーにすらたどり着けずに潜降の途中で浮上してボートにエグジットしなければならなくなります。</p>
+			<p>ですから彼にダイビングをさせてあげるには、バックマウントかサイドマウントかはわかりませんが、最低でもダブルタンクでないと、彼は住崎でサクラコシオリエビを見ることはできない、ということになります。彼がアンドの鼻に潜ったというのも非常に怪しくなります。</p>
+			<p>まじっすか？という感想しかでてきませんが、これが正しい計算方法だそうです。まじか？</p>
+			<p>定数 3 を 1 にするなら緊急用ガスが 50 ちょいになって現実的な数字になるのですが……</p>
+			<p>もしくはダブルタンクにするか……</p>
+
+			<!--
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="340" src="fig2025102201.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#ガス管理計画</li>
+				<li class="tag">#潜水計画</li>
+				<li class="tag">#ターニング・プレッシャー</li>
+				<li class="tag">#RMV</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202510/22.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

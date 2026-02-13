@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202512/01.html">
+	<meta name="title" content="救命コーチングアプリ Liv を試してみた">
+	<meta name="description" content="リトルアンが欲しいなと思いつつも、さすがにあれを個人で持つのはなぁ、と思って代替品を探していたら、救命コーチングアプリ Liv という Web アプリを発見したので試してみました。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="救命コーチングアプリ Liv を試してみた">
+	<meta property="og:description" content="リトルアンが欲しいなと思いつつも、さすがにあれを個人で持つのはなぁ、と思って代替品を探していたら、救命コーチングアプリ Liv という Web アプリを発見したので試してみました。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202512/01.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202512/fig2025120101.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="279">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="救命コーチングアプリ Liv を試してみた" />
+	<meta name="twitter:description" content="リトルアンが欲しいなと思いつつも、さすがにあれを個人で持つのはなぁ、と思って代替品を探していたら、救命コーチングアプリ Liv という Web アプリを発見したので試してみました。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202512/fig2025120101.png" />
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script defer src="https://cdn.jsdeLivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdeLivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		h5 {
+			font-size:1em;
+		}
+		div.title {
+			width:50%;
+			margin-left:auto;
+		}
+		/*
+		h4 {
+			text-align:center;
+			position: relative;
+		}
+		.overlay {
+			position: absolute;
+			color:#e60112;
+			font-size:3em;
+			font-style:italic;
+			font-family:"biz udpmincho", serif;
+			-Webkit-text-stroke: 2px white;
+			line-height:0.5em;
+			left:45%;
+		}
+		*/
+		div.title-container {
+			position: relative;
+			width: 100%;
+			container-type: inline-size;
+		}
+		div.title-container img {
+			width: 100%;
+			height: auto;
+			vertical-align: bottom;
+		}
+		div.title {
+			position: absolute;
+			top: 10%;
+			left: 50%;
+			width: 50%; /* 枠からはみ出ないように制限 */
+			z-index: 10;
+		}
+		.overlay {
+			font-size: clamp(14px, 5cqw, 80px);
+			color: #e60112;
+			font-family: "biz udpmincho", serif;
+			font-style: italic;
+			font-weight: bold;
+			/*-webkit-text-stroke: 1px white; */
+			-webkit-text-stroke: 0.2cqw white;
+			line-height: 1.2;
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 12 月</h1>
+	<div id="contents">
+		<h3 id="20251201">12 月 01 日 ( 月 )</h3>
+		<div id="2025120101" class="top-mutter">
+			<div class="title-container">
+				<img width="100%" height="auto" src="fig2025120101.png" alt="救命コーチングアプリ Liv を試してみた">
+				<div class="title">
+					<h4 class="overlay">救命コーチングアプリ Liv を試してみた</h4>
+				</div>
+			</div>
+			<h5>はじめに - CPR を学ぶことと実施の意義</h5>
+			<p>今日は CPR (心肺蘇生法) のトレーニング・ツールの話になります。</p>
+			<p>あ、CPRと聞いてブラウザを閉じようとしていますね。ちょっと待ってください。もしかするとあなたが CPR を実施することで、目の前で倒れている人の命が助かるかもしれません。少しだけお時間をください。</p>
+			<p>心肺停止から CPR 開始までの時間が早ければ早いほど救命率は高いことが知られています。10 分間なにも行われなければほぼ助からないことも知られています。</p>
+			<div class="container">
+				<div class="right">
+					<figure>
+						<a href="../202511/fig2025112502.svg" target="_blank"><img width="512" height="293" src="../202511/fig2025112502.svg"></a>
+						<figcaption>LibreOffice calc にて作成</figcaption>
+					</figure>
+				</div>
+				<p>このグラフは CPR などの BLS (Basic Life Support; 一次救命措置) を学ぶと必ずでてくるドランカーの救命曲線と呼ばれるグラフです。</p>
+				<p>呼吸停止から直ちに CPR を実施すれば救命率は最も高くなります。2 分後になると救命率は 90% に低下します。3 分後になると救命率は 75% 程度にまで低下します。そして 4 分後であれば 50%、5 分後であれば 25% まで救命率が低下し、10 分後に CPR を開始する場合は救命率は 0% となります。</p>
+				<p>救急車が現場に到着するまで、現在の日本では平均で 10 分弱かかると言われています。もし人が倒れて心肺停止になり、居合わせた人が何もしないでいると、その人はほぼ 100% 助からないと言えます。</p>
+				<p>ですから CPR はいかに早く開始するかが非常に重要だと言えます。バイスタンダー (倒れた人のすぐそばに居合わせた人 ) による CPR の実施が非常に重要であると言われる<ruby>所以<rt>ゆえん</rt></ruby>です。</p>
+				<p>CPR なんてできない！！とう声も聞こえてきそうですが、大丈夫です。力のないお子さんなどではなく、一般的な成人した人なら少し練習すれば誰でもできます。</p>
+				<p>もちろん、より正確に、人工呼吸も、と CPR の内容をバージョンアップすればするほど救命率は上がっていきます。ですが、それだと CPR の敷居が高くなりすぎるので、現在では通常のバイスタンダーによる CPR は胸部圧迫だけでもよいとされています。</p>
+				<p>自分が CPR なんてやっていいのか、と恐れるかもしれません。でもなにもせずにボーッと救急車の到着を待っていると、目の前の人は助かりません。なにもしないよりは、たとえ完璧でなくても CPR を実施するほうが救命できる確率はぐっと上がります。</p>
+				<p>また最近では AED を使うことが一般的です。AED は除細動の指示だけでなく、胸部圧迫のペースもすべて音声で教えてくれます。あなたに必要なのは AED の指示に従うことだけです。是非とも目の前の命を救うために AED の指示に従って CPR にチャレンジしてください。</p>
+				<p>それと覚えておいていただきたいのは、CPR を完璧に行ったとしても、助からないことは少なくないということです。それは CPR を実施したあなたが悪いわけではありません。もし救命に至らなかったとしても、決してご自身を責めないでください。やはり救命に至らないことはあるのです。それどころか、倒れた人を発見して CPR を開始したときには、実はもうその人は亡くなっていてどうしようもなかったということもあるのです。</p>
+				<p>それでもあなたはその人が助かる可能性を信じて、その人の命を助けるために全力を傾けたのです。その行為はとても人として尊いものです。たとえ救命できなかったとしても、非難されたり見下されるいわれはまったくありません。</p>
+				<p>なんどでも言いますが、誰かの命を助けようとした、あなたの行為は人間として非常に尊いものなのです。</p>
+			</div>
+
+			<h5>救命コーチングアプリ Liv とは</h5>
+			<p><a href="https://aed-zaidan.jp/Liv/index.html" class="external" target="_blank">救命コーチングアプリ Liv</a> とは AED を使った CPR の学習を支援する Web アプリケーションです。<a href="https://aed-zaidan.jp/index.html" class="external" target="_brank">公益財団法人日本AED財団</a>が無料で公開しています。Web アプリケーションですからほぼ全てのスマートフォンで使うことができます。無料で使うことができます。アカウントを作る必要もありません。</p>
+			<p><a href="https://aed-zaidan.jp/Liv/index.html" class="external" target="_blank">救命コーチングアプリ Liv</a> でできることは以下の 2 つです。</p>
+			<ul>
+			<li>医療従事者ではないバイスタンダーに認められた AED を使っての CPR の学習</li>
+			<li>スマートフォンとクッションを使った CPR の胸部圧迫のペース維持の実際の練習</li>
+			</ul>
+
+			<h5>救命コーチングアプリ Liv を使った胸部圧迫の練習</h5>
+			<p>ここでは <a href="https://aed-zaidan.jp/Liv/index.html" class="external" target="_blank">救命コーチングアプリ Liv</a> を使った、実際の胸部圧迫のペース維持の練習に絞って触れていきます。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120102.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p><a href="https://aed-zaidan.jp/Liv/index.html" class="external" target="_blank">救命コーチングアプリ Liv</a> は単なる Web ですから、まずはブラウザで救命コーチングアプリ Liv のホームページを開きます。</p>
+				<p>図のようなページが開きます。</p>
+				<p>&quot;はじめる&quot; ボタンをタップしてください。もし母語が英語の方は &quot;Start&quot; をタップしてください。このエントリーでは日本語の &quot;はじめる&quot; ボタンをタップしたものとして、説明を進めます。</p>
+			</div>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120103.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p>このページが救命コーチングアプリ Liv の開始ページになります。</p>
+				<p>&quot;さあ始めましょう！&quot; ボタンをタップしてください。しばらくはバイスタンダーによる CPR の意義や、動画を含む様々なコンテンツが続きます。ときどき学んだ知識の確認クイズもあります。</p>
+				<p>初めての人は、Skip せずに全部学びましょう。難しい説明はありません。</p>
+			</div>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120104.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p>コンテンツを観たり読んだり、クイズに答えていくと、やがて実際の CPR の胸骨圧迫の練習のページがでてきます。</p>
+				<p>&quot;次へ&quot; をタップします。</p>
+			</div>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120105.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p>どのようにスマホ、心肺停止者を模したクッション、自分の位置も一発でわかるように表示されます。その位置取りを取ってください。</p>
+				<p>位置取りが終わって準備ができたら、&quot;次へ&quot; をタップします。</p>
+			</div>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120106.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p>画面の位置に頭部が表示されるように、スマートフォンと自分の位置を調整します。</p>
+				<p>それ終わって準備ができたら、&quot;次へ&quot; をタップします。</p>
+			</div>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120107.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p>画面が切り替わり、しばらく説明があったあとに、カウントダウンが始まります。始まったらこれまでのコンテンツで学んだフォームで、胸骨圧迫のトレーニングを始めます。</p>
+				<p>トレーニングの時間は、画面情報の赤い救急車が、ゴールラインに達するまでです。</p>
+				<p>胸骨圧迫のペースはアプリから流れるメトロノームの音に合わせるだけでいいので、とても簡単です。</p>
+				<p>ペースや圧迫の方法がまずいときは、下のメーターの針が、緑色の領域からはずれるので、針が緑色の間に常にあることを目指すことになります。</p>
+				<p>赤い救急車がゴールラインに達したらトレーニング終了です。トレーニング 1 回の時間は 60 秒でした。</p>
+				<p>60 秒のトレーニングではとても足りないので、終了画面で &quot;もう一度胸骨圧迫を練習する&quot; を何度も何度も押すことにはなりそうです。トレーニング時間を設定できるとありがたいなと思いました。</p>
+			</div>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="1149" src="fig2025120108.png">
+						<figcaption>スマホのスクリーンショット</figcaption>
+					</figure>
+				</div>
+				<p>一通りコンテンツ全体の利用を終えると、ユーザ名とメールアドレスの入力が求められます。受講証が発行されるとこのとなので、ぼくの名前とメールアドレスを入力して送信しました。すると図のような受講証画像が送られてきました。</p>
+			</div>
+
+			<h5>救命コーチングアプリ Liv の実用性について</h5>
+			<p>15 分で CPR を学べるという謳い文句の Web アプリです。CPR というものを概観するのにはいいのではないでしょうか。</p>
+			<p>CPR の実際の胸骨圧迫のトレーニングも、ペースの把握だけなら、これでいいかもしれません。何もしないよりは遥かによいと思いました。</p>
+			<p>実際の胸骨圧迫のトレーニングの前後に、CPR の実施に自信があるか？という設問が 5 段階評価で訊ねられます。ぼくはトレーニング前の設問もトレーニング後の設問も、どちらにもどちらとも言えないと答えました。</p>
+			<p>これはなぜかというと、そもそも CPR を実施したからと言って助かるとは限らないことを知っていますし、そもそも胸骨圧迫で重要とされている、圧迫の深さが 5〜6cm を維持できているのかモニターする方法がないこと、そして圧迫後の開放がきちんとできているのかモニターする方法がないことによります。わかるのはペースの維持だけはできているということだけでした。</p>
+			<p>これだけで CPR ができていると自信を持つのはぼくには無理でした。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="768" src="fig2025120110.jpg">
+						<figcaption>昔 CPR マネキンのレサシアンを使った CPR トレーニングを受けたときのぼくのデータの一部</figcaption>
+					</figure>
+				</div>
+				<p><a href="https://laerdal.com/jp/information/CPR-manikins/?srsltid=afmbooosyojps3oxc9ahs1ub4btcself7u9-t6oinhqz5oy0gmzx396o" class="external" target="_blank">レサシアンなどの CPR マネキン</a>を使うと図のようなデータが取れます。今のレサシアンならデジタル化されています。</p>
+				<p>画像は古いぼくの CPR トレーニングのログで、データは昔のプロトコルに従ったものです。なので、最近になって CPR を学んだ人たちにとっては不思議な波形をしています。</p>
+				<p>2 回の人工呼吸の後に 15 回の圧迫で終わってるのはなぜ？とかね。昔は 15 秒の間に 2 回の人工呼吸と 15 回の胸骨圧迫を 1 セットとして、4 セットを行った後に、2 回の吹込みの後に頸動脈で脈の有無を確認するというルーティングでした。</p>
+				<p>今現在の CPR プロトコルは 2 回の吹込みと 30 回の胸骨圧迫を 1 セットとして延々と繰り返すということになっています。</p>
+				<p>1 セットのペースコントロールは、15 秒という時間を用いては今は行われません。AED があるからです。</p>
+				<p>それと脈の確認は現在のバイスタンダーによる CPR ではありません。</p>
+				<p>詳細は <a href="https://www.jrc-CPR.org/jrc-guideline-2020/" class="external" target="_blank">JRC蘇生ガイドライン2020</a>を参照してください。来年 2026 年の春になると、<a href="https://www.jrc-CPR.org/jrc-guideline-2025/" class="external" target="_blank" title="リンク先はパブリックコメント用">パブリックコメントの受付が終了したばかりの 2025 年改訂版</a>が出版されます。</p>
+				<p>図のログデータは現在の CPR プロトコルとは異なるのでルーティング自体は参考になりません。ですが、吹込みのペースや胸骨圧迫のペース、圧迫がきちんとできているか、開放もきちんとできているか、といった基本技能のチェックはできます。</p>
+				<p>これが見れないと、どうにもこうにも不安なのですね。ちゃんと自分はできてるんだろうかって。
+				<p>とは言ってもやはり一切の準備なしに、救急指令所の係の人の指示で、いきなり CPR を実施するのには不安を伴うのは当然です。ですから<a href="https://aed-zaidan.jp/Liv/index.html" class="external" target="_blank">救命コーチングアプリ Liv</a> のようなスマートフォン・アプリで心構えとペースの把握だけでもしておくことは、CPR を実施する人の不安感を減らすのに役に立ちます。</p>
+				<p>また何度でも繰り返しますが、心肺停止している人を目の前にしたときに、ボーッと立ったまま救急車の到着を待つよりは、技術的には多少稚拙でも CPR を実施したほうが絶対にいいのです。</p>
+			</div>
+
+			<h5>CPR マネキンを使ったトレーニングについて</h5>
+			<p><a href="https://aed-zaidan.jp/Liv/index.html" class="external" target="_blank">救命コーチングアプリ Liv</a> で学べないこともあります。乳幼児への CPR と溺者への CPR です。この 2 つは人工呼吸も必須であることから、このアプリでは練習することができません。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="385" src="fig2025120111.webp">
+						<figcaption>resusci anne&reg; QCPR&reg; via <a href="https://www.medicalexpo.com/ja/prod/laerdal-medical/product-74988-663197.html" class="external" target="_blank">Laerdal</a></figcaption>
+					</figure>
+				</div>
+				<p>人工呼吸を含む CPR の練習を行うには <a href="https://laerdal.com/jp/information/CPR-manikins/?srsltid=afmbooosyojps3oxc9ahs1ub4btcself7u9-t6oinhqz5oy0gmzx396o" class="external" target="_blank">レサシアン、リトルアン、ミニアン、リトルジュニア、レサシジュニアなどの CPR マネキン</a>が必要になってきます。</p>
+
+				<p>これらの CPR マネキンを使うと、トレーニングで実施した CPR のデータを記録することができ、CPR の精度を確認することもできます。できれば定期的にこれらのマネキンを使った CPR トレーニングを、次のステップとして受けることをお勧めします。</p>
+				<p>胸部圧迫では実はどれくらいの深さま圧迫するのかということや、圧迫をしっかり開放することがとても重要です。それらをきちんとできているのかを確認しようとすると、どうしてもこれらの CPR マネキンによるトレーニングがかかせません。</p>
+				<p>また人工呼吸を含む CPR のトレーニングは、これらの CPR マネキンがないとできません。</p>
+				<p>ですから可能であれば、これらの CPR マネキンを使ったトレーニングを定期的に受けてください。トレーニングは最寄りの消防署、医療関係機関、NPO 法人、ダイビングショップ (有料で 2 年毎にライセンス更新) などで開催されています。</p>
+				<p>ダイビングショップでの講習はだいたいが少人数制で、レサシアンやリトルアンをショップがレンタルして実施されます。交代制になりますが早朝から夜中までたっぷりとトレーニングできますし、データも取れます。</p>
+				<p>有料になりますが、徹底して取り組めます。2 年に 1 度は再トレーニングすることになるので、技術も衰えません。なのでぼくはダイビングショップでの CPR 受講をお勧めしています。CPR の受講はダイバーでなくても参加することができ、履修を証明する C カードも発行されます。</p>
+				<p>もちろん他のトレーニング機関でのトレーニングも CPR マネキンを使って行われますので、強くお勧めします。</p>
+			</div>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#Blog</li>
+				<li class="tag">#心肺蘇生法</li>
+				<li class="tag">#CPR</li>
+				<li class="tag">#救命コーチングアプリLiv</li>
+				<li class="tag">#あなたが1人の命を救うときがあるかもしれません</li>
+				<li class="tag">#あなたが家族の命を救うときがあるかもしれません</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202512/01.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="bitcoin 投げ銭">zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

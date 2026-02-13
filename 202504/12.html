@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/12.html">
+	<meta name="title" content="思考整理のためのツール GraphViz 編 (2)">
+	<meta name="description" content="思考整理のためのツール GraphViz 編 (2) 基本的な図の描き方">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツール GraphViz 編 (2)">
+	<meta property="og:description" content="思考整理のためのツール GraphViz 編 (2) 基本的な図の描き方">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/12.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="思考整理のためのツール GraphViz 編 (2) 基本的な図の描き方">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025041201.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<link href="../prism.css" rel="stylesheet">
+	<script src="../prism.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250412">04 月 12 日 ( 土 )</h3>
+		<div id="2025041201" class="top-mutter">
+			<h4>思考整理のためのツール GraphViz 編 (2)</h4>
+			<p>今回は GraphViz の dot レイアウトエンジンでの基本的な図の描きかたを説明します。GraphViz でできることはノードを描くこととノードを矢印で結ぶことだけということになります。なので実はあまりお話しできることがありません。PlantUML のようにエレメントのなかにエレメントを入れるような入れ子構造も描けません。できることは非常にシンプルになります。</p>
+			<p>とはいえ前述のようにノードと矢印の種類は、テキストを画像に変換するツールのなかでは最多を誇るので手放せないわけです。</p>
+			<p>それではシンプルな例を紹介します。</p>
+			<figure>
+				<a href="fig2025041201.svg" target="_blank"><img width="60%" src="fig2025041201.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025041201.dot" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>ソースは以下のようになります。</p>
+			<pre><code class="language-plantuml">digraph sample {
+	cust[shape="ellipse", label="お客様"];
+	subgraph cluster_our {
+		label=&lt;&lt;b&gt;弊社&lt;/b&gt;&gt;;
+		color=black;
+		fillcolor=lightgray;
+		style="filled";
+		eigyou[shape="box", label="営業部", style="filled", fillcolor=white];
+		dev[shape="box", label="開発部", style="filled", fillcolor=white];
+		{rank=same;eigyou;dev;}
+		eigyou -&gt; dev [label="開発依頼"];
+	}
+	cust -&gt; eigyou [label="発注"];
+	dev -&gt; cust [label="納品"];
+}</code></pre>
+			<p>どこがシンプルなのかという声が聞こえてきそうですが、コードの見た目に反して実はシンプルです。ノードは cust、eigyou、dev の 3 つしかありません。その 3 つのノードを 3 本の矢印で結んでいるだけです。</p>
+			<p>subgraph とは何？ということですが、本来の subgraph の存在理由を無視して使っています。先程ノードは入れ子にできないと書きました。でもそれでは多くの場合困ってしまいます。そのために本来ノードではない subgraph をノードの代わりにまるでノードのように振る舞わせて利用しています。</p>
+			<p>subgraph はノードではないので shape は指定できません。指定できないといってもエラーになるのではなく単に無視されます。とはいえ subgraph は何重にも入れ子にすることができるので、rectangle の代りとしてよく利用されます。rectangle ではないのですけど。</p>
+			<p>それと subgraph は通常画像要素として出力されません。あくまで subgraph は各ノードをグループ化するものであって、ノードのように表示する対象となる何かでは本来ないからです。</p>
+			<p>とはいえグループをまとめる subgroup が視認可能となることで、グルーピングが可視化されると、なにかと都合が良いということもあり、subgraph を可視化することができるようにはなっています。</p>
+			<p>subgraph を可視化するにはクラスターとして扱ってやる必要があります。クラスター化するのは簡単です。subgraph の名称先頭に &quot;cluster_&quot; という文字列を入れてやれば、その subgraph はクラスター化されます。クラスター化された subgraph にはまるでノードのように label、color、fillcolor、style などの属性を指定することができるようになり、可視化されるようになります。</p>
+			<p>次に rank についてですが、rank は複数のノードが指定された高さあるいは X 軸方向の位置になるように GraphViz がレイアウトのときになるべく従うように自動調整します。ここでは same を指定しいるので eigyou と dev がなるべく同じ高さになるように GraphViz は画像を調整します。</p>
+			<p>GraphViz でレイアウトを調整したいときは、subgraph、rank、style に invis が指定された矢印を駆使することになります。とはいえ何度も言うようにユーザが好きにレイアウトを設定することはほぼ不可能であることに変わりはありません。</p>
+			<p>GraphViz の使い方についてはこれで終りますが、もしもっと知りたい場合は &quot;GraphViz example&quot; などの文字列でいろんなサンプルがヒットするので参照するのがいいでしょう。GraphViz のドキュメントはまるで Unix コマンドのヘルプのようで決してテキストと図がサクッと結びつくのは難しいのではないかと思います。</p>
+			<p>次回からはモダンな画像を出力する Web ブラウザ環境などで動作する  mermaid.js を取り上げたいと思います。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#GraphViz</li>
+			</ul>
+		</div>
+		<div id="2025041202" class="top-mutter">
+			<h4>今日の鳥見兼デイケア通所</h4>
+			<p>今朝は往路で以下の野鳥を見掛けました。</p>
+			<ul>
+				<li>イソヒヨドリ (雄雌)</li>
+				<li>カワウ</li>
+				<li>ケリ (声のみ)</li>
+				<li>コサギ</li>
+				<li>シジュウカラ</li>
+				<li>スズメ</li>
+				<li>ダイサギ</li>
+				<li>ツバメ (むっちゃ警戒音で鳴かれてしまった)</li>
+				<li>ハシブトガラス</li>
+				<li>ハシボソガラス</li>
+				<li>ヒバリ</li>
+				<li>ヒヨドリ</li>
+				<li>ホトトギス (声のみ)</li>
+				<li>メジロ</li>
+				<li>その他</li>
+			</ul>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#鳥見</li>
+				<li class="tag">#バードウォッチング</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/12.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

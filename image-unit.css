@@ -1,0 +1,83 @@
+/* --- 1. 親要素と画像の設定 --- */
+.img-container {
+    position: relative;
+    display: inline-block; /* 枠を画像サイズに合わせる */
+    margin: 0;
+}
+
+.target-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- 2. ボタンの基本デザイン（四角形・1.5em） --- */
+.fullscreen-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    
+    /* デザイン指示の反映 */
+    border-radius: 4px;
+    padding: 6px 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    font-size: 1.5em;
+    
+    /* アニメーション */
+    transition: all 0.3s ease;
+}
+
+/* --- 3. デバイスごとの表示切り替え（ホバー対策） --- */
+
+/* マウス操作ができるデバイス（PCなど） */
+@media (hover: hover) {
+    .fullscreen-btn {
+        opacity: 0;
+        visibility: hidden;
+    }
+    /* data-fullscreen="true" かつ ホバー時のみ表示 */
+    .img-container[data-fullscreen="true"]:hover .fullscreen-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* タッチ操作のデバイス（スマホ・タブレット） */
+@media (hover: none) {
+    /* スマホでは最初から表示（ホバーがないため） */
+    .fullscreen-btn {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* ホバー時の色反転（PC用） */
+.fullscreen-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* --- 4. 無効化パラメーターの強制適用 --- */
+/* false の時はデバイス問わず絶対に表示しない */
+.img-container[data-fullscreen="false"] .fullscreen-btn {
+    display: none !important;
+}
+
+/* --- 5. 全画面表示時のスタイル（画像のみ） --- */
+.target-img:fullscreen {
+    object-fit: contain;      /* アスペクト比を維持 */
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;   /* 背景黒 */
+}
+
+/* Safari向け */
+.target-img:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

@@ -1,0 +1,68 @@
+/* --- 親要素の共通設定 --- */
+.container {
+	display: flow-root;  /* 回り込みを確実にクリアする現代的な手法 */
+	margin-bottom: 2em;
+	width: 100%;
+}
+
+/* --- 回り込みの設定（デスクトップ用） --- */
+div.left {
+	float: left;
+	margin-right: 1.5em; /* テキストとの間の余白 */
+	margin-bottom: 1em;
+}
+
+div.right {
+	float: right;
+	margin-left: 1.5em;  /* テキストとの間の余白 */
+	margin-bottom: 1em;
+}
+
+/* --- コンテンツ（figure/img/iframe）のサイズ設定 --- */
+div.left > figure,
+div.right > figure {
+	margin: 0;
+	width: 600px;        /* PCでの画像/地図の横幅 */
+}
+
+/* 画像とiframeを親の512pxいっぱいに広げる */
+div.left > figure img,
+div.left > figure iframe,
+div.right > figure img,
+div.right > figure iframe {
+	display: block;
+	width: 100%;
+	height: auto;        /* 画像は自動計算 */
+	border: none;
+}
+
+/* iframe（地図や動画）には高さを指定 */
+div.left > figure iframe,
+div.right > figure iframe {
+	aspect-ratio: 4 / 3; /* 16:9の比率を維持（または height: 350px; など固定値） */
+}
+
+/* --- スマホ・タブレット対応 (画面幅 768px 以下) --- */
+@media screen and (max-width: 768px) {
+	div.left,
+	div.right {
+		float: none;      /* 回り込みを解除して縦並びに */
+		width: 100%;      /* 幅を画面いっぱいに */
+		margin-left: 0;
+		margin-right: 0;
+		margin-bottom: 1.5em;
+		text-align: center;
+	}
+
+	div.left > figure,
+	div.right > figure {
+		width: 100%;      /* 512px固定を解除 */
+		max-width: 512px; /* ただし元のサイズよりは大きくしない */
+		display: inline-block;
+	}
+
+	p {
+		text-align: justify;
+		text-indent: 1em; /* 段落頭の字下げを維持 */
+	}
+}

@@ -1,0 +1,751 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202507/18.html">
+	<meta name="title" content="Dive #38: ダイブテーブル・パズル">
+	<meta name="description" content="ダイブテーブル・パズルについて。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #38: ダイブテーブル・パズル">
+	<meta property="og:description" content="ダイブテーブル・パズルについて。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202507/18.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="ダイブテーブル・パズルについて。">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202507/fig2025071805.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+
+	<script defer src="https://unpkg.com/@popperjs/core@2"></script>
+	<script defer src="https://unpkg.com/tippy.js@6"></script>
+	<script defer src="../tippy.js"></script>
+	<link rel="stylesheet" type="text/css" href="../tippy.css">
+	<style>
+		table {
+			margin-top:1em;
+			margin-bottom:1em;
+			border-collapse:collapse;
+		}
+		table th {
+			padding-left:8px;
+			padding-right:8px;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			background-color:lightgray;
+		}
+		table th:nth-child(1) {
+			border-right:1px solid black;
+			text-align:left;
+		}
+		table td {
+			padding-left:8px;
+			padding-right:8px;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			text-align:center;
+		}
+		table td:nth-child(1) {
+			border-right:1px solid black;
+			text-align:left;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 07 月</h1>
+	<div id="contents">
+		<h3 id="20250718">07 月 18 日 ( 金 )</h3>
+		<div id="2025071801" class="top-mutter">
+			<h4>Dive #38: ダイブテーブル・パズル</h4>
+			<p>また <a href="https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10192931975?__ysp=44OA44Kk44OW44OG44O844OW44Or" class="external" target="_blank">Yahoo!知恵袋でダイブテーブルについての質問</a>を見つけました。質問は以下のようなものです。</p>
+			<blockquote>
+				<p>ダイブテーブルについて質問です。</p>
+				<p>飛行機に1時間乗り2時間後にエントリーする。<br />
+				その日は合計3本無限圧で潜ります。<br />
+				水面休息は不明です。<br />
+				一本目が水深20m。潜水時間は不明。<br />
+				二本目が水深15mで30分。<br />
+				三本目が40分。水深は不明。<br />
+				次の日の飛行機の時間が11時と決まっています。</p>
+				<p>この問題の解き方を教えて下さい。</p>
+			</blockquote>
+			<p>ITC やダイブマスター・コース、アシスタント・インストラクター・コースの学科試験で出てきそうなパズルのような問題です。</p>
+			<p>こういった設問を候補生に解かせることの意味や合理性に対する疑問が、いろいろ自然に浮かんでしまうのですが、解かないとインストラクター、ダイブマスター、アシスタント・インストラクターにはなれませんから、いろいろ前提を設けて算出例を提示してみました。</p>
+			<p>もう少し出題者の思惑を推測して、いろいろ忖度すれば、もう少し効率よく計算できるかもしれません。ですが、現在のわたしの忖度能力ではこれが限界です。ご容赦ください。</p>
+			<br />
+			<p>このテの設問は、ダイブテーブルをいったり来たりするしか無いので、そうしていきます。</p>
+
+			<p>以下を前提とします。</p>
+			<ul>
+			<li>海洋でのダイビングだとします。</li>
+			<li>通常の空気でのダイビングだとします。</li>
+			<li>各基準は NAUI のものを採用します。</li>
+			<li><a href="fig2025071703.jpg" target="_blank">ダイブテーブルは NAUI 2022 年版</a>とします。</li>
+			<li>各ダイビングは全て無減圧限界内で行われたものとします。</li>
+			<li>各ダイビングの水深、時間共に 1 段きびしい数字でダイブテーブルを引くものとします。</li>
+			<li>各ダイビングの間には必ず 24 時間以内の水面休息時間を設けたものとします。</li>
+			<li>1 本目は移動日直後のダイビングで、反復潜水ではないものとします。</li>
+			<li>1 本目前の現地への移動のための飛行機搭乗は、1 本目が反復潜水でないことから無視できるので、無視します。</li>
+			<li>2 本目と 3 本目のダイビングは反復潜水であるものとします。</li>
+			<li>水深、時間はダイブテーブル上 1 段づつ厳しい値をとるものとします。</li>
+			<li>まったく推奨できませんが <span class="tooltip" data-tooltip="最大潜水時間">MDT</span> や <span class="tooltip" data-tooltip="修正最大潜水時間">AMDT</span> ギリギリのダイビングもあるものとします。</li>
+			</ul>
+
+			<p>これだけの前提を設けないと解けないパズルのような問題が本当に望ましいのか、設問がダイブテーブルを使う本来の目的からかなり逸脱した数字遊びになっていることと合わせて、出題者は熟慮しなければならないのではないでしょうか。</p>
+
+			<p>さて 2 本目も 3 本目も反復潜水であるという前提で、ダイブテーブルの表1、表2、表3 を行ったり来たりすることにします。そうしないと数字が出せないので。</p>
+
+			<p>まずは混乱しないように、ダイビング・プロフィールを表にまとめていくことにしましょう。この設問は表の不明となっているところを埋めて、<span class="tooltip" data-tooltip="合計窒素時間">TNT</span> or <span class="tooltip" data-tooltip="">ADT</span> とあるところを <span class="tooltip" data-tooltip="合計窒素時間">TNT </span>に確定させることが目的になります。それはなぜか。<span class="tooltip" data-tooltip="合計窒素時間">TNT</span> こそ、体内にどれくらいの窒素が残留しているのかを示しているからです。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT or ADT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>0分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>30分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>不明</td>
+					<td>40分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>この表に手がかりとなる数字を埋めていく戦略をとりましょう。</p>
+
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071801.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>まず 1 本目ですが最大水深が -20m ですから -21m の段でダイブテーブルを引きたいところです。ですが、減圧用リスクを減らすために１段厳しい数字を選ぶのでした。</p>
+				<p>ですから設問に登場する彼 (以下便宜上彼と呼ぶことにします) は最大水深 -24m まで潜るものとします。すると <span class="tooltip" data-tooltip="最大潜水時間">MDT</span> は 30 分となります。まずは彼の 1 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> は 1 段きびしめの 28 分として計画します。反復グループは G となります。</p>
+			</div>
+			<p>先程の表も更新しておきましょう。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT or ADT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>28分(TNT)</td>
+					<td>G</td>
+					<td>0分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>30分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>不明</td>
+					<td>40分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+			</tbody>
+			</table>
+
+			<p>ここで<span class="tooltip" data-tooltip="実際潜水時間">ADT</span> ではなく <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> としている理由はわかりますか？そうです。1 本目は反復潜水ではありませんでした。つまり体内に残留している窒素がない状態、<span class="tooltip" data-tooltip="残留窒素時間">RNT</span> が 0 分だからになります。なので 1 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> は 28 分でよいことになります。</p>
+
+			<p>ここで、現地を離れるための飛行機搭乗時間から、その前の 3 本目のダイビングを何時に終えていなければならないのか、その時間を考えておきましょう。</p>
+			<p>飛行機搭乗が 11 時ですから、その前 18 時間はダイビングをしてはいけません。もし 18 時間よりも短い水面休息時間しか取っていないのに、飛行機に搭乗してしまうと、機内で減圧症に罹患する可能性があります。</p>
+			<p>18 時間前には減圧停止のない 3 本目のダイビングを終えていなければなりませんから、16 :00 には水面に浮上していないといけない、ということになります。</p>
+
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071802.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>3 本目のダイビングは 40 分ということですが、この 40 分は <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> でした。ですが 3 本目は反復潜水ですから、実際には <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> を足し込む必要があります。反復潜水で  <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> が 0 分ということはあり得ませんから <span class="tooltip" data-tooltip="最大潜水時間">MDT</span> が 40 分より大きな水深を選ぶ必要があります。</p>
+				<p><span class="tooltip" data-tooltip="最大潜水時間">MDT</span> が 50 分の -18m を選べばいいでしょうか？いえ、-18m ではだめなのでしたのね。1 段きびしい <span class="tooltip" data-tooltip="最大潜水時間">MDT</span> が 75 分の -15m を選ばなければなりません。</p>
+			</div>
+			<p>表を更新しますね。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT or ADT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>28分(TNT)</td>
+					<td>G</td>
+					<td>0分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>30分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>40分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+			</tbody>
+			</table>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071803.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>ここで 3 本目のダイビング・プロフィールを確定したいですね。なので -15m の <span class="tooltip" data-tooltip="最大潜水時間">MDT</span> 75 分より <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> が小さくなる <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> を求めることにします。このとき <span class="tooltip" data-tooltip="最大潜水時間">MDT</span> の 75 分をそのまま使うのではなく、やはり 1 段安全マージンを取って、<span class="tooltip" data-tooltip="合計窒素時間">TNT</span> を 71 分とします。<span class="tooltip" data-tooltip="合計窒素時間">TNT</span> = <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> + <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> でしたから、彼の 3 本目の <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> は 71 - 40 と考えて 31 分とします。3 本目のあとの反復グループ記号は J になります。</p>
+			</div>
+			<p>そこでまた表を修正します。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT or ADT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>28分(TNT)</td>
+					<td>G</td>
+					<td>0分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>30分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>71分(TNT)</td>
+					<td>J</td>
+					<td>31分</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>さてそれでは 3 本目の潜降前の反復グループを求めていきましょう。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071804.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>彼はこれまでの計算で、3 本目で最大水深 -15m で無減圧の潜水をしたことがわかったのでした。3 本目の前の反復グループ記号を求めるために表 1 の -15m から表 3 をたどります。表 3 をどのように引けばいいのでしょうか。答えは -15m で <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> = 31 のマスを探すということになります。すると <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> = 35 のマスが見つかります。図の赤丸がそのマスになります。</p>
+				<p>このマスを右にたどると、3 本目の潜降開始時の反復グループ記号が出ます。E になることがわかります。これはつまり水面休息時間 2 を終えたときの反復グループ記号となります。</p>
+				<p></p>
+			</div>
+			<p>表を更新しましょう。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT or ADT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>28分(TNT)</td>
+					<td>G</td>
+					<td>0分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>30分(ADT)</td>
+					<td>不明</td>
+					<td>不明</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>E</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>71分(TNT)</td>
+					<td>J</td>
+					<td>31分</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>水面休息時間 2 の時間を求めたいところですが、2 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> がまだ、わかっていません。なので 2 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> を先に求めてしまいましょう。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071805.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>考え方は 3 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> を求めたときと同様です。2 本目は -15m で <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> は 30分でした。なので 2 本目でも安全マージンを取って -15m ではなく -18m で <span class="tooltip" data-tooltip="合計窒素時間">MDT</span> を引きます。50 分ですね。ですが 1 段分の安全マージンを採ることから <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> は 45 分となります。これで 2 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> がでました。反復グループ記号は H となります。<span class="tooltip" data-tooltip="残留窒素時間">RNT</span> は <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> = <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> - <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> ですから 45 - 30 = 15 分となります。</p>
+			</div>
+			<p>表を更新しましょう。全てのダイビングの潜水時間が <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> にできたので表から <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> の文字も消して整理します。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>28分</td>
+					<td>G</td>
+					<td>0分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>45分</td>
+					<td>H</td>
+					<td>15分</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>E</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>71分</td>
+					<td>J</td>
+					<td>31分</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>あとは 1 本目から 3 本目までの潜水プロフィールに合わせて、水面休息時間を求めていけばいいことになります。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071806.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>まず水面休息時間 2 から求めていきます。これまでまとめてきた表を見てください。水面休息時間 2 は反復グループ記号が 2 本目浮上後の H から E にならなければなりません。なので水面休息時間は表 2 を引くと、2:38 〜 3:29 となります。</p>
+			</div>
+			<p>また表を埋めましょう。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>00:28</td>
+					<td>G</td>
+					<td>00:00</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>不明</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>00:45</td>
+					<td>H</td>
+					<td>00:15</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>02:38</td>
+					<td>E</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>00:71</td>
+					<td>J</td>
+					<td>00:31</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>さて最後の水面休息時間 1 を求めていきます。最初に 2 本目の直前の反復グループ記号を確定しましょう。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071807.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>2 本目の -15m での <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> は 15 分でした。なので表 3 を使って、該当するマスを探します。すると <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> = 17 というマスが見つかります。<span class="tooltip" data-tooltip="残留窒素時間">RNT</span> = 11 と低く見積もるわけにいきませんからこの 17 分のマスを選ばなければなりません。すると 2 本目直前の反復グループ記号は B になります。これが水面休息時間 1 の後の反復グループ記号になります。</p>
+			</div>
+			<p>表を修正しましょう。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>00:28</td>
+					<td>G</td>
+					<td>00:00</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>不明</td>
+					<td>B</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>00:45</td>
+					<td>H</td>
+					<td>00:15</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>02:38</td>
+					<td>E</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>00:71</td>
+					<td>J</td>
+					<td>00:31</td>
+				</tr>
+			</tbody>
+			</table>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" src="fig2025071808.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p>次に 1 本目浮上後の反復記号 G が B になる水面休息時間を表 2 で求めます。G と B の交点のマスがそれになります。4:24 〜 5:40 のマスがそれになります。なので水面休息時間 1 の最短時間は 4:24 ということになります。</p>
+			</div>
+			<p>最後に表を修正しましょう。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>00:28</td>
+					<td>G</td>
+					<td>00:00</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>04:24</td>
+					<td>B</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>00:45</td>
+					<td>H</td>
+					<td>00:15</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>02:38</td>
+					<td>E</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>00:71</td>
+					<td>J</td>
+					<td>00:31</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>以上が正解なのかどうかは出題者の意図次第ですが、出題内容とわたしが忖度して仮定した条件を満たす結果は、一応出ました。</p>
+
+			<p>ですがやはり指摘したいのです。この設問をインストラクター候補生やダイブマスター候補生、アシスタント・インストラクター候補生にやらせる意味がありますか？この設問をなぜするのか、ダイバーの安全にどのように寄与するのか説明できますか？わたしにはダイバーの安全とまったく関係ない、ただの数字遊びにしか見えません。</p>
+			<p>ダイブテーブルを行ったり来たりして数字をひっくり返すことは、減圧理論を理解するには、だたの一つも役立ちません。そのことは強く指摘しておきたいと思います。東京医科歯科大の故眞野喜洋先生や、関邦博先生がこんな問題を見たら悲しまれると思います。</p>
+			<br />
+			<p>とはいえ潜水指導団体が設定している設問を批判するだけでは能がありません。ですからここでオープンウォーターの復習を兼ねて、現実的なダイビング計画に数字を変えます。</p>
+			<p>なにをどう変えるのかというと 3 本目の <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> です。3 本目の <span class="tooltip" data-tooltip="残留窒素時間">RNT</span> は 31 分ですから <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> は 40 分まで潜水可能でしたが、1 日の 3 本目の <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> が 40 分では長いような気がします。少なくとも 2 本目の <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> 30 分より短くあるべきです。なので 3 本目の <span class="tooltip" data-tooltip="実際潜水時間">ADT</span> を 25 分に短くします。すると <span class="tooltip" data-tooltip="合計窒素時間">TNT</span> は 56 分となります。ダイブテーブルの -15m の行を見ると 56 分のマスがあります。ですがダイブテーブルは安全マージンを取って 1 段きびしい数字を選ぶのでした。なのでここでは 63 分を選びます。すると反復グループ記号は I となります。</p>
+			<table>
+			<tbody>
+				<tr>
+					<th></th>
+					<th>最大水深</th>
+					<th>TNT</th>
+					<th>反復グループ記号</th>
+					<th>RNT</th>
+				</tr>
+				<tr>
+					<td>1 本目</td>
+					<td>-20m</td>
+					<td>00:28</td>
+					<td>G</td>
+					<td>00:00</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 1</td>
+					<td>0m</td>
+					<td>04:24</td>
+					<td>B</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>2 本目</td>
+					<td>-15m</td>
+					<td>00:45</td>
+					<td>H</td>
+					<td>00:15</td>
+				</tr>
+				<tr>
+					<td>水面休息時間 2</td>
+					<td>0m</td>
+					<td>02:38</td>
+					<td>E</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>3 本目</td>
+					<td>-15m</td>
+					<td>00:56</td>
+					<td>I</td>
+					<td>00:31</td>
+				</tr>
+			</tbody>
+			</table>
+			<p>すると見てわかるように、水面休息時間を 02:38 取っていて、実際の潜水時間も短くしているにもにも関わらず、反復グループ記号は H から I に増えており、やはり残留窒素は増えているということになります。</p>
+			<p>特に見ていただきたいのは 2 本目と 3 本目の最大水深が同じ -15m で、水面休息時間を 02:38 採っており、潜水時間も短くしているにも関わらず、<span class="tooltip" data-tooltip="残留窒素時間">RNT</span> が 15 分から 31 分と倍以上の数字になっていることです。</p>
+			<p>つまり水面休息時間を採っても残留窒素の累積量は、プロフィールによっては激増してくということです。このことはオープンウォーターの学科で説明されていることです。思い出してくださいね。</p>
+			<p>水面休息後の E から残留窒素が増えるのは潜るのだから当たり前ですが、程度によりますが、前回の反復潜水後よりも今回の反復潜水後の反復グループ記号が大きくなっているということは、やはり 3 本目の潜水までの潜水計画を見直す必要性は感じます。</p>
+			<p>あくまでわたしが計画するとすればの話になりますが、水面休息時間 2 をもっと長くすることを考えるでしょう。それがスケジュール的に無理なら潔くこの日のダイビングは 2 本に留めます。</p>
+			<p>やはり減圧症になってからでは遅すぎるのです。</p>
+
+			<h5>以下お遊びになります。</h5>
+			<p>これまで Yahoo! 知恵袋への質問を元に、ダイブテーブルを引きながら、設問への回答を求めてきました。おそらく潜水計画を立てるのが日常な人は、それがたとえインストラクターや、ダイブマスター、アシスタント・インストラクターでなくても、この潜水計画は、かなりの強行軍だと思われたのではないでしょうか。</p>
+			<p>正直、わたしが客なら、こんなツアーには参加したくないと思いましたし、わたしがツアーの企画をするなら、こんなお客さんを疲れさせるツアーは企画しません。以下このダイビングツアーがどれだけハードかを書いていきます。</p>
+			<p>このツアーでの必要時間は以下のように単純化します。空港とダイビングポイントまでの移動には着替えや、ボートの移動時間、空港とサービス間の移動時間、搭乗に要する時間等、いろいろ含むとします。それでも 3 時間で済むのかどうか疑問ですけれど、とりあえず超大急ぎで 3 時間で済ますこととします。なんて慌ただしい。</p>
+			<table>
+			<tbody>
+				<tr><td>空港からダイビングポイントまでの移動時間:</td><td>03:00</td></tr>
+				<tr><td>1 本目:</td><td>00:28</td></tr>
+				<tr><td>水面休息時間 1:</td><td>04:24</td></tr>
+				<tr><td>2 本目:</td><td>00:30</td></tr>
+				<tr><td>水面休息時間 2:</td><td>02:38</td></tr>
+				<tr><td>3 本目:</td><td>00:25</td></tr>
+				<tr><td>ダイビングポイントから空港までの移動時間:</td><td>03:00</td></tr>
+				<tr><td>合計:</td><td>13:35</td></tr>
+			</tbody>
+			</table>
+			<p>帰りの飛行機の便は午前 11 時でした。これは便の予約の都合上、動かないでしょう。つまり最後の 3 本目のダイビングは、帰りの便に乗る前日の 16 時には絶対に終えていないといけません。</p>
+			<p>表から 3 本目の浮上から 8 時間 35 分前には、1 本目の潜降を始めていなければなりません。そうしないと 16:00 に 3 本目を終了できずに、翌日 11:00 の飛行機に乗ることができません。</p>
+			<p>するとですね、1 本目の潜降開始時間が 07:25 でないといけない。きつくないですか？ましてや現地の空港には 04:25 には着いていて、空港をすでに出発していなければなりません。これはどこか、たとえば大阪や東京をその時間に飛び立つのではなく、現地の空港を早朝の 4 時半より早い時間に現地サービスに向けて出発していないといけません。</p>
+			<p>なんだかとってもスパルタンって気がしませんか？</p>
+			<p>わたしは過去の雑記やダイビングログで、ほとんど寝ておらずに無理に潜って、ダイビング中に消える人が少なくないということを書きました。みなさん幸いなことに無事でしたけど。こんな強行軍だとダイビング中に体調不良になったり、判断ミスから事故を起こす人が出るんじゃないかとハラハラします。</p>
+			<p>体調は如実にダイビングに影響します。こんな弾丸ツアーは非常に危険なので本当にやめてください。もっと命を大切にしてください。</p>
+			<p>ぼくがこのようなツアーの企画を立てるとしたら、以下のようなスケジューリングにすると思います。</p>
+			<dl>
+			<dt>第 1 日:</dt>
+			<dd>移動日</dd>
+			<dt>第 2 日:</dt>
+			<dd>2 Dive (オプションでナイト 1 本)</dt>
+			<dt>第 3 日:</dt>
+			<dd>午前中に 1 Dive</dt>
+			<dt>第 4 日:</dt>
+			<dd>帰着日</dt>
+			</dl>
+			<p>これくらい余裕を持たせないと危険だと感じます。</p>
+			<p>もちろん現地宿泊費が 2 泊分発生するのでツアー費用は増えるでしょう。ですけど、こういう弾丸ツアーをやってしまう人には伺いたいのです。あなたの命や健康は、その増えた費用と時間より安いのですか？あなたの命や健康は唯一無二のかけがえのないものなのではありませんか？</p>
+			<p>安全は現地に向かう前、しかもツアー実施日よりはるか前からすでに決まっているのです。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#スキューバダイビング</li>
+				<li class="tag">#ダイブテーブル</li>
+				<li class="tag">#パズル</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202507/18.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

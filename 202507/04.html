@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202507/04.html">
+	<meta name="title" content="Dive #32: 酒場にて、ダイコン、ダイブテーブル、そして減圧症">
+	<meta name="description" content="mayu うみのいきものさんの酒場にての歌詞に出てくる 50 分という潜水時間からアベレージの水深を試算してみました。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #32: 酒場にて、ダイコン、ダイブテーブル、そして減圧症">
+	<meta property="og:description" content="mayu うみのいきものさんの酒場にての歌詞に出てくる 50 分という潜水時間からアベレージの水深を試算してみました。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202507/04.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="mayu うみのいきものさんの酒場にての歌詞に出てくる 50 分という潜水時間からアベレージの水深を試算してみました。">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202507/fig2025070401.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 07 月</h1>
+	<div id="contents">
+		<h3 id="20250704">07 月 04 日 ( 金 )</h3>
+		<div id="2025070401" class="top-mutter">
+			<h4>Dive #32: 酒場にて、ダイコン、ダイブテーブル、そして減圧症</h4>
+			<p>マルチクリエイターの <a href="https://diving.goodx.work/" class="external" target="_blank">mayu うみのいきもの</a>さんの楽曲のとあるフレーズの 50 分についてちょっと試したいことがあって、それを <a href="https://mitsugu.github.io/AtThebar/" class="external" target="_blank">別の Web にまとめました</a>。今回は元の Web からログ部分を省略して、コピー・アンド・ペーストして、少し整理したものになります。内容的には同一のものとなります。</p>
+
+			<hr />
+
+			<p>mayu うみのいきものさんの<a href="https://open.spotify.com/intl-ja/album/4PFZszHjxqyOLRKDcdieTH?si=JHFQswR5RyiDGLqC4Bh7WA" class="external" target="_blank">酒場にて</a>の歌詞に &quot;重い機材を背負って 潜って許されるのは50分&quot; という部分があります。</p>
+			<p>ふと、この歌詞の潜水プロフィールはどんな感じだろう？と思ったので、いろいろ数字に仮定の数字を割り当ててアベレージの水深を出してみました。← 暇人</p>
+
+			<h2>計算の考え方と 1 つ目の試算 (深すぎるんじゃね？編)</h2>
+			<p>あくまで仮ですよ？なにせ 50 分という数字以外は歌詞に出てこないので、残りの数字は、ありがちな数字にしました。数字は以下を前提にしました。</p>
+			<ul>
+			<li>タンクの容量は 10リットル</li>
+			<li>開始残圧 200 気圧</li>
+			<li>終了残圧 50 気圧</li>
+			<li>潜水時間 50 分: 歌詞から</li>
+			<li>エア消費量 11.2 リットル/(気圧×分): 女性ダイバーによくありそうな数字</li>
+			</ul>
+
+			<p>計算式はオープンウォータのマニュアルにあるように以下のとおりです。</p>
+
+			<math display="block">
+				<mi>エア消費量</mi>
+				<mo>=</mo>
+				<mrow>
+					<mfrac>
+						<mrow>
+							<mo>(</mo>
+							<mi>開始残圧</mi>
+							<mo>-</mo>
+							<mi>終了残圧</mi>
+							<mo>)</mo>
+							<mo>&times;</mo>
+							<mi>タンク容量</mi>
+						</mrow>
+						<mrow>
+							<mrow>
+								<mo>(</mo>
+								<mfrac>
+									<mi>平均水深</mi>
+									<mn>10</mn>
+								</mfrac>
+								<mo>+</mo>
+								<mn>1</mn>
+								<mo>)</mo>
+							</mrow>
+							<mo>&times;</mo>
+							<mi>潜水時間</mi>
+						</mrow>
+					</mfrac>
+				</mrow>
+			</math>
+
+			<p>上の式から平均水深を求めると、以下のような感じに (めんどうだったので計算にはスプレッドシートを使いました)。</p>
+			<ul>
+			<li>平均水深の絶対圧: 約 2.7 気圧</li>
+			<li>平均水深: 約 -16.8m</li>
+			</ul>
+
+			<p>計算結果をぱっと見た第一印象。平均水深が深めな割に、潜水時間が 50 分って、ちょっと長くない？エアは保つとしても、潜水中にダイコンにシーリング出なかった？</p>
+			<p>ちょっと不安になったので、仮の条件を追加してダイブテーブルでどうなのか、NAUI のダイブテーブルを引いてみる。</p>
+			<p>ツアー初日の 1 本目のダイビングで、体内に残留窒素がないものとする。またダイブテーブルでは箱型潜水が前提になる。最大水深がデータとして必要なるけれど、そんなデータは歌詞にない。</p>
+			<p>ダイコン使用の場合は、マルチレベルダイビングを前提になる。このままではダイブテーブルに置き換えて考えることはできない。なので平均水深を最大水深とする箱型潜水と仮定してダイブテーブルを引くことにする (本当はこんな仮定は、減圧理論から考えて雑すぎて駄目だけど)。</p>
+			<p>仮定する最大水深が -16.8m なので、ダイブテーブルでは -18m で引くことになる。50 分……</p>
+			<p>MDT (= NDL) いっぱいいっぱいやん。やっぱりどこかの水深でダイコンがシーリング出してそう。つまり減圧停止指示が出てそう。体、大丈夫なのかな？</p>
+
+			<p>特に女性は男性と比較して血管が少ない脂肪組織の比率が多くなります。つまり減圧理論で言う「遅い組織」の比率が男性より多くなります。男性より女性の方が減圧症に注意と言われる所以なんですけど、やはり減圧不要限界ギリギリを女性が (男性もだけど) 攻めるのはお勧めできないということになります。</p>
+			<p>オープンウォーターの学科講習で習ったことを思い出してください。ダイブテーブルを使って潜水計画を立てるとき、MDT のマスより 2 段階安全マージンを取って潜水計画を立てて、その通り実施しましょう、と学科で説明します。</p>
+			<p>先程の -16.8m の潜水の場合は -18m の MDT の 50 分ではなく、2 マス手前の 39 分以内のダイビングを実施しましょう、ということになります。思い出してくださいね。</p>
+			<p>ダイコンでも同じようなマージンを取って、計画を立てて、ダイビングを行っていますか？水面に戻ったらシーリングが消えたから問題なし、って考えていませんか？</p>
+			<p>DAN による分析によると、ダイコンの登場以来、減圧症の症例が目に見えて増えてるそうなんですけど (他にも高圧生理学関係のエビデンスが山のようにある)、結局みんなダイコンを使って、減圧不要限界ギリギリまで潜り過ぎ、ってことを、それらのデータやエビデンスが物語っています。</p>
+			<p>本来ダイコンは減圧症を予防するために、水深と潜水時間を管理するためのツールだったはずなのですけど、多くのダイバーが長く深く潜るってために、つまり本来の減圧症を予防するという目的とは異なる<strong><red>目的外利用をしてる</red></strong>、ってことになります。</p>
+			<p>ぼく自身を含め、わたしたちダイバーは、ダイコンでシーリングがでてないから大丈夫って考えになりがちですが、そうじゃなくて、<strong>ダイコンでシーリングがでたら、かなり今の自分はヤバいダイビングをしている</strong>、っていうように考え方を変えないといけない。</p>
+			<p>つまりどの水深であってもシーリングを出してしまうということは、自分は減圧症リスクの非常に高い、かなり危険なダイビングをしている、と自覚しないといけない、ということになります。</p>
+			<p>つまり正しいダイコンの使い方をすることを前提とするなら、どの水深でも、あとどれくらいで Deco Stop がでるのか、その時間を意識して、決してシーリングを出さないダイビングをしなければ、減圧症になってしまうリクスが非常に高まる、ということになります。</p>
+			<p>平均水深が -16.8m あたりになるダイビング・ポイントを、ぼくのログブックから列記すると次のようになります。</p>
+			<p>南紀串本浅地、南紀串本下浅地、南紀串本双島沖 1 の根、南紀串本双島沖 2 の根、南紀古座ブラックトンネル、南紀古座上瀬、南紀南部ショウガセ。</p>
+			<p>どこも外洋ポイントで最大深度も深くなります。ちょっとこれらのポイントで潜水時間が 50 分というのはありえません。なので前提にした仮の数字を調整しましょう。</p>
+
+			<h2>2 つ目の試算 (こっちならありそう編)</h2>
+			<p>先に述べたように平均水深 -16.8m で 50 分のダイビングって、普通考えにくいので、前提とする終了時の残圧をちょっと変えてみることにします。これくらいしか変更可能な数字がないので。</p>
+			<ul>
+			<li>タンクの容量は 10リットル</li>
+			<li>開始残圧 200 気圧</li>
+			<li>終了残圧 80 気圧: これだけ 50 から変更</li>
+			<li>潜水時間 50 分: 歌詞から</li>
+			<li>エア消費量 11.2 リットル/(気圧×分): 女性ダイバーによくありそうな数字</li>
+			</ul>
+			<p>これなら下のような現実的な数字になります。</p>
+			<ul>
+			<li>平均水深の絶対圧: 約 2.1 気圧</li>
+			<li>平均水深: 約 -11.4m</li>
+			</ul>
+			<p>さっきと同じように NAUI ダイブテーブルで減圧症リスクもチェックしてみましょう。</p>
+			<p>平均水深が -11.4m ですから、-12m の行をチェックします。すると MDT が 130 分なので、まったく問題なさそうです。</p>
+			<p>この平均水深だと、串本だとグラスワールドや住崎、アンドの鼻、備前、イスズミ礁、中黒礁などの浅めのダイビングポイントにマッチします。50 分の bottom time もありえます。とっても現実的。</p>
+			<p>この試算、終了時の残圧を 80 と考えた方が、現実的でよさそうです。</p>
+			<!--
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="340" src="fig2025070401.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<div style="width:3em;"><hr /></div>
+			<dl class="clear">
+			<dt><b>作者注:</b></dt>
+			<dd>
+				<p>今回の 50 分という bottom time だけを元にして、他は設定したデータでアベレージ水深を推測試算するということを、あくまでお遊びで行いました。</p>
+				<p>注意してください。<strong>ダイビング・コンピュータが示すアベレージの水深を最大水深として扱って、マルチレベルダイビングから箱型ダイビングに変換して良いという理論はこの世に存在しません</strong>。今回はあくまで机上のお遊びだということで、それをやっています。</p>
+				<p>決して、<strong>実際のダイビングでは、そのようなことを絶対に行ってはいけません</strong>。もしエグジット後に何らかの理由でダイビング・コンピュータが使えなくなった場合、他のダイビング・コンピュータやダイブテーブルに切り替える場合は、24 時間はダイビングを行ってはいけません。反復潜水になってしまうダイビングは決して行ってはいけません。</p>
+				<p>理由はダイビング・コンピュータ・スペシャリティやアドバンスを受講済みならわかりますね？わからないならテキスト、あるいはダイビング・コンピュータのマニュアルを読み直してください。減圧症になってからでは遅すぎます。</p>
+			</dd>
+			</dl>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#mayu うみのいきもの</li>
+				<li class="tag">#酒場にて</li>
+				<li class="tag">#ダイブコンピュータ</li>
+				<li class="tag">#ダイコン</li>
+				<li class="tag">#ダイブテーブル</li>
+				<li class="tag">#減圧症</li>
+				<li class="tag">#潜水計画</li>
+				<li class="tag">#低リスクダイビングについて考える</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202507/04.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

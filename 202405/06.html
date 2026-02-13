@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The road Orz passed by</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="canonical" href="https://mitsugu.github.io/likebar/202405/06.html">
+    <meta name="title" content="Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした">
+    <meta name="description" content="Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした話。">
+    <meta name="keywords" content="日記, blog">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした">
+    <meta property="og:description" content="Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした話。">
+    <meta property="og:url" content="https://mitsugu.github.io/likebar/202405/06.html">
+    <meta property="og:site_name" content="The road Orz passed by">
+    <meta property="og:html" content="Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした話。">
+
+    <meta property="og:image" content="fig2024050601.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="381">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://mitsugu.github.io/likebar/202405/06.html">
+
+    <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+
+<body>
+    <h1>The road Orz passed by 2024 年 05 月</h1>
+    <div id="contents">
+        <h3 id="20240506">05 月 06日 ( 月 )</h3>
+        <div id="2024050601" class="top-mutter">
+            <h4>Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした</h4>
+			<p>長いタイトルだけど今日の日記の全てを表している。興味ない人はブラウザを Close。</p>
+			<h4>ちょっと長い前置き</h4>
+			<p>以前の日記で Nostr というプロトコル上に構築されている SNS を始めたことを書いた。SNS と呼ぶべきかどうか、自分的にも結論が出ない議論があるが、ここでは横に置いて無視する。</p>
+			<p>Nostr のプロトコルにはカスタム絵文字を使ったリアクションというものが定義されている。リアクションというのは旧 twitter のいいねを、もう少しラグジュアリというかリッチにしたものと考えればよい。</p>
+			<img width="596" height="257" src="fig2024050609.png">
+			<p>旧 twitter だといいねは &hearts; がつくだけなのだけど、上の図を見ればわかるように &hearts; ではなく、&quot;テスト&quot; みたいな感じに &hearts; 以外の絵文字、またはカスタム絵文字でリアクションすることができる。</p>
+			<p>絵文字やカスタム絵文字によるリアクションは多くのクライアントがサポートしているけれど、絵文字やカスタム絵文字を柔軟に使うことができるものが少なく、多くのクライアントは特定の絵文字、またはカスタム絵文字を固定的にリアクションに割り当てるものが少なくない。</p>
+			<p>もっと自由に絵文字やカスタム絵文字をリアクションに、しかもリアクションをするタイミングでそれを選べれば、Misskey.io のような楽しさを演出できるんじゃないかと考えた。</p>
+			<p>自分は Nostr を SNS っぽく使うときに、Web クライアントの他に、自作ツールの <a href="https://github.com/mitsugu/nostk" class="external">nostk</a> を使っていて、テキストをパブリッシュするとき、つまり投稿するときに、かなり nostk に依存している。</p>
+			<p>また nostk が出力するログを見るためのビューワとして不完全ながら <a href="https://github.com/mitsugu/nosp" class="external">nosp</a> というものも作っている。</p>
+			<p>この２つのソフトを使って標題の “Nostr 用ツール nostk と nosp を組み合わせてカスタム絵文字リアクションをできるようにした” のが今回の話になる。</p>
+
+			<h4>本題</h4>
+			<p>以降、nostk と nosp を組み合わせて、どうやって絵文字リアクション、カスタム絵文字リアクションを行うのか、その順番を列記する。</p>
+			<h5>前準備</h5>
+			<p>以下の準備をあらかじめ行っておく必要がある。</p>
+			<ol>
+				<li>nostk のインストール</li>
+				<li>nostk での鍵ペア生成 (他アプリ等からのコピーでも良い。nosp からでも可能)</li>
+				<li>nostk でのリレーリスト作成</li>
+				<li>nostk でのコンタクトリスト (フォローリスト) 作成</li>
+				<li>nostk でのカスタム絵文字リスト作成</li>
+				<li>nostk でのユーザプロファイルの作成 (Web クライアント等の方が編集しやすいのでそちらを推奨)</li>
+				<li>nosp のインストール</li>
+			</ol>
+			<h5>手順</h5>
+			<p>仮想ターミナルを起動する。筆者は MATE Terminal を 256 color モードで使用している。</p>
+			<p>コマンドプロンプト上で</p>
+			<blockquote>
+				<p>$ nosp &crarr;</p>
+			</blockquote>
+			<p class="mid-flow">と入力すると下図のように nosp が起動し初期画面になる。</p>
+			<img width="596" height="444" src="fig2024050601.png">
+			<p>Shift+G を押すと下図のように画面が最後尾にスクロールする。</p>
+			<img width="596" height="444" src="fig2024050602.png">
+			<p>画面に見える &quot;fav&quot; というのが、絵文字、カスタム絵文字を使ったリアクションをするための、サブコマンドだ。</p>
+			<p>画面に描かれているように &quot;fav &lt;number&gt; &lt;reaction&gt;&quot; をコマンドラインに入力してエンターキーを押すと、絵文字またはカスタム絵文字を使ったリアクションをパブリッシュすることができる。</p>
+			<p>このサブコマンドの &lt;number&gt; は event id 等 Nostr での会話で普通にでてくる Id 等ではないので注意されたい。&lt;number&gt; については後述する。</p>
+			<p>先に進む。</p>
+			<p>“:” をまず最初に押す。すると下図のようにコマンドラインにカーソルが現れ、サブコマンドを入力することができるようになる。<p>
+			<img width="596" height="444" src="fig2024050603.png">
+			<p>リアクションをする前にまずは nosp にリアクション対象の投稿を取り込む必要がある。</p>
+			<p>投稿が見えないと、誰のどの投稿にリアクションしたらいいのかわからないはずだし、初期状態で nosp 内の投稿データ一覧は空っぽなので、2024 年 5 月 6 日の時点でチェックを入れていないこともあり、いきなり fav サブコマンドを実行したら nosp がクラッシュするかもしれない。</p>
+			<p>なので、まず最初にやることは “cathome” サブコマンドで、フォローしているユーザの投稿を取得し画面に表示することだ。</p>
+			<img width="596" height="444" src="fig2024050604.png">
+			<p>実は “cathome” サブコマンドのテストが不十分で、2024 年 5 月 6 日の時点でたまに nosp がクラッシュすることがある。現時点ではサブコマンドに引数を与えないのをお勧めする。</p>
+			<p>しばらくすると cathome サブコマンドの結果、つまり nosp が呼び出した “nostk catHome” コマンドの結果が画面に表示される。</p>
+			<img width="596" height="444" src="fig2024050605.png">
+			<p>この状態で k キーを何度か押すと画面が上方向にスクロールする。</p>
+			<img width="596" height="444" src="fig2024050606.png">
+			<p>上の私の記事の最初の行に 43 という数字が見える。これは nosp が取得した何番目の記事なのかということを示している。fav サブコマンドの &lt;number&gt; にこの番号を指定する。</p>
+			<p>そしてサブコマンドへの 2 つ目の引数として、絵文字、カスタム絵文字のショートコード、“+”、“-” 等を指定する。詳細は	<a href="https://github.com/nostr-protocol/nips/blob/master/25.md" class="external">NIP-25</a> を参照して欲しい。</p>
+			<p>カスタム絵文字は nostk 側で設定済みでなければならない。設定されていなければ単なる文字列としてそのままリレーに送られてしまう。おそらくはリアクション自体が失敗する。</p>
+			<p>cathome サブコマンドでホームタイムライン (この言い方で正しいのかよくわからない) を取得しているので、上の投稿に “テスト” というカスタム絵文字を指定してリアクションしてみる。</p>
+			<img width="596" height="444" src="fig2024050608.png">
+			<p>:orz_test01: というのが “テスト” というカスタム絵文字のショートコードだ。</p>
+			<p>エンターキーを押してしばらく待つと (今の実装では) コマンドラインがクリアされる。クリアされた状態になると fav サブコマンドは終了している。</p>
+			<p>現状で nosp も nostk もリアクションを表示できないので、Web アプリケーションで見てみる。すると</p>
+			<img width="596" height="257" src="fig2024050609.png">
+			<p class="mid-flow">となって、カスタム絵文字でリアクションできていることが確認できる。</p>
+			<p>以上が nosp と nostk で カスタム絵文字リアクションを使う大まかな流れになる。</p>
+        </div>
+        <ul class="clear nomark">
+            <li class="tag">Category : </li>
+            <li class="tag">日記</li>
+            <li class="tag">blog</li>
+            <li class="tag">Nostr</li>
+            <li class="tag">nostk</li>
+            <li class="tag">nosp</li>
+        </ul>
+    </div>
+    <hr class="clear">
+    <ul class="footer">
+        <li><a href="index.html">戻る</a></li>
+    </ul>
+</body>
+
+</html>

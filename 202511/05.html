@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202511/05.html">
+	<meta name="title" content="Dive #76: ダイビング・カリキュレーターで Turn Pressure を計算してみる">
+	<meta name="description" content="実際のダイビングを想定して Turn Pressure を計算してみる。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #76: ダイビング・カリキュレーターで Turn Pressure を計算してみる">
+	<meta property="og:description" content="実際のダイビングを想定して Turn Pressure を計算してみる。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202511/05.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202511/fig2025110501.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #76: ダイビング・カリキュレーターで Turn Pressure を計算してみる" />
+	<meta name="twitter:description" content="実際のダイビングを想定して Turn Pressure を計算してみる。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202511/fig2025110501.jpg" />
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 11 月</h1>
+	<div id="contents">
+		<h3 id="20251105">11 月 05 日 ( 水 )</h3>
+		<div id="2025110501" class="top-mutter">
+			<h4>Dive #76: ダイビング・カリキュレーターで Turn Pressure を計算してみる</h4>
+			<p>ダイビング・カリキュレーターができたこともあるので、実際にダイビングをするという前提で Turn Pressure を求めてみます。</p>
+			<p>まず最初は朝イチで他のサービスがまだ出港する前に、和歌山県串本町のグラスワールドの本根の係留ブイに一番乗りでボートを係留して、アオリイカの産卵床にニシキフウライウオのペアを見に行くとします。え？具体的すぎますか？でも実際のダイビングに即したほうがいいでしょ？</p>
+			<p>ぼくの RMV は 1987 年に OW I を取ってから、ファンダイブではずっと記録していて、ログが残っているダイビングの RMV のほぼ全て記録しています。</p>
+			<p>ぼくは自分の RMV が、おおよそ <math><mn>15.0</mn><mi>L</mi><mi>/</mi><mi>min</mi></math> ということは把握しているので <math><mi>RMV</mi><mo>=</mo><mn>15.0</mn></math> とします。もちろんこの数字は体調や海況などの要因によって変わるのですが、グラスワールドのアオリイカの産卵床に行くだけなら <math><mn>15.0</mn></math> のままでいいでしょう。</p>
+			<p>各データは以下のような感じになるかと思います。</p>
+			<ul>
+			<li>RMV: 15.0</li>
+			<li><math><mi>F</mi><mi>-em</mi></math>: 3.0 (バディのガス切れによるガス共有を想定)</li>
+			<li><math><mi>P</mi><mi>start</mi></math>: 200 <math><mi>bar</mi></math></li>
+			<li><math><mi>V</mi><mi>tank</mi></math>: 10 <math><mi>L</mi></math></li>
+			<li><math><mi>D</mi><mi>max</mi></math>: 17.3 <math><mi>m</mi></math> (同一プロファイルのの最大値)</li>
+			<li>最大浮上速度: 9 <math><mi>m</mi><mi>/</mi><mi>min</mi></math></li>
+			<li>安全停止時間: 3 <math><mi>min</mi></math></li>
+			<li><math><mi>T</mi><mi>move</mi></math>: 10 <math><mi>min</mi></math> (のんびりといろいろ見ながら戻りたいから)</li>
+			<li><math><mi>P</mi><mi style="font-size:0.70em;">M</mi><mo>_</mo><mi>priority</mi></math>: 0 <math><mi>bar</mi></math> (Turn Pressure Rule での計算のため)</li>
+			</ul>
+			<p>この前提でダイビング・カリキュレータで計算してみると以下のようになります。</p>
+			<ul>
+			<li><math><mi>M</mi><mi>-Gas</mi><mo>: </mo><mn>61</mn><mo> </mo><mi>bar</mi></math> (最終生命線)</li>
+			<li><math><mi>R</mi><mi>-Gas</mi><mo>: </mo><mn>46</mn><mo> </mo><mi>bar</mi></math> (帰路消費予定)</li>
+			<li><math><mi>T</mi><mi>-Gas</mi><mo>: </mo><mn>107</mn><mo> </mo><mi>bar</mi></math> (Turn Pressure)</li>
+			</ul>
+			<p>つまり上記の条件でグラスワールドのアオリイカ産卵床にニシキフウライウオを見に行くとすると、ぼくは残圧が 107 <math><mi>bar</mi></math> になったら、アオリイカ産卵床を離れてボートに戻り始めなければなりません。</p>
+			<p>そして何の問題が起こることもなく、安全停止も終えてボートにエキジットしたら、61 <math><mi>bar</mi></math> の残圧が残っているはずです。</p>
+			<p>次は別の日のやはり朝イチに同じ和歌山県串本町のアンドの鼻に入るものとします。ブイは一番定置網に近い潮岬よりのブイに係留するとします。もちろん他のサービスの利用者の人たちが殺到する前に一番乗りで入るという前提です。狙いはもちろん話題のミジンベニハゼ団地での激写です (来年もいるかどうかはわかんないけど)。</p>
+			<p>各データは以下のような感じになるかと思います。</p>
+			<ul>
+			<li>RMV: 15.0</li>
+			<li><math><mi>F</mi><mi>-em</mi></math>: 3.0 (バディのガス切れによるガス共有を想定)</li>
+			<li><math><mi>P</mi><mi>start</mi></math>: 200 <math><mi>bar</mi></math></li>
+			<li><math><mi>V</mi><mi>tank</mi></math>: 10 <math><mi>L</mi></math></li>
+			<li><math><mi>D</mi><mi>max</mi></math>: 19.4 <math><mi>m</mi></math> (同一プロファイルのの最大値)</li>
+			<li>最大浮上速度: 9 <math><mi>m</mi><mi>/</mi><mi>min</mi></math></li>
+			<li>安全停止時間: 3 <math><mi>min</mi></math></li>
+			<li><math><mi>T</mi><mi>move</mi></math>: 7 <math><mi>min</mi></math> (帰路に余裕をもたせながらもミジンベニハゼ団地でなるべく長く過ごしたいので)</li>
+			<li><math><mi>P</mi><mi style="font-size:0.70em;">M</mi><mo>_</mo><mi>priority</mi></math>: 0 <math><mi>bar</mi></math> (Turn Pressure Rule での計算のため)</li>
+			</ul>
+			<p>この前提でダイビング・カリキュレータで計算してみると以下のようになります。</p>
+			<ul>
+			<li><math><mi>M</mi><mi>-Gas</mi><mo>: </mo><mn>66</mn><mo> </mo><mi>bar</mi></math> (最終生命線)</li>
+			<li><math><mi>R</mi><mi>-Gas</mi><mo>: </mo><mn>39</mn><mo> </mo><mi>bar</mi></math> (帰路消費予定)</li>
+			<li><math><mi>T</mi><mi>-Gas</mi><mo>: </mo><mn>105</mn><mo> </mo><mi>bar</mi></math> (Turn Pressure)</li>
+			</ul>
+			<p>帰路に一切寄り道をしないという前提で、ミジンベニハゼ団地で激写しまくっているとしても残圧が <math><mi>105</mi><mo> </mo><mi>bar</mi></math> になると、躊躇なくボートに戻り始めなければなりません。</p>
+			<p>なお、ミジンベニハゼ団地はほんのわずかですが水深 -18m を越えるので、まがりなりにもディープダイビングです。なのでダイブコンピュータの NDL のチェックもまめにしないとダメそうです。</p>
+			<p>アンドの鼻なんだから、もう少し他のスリバチカイメンに生息する生き物も見ていきたいっていう場合は、<math><mi>T</mi><mi>move</mi></math> などで調整していくことになります。もちろんその時はミジンベニハゼ団地での滞在時間は減ることになります。</p>
+			<p>ダイビング・カリキュレーターを使ったガス・マネージメントを前提とするダイブプランは、こんな感じで進めていくことになります。</p>
+			<!--
+			<div class="container">
+				<div class="left">
+					<figure>
+						<img width="512" height="340" src="fig2025110501.jpg">
+						<figcaption>
+						</figcaption>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#tag</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202511/05.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

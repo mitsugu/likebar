@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/08.html">
+	<meta name="title" content="思考整理のためのツールを考える Part 8">
+	<meta name="description" content="肝心の PlantUML のインストール方法と使い方に触れていなかた件。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツールを考える Part 8">
+	<meta property="og:description" content="肝心の PlantUML のインストール方法と使い方に触れていなかた件。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/08.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="肝心の PlantUML のインストール方法と使い方に触れていなかた件。">
+
+	<!--
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025040801.jpg">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	-->
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<link href="../prism.css" rel="stylesheet">
+	<script src="../prism.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250408">04 月 08 日 ( 火 )</h3>
+		<div id="2025040801" class="top-mutter">
+			<h4>思考整理のためのツールを考える Part 8</h4>
+			<p>PlantUML 編を前回で最終回にできませんでした。大事なことを書いてません。PlantUML のインストールの仕方とソースファイルを画像ファイルに変換するためのプログラムの実行方法です。</p>
+			<p>PlantUML は Java というプログラミング言語で書かれたプログラムなので Java で書かれたプログラムを実行するための Java の実行環境が必要です。Java の実行環境がパソコンにインストールされていないと通常は PlantUML を動かす方法がありません。</p>
+			<p>なので本来なら最初に Java の実行環境をインストールするのですが、現時点で一般ユーザ向けとしてはアンオフィシャルではあるものの、実は実行可能形式の PlantUML が GitHub 上の PlantUML 公式リポジトリで提供されています。</p>
+			<p>ここでのアンオフィシャルという言葉の意味は公式サイトから直接ダウンロードリンクが貼られていないという意味でのアンオフィシャルです。なので公式プロジェクトとしてリリースしていることになんらかわりはありません。</p>
+			<p>ダウンロードは <a href="https://github.com/plantuml/plantuml/releases" class="external" target="_blank">公式プロジェクトの GitHub リポジトリのリリースページ</a>から行います。</p>
+			<p>実行可能ファイルなので Java 実行環境のインストールを考えなくてすむので楽チンです。ダウンロードページの &quot;Release - Native Image (バージョン名)&quot; と書かれたもののうち最新のバージョンをダウンロードすれば良いわけです。</p>
+			<p>表示されているリリースの Assets をクリックすると、あるいはクリックしなくても、各ファイルをダウンロードできるリンクがずらっと出てきます。そこから自分が使っている OS の zip ファイルをダウンロードすればいいわけです。</p>
+			<p>一般的な Windows ユーザなら以下のいずれかの zip ファイルをダウンロードすればよいでしょう。</p>
+			<ul>
+			<li>plantuml-full-win-amd64-&lt;version&gt;.zip</li>
+			<li>plantuml-headless-win-amd64-&lt;version&gt;.zip</li>
+			</ul>
+			<p>1.2025.2 などと書かれたところがバージョンになります。</p>
+			<p>plantuml-full-******.zip という zip ファイルに実行可能形式の Plantuml-full.exe というファイルと実行に必要な DLL 一式が同梱されています。</p>
+			<p>zip ファイルを好きなフォルダに展開し、そのフォルダーへのパスを環境変数 PATH に追加すればインストールはおしまいです。</p>
+			<p>後は</p>
+			<pre><code class="language-plantuml">plantuml-full -tsvg ソースファイル名</code></pre>
+			<p class="no-indent">または</p>
+			<pre><code class="language-plantuml">plantuml-headless -tsvg ソースファイル名</code></pre>
+			<p class="no-indent">などとしてやればソースファイルから画像ファイルを作ることができます。</p>
+			<p>この実行ファイルですが、どのレイアウトエンジンが含まれているのかがドキュメントとしては公開されていません。ですからどのレイアウトエンジンが含まれているのか気になるかと思います。ですがどのレイアウトエンジンをサポートしているかを実際に図を作らなくても知る方法があります。</p>
+			<pre><code class="language-plantuml">plantuml-full -license</code></pre>
+			<p class="no-indent">または</p>
+			<pre><code class="language-plantuml">plantuml-headless -license</code></pre>
+			<p class="no-indent">を実行してください。zip ファイル同梱品のライセンスが表示されます。</p>
+			<p>2025/04/08 時点でのライセンスが GNU Public License version 2 (GPLv2) であることがわかります。<a href="https://plantuml.com/ja/download" class="external" target="_blank">PlantUML の公式サイトのダウンロードページ</a>を見ると GPLv2 のパッケージには GraphViz、Ditaa、Jcckit、Sudoku の 4 つのレイアウトエンジンが同梱されていることがわかります。ELK が含まれていないのは恐らく GPLv2 と EPL にライセンス上の互換性がないのでしょう。</p>
+			<p>full 版と headless 版の違いについても述べておいた方がいいかもしれません。違いはごく僅かで full 版には GUI が同梱されていて、headless 版には GUI が含まれておらず CLI で使うことになるという違いがあります。</p>
+			<p>ならば full 版一択という気持が湧いてきそうですが GUI と言ってもファイルセレクタがあるだけで出力画像形式すら選ぶこともできません。ソースファイルを選んだ瞬間同一名の png ファイルがいきなり生成されます。他の画像フォーマットを選ぶことはできません。</p>
+			<p>また隠しフォルダにアクセスすることもできません。隠しフォルダではないフォルダでソースファイルを選ぶことができるだけのかなり寂しい GUI なので、それでもかまわない、それで充分という場合であるのなら選んでもいいかと思います。</p>
+			<p>full 版であっても headless 版と同じように CLI 環境で CLI のプログラムとして使うこともできます。ですがそれならサイズの小さめの headless 版で充分ではないか？とも思います。</p>
+			<p>さてもしあなたが ELK レイアウトエンジンを使いたいとします。もしそうであれば少し面倒かもしれませんが Java 実行環境と GPLv3 版あるいは EPL 版の PlantUML をインストールしなければなりません。先程述べたように GPLv2 版にはおそらくライセンスの関係で ELK レイアウトエンジンは含まれていません。ELK レイアウトエンジンを使うなら Java 実行環境をインストールし、GPLv3 版もしくは ELP 版の PlantUML をダウンロードしてインストールする必要があります。</p>
+			<p>その場合 PlantUML のインストール方法も実行方法も少し変わりますので、以下に説明していきます。</p>
+			<p>最初に Java 実行環境をインストールします。Java 実行環境には <a href="https://www.java.com/freeuselicense" clas="external" target="_blank">Oracle No-Fee Terms and Conditions (NFTC)</a> 版の <a href="https://www.oracle.com/jp/java/technologies/downloads/#jdk24-windows" class="external" target="_blank">JDK</a> と GNU Public License version 2 版の <a href="https://jdk.java.net/24/" class="external" target="_blank">OpenJDK</a> の 2 つがあります。Java の実行環境としては同一だということなのでインストールが楽な NFTC 版の JDK の方を選んでインストールすればよいでしょう。</p>
+			<p>インストーラ形式としては exe と msi がダウンロード可能になっていますが、どちらをダウンロードしても問題はないでしょう。Java 実行環境はサイズが大きいのでインストールには少し時間がかかります。コーヒーでも飲みながらインストールが終るのを待ちましょう。</p>
+			<p>JDK のインストールが終ると端末上で jar ファイルを実行することができるようになっています。もしかすると今でもパソコンの再起動が必要かもしれません。もしそのようなメッセージが表示されたのならそのメッセージに従ってください。</p>
+			<p>次に GPL 版または ELP 版の PlantUML の jar ファイルを <a href="https://plantuml.com/ja/download" class="external" target="_blank">PlantUML 公式サイトのダウロードページ</a>から好みのフォルダにダウンロードします。ダウンロードしたフォルダがどこなのかを覚えておいてください。</p>
+			<p>また繰返しますがダウンロードページのサポートレイアウトエンジンの表は最新の状態になっていません。バージョン 1.2024.6 以降の GPL 版 (GPLv3 版)には ELK レイアウトエンジンも含まれています。</p>
+			<p>実行方法は通常の jar ファイルと同じです。以下のように実行します。</p>
+			<pre><code class="language-plantuml"># バージョンが 1.2025.2 の場合
+java -jar plantuml-1.2025.2.jar -tsvg ソースファイル名</code></pre>
+			<p>上の例では plantuml-1.2025.2.jar とソースファイルが共にカレントディレクトリにあるという想定になっています。plantuml-1.2025.2.jar やソースファイルが他のディレクトリにある場合はそれぞれパス指定してください。絶対パスでも相対パスでもかまいません。</p>
+			<p>それがいちいち面倒な場合はバッチファイル化するなど各自工夫してください。</p>
+			<p>これで今度こそ本当に PlantUML のお話は最終回となります。次回からは GraphViz のお話になります。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#PlantUML</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/08.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

@@ -1,0 +1,7 @@
+@startuml
+actor "ヤマトタケシ" as takeshi
+rectangle "阿耨多羅三藐三菩提\n====\n阿耨多羅三藐三菩提" as charm
+person "レインボーマン" as rainbow
+takeshi -down-> charm
+charm -down-> rainbow
+@enduml

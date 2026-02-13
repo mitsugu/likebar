@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202501/14.html">
+	<meta name="title" content="マンスリー・カレンダーを作った">
+	<meta name="description" content="市販のマンスリー・カレンダーが 1200 円以上とあまりに高すぎるので、gulp で自動作成するようにした。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="マンスリー・カレンダーを作った">
+	<meta property="og:description" content="市販のマンスリー・カレンダーが 1200 円以上とあまりに高すぎるので、gulp で自動作成するようにした。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202501/14.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="市販のマンスリー・カレンダーが 1200 円以上とあまりに高すぎるので、gulp で自動作成するようにした。">
+
+    <meta property="og:image" content="https://mitsugu.github.io/likebar/202501/fig2025011401.png">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="118">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.3.0"></script>
+	<style>
+		img {
+			margin-left:1em;
+			margin-right:1em;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 01 月</h1>
+	<div id="contents">
+		<h3 id="20250114">01 月 14 日 ( 火 )</h3>
+		<div id="2025011401" class="top-mutter">
+			<h4>マンスリー・カレンダーを作った</h4>
+			<p>市販のマンスリー・カレンダーが 1200 円以上とあまりに高価すぎるので、gulp で自動作成するようにしました。</p>
+			<p>マンスリー・カレンダーを自動作成するための <a href="https://github.com/mitsugu/makeCalendar" class="external">gulpfile.js は github に置いています</a>。</p>
+			<img src="fig2025011401.png" width="512" height="277" class="left">
+			<p>スクリプトを実行すると、HTML 形式で、2025 年の 1 月から 12 月までのマンスリー・ダイアリーを、dist サブ・ディレクトリに自動作成します。</p>
+			<p>HTML で作成されるので、書式が気に入らなかったり、装飾がもう少し欲しいという場合は、HTML や CSS を使ってお好きに変更してください。</p>
+			<p>左の画像は、自動作成された HTML を Web ブラウザに表示させ、スクリーンショットを撮り、それをこの日記に貼り付けています。</p>
+			<p>画像では祝日の日付が赤に変更されています。ですが、生成された HTML では祝日は赤くなりません。祝日の td 要素に class=&quot;holiday&quot; を追記すると、その日の日付が赤くなります。</p>
+			<p>また gulpfile.js の 9 行目に 2025 と、作成対象年をハードコードしています。この 2025 を好きな年に変更すると、変更したその年 1 年分の、各月分のマンスリー・カレンダーを自動作成することができます。</p>
+			<p>リポジトリでは 2025 年のマンスリー・ダイアリーを、2 ヶ月単位でまとめた HTML と PDF を、それぞれ 6 ファイルずつ公開しています。ダウンロードしてご自宅や、コンビニ等でプリントすれば、そのままお使いいただけます。</p>
+			<p>詳細は <a href="https://github.com/mitsugu/makeCalendar" class="external">github のリポジトリ</a>を参照してください。サポートはリポジトリの Discussions にて行う予定にしてます。質問があればそちらにお願いします。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#DIY</li>
+			</ul>
+		</div>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202501/14.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

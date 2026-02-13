@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202504/11.html">
+	<meta name="title" content="思考整理のためのツール GraphViz 編 (1)">
+	<meta name="description" content="思考整理のためのツール GraphViz 編 (1) 作例紹介とインストール">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="思考整理のためのツール GraphViz 編 (1)">
+	<meta property="og:description" content="思考整理のためのツール GraphViz 編 (1) 作例紹介とインストール">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202504/11.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="思考整理のためのツール GraphViz 編 (1) 作例紹介とインストール">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202504/fig2025041101.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 04 月</h1>
+	<div id="contents">
+		<h3 id="20250411">04 月 11 日 (金)</h3>
+		<div id="2025041101" class="top-mutter">
+			<h4>思考整理のためのツール GraphViz 編 (1)</h4>
+			<p>さて今回から GraphViz でどのような図を描くことができて、それを実際に描く方法を解説していきたいと思います。</p>
+			<h5>どのような図を描けるのか</h5>
+			<p>最初にどのような図を描くことができるのか見ていきましょう。今回からソースファイルはキャプションのリンクからダウンロードしてテキストエディタで見てください。Vim でも Emacs でも Windows のメモ帳でもかまいません。</p>
+			<p>GraphViz を使って描いた図をこれまでの日記で公開しています。</p>
+			<figure>
+				<a href="../202503/fig2025031801.svg" target="_blank"><img width="80%" src="../202503/fig2025031801.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031801.dot" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上の図をさらに簡略化し整理したものが下図になります。</p>
+			<figure>
+				<a href="../202503/fig2025031803.svg" target="_blank"><img width="50%" src="../202503/fig2025031803.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="../202503/fig2025031803.dot" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>上図では長方形、楕円、八角形といったノードが使われています。PlantUML ではこういった部品をエレメントと呼んでいましたが GraphViz ではノードと呼びます。この連載の GraphViz の説明はノードと呼ぶことにします。</p>
+			<p>GraphViz では PlantUML のエレメントよりも多くの種類の以下のノードを描くことができます。</p>
+			<figure>
+				<a href="fig2025041101.svg" target="_blank"><img width="100%" src="fig2025041101.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025041101.dot" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>次にノード間を結ぶ矢印について説明します。基本的な矢印の形状には以下のものがあります。</p>
+			<figure>
+				<a href="fig2025041102.svg" target="_blank"><img width="100%" src="fig2025041102.svg"></a>
+				<figcaption>クリックまたはタップすると新しいタブで表示され拡大等しやすくなる。図のソースファイルは<a href="fig2025041102.dot" target="_blank">ここ</a>。</figcaption>
+			</figure>
+			<p>GraphViz ではこれまでに紹介したノードと矢印を使った図をつくることができます。逆に言えば UML のようなある特定のフォーマットに従った図はなにも描けません。</p>
+			<p>とはいえ GraphViz にはノードと矢印の豊富さという他のツールにはないアドバンテージがあります。</p>
+			<p>レイアウトエンジンにもモダンな図を描けるものがなく、開発もほぼ新規の機能開発が終っていて実質的にメンテナンスモードに移行しているにもかかわらず、ずっと多くの人に愛用されつづけている所以だと思います。</p>
+			<p>画像のレイアウトの制御は PlantUML と同様にかなり難しい部類に入ります。rank や subgraph、表示されない矢印などを駆使してある程度レイアウトのコントロールを試すことができますが、期待するほどには効果がありません。場合によってはレイアウトがかなり崩れて判読困難な図がつくられることがあります。</p>
+			<p>他のツールも同様なのですがレイアウトのコントロールを試みる場合は注意と慎重さが求められます。顧客への納品物や体裁が重要視される公開文書に含めるのでなければ GraphViz にそのまままかせるのが良いと思います。この連載での思考の整理と見える化、分析、俯瞰という目的では、レイアウトは GraphViz に任せたほうが良い結果が得られることが多いと思います。</p>
+			<p>もちろんそれ以外の目的で使ってはいけない理由など一切存在しないので、そのような場合は実際にご自身でいろいろ試して研究してみてください。<a href="https://graphviz.org/documentation/" class="external" target="_blank">GraphViz のマニュアル</a>はどちらかというと初めて GraphViz をつかう人には優しくない書きかたをされているので、得られた知見を公開されると多くの人が喜びます。</p>
+			<p>GraphViz で検索すると日本語で書かれた blog などもヒットするので、それらをメインに GraphViz の使い方を学ぶのもいいと思います。困ったときになって初めてから公式サイトを見るというパターンもありでしょう。そのあたりは柔軟に行動してください。</p>
+			<h5>インストール</h5>
+			<p>GraphViz のインストールは OS のネイティブアプリであることもあり比較的簡単です。Windows ユーザであれば<a href="https://graphviz.org/download/#windows" class="external" target="_blank">インストーラがダウンロードページからダウンロードできます</a>。あとはダウンロードしたインストールプログラムを実行するだけです。</p>
+			<p>Linux ユーザは更に簡単で OS のパッケージマネージャでインストールしてください。</p>
+			<p>次回は GraphViz の dot レイアウトエンジンでの基本的な図の描きかたを説明していきます。</p>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#思考整理ツール</li>
+				<li class="tag">#ライフハック</li>
+				<li class="tag">#仕事からの応用</li>
+				<li class="tag">#GraphViz</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202504/11.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

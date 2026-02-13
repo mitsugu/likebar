@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202511/18.html">
+	<meta name="title" content="Dive #80: Sora2 での動画の作り方">
+	<meta name="description" content="Sora2 でのぼくなりの動画の作り方を説明します。なぜぼくなりと書くのかは読んでください。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #80: Sora2 での動画の作り方">
+	<meta property="og:description" content="Sora2 でのぼくなりの動画の作り方を説明します。なぜぼくなりと書くのかは読んでください。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202511/18.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202511/fig2025111801.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="931">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #80: Sora2 での動画の作り方" />
+	<meta name="twitter:description" content="Sora2 でのぼくなりの動画の作り方を説明します。なぜぼくなりと書くのかは読んでください。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202511/fig2025111801.png" />
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<style>
+		.fig01 {
+			width:392px;
+			height:696px;
+		}
+		blockquote {
+			padding:0.5em;
+			border-radius:1em;
+			background-color:lightgray;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 11 月</h1>
+	<div id="contents">
+		<h3 id="20251118">11 月 18 日 ( 火 )</h3>
+		<div id="2025111801" class="top-mutter">
+			<h4>Dive #80: Sora2 での動画の作り方 (暫定公開)</h4>
+			<h5>はじめに (という名の雑文)</h5>
+			<p>YouTube に以下のようなショート動画 (以下 Figure 01 と記す) をポストしました。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<iframe class="fig01" width="392" height="696" src="https://www.youtube.com/embed/gOTKycEaUEo" title="串本の海" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						<figcaption>Figure 01</figcaption>
+					</figure>
+				</div>
+				<p>YouTube で、Figure 01 の作り方を教えて欲しいとコメントがあったので、今日はそれを説明します。</p>
+				<p>まずは今日のこの投稿が長くなることと、ぼくがこの Figure 01 を作り上げるまでに、5 月から AI で静止画を作ったり、動画を作ってきた<strong>経験に依存する</strong>ことから、お手軽簡単に作れるわけではないことも先に述べておきます。</p>
+				<p>巷間で言われているように AI で静止画や動画を生成するのは簡単ではなく、手間もかかります。</p>
+				<p>この Figure 01 も例外ではないことは先に述べておきます。</p>
+				<p>もしお手軽簡単にさくっと、この Figure 01 のような動画を作りたいのであれば、そういったノウハウをお持ちの方に相談してください。</p>
+				<p>ぼくはそんなノウハウは持ち合わせておらず、必ず何日かの試行錯誤の上に、静止画も動画も生成しています。簡単に作成する方法をぼくは知りません。</p>
+				<p>さらには、AI というシステム製品を使うことから、この記事に限って (限らないか) Linus Torvalds のように「クソ」とか「ゴミ」を連発するのでお許しください。ぼくはどちらかというと人間を応援しているのです。</p>
+				<p>もちろんシステムをよりよいものにしようと日夜尽力しているエンジニアの人たちも応援しています。元々同業ですから。でも……システムにクソという言葉を投げつけたくなることは、ぼく同様頻繁にありますよね？エンジニアなら。少なくとも非エンジニアの人よりは圧倒的に口汚くシステムを罵ることは日常なはず (笑)</p>
+				<p>もし Windows や DBMS に人格があったら、涙を流して「実家に帰らせてもらいます」と言って子供 (システムの一切合切) と一緒に家出してしまうか、うつ病になってしまうはず(笑)</p>
+				<p>とにかく AI はコントロールしようとした途端に使い物にならなくなるので、プロアマ問わずクリエイターの方は AI を恐れる必要はないです。使ってみるとすぐに生成系 AI なんて使い物にならないことがわかります。あなたたちクリエイターと比べるとゴミです。</p>
+				<p>生成系 AI には創作する能力は、かけらもありません。また現実を一切理解すらできず、単に統計的に処理してそれっぽいものを出力するだけのチープなソフトウェアです。</p>
+				<p>じゃぁなぜ使うのかと言うと、あなたたちクリエイターに発注する経済的な力がまったくないからです。お金さえあれば、間違いなく注文に応えてくれて、確かな仕事をしてくれる、あなた方クリエイターに発注します。</p>
+				<p>生成系 AI なんて貧乏な人間のおもちゃに過ぎません。恐れないでください。向上心のない人のことまで知りませんけど、あなたたちの方が間違いなく優れています。</p>
+			</div>
+
+			<h5>ぼくの採用している大まかなプロセス</h5>
+			<p>Figure 01 のような動画の生成プロセスを書きます。大まかには以下の順序です。</p>
+			<ol>
+			<li>キャラクターの元となる静止画を生成する</li>
+			<li>生成した静止画をプロンプトに加え動画を生成する</li>
+			</ol>
+			<p>もし動画生成サイトが出してくる映像で満足できるなら、静止画の生成は省略できます。ぼくは満足できなかったので、静止画をイメージ・プロンプトとして加えています。多くの人が同様の手順を採っているようです。みなさんやっぱり生成されるキャラクターに不満があるのですね。不満を感じないほうがおかしいと思います。</p>
+
+			<h5>必要なツール類</h5>
+			<p>以下のツール類が必要です。こんなに必要なのか、と<ruby>怯まれる<rt>ひるまれる</rt></ruby>かもしれませんが、恐れなくても大丈夫です。必要になった段階で用意して使い方も覚えればいいだけです。</p>
+			<ul>
+			<li>パソコン</li>
+			<li>OS (Linux、Windows、MacOS、etc...)</li>
+			<li>インターネットに接続できる環境</li>
+			<li>Web ブラウザ (Firefox 等)</li>
+			<li>テキストエディタ (Vim 等)</li>
+			<li>FFmpeg</li>
+			<li>画像編集ソフト (GIMP 等)</li>
+			<li>音声編集ソフト (Audacity 等) </li>
+			<li>動画編集ソフト (OpenShot 等) </li>
+			<li>静止画生成サイト (chatGPT、Grok、Gemini、Whisk 等)</li>
+			<li>動画生成サイト (Sora2、Grok 等)
+			</ul>
+
+			<h5>動画のプロンプト</h5>
+			<p>手っ取り早く Sora2 を試したい人のために、上記動画のプロンプトを紹介しておきます。</p>
+			<blockquote>
+				<p>スクーバダイバーの少女が、中性浮力で海中を漂いながら、目前に広がる圧倒的な海の美しさに見とれる 15 秒間のアニメ動画。参照画像の質感とキャラクター造形（髪型・顔立ち・瞳の色・マスクとレギュレーター、ウェットスーツのデザイン、アクセサリー、ライティング）を忠実に維持し、全体を膨大な作画数による精細で高品質な手描き 2D アニメーションで描く。キャラクターと背景は常に滑らかに揺らぎ、海中の光の屈折・砂粒子の漂い・小魚の群れの動きも絶えず変化し続ける。音声・効果音・映像・口の動きをすべて厳密に同期させ、静かで透明感のあるオーケストラ風 BGM を流し、海中ならではの静謐と感動を演出する。カメラワークは緩やかな移動と 0.3〜1.0 秒程度のテンポよいカット切替えを組み合わせ、少女の表情と海のスケール感を両方魅力的に見せる。</p>
+
+				<dl>
+				<dt>【構成】</dt>
+				<dd>
+					<p>薄い青に満ちた海中、太陽光が揺らめきながら差し込み、カメラは少女の後方から接近し、ゆっくり回り込みながら、BC に繋がれた器材とタンク、フィンを付けて中性浮力でふわりと漂う全身を映す。続くカットで、遠景に広がる白い砂地とサンゴの影を背景に、少女が腕を軽く広げてゆっくり体を回転させながら無重力に近い海中の動きを楽しむ。マスクのガラス越しに、太陽光のカーテンと魚群の反射がきらめいて映り込む。カメラはマスクのアップに切り替わり、マスク面に揺らぐ光の反射や、遠くを泳ぐ小魚の銀色の軌跡を大きく写し込みながら、少女の瞳の中に水面からの青い光が星のように輝くクローズアップを映す。少女は息をのむようにわずかに目を見開き、レギュレーター越しに静かに小さく微笑み、頬をほのかに染めて海の美しさに感動している表情を見せる。最後はカメラが少し引き、少女が胸元の BC ストラップを軽く押さえながら、体をくるりと回転させて上方の水面を見上げ、差し込む太陽光を嬉しそうに見つめる姿と、マスクの曲面に映るゆらめく水面の輪郭を同時に捉えたカットのまま、自然な動きの途中で 15 秒間のシーンが終わる。</p>
+				</dd>
+				<dt>【少女のモノローグ】</dt>
+				<dd>
+					<p>映像が流れるあいだ、ときおり目尻に涙が浮かぶ少女のモノローグが流れる。</p>
+					<p class="no-indent">「やっぱり私はこの串本の海が好き。めずらしくもなんともない海かもしれない。でもここが私にとって特別な海。大切な海。この海も、そしてここで出会った人たちも大好き。」</p>
+				</dd>
+				<dt>【技術的補足】</dt>
+				<dd>
+					<p>海中は単なる青ではなく、漂う砂粒やプランクトンを微細に描き、光の屈折・太陽光のカーテン・揺れる影のコントラストを加える。マスク面のガラスには細かい反射や光のにじみを描写し、少女の瞳には水面の光点がキラキラと映り込む。BGMはゆっくり始まり、感動が高まるタイミングでストリングスとピアノが広がる壮大で透明感のある楽曲とし、セリフは入れず、静かな呼吸音（レギュレーターの吐出音）や遠くの水流のわずかな揺らぎ程度の効果音にとどめる。カメラの動きは滑らかな軌道でブレを抑え、海中の奥行きと少女の小ささの対比を印象的に見せる。</p>
+				</dd>
+				</dl>
+			</blockquote>
+
+			<p>試してみたでしょうか？実際に試してみたら、ぼくの動画、Figure 01 と全然違うものが出てきたと思います。例えば以下の Figure 02 のように。</p>
+			<div class="container">
+				<div class="left">
+					<figure>
+						<iframe class="fig01" width="392" height="696" src="https://www.youtube.com/embed/UnCuhdqzISM" title="Web embed 用" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						<figcaption>Figure 02</figcaption>
+					</figure>
+				</div>
+				<p>この Figure 02 は 15 秒として生成しています。テキスト・プロンプト内の秒数も 15 秒と書いています。10 秒の動画生成を選ぶ場合は、テキスト・プロンプト内の秒数も 10 秒と書き換える必要があります。</p>
+				<p>そうしないと AI がどうも混乱するらしく、モノローグがおかしくなったり、キャラクターの動作が意味不明な動作で生成されたりします。プロンプトに矛盾があると AI は遠慮なく混乱してとんでもない動画を生成します。</p>
+				<p>もちろんそれでもチケットは遠慮なく消費されるので、設定とプロンプトに矛盾がないか、精査する必要はあります。プログラムのバグを探すようなつもりでチェックする必要があります。</p>
+				<p>現時点で Sora2 にテキストプロンプトだけを与えると、Figure 02 のようなテイストのキャラクターに仕上げてきます。</p>
+				<p>もしこれで満足できるのなら、解説は終わりです。あとはテキスト・プロンプトの研究に<ruby>勤しんで<rt>いそしんで</rt></ruby>ください。Sora2 はチャット系の生成 AI なので、プロンプトは原則的に自然言語で書かなければならず、汎用性があって定型的なプロンプトは処理できない場合が非常に多いことは明記しておきます。</p>
+				<p>よく生成系 AI に渡す json 形式などは Sora2 ではエンジンが混乱してリクエストを拒否されることも非常に多いです。他のチャット型生成系 AI エンジンと同様です。</p>
+				<p>またプロンプトに使う言語は母国語でもかまいませんが (ぼくなら日本語)、うまく行かない場合、そしてうまく行かない場合が圧倒的に多いのですが、そういった場合は躊躇なく英語でプロンプトを指定してください。失敗する頻度が明らかに低下します。恐らく内部的に英語以外の言語を一度英語に翻訳してから、英語に翻訳されたものをプロンプトとして使っているものと思われます。AI は平気で誤訳します。</p>
+				<p>AI は言葉のニュアンスも読み取れません。たとえば「今夜は月がきれいですね」と書いても「あなたは美しい」とは解釈してくれません。AI に<ruby>忖度<rt>そんたく</rt></ruby>を期待してはいけません。文学的な表現、詩的な表現も解釈してくれません。AI はまるでプログラムコードのような表層的な視認可能な表現しか受け取ることができないことは理解しておきましょう。</p>
+				<p>それどころか AI には「理解」というものが存在しないので、たとえ表層的な表現であっても、その大半を映像化できません。たとえばぼくたちダイバーなら、マスククリアと言えば一連のプロセスを詳細に頭に浮かび上がらせることができます。ですが AI にはマスククリアがなんなのか、なんのためにするのか、どうやってするのか、それを見せるにはどうするのが一番いいのか、なんて理解は一切ありません。理解がないので画像や映像として再現できません。</p>
+				<p>このあたりをぼくは AI は糞の役にも立たないゴミだと言っています。もともとソフトウェアエンジニアだったので、他のソフトウェアエンジニアと同様に、ソフトウェアに対しては過激なほどに辛辣なのです。</p>
+				<p>そんなこともあって、生成の失敗率を減らしたければ、言語は英語一択です。</p>
+				<p>続きはまた後ほど書きます。</p>
+			</div>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#ダイバー</li>
+				<li class="tag">#Sora2</li>
+				<li class="tag">#AI</li>
+				<li class="tag">#動画生成</li>
+				<li class="tag">#画像生成</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202511/18.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202408/05.html">
+	<meta name="title" content="自サイト作成はいいぞ">
+	<meta name="description" content="ちょっと長くなる場合には SNS よりの自分の Web サイトに書いたほうがいいかもという話。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="自サイト作成はいいぞ">
+	<meta property="og:description" content="ちょっと長くなる場合には SNS よりの自分の Web サイトに書いたほうがいいかもという話。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202408/05.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="ちょっと長くなる場合には SNS よりの自分の Web サイトに書いたほうがいいかもという話。">
+
+	<!--
+    <meta property="og:image" content="">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="340">
+	-->
+
+	<style>
+		li {
+			margin-bottom:0.5em;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.3.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2024 年 08 月</h1>
+	<div id="contents">
+		<h3 id="20240805">08 月 05 日 ( 月 )</h3>
+		<div id="2024080501" class="top-mutter">
+			<h4>自サイト作成はいいぞ</h4>
+			<p>SNS に何か書いているときに長くなりそうだと感じた場合、その文章を SNS ではなく自分の日記サイトに書くようにするという運用に変えてみた。そうしたところ、あくまで自分の場合に限定される話になるが、SNS とかよりも文章の編集にきちんと時間を費やすことになる、ということに改めて気付いた。</p>
+			<p>習慣で自分で内容のチェックや誤字、文体の統一性等のチェックをするのだけれど、そうすると自分が書いた文章を自然に自分から突き放して見ることができる。そのため、この内容は書くべきじゃないとか、書いてはみたものの内容のおかしさに気づけたり、あるいは冷静になれていない自分を発見もでき、事故の発生を抑制できることが期待できる (かもしれない)。</p>
+			<p>文章の修正がし放題なのもよい。魚拓を撮られてなければ都合よく書いた文章自体なかったことにも簡単にできる。</p>
+			<p>自分の場合は HTML を<span title="もちろん Vim だ">エディタ</span>でゴリゴリ書くというスタイルを維持してることもあり (2 日前から gulp によるスケルトンの作成は始めてはいるが) 文書を見直すのが自分の中で前提にもなっているので、SNS での場合と違って即時に反応してしまうということもない。</p>
+			<p>そのようなメリットにも改めて気づくと言うか思い出させてくれたここ 10 日ほどの Web 編集だった。</p>
+		</div>
+		<ul class="clear nomark">
+			<li class="tag">Category : </li>
+			<li class="tag">#日記</li>
+			<li class="tag">#blog</li>
+		</ul>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202408/05.html" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+		<div id="2024080502" class="mutter">
+			<h4>Google My Maps への撮影データのマッピング</h4>
+			<p>8 月 21 日からの旅行に向けて、地図上に撮影した写真をマッピングする方法を確立させた。そのままだと忘却するので手順のメモを以下に残す。</p>
+			<h5>環境</h5>
+			<ul>
+				<li>Ubuntu MATE 24.04</li>
+				<li>Firefox</li>
+				<li>Google Pixel 7</li>
+			</ul>
+			<h5>用意したもの</h5>
+			<ul>
+				<li>
+					<a href="https://www.google.com/maps/d/" class="external">Google My Maps</a> を利用できる Google アカウント
+				</li>
+				<li>
+					<a href="https://play.google.com/store/apps/details?id=ateow.com.routehistory" class="external">ルートヒストリー〜GPSロガーアプリ〜</a><br>
+					<a href="https://apps.apple.com/jp/app/%E3%83%AB%E3%83%BC%E3%83%88%E3%83%92%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC/id1473949280" class="external">iPhone 用もある</a>。<br>
+					<a href="https://www.ateow.com/" class="external">サポートサイト</a><br>
+					GPX 形式でログをエクスポートできるアプリなら他のもので良いが、ルートヒストリーが一番安定しているとの評価も多く、バグへの対応などのサポートもしっかりしている。</li>
+				<li>
+					<del class="strikethrough">Vim などのテキストエディタ (ルートヒストリーバグ対応のため。治ったら不要)</del><br>
+					作者にバグ報告をした結果、現在ではバグが解消されているのでテキストエディタは不要。
+				</li>
+				<li>
+					<a href="https://dfandrich.github.io/gpscorrelate/" class="external">gpscorrelate</a><br>
+					JPEG ファイルの exif に GPS を記録していない場合に GPX ファイルの内容に撮影日時を突き合わせ、該当する GPS データを exif に書き込む。<br>
+					gpscorrelate が自動でやってくれるので自分で exiftool 等で exif タグを書き込む必要はない</br>
+					sudo apt install gpscorrelate でインストール。
+				</li>
+				<li>
+					<a href="https://exiftool.org/" class="external">exiftool</a><br>
+					次の exif2csv 内で使用。
+				</li>
+				<li>
+					<a href="https://gist.github.com/mitsugu/79d57130be43df36b0cd3b53ff77839d" class="external">exif2csv</a><br>
+					chatGPT 作シェルスクリプト (書くのが面倒だったので。ただしバグ等が混入してると困るのでコードチェックはしている)。<br>
+					複数の JPEG ファイルの exif から GPS 情報を取り出して Google My Maps のレイヤーとして利用可能な csv ファイルを作る。
+				</li>
+			</ul>
+			<h5>手順</h5>
+			<ul>
+				<li>
+					ルートヒストリーのロギングを開始する。
+				</li>
+				<li>
+					移動中にいろいろ撮影する。
+				</li>
+				<li>
+					ルートヒストリーのロギングを終了し、GPX フォーマットでログをエクスポートする。
+				</li>
+				<li>
+					<del class="strikethrough">GPX ファイル内のネームスペース rh が未定義なのでテキストエディタで定義を書き加える。これをやらないと Google My Maps にもアップロードできないし gpscorrelate の実行もエラーとなり JPEG 画像に GPS データが書き込めない。<br>
+					xmlns:rh="http://www.mynamespace.com/rh"<br>
+					のように雑でいいかげんな URL を指定してもとりあえずパースエラーは回避できる。<br>
+					バグは作者に報告済みで対応バージョンのリリース待ち。</del><br>
+					バグ対応していただけたのでこの手順は不要となった。
+				</li>
+				<li>もし JPEG ファイルに GPS データを記録していないなら以下を実行して JPEG ファイルに GPS データを書き込む。<br>$ gpscorrelate -g &lt;gps_log_filename&gt; &lt;jpeg_filename&gt;<br>gpscorrelate が画像が撮影された日時と GPS のログを突き合わせて JPEG 画像が撮影された GPS 座標を求める。<br>スマートフォンなどでカメラの GPS を On にしている場合はこの手順は省略可能。</li>
+				<li>exif2csv を使って撮影した JPEG 画像から Google My Maps のレイヤとしてインポート可能な csv ファイルを作る。</li>
+				<li>ルートヒストリーからエクスポートした GPX 形式の GPS ログファイルを Google My Maps の新規 Map にロードする。<br>ネットを検索すると Google My Maps は GPX 形式は未サポートとよく見かけるが現在はサポートしている。なのでフォーマット変換等は不要。</li>
+				<li>exif2csv が出力した csv ファイルを上で新規作成した Map のレイヤとしてロードする。</li>
+				<li>csv ファイルで登録されたレイヤの各座標で撮影した JPEG ファイルをアップロードする。<br>これもネットを検索すると長辺を 128 px にするようにと書かれていることが大半だが、現在は特に画像のリサイズを行わなくてもトラブルがないことを確認済み。</li>
+				<li>あとは今作成した Map の URL を家族で共有して終了。</li>
+			</ul>
+		</div>
+		<ul class="clear nomark">
+			<li class="tag">Category : </li>
+			<li class="tag">#日記</li>
+			<li class="tag">#blog</li>
+			<li class="tag">#GoogleMyMap</li>
+			<li class="tag">#GPS</li>
+			<li class="tag">#写真</li>
+			<li class="tag">#GPS</li>
+			<li class="tag">#手順</li>
+			<li class="tag">#メモ</li>
+			<li class="tag">#GPS</li>
+		</ul>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202408/05.html#2024080502" data-content="⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>

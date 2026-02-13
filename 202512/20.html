@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202512/20.html">
+	<meta name="title" content="Dive #93: エア切れを起こしそうなときの残圧の考え方">
+	<meta name="description" content="あくまでシミュレーションです。是非とも読んでください。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Dive #93: エア切れを起こしそうなときの残圧の考え方">
+	<meta property="og:description" content="あくまでシミュレーションです。是非とも読んでください。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202512/20.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202512/fig2025121901.png">
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Dive #93: エア切れを起こしそうなときの残圧の考え方" />
+	<meta name="twitter:description" content="あくまでシミュレーションです。是非とも読んでください。" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202512/fig2025121901.png" />
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 12 月</h1>
+	<div id="contents">
+		<h3 id="20251220">12 月 20 日 ( 土 )</h3>
+		<div id="2025122001" class="top-mutter">
+			<h4>Dive #93: エア切れを起こしそうなときの残圧の考え方</h4>
+			<p><a href="https://mitsugu.github.io/divinglogbook/1999/1999032101.html" class="external" target="_blank">ぼくは 1999 年 3 月 21 日に生まれて初めてエア切れを経験しました</a>。ダイビングを始めて 12 年目のことです。ダイバーとしてとても恥ずかしいことです。潔く腹を切れぃっ！！と上様のように言いたくなるくらい恥ずかしいことです。</p>
+			<div class="container">
+				<div class="right">
+					<figure>
+						<img width="512" height="683" src="fig2025121901.png">
+						<figcaption>画像とエントリー内容は関係がありません (爆)</figcaption>
+					</figure>
+				</div>
+				<p>水深 -15m だったこともあり普通に緊急スイミングアセントで生還しました。</p>
+				<p>そもそもそのとき、ぼくはぼくがエア切れで死ぬとは思っていませんでした。恐怖心もまったくなかったのを覚えています</p>
+				<p>油断がどうのこうのという文脈ではなく、緊急スイミングアセントで気道を開くために水面を見上げながら浮上している時に、これなら水面に戻れそうだ、と冷静に思っていました。</p>
+				<p>このときのダイビングは別の理由でぼくのトラウマとなってしまったのですが、そのことはこのサイトで何度も触れていますし、これからも触れると思いますので、今は省略します。</p>
+				<p>気になる人は過去ログを漁ってください。今年の 5 月以降のどこかに書かれています。ぼくがいかに駄目なダイバーなのかを隠すつもりはまったくありませんので。</p>
+				<p>今回のエントリーで述べようと思うのは、そのときの話ではなくて、そのとき -15m で水面に戻るのにどれだけのエアが必要なのかという話です。残圧 50 を残せという 50 bar ルールの話はちょっと横に置いておきます。</p>
+				<p>それでこれから計算をするのですが、最終的に生還するのにどれだけの空気が必要なのかを求めていきます。</p>
+				<p>それにはいくつかの前提があります。まずは自分自身の RMV を知る必要があります。ぼくの場合はだいたい 15 リットル/分です。</p>
+				<p>そして浮上開始から水面までの平均水深も必要です。それは浮上開始水深の半分の数字と仮定します。浮上開始水深を -15m と仮定しますので、平均水深は-7.5m と仮定したいのですが、さらに安全マージンを取って -8m とします。実際にはもう少し浅い水深かと思いますが、数字を厳しく見積もって安全マージンを設けるために最大水深の半分の水深と仮定します。-8m の絶対圧は 1.8 ATA です。この数字を使います。</p>
+				<p>次に必要な数字は水深 -15m から水面に戻るのに必要な時間です。これは多くのダイビングコンピュータでの減圧計算のもととなっている 1 分間あたり 9m という浮上速度を前提とすることとします。</p>
+				<p>またエア切れを前提とする計算なので、安全停止の時間は省略します。エア切れを起こしかけてるのに安全停止もへったくれもないからです。</p>
+				<p>ここまで前提をはっきりさせるとあとは単純計算です。</p>
+				<p>計算式は <math><mi>RMV</mi><mo>&times;</mo><mi>Absolute Pressure</mi><mo>(</mo><mi>ATA</mi><mo>)</mo><mo>&times;</mo><mi>Time</mi></math> となります。</p>
+				<p>ぼくの場合は RMV は 15 なので、平均水深が -8m として、その水深の絶対圧が 1.8 ATA、-15m から浮上に要する時間が <math><mi>15</mi><mo>/</mo><mi>9</mi><mo>=</mo><mi>1.666666667</mi><mo>分</mo></math>なので、45 リットルのエアがないと、ぼくは水面には至れないということになります。</p>
+				<p>つまりぼくの場合はとても落ち着いて潜っている時に、10 リットルタンクを背負っている場合、残圧 4.5 気圧無いとエア切れを 100% 起こすということになります。</p>
+				<p>実際に住崎でエア切れを起こしたときは、理由が今もわからないのですけれど、ぼくの RMV が 20 でしたので、60 リットル、残圧にして 6 気圧を残していないと、100% ぼくはエア切れを起こしていたのでした。</p>
+				<p>これらの数字をみると、なんだそれだけあれば生還できるのか、と思うかも知れません。ですが自分で意識していなくても、エア切れという状況であれば心拍数も増えますし、呼吸数も増えます。またフリー浮上という行為はどうしてもライン浮上よりも運動量が多くなります。</p>
+				<p>緊迫した状況ではエアの消費量は一気に 3 倍や 4 倍になるということが知られています。ですからこれらの数字をやはり 4 倍はしないと、恐らく生還は難しくなるでしょう。</p>
+				<p>ザクッと計算すると、ぼくは住崎でエア切れを起こしたとき、残圧 24 気圧を残して浮上を開始しないと、住崎の海底で死んでいてもおかしくなかったわけです。</p>
+				<p>当時実際にエアが切れてから緊急スイミングアセントで浮上したわけですから、それだけのエアがマイナスの状況で浮上を開始したという「アホやろお前」としか言えない状況だったわけです。</p>
+				<p>結局あの状況はすぐそばにいる指導インストラクターにすら気づかれない、誰にも気づかれないパニックを起こしていたからって結論に、事件から 26 年目にしてやっと至ったのですけど。</p>
+				<p>そんな計算をしてきたわけですが、RMV をもとにしたシミュレーションをしておくと、自分の残圧がどれだけだと、生還が難しくなるのかという理解に近づきますので、やらないよりはやっておくことをお勧めします。</p>
+			</div>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#スクーバダイビング</li>
+				<li class="tag">#ダイビング</li>
+				<li class="tag">#エア切れ対策シリーズ</li>
+				<li class="tag">#ガス切れ対策シリーズ</li>
+				<li class="tag">#エア切れ</li>
+				<li class="tag">#ガス切れ</li>
+				<li class="tag">#安全管理</li>
+				<li class="tag">#事故予防</li>
+			</ul>
+		</div>
+	</div>
+	<ul class="nomark">
+		<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://mitsugu.github.io/likebar/202512/20.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+			<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+		</li>
+	</ul>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

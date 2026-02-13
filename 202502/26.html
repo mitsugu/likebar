@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202502/26.html">
+	<meta name="title" content="Android 上で画像に Liit のようなフレームをつけることができるようにした">
+	<meta name="description" content="パソコン上ではすでに実現していた Liit のようなフレームを Android 上でもつけることができるようにしたのだけどその手順のメモを残す。">
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Android 上で画像に Liit のようなフレームをつけることができるようにした">
+	<meta property="og:description" content="パソコン上ではすでに実現していた Liit のようなフレームを Android 上でもつけることができるようにしたのだけどその手順のメモを残す。">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202502/26.html">
+	<meta property="og:site_name" content="The road Orz passed by">
+	<meta property="og:html" content="パソコン上ではすでに実現していた Liit のようなフレームを Android 上でもつけることができるようにしたのだけどその手順のメモを残す。">
+
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202502/fig2025022602.jpg">
+	<meta property="og:image:width" content="340">
+	<meta property="og:image:height" content="512">
+
+	<link rel="stylesheet" type="text/css" href="../index.css">
+	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.3.0"></script>
+	<style>
+		dt {
+			font-weight:bold;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>The road Orz passed by 2025 年 02 月</h1>
+	<div id="contents">
+		<h3 id="20250226">02 月 26 日 ( 水 )</h3>
+		<div id="2025022601" class="top-mutter">
+			<h4>Android 上で画像に Liit のようなフレームをつけることができるようにした</h4>
+			<p><a href="https://apps.apple.com/jp/app/liit-%E5%86%99%E7%9C%9F%E5%8A%A0%E5%B7%A5-%E5%8B%95%E7%94%BB%E7%B7%A8%E9%9B%86/id1547215938" class="external">Liit</a> によるフレーム付加がすでに定着しており、今やどの SNS でも Liit でフレームが附加された画像を見ることができる。</p>
+			<p>Liit によるフレーム付加って何？とういう人のために、再度画像をお見せする。Liit を使えば以下のように画像にフレームを付加することができる。メーカーの意匠まで附加された画像が SNS に多数アップされたことで、違法ではないか？と大騒ぎになったことは記憶に新しい。</p>
+			<figure>
+				<img width="505" src="https://rencame.net/wp-content/uploads/2023/07/356302104_215062347836447_5482039937740807066_n.jpeg">
+				<figcaption>坂本蓮 &quot;<a href="https://rencame.net/liit_app/">坂本くんブログやるってよ</a>&quot; より</figcaption>
+			</figure>
+			<p>大雑把に説明するとスマホやデジタル写真機で撮影した JPEG データには Exif データというものが記録されている。Liit は Exif データの中からユーザが任意の Tag をチョイスし (チョイスできる Tag には制限があるかもしれない)、フレーム上にプリントすることができる。</p>
+			<p>もうすでにご存知だとは思うが、この Liit は iPhone 上でしか動かない。Android や他の OS には移植されてはいない。iPhone は持っていないけど同じことをやりたい、という人が続出した。筆者もその一人だ。</p>
+			<p>似たようなことができる Android 用のアプリとして以前は Sukashi というアプリがあった。しかし現在は Google Play Store から消えている。代替品は &quot;exif frame&quot; で検索すると、<a href="https://play.google.com/store/search?q=exif%20frame&c=apps" class="external">複数のアプリがヒットする</a>ので、どれかをチョイスすれば良い。</p>
+			<p>筆者の場合、撮影のメイン機材はデジタル一眼レフであり、JPEG 化はほぼ PC 上の Adobe Lightroom でやっている。なので Liit の代替品も PC で動いてくれないと困る。</p>
+			<p>さらに使用 OS が Ubuntu MATE ということもあり、Liit のクローンアプリは存在しない。なので Ubuntu MATE 上で同様のことができるプログラムとして addframe というものを Go 言語で書いた。コードは <a href="https://github.com/mitsugu/addframe" class="external">GitHub で公開している</a>。</p>
+			<p>なお GitHub 上では Ubuntu、Windows、MacOS 用のバイナリも配布している。PC へのインストールと使い方は GitHub 上の README を読んで欲しい。日本語の README も置いてある。</p>
+			<p>addframe でフレームを付加した画像が以下になる。</p>
+			<figure>
+				<img width="512" src="fig2025022601.jpg">
+			</figure>
+			<p>残念なお知らせをしなければならない。addframe では Exif Tag をユーザが選ぶことはできない。プログラム内で固定されている。Exif データのうちどの Tag がチョイスされているのかはコードを見て欲しい。load という関数にリストされている。</p>
+			<p>それ以外の詳細は GitHub の README やソースコード、添付の json ファイルを眺めてもらえればだいたい理解できると思う。</p>
+			<p>それと撮影者名だが Exif の Author Tag を読み出して出力している。スマホのカメラだと通常 Author Tag は存在しないので (存在する機種もあるかもしれないが機種依存)、撮影者名を出力するには Author Tag を書き込んでやる必要がある。<a href="https://exiftool.org/" class="external">exiftool</a> などで直接書き込んでやってもいいのだけれど 便宜を図るために addcopyright というコードを Go 言語で書いた。やはり <a href="https://github.com/mitsugu/addcopyright" class="external">GitHub で公開している</a>。</p>
+			<p>addcopyright も addframe も Apache License 2.0 で公開しているので、気に入らなければライセンスに従って自由に手を加えてもらって問題ない。</p>
+			<p><a href="../202408/12.html#2024081201">addframe に関する日記は実は過去にすでに書いている</a>。しかし恐らく覚えている人は皆無であろうとしか思えないので再度書いてきた。実はここまでは枕であって、ここから先が今日の日記の本題である。</p>
+			<hr>
+			<p>昨年 8 月に妻と娘夫婦とで上高地にでかけた。実は現地でスマホを利用して addframe と同じことをやりたかった。やりたくていろいろアプリを利用したり Web サービスを利用したりと工夫を試みた。しかし addframe 自体が自分の好みにチューンされていることもあり、決して満足できるものではなかった。結局現地では何もしなかったと言っていい。</p>
+			<p>Android 上で動作する Termux という Linux ライクな端末環境がある。上高地へと出かける前に Termux 環境を利用すれば Android スマホで Ubuntu MATE 環境と同様に addframe を利用できるのではないかと思って準備を進めていた。しかし間に合わなかった。準備ができたのは今日の午前中のことだった。</p>
+			<p>以下にその準備のメモを残す。本当にメモなので、詳細は各自調べて欲しい。</p>
+			<dl>
+			<dt>必要なもの</dt>
+			<dd>
+				<ul>
+				<li><b>f-droid</b>
+					<p>Google Play Store ではなく <a href="https://f-droid.org/ja/" class="external">f-droid のサイト</a>からインストールする。</p>
+				</li>
+				<li><b>Termux</b>
+					<p>Google Play Store からではなく f-droid でインストールする。</p>
+				</li>
+				<li><b>git</b>
+					<p>Termux 上で pkg install git でインストールする。</p>
+				</li>
+				<li><b>golang</b>
+					<p>Termux 上で pkg install golang でインストールする。</p>
+				</li>
+				<li><b>Vim</b>
+					<p>Termux 上で pkg install vim でインストールする。Emacs が好きなら Emacs でも良い。nano が好きなら nano でも良い。ed で頑張りたいならそれもよい。</p>
+				</li>
+				<li><b>ImageMagick</b>
+					<p>addcopyright、addframe から呼び出される。必ずインストールしなければならない。pkg install imagemagick でインストールすれば良い。</p>
+				</li>
+				<li><b>exiftool</b>
+					<p>addcopyright、addframe から呼び出される。必ずインストールしなければならない。pkg install exiftool でインストールすれば良い。</p>
+				</li>
+				</ul>
+			</dd>
+			<dt>あると良いもの</dt>
+			<dd>
+				<ul>
+				<li><b>tmux</b>
+					<p>なくても問題はないが、筆者は画面を遡りたいことが多いのと複数ペイン、複数ウィンドウを使いたいのでインストールしている。</p>
+				</li>
+				<li><b>vifm</b>
+					<p>作業効率が劇的に変わるのでインストールをお勧めする。</p>
+				</li>
+				<li><b>好きな shell</b>
+					<p>普段使ってる shell をインストールすれば良い。bash がデフォルトなので bash が好きなら他の shell を入れる必要はない。筆者は fish を愛用しているので Termux にも fish を入れている。</p>
+				</li>
+				</ul>
+			</dd>
+			<dt>フォントファイルの Termux 環境へのコピー</dt>
+			<dd>
+				<p>フォントがないと addframe はエラーで落ちる。正確には addframe が呼び出している ImageMagick がエラーを返して処理を中断する。ImageMagick が利用できるフォントファイルを Termux 環境にコピーしなければならない。</p>
+				<p>筆者は TrueType フォントと OpenType フォントを使っている。Bitmap フォントはそもそも美しくないこともあり使ったことがない。</p>
+				<p>筆者は ~/Pictures/font ディレクトリにフォントファイルを置いている。</p>
+			</dd>
+			<dt>addcopyright のインストール</dt>
+			<dd>
+				<p>以下の手順を推奨。</p>
+				<ol>
+				<li>go install github.com/mitsugu/addcopyright@latest</li>
+				<li>~/go/bin/addcopyright へのシンボリックリンクを /data/data/com.termux/usr/bin に張る。なぜこんな面倒なことをしているのかというと、Termux 環境では PATH 環境変数を変更できないから (まじで何をしても無駄)。</li>
+				</ol>
+			</dd>
+			<dt>addframe のインストール</dt>
+			<dd>
+				<p>以下の手順を推奨。</p>
+				<ol>
+				<li>go install github.com/mitsugu/addframe@latest</li>
+				<li>~/go/bin/addframe へのシンボリックリンクを /data/data/com.termux/usr/bin に張る。なぜこんな面倒なことをしているのかというと、Termux 環境では PATH 環境変数を変更できないから (まじで何をしても無駄)。</li>
+				</ol>
+			</dd>
+			<dt>json ファイルの編集</dt>
+			<dd>
+				<p>Github で公開している json 形式の設定ファイルをダウンロードし、Vim で編集する (もちろん Vim でなくてもよい)。ImageMagick のフルパス、exiftool のフルパス、フォントファイルのフルパスは環境にあわせて必ず編集しなければならない。他のパラメータは変更したければ変更してもよい。</p>
+				<p>ただし json の中身を理解せず適当に変更すると addcopyright や addframe がクラッシュすることがある。あるいはエラーになる。エラーにならず、単に出力画像が崩壊する程度で収まる場合もある。</p>
+			</dd>
+			</dl>
+			<figure>
+				<img height="512" src="fig2025022602.jpg">
+				<figcaption>Google Pixel 9 Pro Fold にて撮影し、同スマホ上で addframe と addcopyright を利用して作成。</figcaption>
+			</figure>
+			<ul class="clear nomark">
+				<li class="tag">Category : </li>
+				<li class="tag">#日記</li>
+				<li class="tag">#blog</li>
+				<li class="tag">#tag</li>
+			</ul>
+		</div>
+		<ul class="nomark">
+			<li><span class="makibishi" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" data-url="https://likebar.harisen.jp/202502/26.html" data-content="⭐⭐" data-allow-anonymous-reaction="true"></span>&nbsp;
+				<button data-npub="npub1f3vjqsxrnv7g6fauy5kakcfh4ftmcvk3qd29de8u43qpc2f69g8ss3zlfs" data-relays="wss://nrelay-jp.c-stellar.net,wss://nrelay.c-stellar.net,wss://r.kojira.io,wss://relay-jp.nostr.wirednet.jp,wss://relay.nostr.band/,wss://relay.nostr.wirednet.jp,wss://yabu.me" title="Bitcoin 投げ銭">Zap ⚡️</button>
+			</li>
+		</ul>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</body>
+
+</html>
+<!--
+vim: ts=2 sw=2 noet
+-->
+

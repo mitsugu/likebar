@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>The road Orz passed by</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://mitsugu.github.io/likebar/202208/06.html">
+
+  <meta name="title" content="RICOH THETA SC2 内のデータを Linux から読み取るには">
+  <meta name="description" content="RICOH THETA SC2 内のデータを Alter Linux から読み取るには少し設定をいじってパッケージを追加する必要があった。">
+  <meta name="keywords" content="日記, blog, RICOH THETA SC2, MTP, Alter Linux, Archlinux">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RICOH THETA SC2 内のデータを Linux から読み取るには">
+  <meta property="og:description" content="RICOH THETA SC2 内のデータを Alter Linux から読み取るには少し設定をいじってパッケージを追加する必要があった。">
+  <meta property="og:url" content="https://mitsugu.github.io/likebar/202208/06.html">
+  <meta property="og:site_name" content="The road Orz passed by">
+  <meta property="og:html" content="RICOH THETA SC2 内のデータを Alter Linux から読み取るには少し設定をいじってパッケージを追加する必要があった。">
+
+  <!--
+  <meta property="og:image" content="https://i.imgur.com/m2taTNF.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="288">
+  -->
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="https://mitsugu.github.io/likebar/202208/06.html">
+
+  <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>The road Orz passed by 2022 年 08 月</h1>
+  <div id="contents">
+    <h3 id="20220806">08 月 06日 ( 土 )</h3>
+    <div id="2022080601" class="top-mutter">
+      <h4>RICOH THETA SC2 内のデータを Linux から読み取るには</h4>
+      <p>RICOH THETA SC2 の使用説明書には Windows との接続に関する記述はあるのだけれど、まぁ予想されてはいたが Linux との接続の記述は一切ない。ためしに UBS 接続してみても SC2 の内部ドライブが自動マウントされるということは一切なかった。</p>
+      <p>そこで Windows 10 に USB 接続してみた。普通に Windows Exploere に RICOH THETA SC2 が現れる。はて？</p>
+      <p>しばらく悩んでいたのだけれど Windows では USB ドライブとして認識されているわけではなかった。USB のアイコンをクリックしてもそこには SC2 の姿は見当たらない。</p>
+      <p>Windows のトラブルシューティングを眺めていると MTP の文字がっ！！</p>
+      <p>RICOH THETA SC2 は USB ケーブルで接続するとスマホと同じく MTP デバイスとして認識するらしい。</p>
+      <p>そこで Linux でカメラを MTP デバイスとして接続する方法を調べてみた。すると Ubuntu の場合だが以下の情報がヒットした。</p>
+      <ol>
+        <li>/etc/fuse.conf の user_allow_other が書かれた行がコメントアウトされているので、この行をアンコメントして user_allow_other を有効にする。</li>
+        <li>gvfs-gphoto2 パッケージをインストールする。</li>
+      </ol>
+      <p>この２つを実行すれば USB 接続されたカメラを MTP デバイスとして認識するらしい。gvfs-gphoto2 パッケージも Alter Linux のリポジトリにあった。ただしバイナリはないみたいで、yay でインストールするときにソースからビルドされた。</p>
+      <p>これで無事に Thuner が RICOH THETA SC2 を MTP デバイスとしてマウントするようになった。Nautilus でも認識するらしいので同じ手順で Ubuntu や Ubuntu MATE でも認識するはず。</p>
+      <p>RICOH THETA SC2 のデータを取り出すためだけに Windows やら USB デバイスやらクラウド・ストレージを使わなければならないような事態から開放されてホッとしている。</p>
+      <p class="center">RICOH THETA SC2</p>
+      <p class="center">↓</p>
+      <p class="center">Windows 10 機</p>
+      <p class="center">↓</p>
+      <p class="center">USB メモリー等のデバイス or クラウド・ストレージ</p>
+      <p class="center">↓</p>
+      <p class="center">メインの Alter Linux 機</p>
+      <p class="mid-flow">という面倒さから開放された。</p>
+      <ul class="clear nomark">
+         <li class="tag">Category : </li>
+         <li class="tag">日記</li>
+         <li class="tag">RICOH THETA SC2</li>
+         <li class="tag">MTP</li>
+         <li class="tag">Alter Linux</li>
+         <li class="tag">Archlinux</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+</body>
+</html>
