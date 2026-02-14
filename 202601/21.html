@@ -27,18 +27,35 @@
 	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202601/fig2026012101.jpg" />
 
 	<link rel="stylesheet" type="text/css" href="../index.css">
+	<!--
+	<script defer src="toggle.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
-	<script defer src="toggle.js"></script>
 	<script defer src="https://unpkg.com/@popperjs/core@2"></script>
 	<script defer src="https://unpkg.com/tippy.js@6"></script>
 	<script defer src="../tippy.js"></script>
 	<link rel="stylesheet" href="../tippy.css" />
-	<link rel="stylesheet" href="../h5.css" />
-	<link rel="stylesheet" href="../h6.css" />
+
+	<link rel="stylesheet" href="../autoslider.css" />
+	<script defer src="../autoslider.js"></script>
+	<link rel="stylesheet" href="../bubble.css" />
+	-->
+	<link rel="stylesheet" href="../image-unit.css" />
+	<script defer src="../image-unit.js"></script>
+	<!--
+	<link rel="stylesheet" href="../opal.css" />
+	<script defer src="../opal.js"></script>
 	<link rel="stylesheet" href="../slider.css" />
 	<script defer src="../slider.js"></script>
+	-->
+
+	<link rel="stylesheet" href="../wrappedmedia.css" />
+
+	<!--
+	<link rel="stylesheet" href="../h5.css" />
+	<link rel="stylesheet" href="../h6.css" />
 	<link rel="stylesheet" href="../blockquote.css" />
+	-->
 	<style>
 		table, th, td {
 			border: 1px solid black!important;
@@ -79,8 +96,9 @@
 			<p>ぼくの師匠の世代や、それ以前のまだ指導団体がなかった頃のレジェンドダイバー世代は、超人と呼んでいいほどダイバーとして強い人たちです。もしかするとぼくたちなんかと違って、絶対に海では死なないんじゃないか？と思えるほどです。</p>
 			<div class="container">
 				<div class="right">
-					<figure>
-						<img width="512" height="340" src="fig2026012101.png">
+					<figure class="img-container" data-fullscreen="true">
+						<img class="target-img" loading="lazy" width="512" height="340" src="fig2026012101.webp">
+						<button class="fullscreen-btn">⛶</button>
 						<figcaption>Gemini にて生成</figcaption>
 					</figure>
 				</div>

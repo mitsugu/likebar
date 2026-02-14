@@ -159,7 +159,54 @@
     z-index: 9999;
 }
 
-/* コンテナ自体の制限解除 */
+/* --------------------------------------------------
+   フルスクリーンモード設定
+   1. :fullscreen        (標準API)
+   2. :-webkit-full-screen (Chrome/Safari/Android等)
+   3. .ios-fullscreen    (iPhone CSS Hack)
+-------------------------------------------------- */
+
+/* --- 1. コンテナ（外枠）の設定 --- */
+
+/* 標準 & iOSハック */
+.slider-wrapper:fullscreen,
+.slider-wrapper.ios-fullscreen {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* WebKit系（これを追加しないとAndroid等で比率解除が効かない場合がある） */
+.slider-wrapper:-webkit-full-screen {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* iOSハック（画面固定） */
+.slider-wrapper.ios-fullscreen {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    z-index: 9999;
+}
+
+/* --- 2. スライダー本体の制限解除 --- */
+/* ここで aspect-ratio: unset !important が効かないと巨大化します */
+
+/* 標準 & iOS */
 .slider-wrapper:fullscreen .slider-container,
 .slider-wrapper.ios-fullscreen .slider-container {
     width: 100%;
@@ -170,23 +217,49 @@
     border-radius: 0;
 }
 
-/* 画像は必ず全体を表示（見切れないようにする） */
+/* WebKit系 */
+.slider-wrapper:-webkit-full-screen .slider-container {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: unset !important; /* アスペクト比固定を解除 */
+    background: black;
+    border-radius: 0;
+}
+
+/* --- 3. 画像の表示設定 --- */
+/* object-fit: contain で画面内に収める */
+
+/* 標準 & iOS */
 .slider-wrapper:fullscreen .slide-item img,
 .slider-wrapper.ios-fullscreen .slide-item img {
     object-fit: contain !important;
+    width: 100%;
+    height: 100%; /* 高さをコンテナに合わせる */
 }
 
-/* ボタンの表示制御 */
+/* WebKit系 */
+.slider-wrapper:-webkit-full-screen .slide-item img {
+    object-fit: contain !important;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- 4. ボタンの表示制御 --- */
+
 /* 全画面中は拡大ボタンを消す */
 .slider-wrapper:fullscreen .fs-btn,
+.slider-wrapper:-webkit-full-screen .fs-btn,
 .slider-wrapper.ios-fullscreen .fs-btn {
     display: none;
 }
 
-/* 全画面中（API版）は閉じるボタン不要（ESCで戻るため） */
-.slider-wrapper:fullscreen .close-btn {
+/* 全画面中（API版）は閉じるボタン不要 */
+.slider-wrapper:fullscreen .close-btn,
+.slider-wrapper:-webkit-full-screen .close-btn {
     display: none; 
 }
+
 /* 全画面中（iOS版）は閉じるボタン必須 */
 .slider-wrapper.ios-fullscreen .close-btn {
     display: block !important; 

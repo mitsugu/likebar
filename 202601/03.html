@@ -27,19 +27,42 @@
 	<meta name="twitter:image" content="https://s.yimg.jp/images/ks/clap/image/ogp/ogp.png" />
 
 	<link rel="stylesheet" type="text/css" href="../index.css">
+	<!--
+	<script defer src="toggle.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
-	<script defer src="toggle.js"></script>
 	<script defer src="https://unpkg.com/@popperjs/core@2"></script>
 	<script defer src="https://unpkg.com/tippy.js@6"></script>
 	<script defer src="../tippy.js"></script>
 	<link rel="stylesheet" href="../tippy.css" />
+
+	<link rel="stylesheet" href="../autoslider.css" />
+	<script defer src="../autoslider.js"></script>
+	<link rel="stylesheet" href="../bubble.css" />
+	-->
+	<link rel="stylesheet" href="../image-unit.css" />
+	<script defer src="../image-unit.js"></script>
+	<!--
+	<link rel="stylesheet" href="../opal.css" />
+	<script defer src="../opal.js"></script>
+	<link rel="stylesheet" href="../slider.css" />
+	<script defer src="../slider.js"></script>
+	<link rel="stylesheet" href="../wrappedmedia.css" />
+
+	<link rel="stylesheet" href="../h5.css" />
+	<link rel="stylesheet" href="../h6.css" />
+	<link rel="stylesheet" href="../blockquote.css" />
+	-->
 	<style>
 		blockquote {
 			background-color:gainsboro;
 			padding-left:1em;
 			padding-right:1em;
 			border-radius:1em;
+		}
+		iframe {
+			width:512px;
+			height:288px;
 		}
 	</style>
 </head>
@@ -172,8 +195,9 @@
 			<p>Whisk の画像生成エンジンが Imagen から Nano Banana に移行したというのを知ったので、久しぶりにキャラクターを生成してみた。</p>
 			<div class="container">
 				<div class="left">
-					<figure>
-						<img width="512" height="288" src="fig2026010301.png">
+					<figure class="img-container" data-fullscreen="true">
+						<img class="target-img" loading="lazy" width="512" height="288" src="fig2026010301.webp">
+						<button class="fullscreen-btn">⛶</button>
 						<figcaption>
 							Whisk にて生成<br>
 							Whisk Prompt:<br>
@@ -266,11 +290,7 @@
 			</div>
 			<p class="no-indent">P.S.</p>
 			<p>動かしてみました。</p>
-			<video controls width="512">
-				<source src="fig2026010302.mp4" type="video/mp4" />
-				Download the
-				<a href="fig2026010302.mp4">MP4</a> video.
-			</video>
+			<iframe width="754" height="424" src="https://www.youtube.com/embed/G28m2891e74" title="fig2026010302 for Web" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 			<ul class="clear nomark">
 				<li class="tag">Category : </li>
 				<li class="tag">#日記</li>
