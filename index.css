@@ -40,6 +40,16 @@ h3 {
   */
   width: fit-content;
 }
+
+.crumbs ol {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+}
+.crumbs {
+  display: inline-block;
+}
+
 .skip {
   font-size:0.75em;
 }
