@@ -293,7 +293,7 @@ table.pentax17 td {
 table.pentax17 td:nth-child(1) {
 	border-right:1px solid black;
 }
-blockquote.caution {
+blockquote.caution, blockquote.attention {
 	background-color: #ff9372;
 	color: black;
 	border-radius: 10px;
