@@ -1,132 +1,221 @@
-/* --- 1. 親要素と画像の設定 --- */
+/* =========================================
+   画像 + 全画面表示
+   ========================================= */
+
+/* --- 1. 画像コンテナ --- */
 .img-container {
     position: relative;
-    display: inline-block; /* 枠を画像サイズに合わせる */
+    display: inline-block;
+    max-width: 100%;
     margin: 0;
 }
 
+/* --- 2. 画像本体 --- */
 .target-img {
     display: block;
+
+    /* 親要素の幅を超えない */
     max-width: 100%;
+
+    /* 元画像のアスペクト比を維持 */
+    width: 100%;
     height: auto;
 }
 
-/* --- 2. ボタンの基本デザイン（四角形・1.5em） --- */
+
+/* =========================================
+   全画面表示ボタン
+   ========================================= */
+
 .fullscreen-btn {
     position: absolute;
     top: 15px;
     right: 15px;
     z-index: 10;
 
-    /* デザイン指示の反映 */
-    border-radius: 4px;
     padding: 6px 10px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
-    border: 1px solid #fff;
-    cursor: pointer;
-    font-size: 1.5em;
 
-    /* アニメーション */
-    transition: all 0.3s ease;
+    font-size: 1.5em;
+    cursor: pointer;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
-/* --- 3. デバイスごとの表示切り替え（ホバー対策） --- */
 
-/* マウス操作ができるデバイス（PCなど） */
+/* =========================================
+   デバイスごとのボタン表示
+   ========================================= */
+
+/* マウスなどホバー可能なデバイス */
 @media (hover: hover) {
     .fullscreen-btn {
         opacity: 0;
         visibility: hidden;
     }
-    /* data-fullscreen="true" かつ ホバー時のみ表示 */
+
     .img-container[data-fullscreen="true"]:hover .fullscreen-btn {
         opacity: 1;
         visibility: visible;
     }
 }
 
-/* タッチ操作のデバイス（スマホ・タブレット） */
+/* タッチ操作を主とするデバイス */
 @media (hover: none) {
-    /* スマホでは最初から表示（ホバーがないため） */
     .fullscreen-btn {
         opacity: 1;
         visibility: visible;
     }
 }
 
-/* ホバー時の色反転（PC用） */
+/* ボタンのホバー */
 .fullscreen-btn:hover {
     background-color: #fff;
     color: #000;
 }
 
-/* --- 4. 無効化パラメーターの強制適用 --- */
-/* false の時はデバイス問わず絶対に表示しない */
+/* 全画面表示無効 */
 .img-container[data-fullscreen="false"] .fullscreen-btn {
     display: none !important;
 }
 
-/* --- 5. 全画面表示時のスタイル（画像のみ） --- */
-.target-img:fullscreen {
-    object-fit: contain;      /* アスペクト比を維持 */
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;   /* 背景黒 */
-}
-
-/* Safari向け */
-.target-img:-webkit-full-screen {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
 
 /* =========================================
-   ここから下が追加するレイアウト用の記述
+   全画面表示
    ========================================= */
 
-/* --- 1. 親要素と同一の幅 --- */
+/*
+ * img要素自体を画面いっぱいの領域にして、
+ * object-fit: contain で元画像の比率を維持する。
+ *
+ * 余白部分は黒背景になる。
+ */
+.target-img:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    background-color: #000;
+}
+
+/* Safari */
+.target-img:-webkit-full-screen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+
+    object-fit: contain;
+
+    background-color: #000;
+}
+
+
+/* =========================================
+   画像 + テキスト回り込みレイアウト
+   ========================================= */
+
 .image-unit {
     width: 100%;
     margin-bottom: 2em;
-    /* 内部のfloat（回り込み）が親要素をはみ出さないようにする */
-    overflow: hidden; 
+
+    /*
+     * floatした子要素を親要素内に収める。
+     * display: flow-root のほうが、
+     * overflow: hidden より副作用が少ない。
+     */
+    display: flow-root;
 }
 
-/* --- 2 & 4. 画像エリアを半分(50%)にし、1emのpaddingを設ける --- */
+
+/* =========================================
+   左画像
+   ========================================= */
+
 .image-unit .left {
-    float: left;         /* 左に配置し、テキストを右に回り込ませる */
-    width: 50%;          /* 幅を厳密に50%にする */
-    padding-right: 1em;  /* 右側に1emの余白を作る */
-    box-sizing: content-box; /* コンテンツ幅50% ＋ 余白1em の計算にする */
+    float: left;
+
+    /*
+     * paddingを含めて50%。
+     * content-box にすると
+     * 「50% + 1em」になってしまうため border-box を使用。
+     */
+    width: 50%;
+    padding-right: 1em;
+
+    box-sizing: border-box;
 }
+
+
+/* =========================================
+   右画像
+   ========================================= */
 
 .image-unit .right {
-    float: right;        /* 右に配置し、テキストを左に回り込ませる */
+    float: right;
+
     width: 50%;
     padding-left: 1em;
-    box-sizing: content-box;
+
+    box-sizing: border-box;
 }
 
-/* --- 3. figure要素とimg要素を半分の枠内に確実に収める --- */
+
+/* =========================================
+   image-unit 内の figure / img
+   ========================================= */
+
 .image-unit figure.img-container {
-    width: 100%;    /* 親である .left/.right のコンテンツ幅(50%)に追従 */
-    display: block; /* 上部にある inline-block を上書き */
+    /*
+     * 上の .img-container の inline-block を上書きし、
+     * .left / .right の幅いっぱいを使用する。
+     */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
 }
 
 .image-unit .target-img {
-    width: 100%;    /* 画像をfigureの幅いっぱいに広げる */
+    display: block;
+
+    /*
+     * figureの横幅に合わせて画像を縮小・拡大。
+     * height:auto により元画像の縦横比を維持。
+     */
+    width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
-/* --- 【前回からの引き継ぎ】狭い画面（900px以下）では縦並びにする --- */
+
+/* =========================================
+   レスポンシブ
+   900px以下では縦並び
+   ========================================= */
+
 @media screen and (max-width: 900px) {
     .image-unit .left,
     .image-unit .right {
-        float: none;       /* 回り込みを解除 */
-        width: 100%;       /* 画像を横幅いっぱいにする */
-        padding-right: 0;  /* 左右の余白を解除 */
+        float: none;
+
+        width: 100%;
+
         padding-left: 0;
-        margin-bottom: 1em; /* 画像の下（テキストとの間）に余白を作る */
+        padding-right: 0;
+
+        margin-bottom: 1em;
     }
 }
