@@ -24,8 +24,8 @@
 	<meta property="og:image:height" content="340">
 
 	<link rel="stylesheet" type="text/css" href="../index.css">
-	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<link rel="stylesheet" href="../image-unit.css" />
+	<script defer src="../image-unit.js"></script>
 </head>
 
 <body>
@@ -35,10 +35,11 @@
 		<div id="2025083001" class="top-mutter">
 			<h4>Dive #51: 串本日記</h4>
 			<p>今も串本にいます。</p>
-			<div class="container">
+			<div class="image-unit">
 				<div class="right">
-					<figure>
-						<img width="512" height="340" src="fig2025083001.jpg">
+					<figure class="img-container" data-fullscreen="true">
+						<img class="target-img" loading="lazy" width="512" height="384" src="fig2025083001.jpg">
+						<button class="fullscreen-btn">⛶</button>
 					</figure>
 				</div>
 				<p>そろそろメンテナンスを手伝っていたホームページの形が見えてきて大阪に戻る日が近づいてきているのかも、という気がし始めています。</p>

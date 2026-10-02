@@ -18,21 +18,21 @@
 	<meta property="og:url" content="https://mitsugu.github.io/likebar/202511/18.html">
 	<meta property="og:site_name" content="The road Orz passed by">
 
-	<meta property="og:image" content="https://mitsugu.github.io/likebar/202511/fig2025111801.png">
+	<meta property="og:image" content="https://mitsugu.github.io/likebar/202511/fig2025111801.jpg">
 	<meta property="og:image:width" content="512">
 	<meta property="og:image:height" content="931">
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Dive #80: Sora2 での動画の作り方" />
 	<meta name="twitter:description" content="Sora2 でのぼくなりの動画の作り方を説明します。なぜぼくなりと書くのかは読んでください。" />
-	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202511/fig2025111801.png" />
+	<meta name="twitter:image" content="https://mitsugu.github.io/likebar/202511/fig2025111801.jpg" />
 
 	<link rel="stylesheet" type="text/css" href="../index.css">
-	<script src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<link rel="stylesheet" href="../image-unit.css" />
+	<script defer src="../image-unit.js"></script>
 	<style>
-		.fig01 {
-			width:392px;
-			height:696px;
+		.fig01, .fig02 {
+			width:100%;
+			height:52em;
 		}
 		blockquote {
 			padding:0.5em;
@@ -50,9 +50,9 @@
 			<h4>Dive #80: Sora2 での動画の作り方 (暫定公開)</h4>
 			<h5>はじめに (という名の雑文)</h5>
 			<p>YouTube に以下のようなショート動画 (以下 Figure 01 と記す) をポストしました。</p>
-			<div class="container">
+			<div class="image-unit">
 				<div class="left">
-					<figure>
+					<figure class="img-container" data-fullscreen="true">
 						<iframe class="fig01" width="392" height="696" src="https://www.youtube.com/embed/gOTKycEaUEo" title="串本の海" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 						<figcaption>Figure 01</figcaption>
 					</figure>
@@ -119,10 +119,10 @@
 			</blockquote>
 
 			<p>試してみたでしょうか？実際に試してみたら、ぼくの動画、Figure 01 と全然違うものが出てきたと思います。例えば以下の Figure 02 のように。</p>
-			<div class="container">
+			<div class="image-unit">
 				<div class="left">
-					<figure>
-						<iframe class="fig01" width="392" height="696" src="https://www.youtube.com/embed/UnCuhdqzISM" title="Web embed 用" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<figure class="img-container" data-fullscreen="true">
+						<iframe class="fig02" width="392" height="696" src="https://www.youtube.com/embed/UnCuhdqzISM" title="Web embed 用" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 						<figcaption>Figure 02</figcaption>
 					</figure>
 				</div>
