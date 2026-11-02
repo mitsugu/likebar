@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>The road Orz passed by</title>
+  <link rel="stylesheet" type="text/css" href="../index.css">
+</head>
+<body>
+  <h1>The road Orz passed by 2012 年 06 月</h1>
+  <div id="contents">
+    <h2>2012 年</h2>
+    <h3 id="20120608">06 月 08 日 ( 金 )</h3>
+    <div id="2012060801" class="top-mutter">
+      <h4>LilyPond で記譜する前に最初に読むべきドキュメント</h4>
+      <p><a href="https://lilypond.org/" class="external">LilyPond</a> を使った記譜方法を勉強中です。お前の手書き譜は読めねぇと他の人に不評なのです。</p>
+      <p>LilyPond では楽譜を普通のテキストエディタで編集して、lilypond コマンドでコンパイルして PDF ファイルとして譜面を生成します。以前にも書きましたが成果物の生成方法が Tex や Latex に似ています。</p>
+      <p>なので LilyPond がコンパイル可能な書式・文法でテキスト・ファイルを作成する必要があります。</p>
+      <p>LilyPond は文法が記載されたドキュメントの量が膨大なので、初めて LilyPond を使おうとする人はどこから手をつければいいのか途方に暮れてしまうかも知れません。</p>
+      <p>膨大なドキュメントに途方に暮れるまえに<a href="https://lilypond.org/doc/v2.14/Documentation/learning/index.ja.html" class="external">学習マニュアル</a>から読みましょう。最初に知っておくべきことが書かれています。</p>
+      <p>個人的には &quot;<a href="https://lilypond.org/doc/v2.14/Documentation/learning/organizing-pieces-with-variables" class="external">2.4.1 変数を用いて楽曲を編成する</a>&quot; は最初に読んでおくべきだと思うのですよ。変数というものが何かを知らないと読めないサンプルが多すぎるので。</p>
+      <p>それと &quot;<a href="https://lilypond.org/doc/v2.14/Documentation/learning/introduction-to-the-lilypond-file-structure" class="external">3.1.1 LilyPond ファイル構造の紹介</a>&quot; も最初に読んでおいた方がいいです。ファイル構造がわからないとサンプルを読もうとしても手も足もでないので。</p>
+      <p>あと個人的には 4 小節単位で % が書けるように</p>
+      <code>
+        \repeat percent 16 { a1 | d1 | a1 | e1 | }
+      </code>
+      <p class="mid-flow">というような書き方ができてほしい。percent は 2 小節までという制限がわたしのような軽音楽系の人間には理解できまぺん。</p>
+      <ul class="nomark">
+        <li class="tag">Category :</li>
+        <li class="tag">Software</li>
+        <li class="tag">ソフトウェア</li>
+        <li class="tag">プログラム</li>
+        <li class="tag">LilyPond</li>
+        <li class="tag">記譜</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>The road Orz passed by</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://mitsugu.github.io/likebar/202207/24.html">
+
+  <meta name="title" content="忍者ツールズに lftp で接続するときの注意">
+  <meta name="description" content="忍者ツールズのホームページサービスで FTP でファイルをアップするときは忍者ツールズがオレオレ証明書を使ってるので証明書チェックを off にしないとファイルの put 時にエラーでコケる。">
+  <meta name="keywords" content="日記, blog, メモ, IT, Web, ホームページ, FTP, LFTP, FTP over SSL, SSL, 忍者ツールズ, オレオレ証明書">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="忍者ツールズに lftp で接続するときの注意">
+  <meta property="og:description" content="忍者ツールズのホームページサービスで FTP でファイルをアップするときは忍者ツールズがオレオレ証明書を使ってるので証明書チェックを off にしないとファイルの put 時にエラーでコケる。">
+  <meta property="og:url" content="https://mitsugu.github.io/likebar/202207/24.html">
+  <meta property="og:site_name" content="The road Orz passed by">
+  <meta property="og:html" content="忍者ツールズのホームページサービスで FTP でファイルをアップするときは忍者ツールズがオレオレ証明書を使ってるので証明書チェックを off にしないとファイルの put 時にエラーでコケる。">
+  <meta property="og:html" content="忍者ツールズのホームページサービスで FTP でファイルをアップするときは忍者ツールズがオレオレ証明書を使ってるので証明書チェックを off にしないとファイルの put 時にエラーでコケる。">
+  <!--
+  <meta property="og:image" content="https://i.imgur.com/m2taTNF.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="288">
+  -->
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="https://mitsugu.github.io/likebar/202207/24.html">
+
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/go.min.js"></script>
+</head>
+<body>
+  <h1>The road Orz passed by 2022 年 07 月</h1>
+  <div id="contents">
+    <h3 id="20220724">07 月 24日 ( 日 )</h3>
+    <div id="2022072401" class="top-mutter">
+      <h4>忍者ツールズに lftp で接続するときの注意</h4>
+      <p>忍者ツールズのホームページサービスが SSL に対応してからかなりの時間が経過している。久しぶりに LFTP でファイルを put する際にハマったのでメモとして残しておく。</p>
+      <p>最初に最も重要なことを記載しておく。忍者ツールズの SSL 証明書はオレオレ証明書なので普通に .lftprc に FTP over SSL 関連の記述を書くとエラーが発生してファイルを push できない。なので証明書のチェックを off にする必要がある。</p>
+      <p class="center"><b>なんて邪悪なんだろうか。</b></p>
+      <p>lftp でファイルをアップするためには以下を .lftprc に書かなければならない。</p>
+      <pre><code class="language-bash">set ftp:ssl-auth TLS
+set ftp:ssl-force true
+# 忍者ツールズが自己証明書を使ってるため
+# ftp:ssl-allow を off
+# ssl:verify-certificate を no
+# にしないと忍者ツールズに push できない
+# 体裁だけ整えただけで SSL 化の意味をなしていない
+# set ftp:ssl-allow yes
+set ftp:ssl-allow off
+set ftp:ssl-protect-list yes
+set ftp:ssl-protect-data yes
+set ftp:ssl-protect-fxp yes
+set ssl:verify-certificate no</code></pre>
+      <ul class="clear nomark">
+         <li class="tag">Category : </li>
+         <li class="tag">日記</li>
+         <li class="tag">IT</li>
+         <li class="tag">Web</li>
+         <li class="tag">ホームページ</li>
+         <li class="tag">FTP</li>
+         <li class="tag">LFTP</li>
+         <li class="tag">FTP over SSL</li>
+         <li class="tag">SSL</li>
+         <li class="tag">忍者ツールズ</li>
+         <li class="tag">オレオレ証明書</li>
+      </ul>
+    </div>
+  </div>
+  <hr class="clear">
+  <ul class="footer">
+    <li><a href="index.html">戻る</a></li>
+  </ul>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+  </script
+</body>
+</html>

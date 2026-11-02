@@ -1,0 +1,49 @@
+digraph GSK {
+	//GSK3B[label="ＧＳＫー３β\n(不活化したい)", fillcolor="lightgray", style="filled", fontcolor=black, fontname="Helvetica-Bold"];
+	GSK3B[label="ＧＳＫー３β", fillcolor="lightcoral", style="filled", fontcolor=black, fontname="Helvetica-Bold"];
+	CREB;
+	BDNF;
+	AKT;
+	{rank=max; AKT;}
+
+	BCatenin;
+	{rank=same; GSK3B; BCatenin;}
+
+	Wnt [label="Wnt\nTarget Genes"]
+	BCatenin -> Wnt;
+	Neurogenesis [label="神経新生", shape=tripleoctagon, fontname="Helvetica-Bold"];
+	Wnt -> Neurogenesis;
+
+	Bad[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Cytokine[fillcolor="lightcoral", style="filled", fontcolor=black];
+
+	Li [label="リチウム", shape=box,fillcolor=lightblue, style="filled, rounded"];
+	{rank=min; Li;}
+
+	p53[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Bax[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Caspases[fillcolor="lightcoral", style="filled", fontcolor=black];
+	Li -> p53 [label=" 抑制", arrowhead=tee, style="dashed"];
+	p53 -> Bax;
+	Bax -> Caspases;
+	Caspases -> Apoptosis;
+
+	SSRI[label="SSRI\nSNRI\n第2世代抗精神病薬\n電気けいれん療法\n反復経頭蓋磁気刺激療法\n運動療法\n温熱療法\netc...", shape=box,fillcolor=lightblue, style="filled, rounded"];
+	//{rank=max; SSRI;}
+	{rank=same; SSRI; BDNF; AKT;}
+	SSRI -> BDNF;
+
+	Apoptosis[label = "神経細胞死", shape=tripleoctagon, fillcolor=black, style="filled" fontcolor=white, fontname="Helvetica-Bold"];
+
+	GSK3B -> CREB [label=" 抑制", arrowhead=tee, style=dashed];
+	CREB -> BDNF;
+	BDNF -> AKT;
+	AKT -> GSK3B [label=" 抑制", arrowhead=tee, style=dashed];
+
+	GSK3B -> BCatenin [label="抑制", arrowhead=tee, style=dashed];
+	AKT -> Bad [label="抑制", arrowhead=tee, style=dashed];
+	Bad -> Cytokine;
+	Cytokine -> Apoptosis;
+
+	Li -> GSK3B [label="抑制", arrowhead=tee, style=dashed];
+}
