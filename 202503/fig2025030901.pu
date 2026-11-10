@@ -1,0 +1,36 @@
+@startuml
+top to bottom direction
+
+rectangle ストレス as Stress
+rectangle "コルチゾール上昇" as Cortisol
+rectangle "炎症性サイトカイン上昇" as Cytokine
+rectangle "BDNF減少" as BDNF
+rectangle "Nrf2減少" as Nrf2
+rectangle "神経細胞新生の減少" as DecreaseInNewGrowth
+rectangle "シナプス可塑性低下" as Synapse
+rectangle "神経細胞のアポトーシス" as Apoptosis
+rectangle "セロトニン神経伝達の不調" as Serotonin
+rectangle うつ病 as Depression
+
+Stress --> Cortisol
+Stress --> Cytokine
+Cytokine --> Cortisol
+Cortisol --> BDNF
+Cytokine --> BDNF
+BDNF --> DecreaseInNewGrowth
+BDNF --> Apoptosis
+BDNF --> Synapse
+' BDNF --> Cortisol
+BDNF --> Nrf2
+Nrf2 --> Cytokine
+Synapse --> Serotonin
+
+Cytokine --> Serotonin
+
+DecreaseInNewGrowth --> Depression
+Serotonin --> Depression
+Apoptosis --> Depression
+
+note right of Stress : ストレス要因
+note right of Cytokine : 炎症反応
+@enduml

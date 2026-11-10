@@ -1,0 +1,57 @@
+/* レンズフレア効果は Gemini 2.5 Flash に教えてもらいました */
+.lens-flare {
+  position: relative; /* 擬似要素の基準位置とするため */
+  display: inline-block; /* 画像のサイズに合わせてコンテナを調整 */
+}
+
+.lens-flare::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(255, 255, 255, 0.15);*/ /* 白の半透明 */
+  /* グラデーションを使って、よりリアルなフレア感を出すことも可能 */
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none; /* 下の画像をクリック可能にするため */
+  mix-blend-mode: screen; /* または lighten, overlay など */
+}
+/* レンズフレア効果は Gemini 2.5 Flash に教えてもらいました */
+.uw-lens-flare {
+  position: relative; /* 擬似要素の基準位置とするため */
+  display: inline-block; /* 画像のサイズに合わせてコンテナを調整 */
+}
+
+.uw-lens-flare::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(255, 255, 255, 0.15);*/ /* 白の半透明 */
+  /* グラデーションを使って、よりリアルなフレア感を出すことも可能 */
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none; /* 下の画像をクリック可能にするため */
+  mix-blend-mode: screen; /* または lighten, overlay など */
+}
+/* レンズフレア効果は Gemini 2.5 Flash に教えてもらいました */
+.uw-lens-flare-2 {
+  position: relative; /* 擬似要素の基準位置とするため */
+  display: inline-block; /* 画像のサイズに合わせてコンテナを調整 */
+}
+
+.uw-lens-flare-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  /* グラデーションを使って、よりリアルなフレア感を出すことも可能 */
+  /*background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%);*/
+  pointer-events: none; /* 下の画像をクリック可能にするため */
+  mix-blend-mode: screen; /* または lighten, overlay など */
+}

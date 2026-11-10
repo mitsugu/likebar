@@ -1,0 +1,23 @@
+digraph GSK {
+	SSRI[label="SSRI\nSNRI\n第2世代抗精神病薬\n電気けいれん療法\n反復経頭蓋磁気刺激療法\n運動療法\n温熱療法\netc...", shape=box,fillcolor=lightblue, style="filled, rounded"];
+	BDNF;
+	{rank=min; SSRI;BDNF;}
+	SSRI -> BDNF[label="誘導"];
+
+	GSK3B[label="ＧＳＫー３β", fillcolor="lightcoral", style="filled", fontcolor=black, fontname="Helvetica-Bold"];
+	BDNF -> GSK3B[label=" 抑制", arrowhead=tee, style="dashed"];
+	GSK3B -> BDNF[label=" 抑制", arrowhead=tee, style="dashed"];
+
+	Neurogenesis[label="神経新生", shape=tripleoctagon, fontname="Helvetica-Bold"];
+	{rank=same;Neurogenesis;Apoptosis;}
+	GSK3B -> Neurogenesis[label=" 抑制", arrowhead=tee, style="dashed"];
+
+	Li [label="リチウム", shape=box,fillcolor=lightblue, style="filled, rounded"];
+	{rank=max; Li;}
+	Li -> GSK3B[label=" 抑制", arrowhead=tee, style="dashed"];
+
+	Apoptosis[label = "神経細胞死", shape=tripleoctagon, fillcolor=black, style="filled" fontcolor=white, fontname="Helvetica-Bold"];
+	GSK3B -> Apoptosis[label="誘導"];
+	BDNF -> Apoptosis[label=" 抑制", arrowhead=tee, style="dashed"];
+	Li -> Apoptosis[label=" 抑制", arrowhead=tee, style="dashed"];
+}

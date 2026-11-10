@@ -1,0 +1,15 @@
+digraph sample {
+	cust[shape="ellipse", label="お客様"];
+	subgraph cluster_our {
+		label=<<b>弊社</b>>;
+		color=black;
+		fillcolor=lightgray;
+		style="filled";
+		eigyou[shape="box", label="営業部", style="filled", fillcolor=white];
+		dev[shape="box", label="開発部", style="filled", fillcolor=white];
+		{rank=same;eigyou;dev;}
+		eigyou -> dev [label="開発依頼"];
+	}
+	cust -> eigyou [label="発注"];
+	dev -> cust [label="納品"];
+}
