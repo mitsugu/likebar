@@ -1,0 +1,36 @@
+.image-grid {
+  box-sizing: border-box;
+  display: grid;
+  /* 最小幅250pxを確保しつつ自動折り返し（リフロー対応） */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  gap: 24px 16px;
+  margin: 1.5em 0; /* 記事本文の前後との余白（不要なら 0 に変更） */
+}
+
+.image-grid *,
+.image-grid *::before,
+.image-grid *::after {
+  box-sizing: inherit;
+}
+
+.image-grid .image-item {
+  margin: 0;
+  padding: 0;
+}
+
+.image-grid .image-item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-grid .image-item figcaption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: gray;
+  text-align:center;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+

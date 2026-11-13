@@ -1,0 +1,645 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>The road Orz passed by</title>
+	<meta property="og:site_name" content="The road Orz passed by">
+	<link rel="icon" href="../icons/dj01.svg" type="image/x-icon">
+
+	<meta property="og:title" content="大規模言語モデルによるマンガ生成のあれこれ">
+	<meta name="twitter:title" content="大規模言語モデルによるマンガ生成のあれこれ" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+
+	<link rel="canonical" href="https://mitsugu.github.io/likebar/202611/12.html">
+	<meta property="og:url" content="https://mitsugu.github.io/likebar/202611/12.html">
+
+	<meta name="description" content="生成 AI でどうやってマンガを作っているのか。">
+	<meta name="twitter:description" content="生成 AI でどうやってマンガを作っているのか。" />
+
+	<meta name="keywords" content="日記, blog">
+	<meta property="og:type" content="article">
+	<meta property="og:description" content="生成 AI でどうやってマンガを作っているのか。">
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/2026103001.webp">
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/2026103001.webp" />
+	<meta property="og:image:width" content="512">
+	<meta property="og:image:height" content="340">
+
+	<link rel="stylesheet" href="../index.css">
+	<!--
+	<script defer src="toggle.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/@nikolat/makibishi@0.3.3"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/nostr-zap@1.2.0"></script>
+	<script defer src="https://unpkg.com/@popperjs/core@2"></script>
+	<script defer src="https://unpkg.com/tippy.js@6"></script>
+	<script defer src="../tippy.js"></script>
+	<link rel="stylesheet" href="../tippy.css" />
+
+	-->
+	<link rel="stylesheet" href="../autoslider.css" />
+	<script defer src="../autoslider.js"></script>
+	<!--
+	<link rel="stylesheet" href="../bubble.css" />
+	-->
+	<link rel="stylesheet" href="../image-unit.css" />
+	<script defer src="../image-unit.js"></script>
+	<!--
+	<link rel="stylesheet" href="../opal.css" />
+	<script defer src="../opal.js"></script>
+	<link rel="stylesheet" href="../slider.css" />
+	<script defer src="../slider.js"></script>
+	<link rel="stylesheet" href="../timeline.css" />
+	<script defer src="../timeline.js"></script>
+	<link rel="stylesheet" href="../wrappedmedia.css" />
+	-->
+	<link rel="stylesheet" href="../image-grid.css" />
+	<!--
+
+	<link rel="stylesheet" href="../h5.css" />
+	<link rel="stylesheet" href="../h6.css" />
+	-->
+	<link rel="stylesheet" href="../blockquote.css" />
+	<style>
+		/*
+		table, th, td {
+			border: 1px solid black!important;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top:3em;
+			margin-bottom:3em;
+		}
+		th, td {
+			padding: 8px;
+		}
+		th {
+			background-color:darkgray;
+		}
+		td {
+			text-align:left;
+		}
+		table tr td:nth-child(2) {
+			text-align: center;
+		}
+		*/
+	</style>
+</head>
+
+<body>
+<main>
+<article>
+	<h1>The road Orz passed by 2026 年 11 月</h1>
+	<div id="contents">
+		<h2 id="20261112">11 月 12 日 ( 木 )</h2>
+		<div id="2026111201" class="top-mutter">
+			<h3>大規模言語モデルによるマンガ生成のあれこれ</h3>
+			<!-- 主旨が違うのでコメントアウト
+			<p>マンガ等表現フォーマットは、何かを伝えようとする者にとって非常に便利な形式だ。</p>
+			<p>文章で伝えようとすると、人は単語に反応してしまう。それはその人がこれまでの人生経験でどうしても反射的に反応してしまう背景があるからだと容易に推察できる。</p>
+			<p>故に何かの目的をもって主旨を伝えたい場合には文章は情報量と情報の性質から、読者の予期しない概念は思考背景まで誘引してしまい、最終的には主旨とは関係のないところで反発を生み出して混乱する、ということがよく起きる。</p>
+			<p>ところが反発を受ける文章の内容をそのままに人と会ってそのまま話しても反発を受けることはあまりない。逆に聞いていて面白いなんて反応があることも少なくない。同じことを言ってるのにだ。</p>
+			<p>このようなことが怒るのは映像作品などでも同様なのではないかと考えた。</p>
+			-->
+			<p>最近の画像生成 AI では、キャラクターデザインと絵柄を示す画像ファイルを画像プロンプトとして与えると、ほぼ同一のキャラクターが描かれるのではかどるようになった。</p>
+			<p>これはマンガというフォーマットだけでなく、単純な画像生成であってもそうで、シリーズ化したいような場合には、キャラクターが確かにこのキャラクターであるというようになることは非常に助かる。シリーズを延命できるから。</p>
+			<p>今の生成 AI 環境なら Gemini や Google Flow による生成限定になるが、インストラクターちゃんシリーズも再開できるかもしれない（いいかげんに登場人物に名前を付けないといけない）。</p>
+
+			<br>
+
+			<p>以下マンガフォーマットの画像生成就いての話となる。</p>
+
+			<p>まんがのような形式の場合は、読む人間がどのように視線を移動してコンテンツを読むのか、それを説明する画像も与える必要がある。</p>
+			<p>また日本語を前提とする場合は、画像生成の条件として、セリフは縦書きにするようにだとか、フォントはアンティック系のフォントを使えとか、けっこう細かく指定する必要がある。</p>
+			<p>プロンプトは文字だけでなく、時には画像、映像、音声などを与える必要が生じることがある。</p>
+			<p>逆に言うと、そういった基礎資料的なデータを与えないと、その AI エンジンがこれが世の中でよいと考えられていると想定するキャラクターと絵柄、成果物を好きに出してくる。</p>
+			<p>chatGPT は基礎資料を渡しても chatGPT が良い、と統計的に導き出したキャラクターデザインと絵柄に寄せるので、指示者が望む画像を Gemini や Google Flow などと比べると得にくいという特徴がある。</p>
+			<p>あれでよいと思える人には充分だけど、そうでない場合は AI エンジンを使い分ける必要がどうしてもある。</p>
+			<p>それぞれの AI エンジンの特徴を把握して、使い分ける必要は必ずある。</p>
+			<p>そしてこれがかなり問題になるのだけれど、AI エンジンがバージョンアップすると、それぞれのエンジンが持つ癖が劇的に変わるので、使う側がそれに適応しなければならない。</p>
+			<p>AI を使うのは人に頼むより難しい。</p>
+
+			<br>
+
+			<p>また AI でまんがを作るときは課題が多い。</p>
+			<p>例として<a href="https://mitsugu.github.io/likebar/202610/30.html#2026103002" class="external" target="_blank">Dive #239 遠からずやってくるかもしれない未来</a>で生成したマンガを取り上げる。ぼくが今なにで苦しんでいるのかの話の一つだけれども、内容についてはここでは触れない。</p>
+			<p>まずは完成した生成物を以下に掲載する。</p>
+			<div class="slider-wrapper"
+				data-auto-play="false"
+				data-duration="6.0"
+				data-show="1"
+				data-step="1"
+				data-loop="true"
+				data-fit="contain"
+				data-aspect-ratio="1792/2400"
+				data-max-width="512px"
+				data-bg="#000">
+				<button class="slider-btn fs-btn">⛶</button>
+				<button class="slider-btn close-btn" style="display: none;">×</button>
+				<button class="slider-btn prev">＜</button>
+				<div class="slider-container">
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103001.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103002.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103004.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103005.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103006.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103007.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103008.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103009.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103010.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103011.webp" alt="A"></div>
+					<div class="slide-item"><img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103012.webp" alt="A"></div>
+				</div>
+				<button class="slider-btn next">＞</button>
+				<div class="status-icon" style="display: none;"></div>
+			</div>
+			<p>画像プロンプトとして AI に与えるものとしては、マンガ読者がどのような視線移動でマンガを読むのかを AI に教えるための複数の矢印が書かれた画像ファイル、キャラクターデザインを決める画像ファイル、この二種類の画像は最低でもプロンプトとして与えなければならない。</p>
+			<div class="image-grid">
+				<figure class="image-item">
+					<img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/08/18/2026081803.webp" alt="読者の視線移動を示す画像 line of sight.png">
+					<figcaption>読者の視線移動を示す画像 line of sight.png</figcaption>
+				</figure>
+
+				<figure class="image-item">
+					<img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/05/03/2026050301.webp" alt="葵のキャラクターデザイン aoi02.png">
+					<figcaption>葵のキャラクターデザイン aoi02.png</figcaption>
+				</figure>
+
+				<figure class="image-item">
+					<img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/05/03/2026050302.webp" alt="Inst.A のキャラクターデザイン okamoto.png">
+					<figcaption>Inst.A のキャラクターデザイン okamoto.png</figcaption>
+				</figure>
+
+				<figure class="image-item">
+					<img src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/01/11/fig2026011101.webp" alt="溺者役A のキャラクターデザイン onodera.png">
+					<figcaption>溺者役A のキャラクターデザイン onodera.png</figcaption>
+				</figure>
+			</div>
+			<p>上記が画像プロンプトとなる。</p>
+			<p>画像生成 AI は LLM なので、もちろん文字で指示を与える必要があり、自動ではマンガを生み出してはくれない。</p>
+			<p>以下にマンガの生成に使ったテキストプロンプトを挙げる。</p>
+			<blockquote>
+				<p>以下の日本のコマ割りモノクロマンガ画像を生成してください。日本の漫画形式なので読者は右上から読み始めます。</p>
+				<h2>## 登場人物</h2>
+				<ul>
+				<li>キャラクターデザインの変更は一切許さない</p>
+				<li>葵ちゃん。aoi02.png。アップロード画像のキャラクター。主人公。</p>
+				<li>溺者役A。onodera.png。葵ちゃんのレスキュートレーニングで溺者役を担当するダイバー。</p>
+				<li>Inst A。oakmoto.png。葵ちゃんを指導するインストラクター。胸のプリントは AREN ではなく DIVE JUNKEY にする。</p>
+				</ul>
+
+				<h2>## 全体の前提</h2>
+				<ol>
+				<li>読者はファイル "line of sight.png" のような視線移動で漫画を読むので、生成漫画もそれに従うこと</li>
+				<li>シーンはスクーバダイビングのレスキュートレーニング</li>
+				<li>特に記載が無い限り、三人ともフルスクーバ装備</li>
+				<li>髪型などを勝手に変更しないこと。</li>
+				<li>勝手にセリフをくわえないこと。</li>
+				<li>途中で機材の変更をしてはならない。</li>
+				<li>ポケットマスクを使った曳航方法は pocket.jpg を参考に描くこと（指示を赤文字で加えています）。(※この指示画像は権利関係もあり割愛している)<br>葵ちゃんは溺者役Aの頭側に位置し、ポケットマスク経由で人工呼吸を行いながら、溺者役A の頭部側つまり葵ちゃんの背後に向かって泳いで曳航している。ここは描写の信頼性がもっとも重要なので資料画像に従うこと（最重要）</li>
+				</ol>
+
+				<h2>## コマ割り</h2>
+				<dl>
+				<dt>1 ページ目</dt>
+				<dd>
+					<ol>
+					<li>ページ半分を使う大ゴマで描かれる。海底 5m にうつ伏せで沈んでいる意識不明ダイバー役の溺者役A。もちろんフルスクーバ装備。</li>
+					<li>ヘッドファーストで溺者役Aの元に一直線に進む葵ちゃんの顔のアップ。もちろんフルスクーバ増備。<br>「急がなきゃ」と考えている。</li>
+					<li> 葵ちゃんの手が溺者役Aのファーストステージを掴む。</li>
+					</ol>
+				</dd>
+				<dt>2 ページ目</dt>
+				<dd>
+					<ol start="4">
+					<li>溺者役Aの上半身を持ち上げて顔を覗き込む葵ちゃん。溺者役Aは目をつむって意識不明のふりをしている。コマは上段右。</li>
+					<li>溺者役Aの背後から溺者役Aのレギュレーターが口から外れないように手で押さえ、BCD の排気ホースを上に掲げる葵ちゃん。<br>「水面へ！！」と考えている。コマは下段右。</li>
+					<li>5 の姿勢のまま溺者役Aを後ろから抱えて浮上していく葵ちゃん。コマは上段下段左ぶち抜きの大ゴマ。</li>
+					</ol>
+				</dd>
+				<dt>3 ページ目</dt>
+				<dd>
+					<ol start="7">
+					<li>水面に溺者役Aと葵ちゃんが浮上する。ページ上半分を使う。二人共、まだスクバーユニットを身に着けており、マスクを装着したままで、レギュレーターも咥えたまま。</li>
+					<li>葵ちゃんが溺者役Aを片手で保持しながら、葵ちゃん自身のマスクを外して水面に放り投げる。<br>コマは下段右。<br>葵ちゃんはもうレギュレーターをくわえていない。<br>溺者役Aはフル機材を身に着けたまま、マスクも装着したままでレギュレータを咥えたまま、仰向けに浮かんでいる。</li>
+					<li>葵ちゃんの口元の超ローズアップ。手にはめているグローブの指先を咥えて、葵ちゃん自身のグローブを外そうとしている。咥えたグローブが脱げかけている。<br>コマは下段左。</li>
+					</ol>
+				</dd>
+				<dt>4 ページ目</dt>
+				<dd>
+					<ol start="10">
+					<li>Inst A がスレートのチェックリストを見つめながら呟いている。<br>コマは上段の右上<br>水面への引き上げＯＫ<br>機材の脱装もＯＫ<br>バイタル確認ＯＫ<br>人工呼吸をしながらの曳航ＯＫ</li>
+					<li>Inst A がスレートから顔を上げる。<br>コマは上段の左上</li>
+					<li>InstA の背中越しに葵ちゃんがポケットマスクを利用して溺者役Aを岸に向かって曳航する姿が見える<br>葵ちゃんも溺者役A もフィンを除く機材を全て脱装した状態<br>コマは下段全体</li>
+					</ol>
+				</dd>
+				<dt>5 ページ目</dt>
+				<dd>
+					<ol start="13">
+					<li>溺者役A を曳航しながら岸にいるダイバー二人に向かって必死に叫ぶ葵ちゃん。上 1/3 を占めるコマでで描いてください。<br>そこの二人！！</li>
+					<li>声を掛けられた二人が葵ちゃんの背中越しに見える。そして葵ちゃんが二人に叫ぶ。でも葵ちゃんは背中側から描かれる<br>この人を陸に上げてください！！<br>意識がないの！！<br>障がいがあるからわたしじゃ無理なの！！</li>
+					</ol>
+				</dd>
+				<dt>6 ページ目</dt>
+				<dd>
+					<ol start="15">
+					<li>Inst A のアップ。ページの上半分全てを使う。<br>はい！！そこまで！！<br>そこまでにしましょう。</li>
+					<li>下段右のコマ。ニュートラルな表情になって無言の葵。</li>
+					<li>下段左のコマ。葵に言葉をかける Inst A の顔。<br>上がりましょう。</li>
+					</ol>
+				</dd>
+				<dt>7 ページ目</dt>
+				<dd>
+					<ol start="18">
+					<li>上段全体を使ったのコマ。葵ちゃんが体育座りで膝を抱えて思い詰めた顔をしている横顔。それを無言で見ている Inst A の後ろ姿。</li>
+					<li>下段右のコマ。Inst A が葵に優しく声をかける。<br>どうでした？</li>
+					<li>下段左のコマ。膝を抱えたまま首を左右にふる葵。無言。</li>
+					</ol>
+				</dd>
+				<dt>8 ページ目</dt>
+				<dd>
+					<ol start="21">
+					<li>Inst A が葵に問う。<br>どうしてです？</li>
+					<li>それに答える葵。<br>どうしてって一番大切な陸にあげるのをわたしやってない</li>
+					<li>無言で葵を見つめる Inst A。</li>
+					<li>葵の目尻に光るものが見える。泣きそうなのを我慢している表情。<br>これじゃぁレスキューだなんて……</li>
+					<li>葵を見ながら言い聞かせるように言う Inst A。<br>いいですか？</li>
+					<li>葵の顔のアップ。Inst A の顔を見る葵。</li>
+					</ol>
+				</dd>
+				<dt>9 ページ目</dt>
+				<dd>
+					<ol start="27">
+					<li>Inst A のセリフが続く。<br>あなたはいつもダイバーの自律について語っていますよね。</li>
+					<li>コクリとうなずく葵。</li>
+					<li>Inst A の話は続く。<br>あなたはいつも自立と自律は違うと言っている。</li>
+					<li>コクリとうなずく葵。</li>
+					<li>Inst A が続ける。<br>それをあなたはずっとゲストに教えてきた。</li>
+					<li>Inst A の顔を見上げる葵。目尻にはまだ涙が光る。</li>
+					<li>Inst A の話は続く。<br>人に助けを求めるのも自律だってあなたは伝え続けてきた。</li>
+					<li>葵ちゃんの顔のアップ。目尻に涙をためてコクンとうなずく葵。</li>
+					</ol>
+				</dd>
+				<dt>10 ページ目</dt>
+				<dd>
+					<ol start="27">
+					<li>Inst A が静かに葵を見つめる。<br>違いますか？</li>
+					<li>葵のアップ。<br>たしかにそうなんですけど……</li>
+					<li>Inst A が静かに葵を見つめる。<br>ですけど？</li>
+					<li>葵の顔がクシャリと歪む<br>それを自分に当てはめようとすると<br>とても</li>
+					</ol>
+				</dd>
+				<dt>11 ページ目</dt>
+				<dd>
+					<ol start="31">
+					<li>葵が膝に顔を埋めて嗚咽しはじめる。1 ページ全体でこのカットを描く<br>とても苦しいんです……</li>
+					</ol>
+				</dd>
+				<dt>12 ページ目</dt>
+				<dd>
+					<ol start="31">
+					<li>ページの上部４分の１段を１コマとして使うコマ。<br>Inst A のアップ。<br>おそらく今のあなたには<br>もう少し時間が</li>
+					<li>ページの下４分の3段の大ゴマを１コマとして使うコマ。コマの最下部にはここだけ英語で to be continued. と描かれている。<br>膝を抱えて泣いている葵を見ながら Inst A が言う。<br>あなたがあなた自身を許す<br>そのための時間が<br>必要なのかも知れませんね。</li>
+					</ol>
+				</dd>
+				</dl>
+			</blockquote>
+			<p>ちなみにコマの指示は１ページにどのコマを入れるかを決めて、ページに入れないコマの指示は消して、１ページ単位で生成 AI に指示するという方法を採っている。</p>
+			<p>つまり１ページずつ生成 AI に指示してページを生成している。全ページを一気に生成しようとすると、全てが破綻するので１ページずつ生成する必要がある。</p>
+			<p>マンガを描く人ってこういったト書きやカメラアングルを含むシナリオのようなものを ーーアングルまでテキスト化するのだからコンテか？ーー そういったものを書くような作業をもしかしていつもしてるんだろうか？とふと思ったりもする。</p>
+
+			<p>資料がないと打ち合わせもできないもんね。</p>
+
+			<p>上記のプロンプトで納得できるものが出てくれば良いのだけれど、そうなることは稀だ。
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-1.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>図のようなページが生成されて、どうしてもそのページにあるコマを使いたいとなると、結局はコマ単位で画像を生成して切り貼りしなければならないことも多い。</p>
+				<p>いくつかページ単位で生成するのだけれど、レスキュートレーニングの場面としてはおかしいものがとにかく多く出てくる。</p>
+				<p>理由は簡単で AI はレスキューの手順を<strong><span class="red">理解しているわけではない</span></strong>からということになる。AI はまるで物事を理解しているかのように見えるが、実は何も理解していない。統計的な処理でこうであろうというものを出力しているに過ぎない。</p>
+				<p>この生成されたページで使い物になるのは１コマ目しかない。２つ目のコマは要救助者がマスクを放り投げているが、そんな意識不明要救助者はいない。死亡している可能性だってあるのに。</p>
+				<p>３コマ目もなぜ険しい表情でグローブを咥えているのか、このままでは謎である。</p>
+				<p>レスキューの手順を知っている者であればグローブを外す理由を知っている。</p>
+				<p>要救助者の頸動脈に触れて脈の有無を確認するためだ。脈の有無で救助プロセスは大きく変わる。</p>
+				<p>脈がない場合、あるいは脈がとれない場合は呼吸だけでなく心停止を想定しなければならない。のんびり人工呼吸をしながら曳航している場合ではない。早急に陸上に揚陸し CPR を実施しなければならない。海上では CPR の胸部圧迫を行う方法はない。急いで曳航して揚陸するのが最優先となる。</p>
+				<p>脈が確認できるのであれば、呼吸が停止していることから人工呼吸をしながらの曳航を選択することになる。</p>
+				<p>そういうことになっている。</p>
+				<p>レスキュートレーニングを受けるとわかるが、この水面で脈をとるというのは至難の業である。波があり体も大きく揺れる。機材も邪魔。スーツも邪魔。悪条件のオンパレードだ。</p>
+				<p>たいていは脈なんてわからない。</p>
+				<p>だから経験を積むほど事故予防を徹底する。</p>
+				<p>脈がわからなければ曳航と揚陸を優先して地上で CPR を実施する。</p>
+				<p>人は神ではないから、けっきょく、その時々のベストと思われることを瞬時に判断して行うことしか出来ない。</p>
+				<p>助かれ！！死ぬな！！と念じながら、できることをやるしかない。</p>
+				<p>よくスポーツダイビングプロフェッショナルが必死にレスキューをしているのを見て、あれはプロだからだ、という人がいる。</p>
+				<p>違う。</p>
+				<p>目の前の人に死なれたくないから必死にやっているだけで、それは一般のダイバーとなんら変わりはない。ダイバーの中の究極のお人好しがインストラクターでありアシスタントインストラクターでありダイブマスターだということになる。</p>
+				<p>中にはそうではない人もいるけれど。</p>
+
+				<br>
+
+				<p>話がだいぶそれてしまったので３コマ目の話に戻す。</p>
+				<p>３コマ目でグローブを外している理由は、グローブをしていたら脈はとれないからだ。なのにこの３コマ目は、グローブを外そうとしているその理由も、そうであろうと想起させるようにもなってはいない。だから使い物にならないコマだということがわかると思う。せっかく表情はいいのに。</p>
+				<p>ようはぼくはこのページの１コマ目を使いたかったのだ。もちろん実際のレスキューでは１コマ目のように上半身が勢いで水面上に飛び出るような引き上げ浮上を行ってはならない。ダイビングをわかってる人なら肺損傷を起こしたらどうする！？と突っ込むところだ。</p>
+				<p>だけれども、ぼくは素人さんに希求する演出として、漫符を含めて採用したかった。</p>
+				<p>レスキューを学ぶ者はたとえトレーニングであっても人の命というものに対して対峙せざるを得ない以上、真剣にならざるを得なくなる。受講生のみんなもプロになるわけでもないのに必死に真剣に取り組んでくれた。そんなみんなの気持ちを表現するのにこのコマの絵をどうしても使いたかった。</p>
+				<p>このコマを使うには方法は一つしかない。他の生成されたページから２コマ目、３コマ目を切り取って、別の望ましいコマを貼り付けるしかない。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-2.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>コマ割りを活用したいこともあり、最初にすることは２コマ目と３コマ目を GIMP などの画像編集ソフトを使ってバッサリと消す作業になる。もちろん画像編集ソフトは Photoshop でも構わないし Pintshop Pro のようなものでもよい。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-3.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>３コマ目はこの生成ページの３コマ目を採用することにした。これならレスキューの手順でグローブを外そうとしていることがわかるし、表情もわるくない。そしてコマの切り方が貼り付け対象のコマの切り方に類似していることも都合がよかった。</p>
+				<p>このページを最初の画像のレイヤー画像として読み込み、ひとつ下のレイヤにして、さっきの透過部分に表示されるようにする。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-4.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>レイヤーを重ねただけでは、コマの位置がずれるし、そもそもサイズが合わない。角度も合わない。</p>
+				<p>なので、回転ツールで角度を調整し、レイヤーの拡大縮小ツールで拡大する。</p>
+				<p>その結果が此の図になる。</p>
+				<p>まだ問題がある。２コマ目がやはり使えない。</p>
+				<p>まるでマスクが自らの意志があるかのように飛翔していて、葵が驚愕した表情でそれを見ていて、これは SF か？と思ってしまうコマになっている。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-5.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>なので２コマ目もバッサリと削除する。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-6.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>２コマ目には機材の脱装を示す説明的な絵が欲しかった。なので生成されたこのページの２コマ目を使うことにした。</p>
+				<p>３コマ目はこの生成ページの３コマ目でも良かったのだけれど、採用した１コマ目のページのコマ切りとこの生成ページのコマ切りが一致しなさすぎて使えなかった。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-7.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>２コマ目も単純に貼り付けただけだと、コマ切りの形状の違いから回転させようが拡大しようが使える状態にはならなかった。</p>
+				<p>拡大したらコマの中の絵が欠けるし、それはコマを回転させても同様だった。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003-8.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>仕方がないのでこの２コマ目だけを切り出して、足りない部分を追加生成するしか方法はなかった。</p>
+				<p>切り抜いたところ以外は Adobe Lightroom の Web 版の AI 削除機能を使用した。この機能は本来は余分な人物やオブジェクトの消去のための機能なのだけれど、空き領域をグレーで塗りつぶしておくと、そこに Adobe の AI が生成したものを付け加えてくれる。</p>
+				<p>これは Lightroom Online Photo Editor のハック的な使い方になるのだけど、これは去年から変わらず機能している。</p>
+				<p>それで先程切り出した２コマ目に Lightroom Online Photo Editor でコマ周辺に絵を書き加えたものが、この図になる。</p>
+				<p>もとのコマにあったスクリーントーンのテクスチャが存在しないけれど、それは Lightroomn だからどうしようもないのと、ここはコマの中には入らないという目算があったので、これを試しに採用する。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103003.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>そして微調整の結果得られたのがこの図になる。</p>
+				<p>人が描いたまんが作品のように完璧とは言い難いが、ぼく自身としてはこれ以上を望むのは難しいと考えてこれでＯＫとすることにした。</p>
+			</div>
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="https://raw.githubusercontent.com/mitsugu/likebarpics/main/2026/10/03/fig2026103012-1.webp"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p>セリフもおかしな日本語が生成されることが多い</p>
+				<p>なので、一度消して GIMP などでセリフは全て打ち直し、画像内の描き文字を加えたりと、手作業がかなりの比率を占める。</p>
+				<p>このページの１コマ目のセリフも、そもそも指示通りではないし、謎の文章になっている。直す必要があるけれど、この場合は画像処理ソフトでのコピペで済むので作業量としては多くはない。</p>
+				<p>場合によっては吹き出し内部を完全に塗りつぶして、画像処理ソフトでマッチするフォントを使って、全て打ち込み直すという作業も発生する。</p>
+				<p>断片的に知っているマンガの世界の言葉で言うと、ホワイトで塗りつぶして写植を貼り直す、という言い方にでも相当するんだろうか。</p>
+			</div>
+			<p>そのような無数のプロセスを踏んで、やっと成果物が出来上がる。</p>
+
+			<p>つまり生成 AI でマンガを生成する場合は AI ができるのはページ構成（マンガの世界ではコマ割りと呼ぶらしい）とコマ内の画像や吹き出しの素材生成までで、あとは現状全て人がやらないと、望むような成果物にならない。</p>
+			<p>少なくとも現状でマンガはやはり人が作るものであって AI が作っているというのは、言い過ぎで、現実を無視していると言える。</p>
+			<p>ついでに述べておくと最近はコマ割りも自分でやったほうがいいよな、セリフも仮り入れと考えるべき、絵すら仮り、と思い始めている。AI が提供できるのは素材までと考えて、構成や演出、その他全ては制作者が考えて決定する。</p>
+			<p>結局シナリオを書いて、セリフを決めて、ページ構成を考えて、コマ割りを考える作業をするということは、ほぼ成果物の精度と成果物の示す方向性をほぼ決定することになる。他の仕事と一緒だ。</p>
+			<br>
+			<p>こんなことを繰り返していて気づいたことがある。</p>
+			<p>画像生成 AI を使ってマンガを制作していると、マンガを作るというより、アニメーション制作に近い作業をしているような気がしてくる。キャラクター設定、シーン設定、ページ構成、カットごとの構図、カメラアングル、表情やポーズなど、制作工程を細かく分けて、それぞれを AI に指示していく必要があるからだ。</p>
+			<p>そもそも画像生成 AI に限らず、Suno を使った音楽制作でも、自分がやっていることはクリエイターというよりディレクションに近いと思っていた。</p>
+			<p>画像、マンガ、動画、音楽。媒体は違っても、AI に何かを作らせる場合、人間が方向性を決め、生成されたものを評価し、修正を指示し、成果物として仕上げていくという構造は共通している。</p>
+			<p>画像生成の場合は、プロンプトエンジニアリングという言葉があるように、生成条件や参照資料、構成などを設計していく。これはプログラミングに近いところもある。</p>
+			<p>一方、コードを書く場合は少し違う。ぼくの場合は大雑把な仕様のようなものを AI に渡して、返ってきたコードを確認する。おかしなところがあれば指摘して修正してもらう。こちらはむしろペアプログラミングに近い。</p>
+			<p>AI に何かを作らせるときに必要なのは、必ずしも自分自身がその成果物を直接作る能力だけではない。何を作りたいのかを理解し、出てきたものの良し悪しを判断し、問題点を指摘し、修正の方向を示す能力が必要になる。</p>
+			<p>結局、AI を使った制作はディレクションの比率がかなり高い仕事なのだと思う。</p>
+			<p>そして、これは以前から思っていたことでもある。イラストレーターや漫画家に依頼できるだけのお金があれば、ぼくは人に頼みたい。実際に AI で制作してみると、人間のクリエイターが持っている能力の大きさがよくわかる。</p>
+			<p>AI がクリエイターの仕事を奪うという話をよく聞くけれど、少なくともぼくの実感は少し違う。絵を描く、楽器を演奏するなどの能力を持たない人間に AI は表現手段を広げてくれるけれど、作品を成立させるための判断やディレクションまで不要にしてくれるわけではない。</p>
+			<p>大事なことはやはり人が決めないとだめなのだ。</p>
+
+			<!--
+			<div class="image-unit">
+				<div class="left">
+					<figure class="img-container" data-fullscreen="true">
+						<img
+							class="target-img"
+							src="fig2026111201.jpg"
+							alt=""
+							width="512"
+							height="384"
+							loading="lazy"
+						>
+						<figcaption>
+						</figcaption>
+						<button
+							type="button"
+							aria-label="画像を全画面表示"
+							class="fullscreen-btn"
+						>⛶</button>
+					</figure>
+				</div>
+				<p></p>
+			</div>
+			-->
+			<ul class="clear nomark">
+				<li class="tag"><b>Category :</b> </li>
+				<li class="tag">#Records of Orz's Road</li>
+				<li class="tag">#日記</li>
+				<li class="tag">#AIと制作</li>
+			</ul>
+		</div>
+	</div>
+	<hr class="clear">
+	<ul class="footer">
+		<li><a href="index.html">戻る</a></li>
+	</ul>
+</article>
+</main>
+</body>
+</html>
+<!--
+vim: ts=3 sw=3 noet
+-->
+
