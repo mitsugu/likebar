@@ -1,0 +1,29 @@
+.overlay {
+	font-family: var(--title-font-family, sans-serif);
+	font-size: var(--title-font-size, clamp(14px, 5cqw, 80px));
+	font-optical-sizing: auto;
+	font-weight: var(--title-font-weight, 900);
+	font-style: var(--title-font-style, italic);
+	-webkit-text-stroke: var(--title-text-stroke, 0.25cqw silver);
+	color: var(--title-color, crimson);
+	line-height: var(--title-line-height, 1.2);
+	margin: 0;
+}
+div.title-container {
+	position: relative;
+	width: 100%;
+	container-type: inline-size;
+	margin-bottom: 1em;
+}
+div.title-container img {
+	width: 100%;
+	height: auto;
+	vertical-align: bottom;
+}
+div.title {
+	position: absolute;
+	top: var(--title-top, 1%);
+	left: var(--title-left, 5%);
+	width: var(--title-width, 90%);
+	z-index: 10;
+}
