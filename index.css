@@ -389,3 +389,6 @@ div.left > figure figcaption {
     aspect-ratio: 4 / 3; /* 元の 512:384 の比率を維持 */
   }
 }
+.ogpcard {
+	height:26.4em;
+}
