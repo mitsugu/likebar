@@ -1,0 +1,6 @@
+.hidden {
+	display: none;
+}
+.toggle-trigger {
+	cursor: pointer;
+}
